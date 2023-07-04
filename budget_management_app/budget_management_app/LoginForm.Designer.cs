@@ -146,16 +146,16 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.panel2.Location = new System.Drawing.Point(0, 571);
+            this.panel2.Location = new System.Drawing.Point(0, 590);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(583, 181);
+            this.panel2.Size = new System.Drawing.Size(583, 162);
             this.panel2.TabIndex = 26;
             // 
             // label_sign_up
             // 
             this.label_sign_up.AutoSize = true;
             this.label_sign_up.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_sign_up.Location = new System.Drawing.Point(168, 515);
+            this.label_sign_up.Location = new System.Drawing.Point(168, 534);
             this.label_sign_up.Name = "label_sign_up";
             this.label_sign_up.Size = new System.Drawing.Size(245, 20);
             this.label_sign_up.TabIndex = 27;

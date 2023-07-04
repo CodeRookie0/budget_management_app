@@ -84,9 +84,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.panel2.Location = new System.Drawing.Point(0, 640);
+            this.panel2.Location = new System.Drawing.Point(0, 664);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(583, 181);
+            this.panel2.Size = new System.Drawing.Size(583, 157);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -195,7 +195,7 @@
             // 
             this.label_log_in.AutoSize = true;
             this.label_log_in.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_log_in.Location = new System.Drawing.Point(168, 596);
+            this.label_log_in.Location = new System.Drawing.Point(166, 617);
             this.label_log_in.Name = "label_log_in";
             this.label_log_in.Size = new System.Drawing.Size(245, 20);
             this.label_log_in.TabIndex = 14;
