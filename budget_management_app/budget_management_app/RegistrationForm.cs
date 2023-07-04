@@ -56,7 +56,9 @@ namespace budget_management_app
         // Referral to the LoginForm
         private void linkLabel_log_in_MouseEnter(object sender, EventArgs e)
         {
-
+            LoginForm login=new LoginForm();
+            login.Show();
+            this.Hide();
         }
         // Design of linkLabel_log_in
         private void linkLabel_log_in_MouseLeave(object sender, EventArgs e)
