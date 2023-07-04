@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.Button_sign_up = new Guna.UI2.WinForms.Guna2TileButton();
+            this.Button_log_in = new Guna.UI2.WinForms.Guna2TileButton();
             this.textBox_passw = new System.Windows.Forms.TextBox();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.label_passw = new System.Windows.Forms.Label();
             this.label_email = new System.Windows.Forms.Label();
-            this.linkLabel_log_in = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_sign_up = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
@@ -44,22 +44,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Button_sign_up
+            // Button_log_in
             // 
-            this.Button_sign_up.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.Button_sign_up.BorderThickness = 1;
-            this.Button_sign_up.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_sign_up.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_sign_up.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_sign_up.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_sign_up.FillColor = System.Drawing.Color.Transparent;
-            this.Button_sign_up.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_sign_up.ForeColor = System.Drawing.Color.Black;
-            this.Button_sign_up.Location = new System.Drawing.Point(217, 455);
-            this.Button_sign_up.Name = "Button_sign_up";
-            this.Button_sign_up.Size = new System.Drawing.Size(146, 36);
-            this.Button_sign_up.TabIndex = 25;
-            this.Button_sign_up.Text = "LOG IN";
+            this.Button_log_in.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.Button_log_in.BorderThickness = 1;
+            this.Button_log_in.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_log_in.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_log_in.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_log_in.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_log_in.FillColor = System.Drawing.Color.Transparent;
+            this.Button_log_in.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_log_in.ForeColor = System.Drawing.Color.Black;
+            this.Button_log_in.Location = new System.Drawing.Point(217, 455);
+            this.Button_log_in.Name = "Button_log_in";
+            this.Button_log_in.Size = new System.Drawing.Size(146, 36);
+            this.Button_log_in.TabIndex = 25;
+            this.Button_log_in.Text = "LOG IN";
             // 
             // textBox_passw
             // 
@@ -97,17 +97,17 @@
             this.label_email.TabIndex = 18;
             this.label_email.Text = "E-mail";
             // 
-            // linkLabel_log_in
+            // linkLabel_sign_up
             // 
-            this.linkLabel_log_in.AutoSize = true;
-            this.linkLabel_log_in.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Bold);
-            this.linkLabel_log_in.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.linkLabel_log_in.Location = new System.Drawing.Point(158, 509);
-            this.linkLabel_log_in.Name = "linkLabel_log_in";
-            this.linkLabel_log_in.Size = new System.Drawing.Size(264, 20);
-            this.linkLabel_log_in.TabIndex = 16;
-            this.linkLabel_log_in.TabStop = true;
-            this.linkLabel_log_in.Text = "Don\'t have an account yet?  SIGN UP";
+            this.linkLabel_sign_up.AutoSize = true;
+            this.linkLabel_sign_up.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Bold);
+            this.linkLabel_sign_up.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.linkLabel_sign_up.Location = new System.Drawing.Point(158, 509);
+            this.linkLabel_sign_up.Name = "linkLabel_sign_up";
+            this.linkLabel_sign_up.Size = new System.Drawing.Size(264, 20);
+            this.linkLabel_sign_up.TabIndex = 16;
+            this.linkLabel_sign_up.TabStop = true;
+            this.linkLabel_sign_up.Text = "Don\'t have an account yet?  SIGN UP";
             // 
             // label1
             // 
@@ -163,12 +163,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 750);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.Button_sign_up);
+            this.Controls.Add(this.Button_log_in);
             this.Controls.Add(this.textBox_passw);
             this.Controls.Add(this.textBox_email);
             this.Controls.Add(this.label_passw);
             this.Controls.Add(this.label_email);
-            this.Controls.Add(this.linkLabel_log_in);
+            this.Controls.Add(this.linkLabel_sign_up);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -184,12 +184,12 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TileButton Button_sign_up;
+        private Guna.UI2.WinForms.Guna2TileButton Button_log_in;
         private System.Windows.Forms.TextBox textBox_passw;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label_passw;
         private System.Windows.Forms.Label label_email;
-        private System.Windows.Forms.LinkLabel linkLabel_log_in;
+        private System.Windows.Forms.LinkLabel linkLabel_sign_up;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_exit;
