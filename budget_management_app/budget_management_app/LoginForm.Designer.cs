@@ -60,6 +60,9 @@
             this.Button_log_in.Size = new System.Drawing.Size(146, 36);
             this.Button_log_in.TabIndex = 25;
             this.Button_log_in.Text = "LOG IN";
+            this.Button_log_in.Click += new System.EventHandler(this.Button_log_in_Click);
+            this.Button_log_in.MouseEnter += new System.EventHandler(this.Button_log_in_MouseEnter);
+            this.Button_log_in.MouseLeave += new System.EventHandler(this.Button_log_in_MouseLeave);
             // 
             // textBox_passw
             // 
@@ -108,6 +111,9 @@
             this.linkLabel_sign_up.TabIndex = 16;
             this.linkLabel_sign_up.TabStop = true;
             this.linkLabel_sign_up.Text = "Don\'t have an account yet?  SIGN UP";
+            this.linkLabel_sign_up.Click += new System.EventHandler(this.linkLabel_sign_up_Click);
+            this.linkLabel_sign_up.MouseEnter += new System.EventHandler(this.linkLabel_sign_up_MouseEnter);
+            this.linkLabel_sign_up.MouseLeave += new System.EventHandler(this.linkLabel_sign_up_MouseLeave);
             // 
             // label1
             // 
@@ -139,6 +145,9 @@
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 1;
             this.label_exit.Text = "X";
+            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
+            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
+            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -173,6 +182,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
