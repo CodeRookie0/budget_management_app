@@ -65,12 +65,12 @@ namespace budget_management_app
         // Design of linkLabel_log_in
         private void label_log_in_MouseEnter(object sender, EventArgs e)
         {
-            linkLabel_log_in.ForeColor = Color.Red;
+            label_log_in.ForeColor = Color.Red;
         }
 
         private void label_log_in_MouseLeave(object sender, EventArgs e)
         {
-            linkLabel_log_in.ForeColor = Color.Black;
+            label_log_in.ForeColor = Color.Black;
         }
     }
 }

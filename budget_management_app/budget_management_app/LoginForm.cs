@@ -55,22 +55,21 @@ namespace budget_management_app
 
 
         // Referral to the RegistrationForm
-        private void linkLabel_sign_up_Click(object sender, EventArgs e)
+        private void label_sign_up_Click(object sender, EventArgs e)
         {
             RegistrationForm sign = new RegistrationForm();
             sign.Show();
             this.Hide();
         }
-        // Design of linkLabel_sign_up
-        private void linkLabel_sign_up_MouseEnter(object sender, EventArgs e)
+        // Design of label_sign_up
+        private void label_sign_up_MouseEnter(object sender, EventArgs e)
         {
-            linkLabel_sign_up.ForeColor = Color.Red;
+            label_sign_up.ForeColor = Color.Red;
         }
 
-        private void linkLabel_sign_up_MouseLeave(object sender, EventArgs e)
+        private void label_sign_up_MouseLeave(object sender, EventArgs e)
         {
-            linkLabel_sign_up.ForeColor = Color.Black;
+            label_sign_up.ForeColor = Color.Black;
         }
-
     }
 }
