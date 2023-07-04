@@ -34,7 +34,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel_log_in = new System.Windows.Forms.LinkLabel();
             this.label_username = new System.Windows.Forms.Label();
             this.label_email = new System.Windows.Forms.Label();
             this.label_passw = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.textBox_passw = new System.Windows.Forms.TextBox();
             this.textBox_passw2 = new System.Windows.Forms.TextBox();
             this.Button_sign_up = new Guna.UI2.WinForms.Guna2TileButton();
+            this.label_log_in = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,21 +98,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Sign up to create a secure account";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // linkLabel_log_in
-            // 
-            this.linkLabel_log_in.AutoSize = true;
-            this.linkLabel_log_in.Font = new System.Drawing.Font("Segoe UI", 10.75F, System.Drawing.FontStyle.Bold);
-            this.linkLabel_log_in.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.linkLabel_log_in.Location = new System.Drawing.Point(168, 599);
-            this.linkLabel_log_in.Name = "linkLabel_log_in";
-            this.linkLabel_log_in.Size = new System.Drawing.Size(245, 20);
-            this.linkLabel_log_in.TabIndex = 3;
-            this.linkLabel_log_in.TabStop = true;
-            this.linkLabel_log_in.Text = "Already have an account?  LOG IN";
-            this.linkLabel_log_in.Click += new System.EventHandler(this.linkLabel_log_in_Click);
-            this.linkLabel_log_in.MouseEnter += new System.EventHandler(this.linkLabel_log_in_MouseEnter);
-            this.linkLabel_log_in.MouseLeave += new System.EventHandler(this.linkLabel_log_in_MouseLeave);
             // 
             // label_username
             // 
@@ -206,11 +191,25 @@
             this.Button_sign_up.MouseEnter += new System.EventHandler(this.Button_sign_up_MouseEnter);
             this.Button_sign_up.MouseLeave += new System.EventHandler(this.Button_sign_up_MouseLeave);
             // 
+            // label_log_in
+            // 
+            this.label_log_in.AutoSize = true;
+            this.label_log_in.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_log_in.Location = new System.Drawing.Point(168, 596);
+            this.label_log_in.Name = "label_log_in";
+            this.label_log_in.Size = new System.Drawing.Size(245, 20);
+            this.label_log_in.TabIndex = 14;
+            this.label_log_in.Text = "Already have an account?  LOG IN";
+            this.label_log_in.Click += new System.EventHandler(this.label_log_in_Click);
+            this.label_log_in.MouseEnter += new System.EventHandler(this.label_log_in_MouseEnter);
+            this.label_log_in.MouseLeave += new System.EventHandler(this.label_log_in_MouseLeave);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 750);
+            this.Controls.Add(this.label_log_in);
             this.Controls.Add(this.Button_sign_up);
             this.Controls.Add(this.textBox_passw2);
             this.Controls.Add(this.textBox_passw);
@@ -220,7 +219,6 @@
             this.Controls.Add(this.label_passw);
             this.Controls.Add(this.label_email);
             this.Controls.Add(this.label_username);
-            this.Controls.Add(this.linkLabel_log_in);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -242,7 +240,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel_log_in;
         private System.Windows.Forms.Label label_username;
         private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.Label label_passw;
@@ -253,5 +250,6 @@
         private System.Windows.Forms.TextBox textBox_passw2;
         private Guna.UI2.WinForms.Guna2TileButton Button_sign_up;
         private System.Windows.Forms.Label label_exit;
+        private System.Windows.Forms.Label label_log_in;
     }
 }
