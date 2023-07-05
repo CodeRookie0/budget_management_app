@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,16 +14,62 @@ namespace budget_management_app
 {
     public partial class RegistrationForm : Form
     {
+        DBConnection db=new DBConnection();
         public RegistrationForm()
         {
             InitializeComponent();
         }
 
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+            
+        }
 
         // Adding data to database. Referral to the MainMenuForm
         private void Button_sign_up_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (textBox_username.Text == "" || textBox_email.Text == "" || textBox_passw.Text == "" || textBox_passw2.Text == "")
+                {
+                    MessageBox.Show("Please Complete the blank fields", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                // Check that the passwords are the same
+                else if (textBox_passw.Text != textBox_passw2.Text)
+                {
+                    MessageBox.Show("The entered password doesn't match, Please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_passw.Clear();
+                    textBox_passw2.Clear();
+                }
+                else 
+                {
+                    string insertQuery = "INSERT INTO User VALUES('" + textBox_username + "','" + textBox_email + "','" + textBox_passw + "')";
 
+                    // Checking the existence of such a user name in the data base
+                    string username = textBox_username.Text;
+                    string checkQuery = "SELECT COUNT(*) FROM User WHERE UserName= @Username";
+                    db.OpenCon();
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, db.GetCon());
+                    checkCommand.Parameters.AddWithValue("@Username", username);
+                    int count = (int)checkCommand.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("The entered UserName is already taken. Please choose a different UserName.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Adding a new user to the database date
+                    SqlCommand sqlCommand = new SqlCommand(insertQuery, db.GetCon());
+                    LoginForm loginForm = new LoginForm();
+                    loginForm.Show();
+                    this.Hide();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         // Design of Button_sign_up
         private void Button_sign_up_MouseEnter(object sender, EventArgs e)
@@ -72,6 +120,6 @@ namespace budget_management_app
         {
             label_log_in.ForeColor = Color.Black;
         }
-        
+
     }
 }
