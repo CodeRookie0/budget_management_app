@@ -31,18 +31,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Button_add = new Guna.UI2.WinForms.Guna2TileButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_name = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.ComboBox_type = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_amount = new System.Windows.Forms.TextBox();
+            this.label_currency = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.ComboBox_currency = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,14 +83,14 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Name";
             // 
-            // textBox1
+            // textBox_name
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(13, 198);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(551, 22);
-            this.textBox1.TabIndex = 33;
+            this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_name.Location = new System.Drawing.Point(13, 198);
+            this.textBox_name.Name = "textBox_name";
+            this.textBox_name.Size = new System.Drawing.Size(551, 22);
+            this.textBox_name.TabIndex = 33;
             // 
             // panel1
             // 
@@ -135,21 +135,21 @@
             this.label3.TabIndex = 34;
             this.label3.Text = "Type";
             // 
-            // guna2ComboBox1
+            // ComboBox_type
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(18, 302);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(551, 36);
-            this.guna2ComboBox1.TabIndex = 35;
+            this.ComboBox_type.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBox_type.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.ComboBox_type.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBox_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox_type.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboBox_type.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboBox_type.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ComboBox_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboBox_type.ItemHeight = 30;
+            this.ComboBox_type.Location = new System.Drawing.Point(18, 302);
+            this.ComboBox_type.Name = "ComboBox_type";
+            this.ComboBox_type.Size = new System.Drawing.Size(551, 36);
+            this.ComboBox_type.TabIndex = 35;
             // 
             // label5
             // 
@@ -172,27 +172,27 @@
             this.label6.TabIndex = 38;
             this.label6.Text = "________________________";
             // 
-            // textBox2
+            // textBox_amount
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold);
-            this.textBox2.Location = new System.Drawing.Point(176, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 40);
-            this.textBox2.TabIndex = 39;
-            this.textBox2.Text = "0";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_amount.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold);
+            this.textBox_amount.Location = new System.Drawing.Point(176, 79);
+            this.textBox_amount.Name = "textBox_amount";
+            this.textBox_amount.Size = new System.Drawing.Size(152, 40);
+            this.textBox_amount.TabIndex = 39;
+            this.textBox_amount.Text = "0";
+            this.textBox_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label7
+            // label_currency
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(334, 81);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 37);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "USD";
+            this.label_currency.AutoSize = true;
+            this.label_currency.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label_currency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.label_currency.Location = new System.Drawing.Point(334, 81);
+            this.label_currency.Name = "label_currency";
+            this.label_currency.Size = new System.Drawing.Size(70, 37);
+            this.label_currency.TabIndex = 40;
+            this.label_currency.Text = "USD";
             // 
             // label8
             // 
@@ -205,21 +205,21 @@
             this.label8.Text = "_________________________________________________________________________________" +
     "________";
             // 
-            // guna2ComboBox2
+            // ComboBox_currency
             // 
-            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(15, 416);
-            this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(551, 36);
-            this.guna2ComboBox2.TabIndex = 42;
+            this.ComboBox_currency.BackColor = System.Drawing.Color.Transparent;
+            this.ComboBox_currency.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.ComboBox_currency.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBox_currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox_currency.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboBox_currency.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboBox_currency.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ComboBox_currency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboBox_currency.ItemHeight = 30;
+            this.ComboBox_currency.Location = new System.Drawing.Point(15, 416);
+            this.ComboBox_currency.Name = "ComboBox_currency";
+            this.ComboBox_currency.Size = new System.Drawing.Size(551, 36);
+            this.ComboBox_currency.TabIndex = 42;
             // 
             // AddAccountForm
             // 
@@ -228,16 +228,16 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.Button_add;
             this.ClientSize = new System.Drawing.Size(580, 750);
-            this.Controls.Add(this.guna2ComboBox2);
+            this.Controls.Add(this.ComboBox_currency);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label_currency);
+            this.Controls.Add(this.textBox_amount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.ComboBox_type);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Button_add);
             this.Controls.Add(this.panel2);
@@ -257,17 +257,17 @@
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2TileButton Button_add;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_name;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_exit;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboBox_type;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox_amount;
+        private System.Windows.Forms.Label label_currency;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboBox_currency;
     }
 }
