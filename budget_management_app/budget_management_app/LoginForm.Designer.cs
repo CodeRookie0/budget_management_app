@@ -154,9 +154,6 @@
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 1;
             this.label_exit.Text = "X";
-            this.label_exit.Click += new System.EventHandler(this.label_exit_Click_1);
-            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter_1);
-            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave_1);
             // 
             // panel2
             // 

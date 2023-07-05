@@ -14,7 +14,7 @@ namespace budget_management_app
 {
     public partial class RegistrationForm : Form
     {
-        DBConnection db=new DBConnection();
+        DBConnection dbconn=new DBConnection();
         public RegistrationForm()
         {
             InitializeComponent();
@@ -47,8 +47,8 @@ namespace budget_management_app
 
                     // Checking the existence of such a user name in the data base
                     string checkQuery_username = "SELECT COUNT(*) FROM [User] WHERE UserName='"+textBox_username.Text+"'";
-                    db.OpenCon();
-                    SqlCommand checkCommand_username = new SqlCommand(checkQuery_username, db.GetCon());
+                    dbconn.OpenCon();
+                    SqlCommand checkCommand_username = new SqlCommand(checkQuery_username, dbconn.GetCon());
                     int count = (int)checkCommand_username.ExecuteScalar();
 
                     if (count > 0)
@@ -59,8 +59,8 @@ namespace budget_management_app
 
                     // Checking the existence of such email in the data base
                     string checkQuery_email = "SELECT COUNT(*) FROM [User] WHERE UserEmail='" + textBox_email.Text + "'";
-                    db.OpenCon();
-                    SqlCommand checkCommand_email = new SqlCommand(checkQuery_email, db.GetCon());
+                    dbconn.OpenCon();
+                    SqlCommand checkCommand_email = new SqlCommand(checkQuery_email, dbconn.GetCon());
                     int count_email = (int)checkCommand_email.ExecuteScalar();
 
                     if (count > 0)
@@ -70,10 +70,10 @@ namespace budget_management_app
                     }
 
                     // Adding a new user to the database date
-                    SqlCommand insertCommand = new SqlCommand(insertQuery, db.GetCon());
+                    SqlCommand insertCommand = new SqlCommand(insertQuery, dbconn.GetCon());
                     insertCommand.ExecuteNonQuery();
                     MessageBox.Show("New user added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    db.CloseCon();
+                    dbconn.CloseCon();
                     LoginForm loginForm = new LoginForm();
                     loginForm.Show();
                     this.Hide();
