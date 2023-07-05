@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Budget_managementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Budget_managementDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CategoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +144,17 @@
     </None>
     <None Include="Budget_managementDataSet.xss">
       <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Budget_managementDataSet1.xsc">
+      <DependentUpon>Budget_managementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Budget_managementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Budget_managementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Budget_managementDataSet1.xss">
+      <DependentUpon>Budget_managementDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
