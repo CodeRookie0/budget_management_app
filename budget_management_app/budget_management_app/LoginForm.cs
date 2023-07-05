@@ -22,9 +22,6 @@ namespace budget_management_app
         }
 
 
-
-
-
         // Referral to the MainMenuForm
         private void Button_log_in_Click(object sender, EventArgs e)
         {
