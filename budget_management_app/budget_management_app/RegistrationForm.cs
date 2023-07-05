@@ -43,14 +43,12 @@ namespace budget_management_app
                 }
                 else 
                 {
-                    string insertQuery = "INSERT INTO User VALUES('" + textBox_username + "','" + textBox_email + "','" + textBox_passw + "')";
+                    string insertQuery = "INSERT INTO [User] (UserName, UserEmail, UserPasswd) VALUES ('" + textBox_username.Text + "', '" + textBox_email.Text + "', '" + textBox_passw.Text + "')";
 
                     // Checking the existence of such a user name in the data base
-                    string username = textBox_username.Text;
-                    string checkQuery = "SELECT COUNT(*) FROM User WHERE UserName= @Username";
+                    string checkQuery = "SELECT COUNT(*) FROM [User] WHERE UserName='"+textBox_username.Text+"'";
                     db.OpenCon();
                     SqlCommand checkCommand = new SqlCommand(checkQuery, db.GetCon());
-                    checkCommand.Parameters.AddWithValue("@Username", username);
                     int count = (int)checkCommand.ExecuteScalar();
 
                     if (count > 0)
@@ -58,9 +56,12 @@ namespace budget_management_app
                         MessageBox.Show("The entered UserName is already taken. Please choose a different UserName.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-
+                    
                     // Adding a new user to the database date
-                    SqlCommand sqlCommand = new SqlCommand(insertQuery, db.GetCon());
+                    SqlCommand insertCommand = new SqlCommand(insertQuery, db.GetCon());
+                    insertCommand.ExecuteNonQuery();
+                    MessageBox.Show("New user added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    db.CloseCon();
                     LoginForm loginForm = new LoginForm();
                     loginForm.Show();
                     this.Hide();
