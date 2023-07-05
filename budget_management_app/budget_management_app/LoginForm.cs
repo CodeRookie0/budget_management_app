@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheArtOfDevHtmlRenderer.Adapters.Entities;
 
 namespace budget_management_app
 {
@@ -31,7 +32,7 @@ namespace budget_management_app
 
         private void label_exit_MouseLeave(object sender, EventArgs e)
         {
-            label_exit.ForeColor = Color.Chocolate;
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
         }
 
 
@@ -44,12 +45,12 @@ namespace budget_management_app
         // Design of Button_log_in
         private void Button_log_in_MouseEnter(object sender, EventArgs e)
         {
-            Button_log_in.BackColor = Color.SandyBrown;
+            Button_log_in.BackColor = Color.FromArgb(212, 163, 115);
         }
 
         private void Button_log_in_MouseLeave(object sender, EventArgs e)
         {
-            Button_log_in.BackColor = Color.MediumSpringGreen;
+            Button_log_in.BackColor = Color.FromArgb(250, 237, 205);
         }
 
 
@@ -64,12 +65,30 @@ namespace budget_management_app
         // Design of label_sign_up
         private void label_sign_up_MouseEnter(object sender, EventArgs e)
         {
-            label_sign_up.ForeColor = Color.Red;
+            label_sign_up.ForeColor = Color.FromArgb(212, 163, 115);
         }
 
         private void label_sign_up_MouseLeave(object sender, EventArgs e)
         {
             label_sign_up.ForeColor = Color.Black;
+        }
+
+
+
+        //Exit from the application
+        private void label_exit_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // Design of label_exit
+        private void label_exit_MouseEnter_1(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.Red;
+        }
+
+        private void label_exit_MouseLeave_1(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
         }
     }
 }
