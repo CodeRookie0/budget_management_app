@@ -67,6 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Budget_managementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -106,6 +111,17 @@
     <EmbeddedResource Include="StartPageForm.resx">
       <DependentUpon>StartPageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Budget_managementDataSet.xsc">
+      <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Budget_managementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Budget_managementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Budget_managementDataSet.xss">
+      <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
