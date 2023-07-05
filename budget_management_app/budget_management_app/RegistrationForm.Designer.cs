@@ -162,6 +162,7 @@
             this.textBox_passw2.Name = "textBox_passw2";
             this.textBox_passw2.Size = new System.Drawing.Size(211, 25);
             this.textBox_passw2.TabIndex = 12;
+            this.textBox_passw2.UseSystemPasswordChar = true;
             // 
             // Button_sign_up
             // 

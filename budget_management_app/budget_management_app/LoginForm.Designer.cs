@@ -71,6 +71,7 @@
             this.textBox_passw.Name = "textBox_passw";
             this.textBox_passw.Size = new System.Drawing.Size(211, 25);
             this.textBox_passw.TabIndex = 23;
+            this.textBox_passw.UseSystemPasswordChar = true;
             // 
             // textBox_email
             // 
