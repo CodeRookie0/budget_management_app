@@ -57,14 +57,14 @@ namespace budget_management_app
                     adapter.Fill(table);
                     if (table.Rows.Count > 0)
                     {
-                        StartPage start = new StartPage();
+                        StartPageForm start = new StartPageForm();
                         start.Show();
                         this.Hide();
                     }
                     else
                     {
                         MessageBox.Show("Wrong Email or Password", "Wrong Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        textBox_passw.Clear();
                     }
                 }
             }
