@@ -24,6 +24,8 @@ namespace budget_management_app
             getTable();
         }
 
+
+        // Get data from database, table Category 
         private void getTable()
         {
             string selectQuerry = "SELECT CatName FROM Category";
@@ -32,6 +34,30 @@ namespace budget_management_app
             DataTable table = new DataTable();
             adapter.Fill(table);
             DataGridView_categories.DataSource = table;
+        }
+
+
+        //Exit from CategoriesForm
+        private void label_exit_Click(object sender, EventArgs e)
+        {
+            StartPageForm start=new StartPageForm();
+            start.Show();
+            this.Hide();
+        }
+        // Design of label_exit
+        private void label_exit_MouseEnter(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+        }
+
+        private void label_exit_MouseLeave(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.White;
+        }
+
+        private void DataGridView_categories_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
