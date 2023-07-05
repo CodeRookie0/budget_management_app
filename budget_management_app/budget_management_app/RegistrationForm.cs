@@ -46,17 +46,29 @@ namespace budget_management_app
                     string insertQuery = "INSERT INTO [User] (UserName, UserEmail, UserPasswd) VALUES ('" + textBox_username.Text + "', '" + textBox_email.Text + "', '" + textBox_passw.Text + "')";
 
                     // Checking the existence of such a user name in the data base
-                    string checkQuery = "SELECT COUNT(*) FROM [User] WHERE UserName='"+textBox_username.Text+"'";
+                    string checkQuery_username = "SELECT COUNT(*) FROM [User] WHERE UserName='"+textBox_username.Text+"'";
                     db.OpenCon();
-                    SqlCommand checkCommand = new SqlCommand(checkQuery, db.GetCon());
-                    int count = (int)checkCommand.ExecuteScalar();
+                    SqlCommand checkCommand_username = new SqlCommand(checkQuery_username, db.GetCon());
+                    int count = (int)checkCommand_username.ExecuteScalar();
 
                     if (count > 0)
                     {
                         MessageBox.Show("The entered UserName is already taken. Please choose a different UserName.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    
+
+                    // Checking the existence of such email in the data base
+                    string checkQuery_email = "SELECT COUNT(*) FROM [User] WHERE UserEmail='" + textBox_email.Text + "'";
+                    db.OpenCon();
+                    SqlCommand checkCommand_email = new SqlCommand(checkQuery_email, db.GetCon());
+                    int count_email = (int)checkCommand_email.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("The entered Email is already taken. Please choose a different email.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     // Adding a new user to the database date
                     SqlCommand insertCommand = new SqlCommand(insertQuery, db.GetCon());
                     insertCommand.ExecuteNonQuery();
