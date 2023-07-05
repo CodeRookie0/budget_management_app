@@ -115,11 +115,11 @@
             // 
             this.label_sign_up.AutoSize = true;
             this.label_sign_up.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_sign_up.Location = new System.Drawing.Point(168, 534);
+            this.label_sign_up.Location = new System.Drawing.Point(158, 534);
             this.label_sign_up.Name = "label_sign_up";
-            this.label_sign_up.Size = new System.Drawing.Size(245, 20);
+            this.label_sign_up.Size = new System.Drawing.Size(264, 20);
             this.label_sign_up.TabIndex = 27;
-            this.label_sign_up.Text = "Already have an account?  LOG IN";
+            this.label_sign_up.Text = "Don\'t have an account yet?  SIGN UP";
             this.label_sign_up.Click += new System.EventHandler(this.label_sign_up_Click);
             this.label_sign_up.MouseEnter += new System.EventHandler(this.label_sign_up_MouseEnter);
             this.label_sign_up.MouseLeave += new System.EventHandler(this.label_sign_up_MouseLeave);
