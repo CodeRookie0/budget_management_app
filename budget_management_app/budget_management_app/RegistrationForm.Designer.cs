@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label_username = new System.Windows.Forms.Label();
@@ -44,15 +43,16 @@
             this.textBox_passw2 = new System.Windows.Forms.TextBox();
             this.Button_sign_up = new Guna.UI2.WinForms.Guna2TileButton();
             this.label_log_in = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.panel1.Controls.Add(this.label_exit);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label_exit);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(583, 199);
@@ -62,7 +62,7 @@
             // 
             this.label_exit.AutoSize = true;
             this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
-            this.label_exit.ForeColor = System.Drawing.Color.Chocolate;
+            this.label_exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
             this.label_exit.Location = new System.Drawing.Point(547, 0);
             this.label_exit.Name = "label_exit";
             this.label_exit.Size = new System.Drawing.Size(33, 36);
@@ -72,18 +72,9 @@
             this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
             this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(227, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(129, 135);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
             this.panel2.Location = new System.Drawing.Point(0, 664);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(583, 157);
@@ -92,6 +83,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(169, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 89);
@@ -173,7 +165,7 @@
             // 
             // Button_sign_up
             // 
-            this.Button_sign_up.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.Button_sign_up.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
             this.Button_sign_up.BorderThickness = 1;
             this.Button_sign_up.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Button_sign_up.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -203,6 +195,16 @@
             this.label_log_in.Click += new System.EventHandler(this.label_log_in_Click);
             this.label_log_in.MouseEnter += new System.EventHandler(this.label_log_in_MouseEnter);
             this.label_log_in.MouseLeave += new System.EventHandler(this.label_log_in_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(226, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 131);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // RegistrationForm
             // 
@@ -237,7 +239,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_username;
@@ -251,5 +252,6 @@
         private Guna.UI2.WinForms.Guna2TileButton Button_sign_up;
         private System.Windows.Forms.Label label_exit;
         private System.Windows.Forms.Label label_log_in;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

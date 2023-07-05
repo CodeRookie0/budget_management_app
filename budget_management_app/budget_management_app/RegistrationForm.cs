@@ -26,12 +26,12 @@ namespace budget_management_app
         // Design of Button_sign_up
         private void Button_sign_up_MouseEnter(object sender, EventArgs e)
         {
-            Button_sign_up.BackColor = Color.SandyBrown;
+            Button_sign_up.BackColor = Color.FromArgb(212, 163, 115);
         }
 
         private void Button_sign_up_MouseLeave(object sender, EventArgs e)
         {
-            Button_sign_up.BackColor = Color.MediumSpringGreen;
+            Button_sign_up.BackColor = Color.FromArgb(250, 237, 205);
         }
 
 
@@ -49,7 +49,7 @@ namespace budget_management_app
 
         private void label_exit_MouseLeave(object sender, EventArgs e)
         {
-            label_exit.ForeColor = Color.Chocolate;
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
         }
 
 
@@ -65,12 +65,13 @@ namespace budget_management_app
         // Design of linkLabel_log_in
         private void label_log_in_MouseEnter(object sender, EventArgs e)
         {
-            label_log_in.ForeColor = Color.Red;
+            label_log_in.ForeColor = Color.FromArgb(212, 148, 85);
         }
 
         private void label_log_in_MouseLeave(object sender, EventArgs e)
         {
             label_log_in.ForeColor = Color.Black;
         }
+        
     }
 }
