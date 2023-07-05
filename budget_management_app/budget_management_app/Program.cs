@@ -16,7 +16,7 @@ namespace budget_management_app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new CategoriesForm());
         }
     }
 }

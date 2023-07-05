@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace budget_management_app
 {
     public partial class CategoriesForm : Form
     {
+        DBConnection dbcon = new DBConnection();
         public CategoriesForm()
         {
             InitializeComponent();
@@ -19,9 +21,17 @@ namespace budget_management_app
 
         private void CategoriesForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'budget_managementDataSet1.Category' table. You can move, or remove it, as needed.
-            this.categoryTableAdapter.Fill(this.budget_managementDataSet1.Category);
+            getTable();
+        }
 
+        private void getTable()
+        {
+            string selectQuerry = "SELECT CatName FROM Category";
+            SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            DataGridView_categories.DataSource = table;
         }
     }
 }
