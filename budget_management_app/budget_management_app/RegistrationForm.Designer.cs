@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_exit = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.textBox_passw2 = new System.Windows.Forms.TextBox();
             this.Button_sign_up = new Guna.UI2.WinForms.Guna2TileButton();
             this.label_log_in = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +57,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(583, 199);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(226, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 131);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // label_exit
             // 
@@ -154,6 +164,7 @@
             this.textBox_passw.Name = "textBox_passw";
             this.textBox_passw.Size = new System.Drawing.Size(211, 25);
             this.textBox_passw.TabIndex = 11;
+            
             // 
             // textBox_passw2
             // 
@@ -196,16 +207,6 @@
             this.label_log_in.Click += new System.EventHandler(this.label_log_in_Click);
             this.label_log_in.MouseEnter += new System.EventHandler(this.label_log_in_MouseEnter);
             this.label_log_in.MouseLeave += new System.EventHandler(this.label_log_in_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(226, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 131);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // RegistrationForm
             // 
