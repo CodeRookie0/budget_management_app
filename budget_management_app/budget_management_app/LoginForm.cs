@@ -21,22 +21,7 @@ namespace budget_management_app
             InitializeComponent();
         }
 
-        //Exit from the application
-        private void label_exit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
 
-        }
-        // Design of label_exit
-        private void label_exit_MouseEnter(object sender, EventArgs e)
-        {
-            label_exit.ForeColor = Color.Red;
-        }
-
-        private void label_exit_MouseLeave(object sender, EventArgs e)
-        {
-            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
-        }
 
 
 
@@ -102,6 +87,23 @@ namespace budget_management_app
         private void label_sign_up_MouseLeave(object sender, EventArgs e)
         {
             label_sign_up.ForeColor = Color.Black;
+        }
+
+
+        //Exit from the application
+        private void label_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // Design of label_exit
+        private void label_exit_MouseEnter(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.Red;
+        }
+
+        private void label_exit_MouseLeave(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
         }
     }
 }

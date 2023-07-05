@@ -93,7 +93,6 @@
             this.Name = "StartPageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StartPageForm";
-            this.Load += new System.EventHandler(this.StartPageForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
