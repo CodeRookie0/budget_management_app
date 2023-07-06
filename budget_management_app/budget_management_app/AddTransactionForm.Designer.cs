@@ -191,6 +191,9 @@
             this.Button_add.Size = new System.Drawing.Size(146, 36);
             this.Button_add.TabIndex = 58;
             this.Button_add.Text = "ADD";
+            this.Button_add.Click += new System.EventHandler(this.Button_add_Click);
+            this.Button_add.MouseEnter += new System.EventHandler(this.Button_add_MouseEnter);
+            this.Button_add.MouseLeave += new System.EventHandler(this.Button_add_MouseLeave);
             // 
             // ComboBox_account
             // 
@@ -203,10 +206,6 @@
             this.ComboBox_account.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.ComboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBox_account.ItemHeight = 30;
-            this.ComboBox_account.Items.AddRange(new object[] {
-            "Income",
-            "Expense",
-            "Savings"});
             this.ComboBox_account.Location = new System.Drawing.Point(10, 198);
             this.ComboBox_account.Name = "ComboBox_account";
             this.ComboBox_account.Size = new System.Drawing.Size(551, 36);

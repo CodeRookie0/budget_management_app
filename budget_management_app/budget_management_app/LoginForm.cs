@@ -16,6 +16,7 @@ namespace budget_management_app
     public partial class LoginForm : Form
     {
         DBConnection dbconn=new DBConnection();
+        static int userId;
         public LoginForm()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace budget_management_app
                     adapter.Fill(table);
                     if (table.Rows.Count > 0)
                     {
+                        userId = Convert.ToInt32(table.Rows[0]["UserId"]);
                         StartPageForm start = new StartPageForm();
                         start.Show();
                         this.Hide();
