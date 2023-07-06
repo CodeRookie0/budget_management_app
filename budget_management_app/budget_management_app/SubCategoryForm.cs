@@ -70,10 +70,12 @@ namespace budget_management_app
 
 
 
-        // Add data to table SubCategory
+        // Referral to the AddSubCatForm
         private void Button_add_Click(object sender, EventArgs e)
         {
-
+            AddSubCatForm add = new AddSubCatForm();
+            add.Show();
+            this.Hide();
         }
         // Design of Button_add
         private void Button_add_MouseEnter(object sender, EventArgs e)
