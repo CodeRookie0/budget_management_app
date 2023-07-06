@@ -88,12 +88,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(17, 123);
+            this.label8.Location = new System.Drawing.Point(14, 135);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(541, 13);
+            this.label8.Size = new System.Drawing.Size(553, 13);
             this.label8.TabIndex = 46;
             this.label8.Text = "_________________________________________________________________________________" +
-    "________";
+    "__________";
             // 
             // ComboBox_type
             // 
