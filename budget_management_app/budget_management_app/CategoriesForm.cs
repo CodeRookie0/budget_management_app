@@ -58,7 +58,7 @@ namespace budget_management_app
 
         private void DataGridView_categories_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedCat = DataGridView_categories.SelectedRows[0].Cells[0].Value.ToString();
+            SelectedCat = DataGridView_categories.SelectedRows[0].Cells[0].Value.ToString().Trim();
             SubCategoryForm subCat=new SubCategoryForm();
             subCat.Show();
             this.Hide();
