@@ -43,6 +43,8 @@
             this.ComboBox_account = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button_category = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.maskedTextBox_date = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +121,7 @@
             this.textBox_amount.Name = "textBox_amount";
             this.textBox_amount.Size = new System.Drawing.Size(152, 40);
             this.textBox_amount.TabIndex = 64;
-            this.textBox_amount.Text = "0";
+            this.textBox_amount.Text = "0.00";
             this.textBox_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -137,7 +139,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(10, 370);
+            this.label4.Location = new System.Drawing.Point(10, 366);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 28);
             this.label4.TabIndex = 61;
@@ -158,18 +160,17 @@
             "Income",
             "Expense",
             "Savings"});
-            this.ComboBox_type.Location = new System.Drawing.Point(10, 310);
+            this.ComboBox_type.Location = new System.Drawing.Point(10, 307);
             this.ComboBox_type.Name = "ComboBox_type";
             this.ComboBox_type.Size = new System.Drawing.Size(551, 36);
             this.ComboBox_type.TabIndex = 60;
-            this.ComboBox_type.SelectedIndexChanged += new System.EventHandler(this.ComboBox_type_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(10, 258);
+            this.label3.Location = new System.Drawing.Point(10, 256);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 28);
             this.label3.TabIndex = 59;
@@ -186,7 +187,7 @@
             this.Button_add.FillColor = System.Drawing.Color.Transparent;
             this.Button_add.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Button_add.ForeColor = System.Drawing.Color.Black;
-            this.Button_add.Location = new System.Drawing.Point(217, 501);
+            this.Button_add.Location = new System.Drawing.Point(339, 493);
             this.Button_add.Name = "Button_add";
             this.Button_add.Size = new System.Drawing.Size(146, 36);
             this.Button_add.TabIndex = 58;
@@ -206,7 +207,7 @@
             this.ComboBox_account.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.ComboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBox_account.ItemHeight = 30;
-            this.ComboBox_account.Location = new System.Drawing.Point(10, 198);
+            this.ComboBox_account.Location = new System.Drawing.Point(10, 197);
             this.ComboBox_account.Name = "ComboBox_account";
             this.ComboBox_account.Size = new System.Drawing.Size(551, 36);
             this.ComboBox_account.TabIndex = 57;
@@ -228,7 +229,7 @@
             this.button_category.BackColor = System.Drawing.Color.White;
             this.button_category.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.button_category.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button_category.Location = new System.Drawing.Point(10, 422);
+            this.button_category.Location = new System.Drawing.Point(10, 417);
             this.button_category.Name = "button_category";
             this.button_category.Size = new System.Drawing.Size(555, 36);
             this.button_category.TabIndex = 67;
@@ -236,12 +237,37 @@
             this.button_category.UseVisualStyleBackColor = false;
             this.button_category.Click += new System.EventHandler(this.button_category_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(11, 491);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 28);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "Date";
+            // 
+            // maskedTextBox_date
+            // 
+            this.maskedTextBox_date.BackColor = System.Drawing.Color.White;
+            this.maskedTextBox_date.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedTextBox_date.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.maskedTextBox_date.Location = new System.Drawing.Point(101, 493);
+            this.maskedTextBox_date.Mask = "00/00/0000";
+            this.maskedTextBox_date.Name = "maskedTextBox_date";
+            this.maskedTextBox_date.Size = new System.Drawing.Size(144, 26);
+            this.maskedTextBox_date.TabIndex = 69;
+            this.maskedTextBox_date.ValidatingType = typeof(System.DateTime);
+            // 
             // AddTransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 750);
+            this.Controls.Add(this.maskedTextBox_date);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button_category);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_currency);
@@ -284,5 +310,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox ComboBox_account;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button_category;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_date;
     }
 }

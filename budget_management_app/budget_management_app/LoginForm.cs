@@ -16,7 +16,7 @@ namespace budget_management_app
     public partial class LoginForm : Form
     {
         DBConnection dbconn=new DBConnection();
-        static int userId;
+        public static int userId;
         public LoginForm()
         {
             InitializeComponent();

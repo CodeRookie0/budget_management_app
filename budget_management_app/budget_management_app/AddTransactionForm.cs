@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace budget_management_app
@@ -15,6 +17,7 @@ namespace budget_management_app
     public partial class AddTransactionForm : Form
     {
         DBConnection dbcon=new DBConnection();
+        static string selectedAcc;
         public AddTransactionForm()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace budget_management_app
             string selectQuery = "SELECT Currency.CurrCode " +
                      "FROM Account " +
                      "JOIN Currency ON Account.AccCurrId = Currency.CurrId " +
-                     "WHERE Account.AccName ="+selectedAcc;
+                     "WHERE Account.AccName ="+ ComboBox_account.SelectedIndex.ToString();
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
             string currCode=command.ExecuteScalar()?.ToString();
             label_currency.Text =currCode;
@@ -74,12 +77,8 @@ namespace budget_management_app
 
         private void ComboBox_account_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void ComboBox_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            getCurr();
+            selectedAcc=ComboBox_account.SelectedIndex.ToString();
         }
 
         private void button_category_Click(object sender, EventArgs e)
@@ -91,17 +90,45 @@ namespace budget_management_app
 
         private void Button_add_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int amount = Convert.ToInt32(textBox_amount.Text);
+                if (button_category.Text == "")
+                {
+                    MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if(amount <= 0)
+                {
+                    MessageBox.Show("Invalid entered transaction value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string insertQuery="INSERT INTO " + ComboBox_type.SelectedIndex.ToString() + "VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.SelectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                    SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
+                    dbcon.OpenCon();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Transaction Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbcon.CloseCon();
+                    TransactionForm trns = new TransactionForm();
+                    trns.Show();
+                    this.Hide();
 
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Button_add_MouseEnter(object sender, EventArgs e)
         {
-
+            Button_add.BackColor = Color.FromArgb(212, 163, 115);
         }
 
         private void Button_add_MouseLeave(object sender, EventArgs e)
         {
-
+            Button_add.BackColor = Color.FromArgb(250, 237, 205);
         }
     }
 }
