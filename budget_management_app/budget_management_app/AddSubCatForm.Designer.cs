@@ -88,12 +88,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(14, 135);
+            this.label8.Location = new System.Drawing.Point(29, 135);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(553, 13);
+            this.label8.Size = new System.Drawing.Size(541, 13);
             this.label8.TabIndex = 46;
             this.label8.Text = "_________________________________________________________________________________" +
-    "__________";
+    "________";
             // 
             // ComboBox_type
             // 
@@ -103,7 +103,7 @@
             this.ComboBox_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_type.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ComboBox_type.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboBox_type.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ComboBox_type.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.ComboBox_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBox_type.ItemHeight = 30;
             this.ComboBox_type.Items.AddRange(new object[] {
@@ -129,10 +129,10 @@
             // textBox_name
             // 
             this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_name.Location = new System.Drawing.Point(12, 110);
+            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.textBox_name.Location = new System.Drawing.Point(32, 107);
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(551, 22);
+            this.textBox_name.Size = new System.Drawing.Size(529, 25);
             this.textBox_name.TabIndex = 43;
             // 
             // label1
@@ -182,6 +182,7 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddSubCatForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSubCatForm";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
