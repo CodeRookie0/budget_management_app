@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace budget_management_app
 {
     public partial class SubCategoryForm : Form
     {
+        DBConnection dbcon=new DBConnection();
         public SubCategoryForm()
         {
             InitializeComponent();
@@ -20,6 +22,31 @@ namespace budget_management_app
         private void SubCategoryForm_Load(object sender, EventArgs e)
         {
             label_category.Text =CategoriesForm.SelectedCat;
+            getCat();
+            getTable();
+        }
+
+        // Get data from database, table Category 
+        private void getCat()
+        {
+            string selectQuerry = "SELECT CatName FROM Category WHERE CatName ="+CategoriesForm.SelectedCat;
+            SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            DataGridView_selectedCat.DataSource = table;
+        }
+
+
+        // Get data from database, table SubCat 
+        private void getTable()
+        {
+            string selectQuerry = "SELECT SubName FROM SubCategory WHERE CatId =(SELECT CatId FROM Category WHERE CatName=" + CategoriesForm.SelectedCat+")";
+            SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            DataGridView_subcat.DataSource = table;
         }
 
 
