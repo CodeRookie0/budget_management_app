@@ -29,7 +29,7 @@ namespace budget_management_app
         // Get data from database, table Category 
         private void getCat()
         {
-            string selectQuerry = "SELECT CatName FROM Category WHERE CatName ="+CategoriesForm.SelectedCat;
+            string selectQuerry = "SELECT CatName FROM Category WHERE CatName ='"+CategoriesForm.SelectedCat+"'";
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
@@ -41,7 +41,7 @@ namespace budget_management_app
         // Get data from database, table SubCat 
         private void getTable()
         {
-            string selectQuerry = "SELECT SubName FROM SubCategory WHERE CatId =(SELECT CatId FROM Category WHERE CatName=" + CategoriesForm.SelectedCat+")";
+            string selectQuerry = "SELECT SubName FROM SubCategory WHERE CatId =(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat+"')";
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
