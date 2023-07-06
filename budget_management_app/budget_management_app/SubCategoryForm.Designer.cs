@@ -28,7 +28,200 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label_exit = new System.Windows.Forms.Label();
+            this.DataGridView_selectedCat = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DataGridView_subcat = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_selectedCat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_subcat)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
+            this.panel2.Controls.Add(this.label_exit);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(583, 55);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
+            this.panel1.Location = new System.Drawing.Point(0, 709);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(583, 55);
+            this.panel1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 29);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Category";
+            // 
+            // label_exit
+            // 
+            this.label_exit.AutoSize = true;
+            this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
+            this.label_exit.ForeColor = System.Drawing.Color.White;
+            this.label_exit.Location = new System.Drawing.Point(547, 0);
+            this.label_exit.Name = "label_exit";
+            this.label_exit.Size = new System.Drawing.Size(33, 36);
+            this.label_exit.TabIndex = 37;
+            this.label_exit.Text = "X";
+            // 
+            // DataGridView_selectedCat
+            // 
+            this.DataGridView_selectedCat.AllowUserToAddRows = false;
+            this.DataGridView_selectedCat.AllowUserToDeleteRows = false;
+            this.DataGridView_selectedCat.AllowUserToResizeColumns = false;
+            this.DataGridView_selectedCat.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DataGridView_selectedCat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView_selectedCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_selectedCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DataGridView_selectedCat.ColumnHeadersHeight = 4;
+            this.DataGridView_selectedCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_selectedCat.ColumnHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Sitka Display", 20F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_selectedCat.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGridView_selectedCat.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_selectedCat.Location = new System.Drawing.Point(0, 107);
+            this.DataGridView_selectedCat.Name = "DataGridView_selectedCat";
+            this.DataGridView_selectedCat.ReadOnly = true;
+            this.DataGridView_selectedCat.RowHeadersVisible = false;
+            this.DataGridView_selectedCat.Size = new System.Drawing.Size(580, 53);
+            this.DataGridView_selectedCat.TabIndex = 5;
+            this.DataGridView_selectedCat.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_selectedCat.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_selectedCat.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_selectedCat.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_selectedCat.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_selectedCat.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_selectedCat.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_selectedCat.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_selectedCat.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_selectedCat.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_selectedCat.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_selectedCat.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_selectedCat.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_selectedCat.ThemeStyle.ReadOnly = true;
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_selectedCat.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.label1.Location = new System.Drawing.Point(0, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "GENERAL";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.label3.Location = new System.Drawing.Point(3, 175);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(161, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "SUBCATEGORIES";
+            // 
+            // DataGridView_subcat
+            // 
+            this.DataGridView_subcat.AllowUserToAddRows = false;
+            this.DataGridView_subcat.AllowUserToDeleteRows = false;
+            this.DataGridView_subcat.AllowUserToResizeColumns = false;
+            this.DataGridView_subcat.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.DataGridView_subcat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DataGridView_subcat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_subcat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataGridView_subcat.ColumnHeadersHeight = 4;
+            this.DataGridView_subcat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_subcat.ColumnHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Sitka Display", 20F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_subcat.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DataGridView_subcat.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_subcat.Location = new System.Drawing.Point(0, 215);
+            this.DataGridView_subcat.Name = "DataGridView_subcat";
+            this.DataGridView_subcat.ReadOnly = true;
+            this.DataGridView_subcat.RowHeadersVisible = false;
+            this.DataGridView_subcat.Size = new System.Drawing.Size(580, 498);
+            this.DataGridView_subcat.TabIndex = 7;
+            this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_subcat.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_subcat.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_subcat.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_subcat.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_subcat.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_subcat.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_subcat.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_subcat.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_subcat.ThemeStyle.ReadOnly = true;
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_subcat.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // SubCategoryForm
             // 
@@ -36,13 +229,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 750);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.DataGridView_subcat);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DataGridView_selectedCat);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SubCategoryForm";
             this.Text = "SubCategoryForm";
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_selectedCat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_subcat)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_exit;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_selectedCat;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_subcat;
     }
 }

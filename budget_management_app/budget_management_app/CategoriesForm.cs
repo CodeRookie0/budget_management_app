@@ -14,6 +14,7 @@ namespace budget_management_app
     public partial class CategoriesForm : Form
     {
         DBConnection dbcon = new DBConnection();
+        static string SelcetedCat;
         public CategoriesForm()
         {
             InitializeComponent();
@@ -57,7 +58,7 @@ namespace budget_management_app
 
         private void DataGridView_categories_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            SelcetedCat = DataGridView_categories.SelectedRows[0].Cells[0].Value.ToString();
         }
     }
 }
