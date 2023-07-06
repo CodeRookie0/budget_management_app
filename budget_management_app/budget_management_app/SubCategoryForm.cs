@@ -41,5 +41,22 @@ namespace budget_management_app
             label_exit.ForeColor = Color.White;
         }
 
+
+
+        // Add data to table SubCategory
+        private void Button_add_Click(object sender, EventArgs e)
+        {
+
+        }
+        // Design of Button_add
+        private void Button_add_MouseEnter(object sender, EventArgs e)
+        {
+            Button_add.BackColor = Color.FromArgb(212, 163, 115);
+        }
+
+        private void Button_add_MouseLeave(object sender, EventArgs e)
+        {
+            Button_add.BackColor = Color.FromArgb(250, 237, 205);
+        }
     }
 }
