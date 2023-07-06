@@ -17,6 +17,12 @@ namespace budget_management_app
             InitializeComponent();
         }
 
+        private void SubCategoryForm_Load(object sender, EventArgs e)
+        {
+            label_category.Text =CategoriesForm.SelectedCat;
+        }
+
+
         //Exit from SubCategoryForm
         private void label_exit_Click(object sender, EventArgs e)
         {
@@ -34,5 +40,6 @@ namespace budget_management_app
         {
             label_exit.ForeColor = Color.White;
         }
+
     }
 }
