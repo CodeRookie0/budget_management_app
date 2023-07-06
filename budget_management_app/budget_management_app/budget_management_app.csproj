@@ -79,6 +79,12 @@
     <Compile Include="AddSubCatForm.Designer.cs">
       <DependentUpon>AddSubCatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTransactionForm.Designer.cs">
+      <DependentUpon>AddTransactionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Budget_managementDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSubCatForm.resx">
       <DependentUpon>AddSubCatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTransactionForm.resx">
+      <DependentUpon>AddTransactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoriesForm.resx">
       <DependentUpon>CategoriesForm.cs</DependentUpon>
