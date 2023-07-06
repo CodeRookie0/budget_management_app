@@ -77,6 +77,9 @@
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 36;
             this.label_exit.Text = "X";
+            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
+            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
+            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
             // 
             // panel2
             // 
@@ -159,6 +162,7 @@
             this.ComboBox_type.Name = "ComboBox_type";
             this.ComboBox_type.Size = new System.Drawing.Size(551, 36);
             this.ComboBox_type.TabIndex = 60;
+            this.ComboBox_type.SelectedIndexChanged += new System.EventHandler(this.ComboBox_type_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -207,6 +211,7 @@
             this.ComboBox_account.Name = "ComboBox_account";
             this.ComboBox_account.Size = new System.Drawing.Size(551, 36);
             this.ComboBox_account.TabIndex = 57;
+            this.ComboBox_account.SelectedIndexChanged += new System.EventHandler(this.ComboBox_account_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -230,6 +235,7 @@
             this.button_category.TabIndex = 67;
             this.button_category.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_category.UseVisualStyleBackColor = false;
+            this.button_category.Click += new System.EventHandler(this.button_category_Click);
             // 
             // AddTransactionForm
             // 
@@ -254,6 +260,7 @@
             this.Name = "AddTransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTransactionForm";
+            this.Load += new System.EventHandler(this.AddTransactionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

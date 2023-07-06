@@ -16,5 +16,41 @@ namespace budget_management_app
         {
             InitializeComponent();
         }
+
+        private void AddTransactionForm_Load(object sender, EventArgs e)
+        {
+            label_currency.Text=
+        }
+
+        private void label_exit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_exit_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_exit_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox_account_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_category_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
