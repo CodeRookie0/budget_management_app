@@ -50,7 +50,7 @@ namespace budget_management_app
                 }
                 else
                 {
-                    string insertQuery = "INSERT INTO SubCategory (CatId,SubName,SubType) VALUES(" + CategoriesForm.SelectedCat + ",'" + textBox_name.Text + "','" + ComboBox_type.SelectedValue.ToString() +"')";
+                    string insertQuery = "INSERT INTO SubCategory (CatId,SubName,SubType) VALUES((SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat+"'),'" + textBox_name.Text + "','" + ComboBox_type.SelectedItem.ToString() +"')";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();
