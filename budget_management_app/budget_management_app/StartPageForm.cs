@@ -12,6 +12,7 @@ namespace budget_management_app
 {
     public partial class StartPageForm : Form
     {
+        public static string lastForm;
         public StartPageForm()
         {
             InitializeComponent();
@@ -19,9 +20,7 @@ namespace budget_management_app
 
         private void StartPageForm_Load(object sender, EventArgs e)
         {
-            TransactionForm trns=new TransactionForm();
-            trns.Show();
-            this.Hide();
+
         }
     }
 }

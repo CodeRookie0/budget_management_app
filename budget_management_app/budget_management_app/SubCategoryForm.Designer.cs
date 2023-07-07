@@ -147,6 +147,7 @@
             this.DataGridView_selectedCat.ThemeStyle.RowsStyle.Height = 22;
             this.DataGridView_selectedCat.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_selectedCat.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_selectedCat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_selectedCat_CellClick);
             // 
             // label1
             // 
@@ -226,6 +227,7 @@
             this.DataGridView_subcat.ThemeStyle.RowsStyle.Height = 22;
             this.DataGridView_subcat.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_subcat.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_subcat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_subcat_CellContentClick);
             // 
             // Button_add
             // 

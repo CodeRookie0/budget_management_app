@@ -37,7 +37,6 @@ namespace budget_management_app
             DataGridView_categories.DataSource = table;
         }
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! can be start page and can be  transaction
         //Exit from CategoriesForm
         private void label_exit_Click(object sender, EventArgs e)
         {

@@ -60,8 +60,8 @@ namespace budget_management_app
         //Exit from AddTransactionForm
         private void label_exit_Click(object sender, EventArgs e)
         {
-            TransactionForm trns = new TransactionForm();
-            trns.Show();
+            StartPageForm start = new StartPageForm();
+            start.Show();
             this.Hide();
         }
         // Design of label_exit
@@ -84,8 +84,8 @@ namespace budget_management_app
         private void button_category_Click(object sender, EventArgs e)
         {
             CategoriesForm cat=new CategoriesForm();
+            StartPageForm.lastForm = "AddTransactionForm";
             cat.Show();
-            this.Hide();
         }
 
         // Add data to Transaction table(Income or Expenses or Savings)
@@ -104,7 +104,39 @@ namespace budget_management_app
                 }
                 else
                 {
-                    string insertQuery="INSERT INTO " + ComboBox_type.SelectedIndex.ToString() + "VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + "///SubCategoryForm.SelectedSubCat//" + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                    string insertQuery="";
+                    if (SubCategoryForm.selectedSubCat != "")
+                    {
+                        if (ComboBox_type.SelectedItem.ToString() == "Income")
+                        {
+                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                        }
+                        else if(ComboBox_type.SelectedItem.ToString() == "Expenses")
+                        {
+                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                        }
+                        else if (ComboBox_type.SelectedItem.ToString() == "Savings")
+                        {
+                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                        }
+                        SubCategoryForm.selectedSubCat = "";
+                    }
+                    else
+                    {
+                        if (ComboBox_type.SelectedItem.ToString() == "Income")
+                        {
+                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                        }
+                        else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
+                        {
+                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                        }
+                        else if (ComboBox_type.SelectedItem.ToString() == "Savings")
+                        {
+                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                        }
+                    }
+                    CategoriesForm.SelectedCat = "";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();

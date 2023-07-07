@@ -14,6 +14,7 @@ namespace budget_management_app
     public partial class SubCategoryForm : Form
     {
         DBConnection dbcon=new DBConnection();
+        public static string selectedSubCat = "";
         public SubCategoryForm()
         {
             InitializeComponent();
@@ -53,9 +54,18 @@ namespace budget_management_app
         //Exit from SubCategoryForm
         private void label_exit_Click(object sender, EventArgs e)
         {
-            CategoriesForm cat = new CategoriesForm();
-            cat.Show();
-            this.Hide();
+            if (StartPageForm.lastForm == "AddTransactionForm")
+            {
+                AddTransactionForm trns = new AddTransactionForm();
+                trns.Show();
+                this.Hide();
+            }
+            else
+            {
+                CategoriesForm cat = new CategoriesForm();
+                cat.Show();
+                this.Hide();
+            }
         }
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)
@@ -86,6 +96,24 @@ namespace budget_management_app
         private void Button_add_MouseLeave(object sender, EventArgs e)
         {
             Button_add.BackColor = Color.FromArgb(250, 237, 205);
+        }
+
+        private void DataGridView_selectedCat_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (StartPageForm.lastForm == "AddTransactionForm")
+            {
+                this.Hide();
+            }
+        }
+
+        private void DataGridView_subcat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (StartPageForm.lastForm == "AddTransactionForm")
+            {
+                selectedSubCat = DataGridView_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
+                this.Hide();
+            }
+            StartPageForm.lastForm = "";
         }
     }
 }
