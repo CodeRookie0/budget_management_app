@@ -17,7 +17,7 @@ namespace budget_management_app
     public partial class AddTransactionForm : Form
     {
         DBConnection dbcon=new DBConnection();
-        static string selectedAcc;
+        static string selectedAcc="";
         public AddTransactionForm()
         {
             InitializeComponent();
@@ -93,12 +93,12 @@ namespace budget_management_app
         {
             try
             {
-                decimal amount = Convert.ToDecimal(textBox_amount.Text);
-                if (button_category.Text == "")
+                decimal amount;
+                if (CategoriesForm.SelectedCat == ""||selectedAcc=="")
                 {
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if(amount <= 0)
+                else if(decimal.TryParse(textBox_amount.Text, out amount) || amount < 0.00m)
                 {
                     MessageBox.Show("Invalid entered transaction value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

@@ -228,11 +228,13 @@
             // 
             this.button_category.BackColor = System.Drawing.Color.White;
             this.button_category.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.button_category.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_category.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_category.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
             this.button_category.Location = new System.Drawing.Point(10, 417);
             this.button_category.Name = "button_category";
             this.button_category.Size = new System.Drawing.Size(555, 36);
             this.button_category.TabIndex = 67;
+            this.button_category.Text = "Choose category";
             this.button_category.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_category.UseVisualStyleBackColor = false;
             this.button_category.Click += new System.EventHandler(this.button_category_Click);
@@ -309,8 +311,8 @@
         private Guna.UI2.WinForms.Guna2TileButton Button_add;
         private Guna.UI2.WinForms.Guna2ComboBox ComboBox_account;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button_category;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox maskedTextBox_date;
+        public System.Windows.Forms.Button button_category;
     }
 }
