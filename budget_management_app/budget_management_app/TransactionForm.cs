@@ -144,7 +144,7 @@ namespace budget_management_app
                     query += "AND CatId = " + selectedCategoryId;
                 }
                 query += "UNION ALL " +
-                         "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expense WHERE UserId =" + LoginForm.userId;
+                         "SELECT 'Expenses' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expenses WHERE UserId =" + LoginForm.userId;
                 if (selectedAccountId != null)
                 {
                     query += "AND AccId =  " + selectedAccountId;
@@ -178,7 +178,7 @@ namespace budget_management_app
             }
             else if (selectedType == "Expenses")
             {
-                query = "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expense WHERE UserId =" + LoginForm.userId;
+                query = "SELECT 'Expenses' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expenses WHERE UserId =" + LoginForm.userId;
                 if (selectedAccountId != null)
                 {
                     query += "AND AccId =  " + selectedAccountId;

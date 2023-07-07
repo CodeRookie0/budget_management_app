@@ -44,7 +44,7 @@ namespace budget_management_app
         //Exit from AddAccountForm
         private void label_exit_Click(object sender, EventArgs e)
         {
-            AccountsForm acc = new AccountsForm();
+            AccountForm acc = new AccountForm();
             acc.Show();
             this.Hide();
         }
@@ -75,7 +75,7 @@ namespace budget_management_app
                 int currId = 0;
 
                 string selectQuery = "SELECT CurrId FROM Currency WHERE CurrName ="+ ComboBox_currency.SelectedIndex.ToString();
-                SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon();
+                SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
                 object result = comm.ExecuteScalar();
                 if (result != null)
                 {
