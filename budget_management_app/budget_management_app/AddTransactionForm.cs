@@ -88,11 +88,12 @@ namespace budget_management_app
             this.Hide();
         }
 
+        // Add data to Transaction table(Income or Expenses or Savings)
         private void Button_add_Click(object sender, EventArgs e)
         {
             try
             {
-                int amount = Convert.ToInt32(textBox_amount.Text);
+                decimal amount = Convert.ToDecimal(textBox_amount.Text);
                 if (button_category.Text == "")
                 {
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,7 +121,7 @@ namespace budget_management_app
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Design of Button_add
         private void Button_add_MouseEnter(object sender, EventArgs e)
         {
             Button_add.BackColor = Color.FromArgb(212, 163, 115);
