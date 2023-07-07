@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -45,6 +45,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(583, 22);
             this.panel2.TabIndex = 30;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(6, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(563, 89);
+            this.panel3.TabIndex = 33;
             // 
             // panel1
             // 
@@ -63,14 +71,6 @@
             this.label1.Size = new System.Drawing.Size(101, 28);
             this.label1.TabIndex = 32;
             this.label1.Text = "Accounts";
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Location = new System.Drawing.Point(6, 28);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(563, 89);
-            this.panel3.TabIndex = 33;
             // 
             // panel4
             // 
@@ -93,6 +93,7 @@
             this.Name = "StartPageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StartPageForm";
+            this.Load += new System.EventHandler(this.StartPageForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

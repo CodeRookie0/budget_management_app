@@ -16,5 +16,12 @@ namespace budget_management_app
         {
             InitializeComponent();
         }
+
+        private void StartPageForm_Load(object sender, EventArgs e)
+        {
+            TransactionForm trns=new TransactionForm();
+            trns.Show();
+            this.Hide();
+        }
     }
 }

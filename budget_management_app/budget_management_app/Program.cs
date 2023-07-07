@@ -16,9 +16,7 @@ namespace budget_management_app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            TransactionForm transactionForm = new TransactionForm();
-            Application.Run(transactionForm);
-
+            Application.Run(new TransactionForm());
         }
     }
 }

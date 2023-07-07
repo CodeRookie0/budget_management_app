@@ -31,9 +31,9 @@ namespace budget_management_app
         // Retrieving data for dataGridView
         public void getTable()
         {
-            string query = "SELECT 'Income' AS TransactionType, InDate AS TransactionDate, InAmount AS Amount FROM Income " +
+            string query = "SELECT 'Income' AS TransactionType, InDate AS TransactionDate, InAmount AS Amount FROM Income WHERE UserId =" +LoginForm.userId+
                "UNION ALL " +
-               "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount FROM Expense " +
+               "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount FROM Expenses " +
                "UNION ALL " +
                "SELECT 'Savings' AS TransactionType, SavDate AS TransactionDate, SavAmount FROM Savings " +
                "ORDER BY TransactionDate ASC";
@@ -99,17 +99,29 @@ namespace budget_management_app
         // Filtering data in dataGridView
         private void comboBox_account_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateDataGridView();
+            if (comboBox_type.SelectedItem != null)
+            {
+                int selectedAccountId = Convert.ToInt32(comboBox_account.SelectedValue);
+                UpdateDataGridView();
+            }
         }
 
         private void comboBox_category_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateDataGridView();
+            if (comboBox_type.SelectedItem != null)
+            {
+                int selectedCategoryId = Convert.ToInt32(comboBox_category.SelectedValue);
+                UpdateDataGridView();
+            }
         }
 
         private void comboBox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UpdateDataGridView();
+            if (comboBox_type.SelectedItem != null)
+            {
+                string selectedType = comboBox_type.SelectedItem.ToString();
+                UpdateDataGridView();
+            }
         }
 
 
@@ -120,12 +132,74 @@ namespace budget_management_app
             int selectedCategoryId = Convert.ToInt32(comboBox_category.SelectedValue);
             string selectedType = comboBox_type.SelectedItem.ToString();
 
-            string query = "SELECT 'Income' AS TransactionType, InDate AS TransactionDate, InAmount AS Amount FROM Income WHERE AccId  = " + selectedAccountId + "AND CatId = " + selectedCategoryId + " AND 'Income' =" + selectedType +
-                           "UNION ALL " +
-                           "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expense WHERE AccId  = " + selectedAccountId + "AND CatId  = " + selectedCategoryId + "AND 'Expense'=" + selectedType +
-                           "UNION ALL " +
-                           "SELECT 'Savings' AS TransactionType, SavDate AS TransactionDate, SavAmount AS Amount FROM Savings WHERE AccId = " + selectedAccountId + "AND CatId = " + selectedCategoryId + "AND 'Savings'=" + selectedType +
-                           "ORDER BY TransactionDate ASC";
+            string query = "SELECT 'Income' AS TransactionType, InDate AS TransactionDate, InAmount AS Amount FROM Income WHERE UserId =" + LoginForm.userId;
+            if (selectedType == null)
+            {
+                if (selectedAccountId != null)
+                {
+                    query += "AND AccId =  " + selectedAccountId;
+                }
+                if (selectedCategoryId != null)
+                {
+                    query += "AND CatId = " + selectedCategoryId;
+                }
+                query += "UNION ALL " +
+                         "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expense WHERE UserId =" + LoginForm.userId;
+                if (selectedAccountId != null)
+                {
+                    query += "AND AccId =  " + selectedAccountId;
+                }
+                if (selectedCategoryId != null)
+                {
+                    query += "AND CatId = " + selectedCategoryId;
+                }
+                query += "UNION ALL " +
+                         "SELECT 'Savings' AS TransactionType, SavDate AS TransactionDate, SavAmount AS Amount FROM Savings WHERE UserId =" + LoginForm.userId;
+                if (selectedAccountId != null)
+                {
+                    query += "AND AccId =  " + selectedAccountId;
+                }
+                if (selectedCategoryId != null)
+                {
+                    query += "AND CatId = " + selectedCategoryId;
+                }
+                query += "ORDER BY TransactionDate ASC";
+            }
+            else if (selectedType == "Income")
+            {
+                if (selectedAccountId != null)
+                {
+                    query += "AND AccId =  " + selectedAccountId;
+                }
+                if (selectedCategoryId != null)
+                {
+                    query += "AND CatId = " + selectedCategoryId;
+                }
+            }
+            else if (selectedType == "Expenses")
+            {
+                query = "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount AS Amount FROM Expense WHERE UserId =" + LoginForm.userId;
+                if (selectedAccountId != null)
+                {
+                    query += "AND AccId =  " + selectedAccountId;
+                }
+                if (selectedCategoryId != null)
+                {
+                    query += "AND CatId = " + selectedCategoryId;
+                }
+            }
+            else
+            {
+                query = "SELECT 'Savings' AS TransactionType, SavDate AS TransactionDate, SavAmount AS Amount FROM Savings WHERE UserId =" + LoginForm.userId;
+                if (selectedAccountId != null)
+                {
+                    query += "AND AccId =  " + selectedAccountId;
+                }
+                if (selectedCategoryId != null)
+                {
+                    query += "AND CatId = " + selectedCategoryId;
+                }
+            }
 
             SqlCommand command = new SqlCommand(query, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -141,6 +215,7 @@ namespace budget_management_app
             comboBox_account.ResetText();
             comboBox_category.ResetText();
             comboBox_type.ResetText();
+            getTable();
         }
         // Design of Label_clear
         private void label_clear_MouseEnter(object sender, EventArgs e)

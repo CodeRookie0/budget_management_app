@@ -103,7 +103,7 @@ namespace budget_management_app
                 }
                 else
                 {
-                    string insertQuery="INSERT INTO " + ComboBox_type.SelectedIndex.ToString() + "VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.SelectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                    string insertQuery="INSERT INTO " + ComboBox_type.SelectedIndex.ToString() + "VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + "///SubCategoryForm.SelectedSubCat//" + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();
