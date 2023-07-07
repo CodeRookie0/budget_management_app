@@ -98,22 +98,26 @@ namespace budget_management_app
         {
             try
             {
-                decimal balance = Convert.ToDecimal(textBox_amount.Text);
-                selectedCurrId();
+                decimal balance;
 
-                if (textBox_name.Text == "")
+                if (textBox_name.Text == ""|| ComboBox_currency.SelectedItem == null)
                 {
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (balance <= 0)
+                else if (decimal.TryParse(textBox_amount.Text, out balance) || balance < 0.00m)
                 {
                     MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    string insertQuery = "INSERT INTO Account VALUES " + LoginForm.userId + ",'" + textBox_name.Text + "','" + balance + "'," + currId;
+                    selectedCurrId();
+                    string insertQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (@UserId, @AccName, @AccBalance, @AccCurrId)";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
                     dbcon.OpenCon();
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    command.Parameters.AddWithValue("@AccName", textBox_name.Text);
+                    command.Parameters.AddWithValue("@AccBalance", balance);
+                    command.Parameters.AddWithValue("@AccCurrId", currId);
                     command.ExecuteNonQuery();
                     MessageBox.Show("Account Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dbcon.CloseCon();
