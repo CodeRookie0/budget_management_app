@@ -13,7 +13,9 @@ namespace budget_management_app
 {
     public partial class AddAccountForm : Form
     {
-        DBConnection dbcon=new DBConnection();
+        DBConnection dbcon = new DBConnection();
+        static int currId = 0;
+        static string currCode = "USD";
         public AddAccountForm()
         {
             InitializeComponent();
@@ -39,7 +41,32 @@ namespace budget_management_app
             reader.Close();
             dbcon.CloseCon();
         }
-
+        // Gets the currency code based on the selected currency name from the ComboBox_currency
+        public void getCurrCode()
+        {
+            string selectQuery = "SELECT CurrCode FROM Currency WHERE CurrName ='" + ComboBox_currency.SelectedItem.ToString()+"'";
+            SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            object result = comm.ExecuteScalar();
+            if (result != null)
+            {
+                currCode = result.ToString();
+            }
+            dbcon.CloseCon();
+        }
+        // Gets the currency ID based on the selected value from the ComboBox_currency
+        private void selectedCurrId()
+        {
+            string selectQuery = "SELECT CurrId FROM Currency WHERE CurrName ='" + ComboBox_currency.SelectedItem.ToString()+"'";
+            SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            object result = comm.ExecuteScalar();
+            if (result != null)
+            {
+                currId = Convert.ToInt32(result);
+            }
+            dbcon.CloseCon();
+        }
 
         //Exit from AddAccountForm
         private void label_exit_Click(object sender, EventArgs e)
@@ -51,18 +78,18 @@ namespace budget_management_app
         // Design of label_exit
         private void label_exit_MouseLeave(object sender, EventArgs e)
         {
-            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+            label_exit.ForeColor = Color.White;
         }
 
         private void label_exit_MouseEnter(object sender, EventArgs e)
         {
-            label_exit.ForeColor = Color.White;
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
         }
 
         private void ComboBox_currency_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //label_currency
-            //data from table Currency
+            getCurrCode();
+            label_currency.Text = currCode;
         }
 
 
@@ -72,15 +99,7 @@ namespace budget_management_app
             try
             {
                 decimal balance = Convert.ToDecimal(textBox_amount.Text);
-                int currId = 0;
-
-                string selectQuery = "SELECT CurrId FROM Currency WHERE CurrName ="+ ComboBox_currency.SelectedIndex.ToString();
-                SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
-                object result = comm.ExecuteScalar();
-                if (result != null)
-                {
-                    currId = Convert.ToInt32(result);
-                }
+                selectedCurrId();
 
                 if (textBox_name.Text == "")
                 {
