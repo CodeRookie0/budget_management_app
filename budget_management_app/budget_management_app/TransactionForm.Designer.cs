@@ -37,13 +37,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.DataGridView_transactions = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label_clear = new System.Windows.Forms.Label();
-            this.comboBox_account = new System.Windows.Forms.ComboBox();
-            this.comboBox_category = new System.Windows.Forms.ComboBox();
             this.comboBox_type = new System.Windows.Forms.ComboBox();
+            this.comboBox_category = new System.Windows.Forms.ComboBox();
+            this.comboBox_account = new System.Windows.Forms.ComboBox();
+            this.label_clear = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_transactions)).BeginInit();
             this.panel3.SuspendLayout();
@@ -80,6 +80,9 @@
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 36;
             this.label_exit.Text = "X";
+            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
+            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
+            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
             // 
             // panel2
             // 
@@ -161,68 +164,6 @@
             this.panel3.Size = new System.Drawing.Size(127, 657);
             this.panel3.TabIndex = 38;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(3, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 28);
-            this.label1.TabIndex = 67;
-            this.label1.Text = "Account";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(3, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 28);
-            this.label3.TabIndex = 68;
-            this.label3.Text = "Category";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(3, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 28);
-            this.label4.TabIndex = 69;
-            this.label4.Text = "Type";
-            // 
-            // label_clear
-            // 
-            this.label_clear.AutoSize = true;
-            this.label_clear.Font = new System.Drawing.Font("Segoe UI Semibold", 18.75F, System.Drawing.FontStyle.Bold);
-            this.label_clear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label_clear.Location = new System.Drawing.Point(27, 300);
-            this.label_clear.Name = "label_clear";
-            this.label_clear.Size = new System.Drawing.Size(73, 35);
-            this.label_clear.TabIndex = 39;
-            this.label_clear.Text = "Clear";
-            // 
-            // comboBox_account
-            // 
-            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 9.249998F);
-            this.comboBox_account.FormattingEnabled = true;
-            this.comboBox_account.Location = new System.Drawing.Point(8, 61);
-            this.comboBox_account.Name = "comboBox_account";
-            this.comboBox_account.Size = new System.Drawing.Size(106, 26);
-            this.comboBox_account.TabIndex = 39;
-            // 
-            // comboBox_category
-            // 
-            this.comboBox_category.Font = new System.Drawing.Font("Sitka Display", 9.249998F);
-            this.comboBox_category.FormattingEnabled = true;
-            this.comboBox_category.Location = new System.Drawing.Point(8, 157);
-            this.comboBox_category.Name = "comboBox_category";
-            this.comboBox_category.Size = new System.Drawing.Size(106, 26);
-            this.comboBox_category.TabIndex = 70;
-            // 
             // comboBox_type
             // 
             this.comboBox_type.Font = new System.Drawing.Font("Sitka Display", 9.249998F);
@@ -235,6 +176,74 @@
             this.comboBox_type.Name = "comboBox_type";
             this.comboBox_type.Size = new System.Drawing.Size(106, 26);
             this.comboBox_type.TabIndex = 71;
+            this.comboBox_type.SelectedIndexChanged += new System.EventHandler(this.comboBox_type_SelectedIndexChanged);
+            // 
+            // comboBox_category
+            // 
+            this.comboBox_category.Font = new System.Drawing.Font("Sitka Display", 9.249998F);
+            this.comboBox_category.FormattingEnabled = true;
+            this.comboBox_category.Location = new System.Drawing.Point(8, 157);
+            this.comboBox_category.Name = "comboBox_category";
+            this.comboBox_category.Size = new System.Drawing.Size(106, 26);
+            this.comboBox_category.TabIndex = 70;
+            this.comboBox_category.SelectedIndexChanged += new System.EventHandler(this.comboBox_category_SelectedIndexChanged);
+            // 
+            // comboBox_account
+            // 
+            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 9.249998F);
+            this.comboBox_account.FormattingEnabled = true;
+            this.comboBox_account.Location = new System.Drawing.Point(8, 61);
+            this.comboBox_account.Name = "comboBox_account";
+            this.comboBox_account.Size = new System.Drawing.Size(106, 26);
+            this.comboBox_account.TabIndex = 39;
+            this.comboBox_account.SelectedIndexChanged += new System.EventHandler(this.comboBox_account_SelectedIndexChanged);
+            // 
+            // label_clear
+            // 
+            this.label_clear.AutoSize = true;
+            this.label_clear.Font = new System.Drawing.Font("Segoe UI Semibold", 18.75F, System.Drawing.FontStyle.Bold);
+            this.label_clear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.label_clear.Location = new System.Drawing.Point(27, 300);
+            this.label_clear.Name = "label_clear";
+            this.label_clear.Size = new System.Drawing.Size(73, 35);
+            this.label_clear.TabIndex = 39;
+            this.label_clear.Text = "Clear";
+            this.label_clear.Click += new System.EventHandler(this.label_clear_Click);
+            this.label_clear.MouseEnter += new System.EventHandler(this.label_clear_MouseEnter);
+            this.label_clear.MouseLeave += new System.EventHandler(this.label_clear_MouseLeave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(3, 204);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 28);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "Type";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(3, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 28);
+            this.label3.TabIndex = 68;
+            this.label3.Text = "Category";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(3, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 28);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "Account";
             // 
             // TransactionForm
             // 
@@ -250,6 +259,7 @@
             this.Name = "TransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransactionForm";
+            this.Load += new System.EventHandler(this.TransactionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_transactions)).EndInit();
