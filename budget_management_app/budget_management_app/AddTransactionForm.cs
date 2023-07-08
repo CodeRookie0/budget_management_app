@@ -98,7 +98,7 @@ namespace budget_management_app
                 {
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if(decimal.TryParse(textBox_amount.Text, out amount) || amount < 0.00m)
+                else if(decimal.TryParse(textBox_amount.Text.Replace(",", "."), out amount) || amount < 0.00m)
                 {
                     MessageBox.Show("Invalid entered transaction value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

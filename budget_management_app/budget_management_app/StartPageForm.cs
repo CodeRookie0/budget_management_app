@@ -221,5 +221,15 @@ namespace budget_management_app
             }
             dbcon.CloseCon();
         }
+
+        private void pictureBox_menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox_menu_MouseEnter(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+        }
     }
 }

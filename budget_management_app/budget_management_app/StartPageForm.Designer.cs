@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartPageForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,19 +47,22 @@
             this.chart_rec_exp = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel_top7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.flowLayoutPanel_top7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox_menu = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).BeginInit();
             this.panel_main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
+            this.panel2.Controls.Add(this.pictureBox_menu);
             this.panel2.Controls.Add(this.label_exit);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -127,18 +131,18 @@
             // 
             // chart_summary
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend1);
+            chartArea15.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend15);
             this.chart_summary.Location = new System.Drawing.Point(8, 176);
             this.chart_summary.Name = "chart_summary";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series1.Legend = "Legend1";
-            series1.Name = "DataSeries";
-            this.chart_summary.Series.Add(series1);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series8.Legend = "Legend1";
+            series8.Name = "DataSeries";
+            this.chart_summary.Series.Add(series8);
             this.chart_summary.Size = new System.Drawing.Size(548, 203);
             this.chart_summary.TabIndex = 35;
             // 
@@ -171,10 +175,10 @@
             // 
             // chart_rec_exp
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend2);
+            chartArea16.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea16);
+            legend16.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend16);
             this.chart_rec_exp.Location = new System.Drawing.Point(8, 484);
             this.chart_rec_exp.Name = "chart_rec_exp";
             this.chart_rec_exp.Size = new System.Drawing.Size(435, 116);
@@ -210,24 +214,15 @@
             this.panel_main.Size = new System.Drawing.Size(582, 680);
             this.panel_main.TabIndex = 63;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(3, 616);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(214, 28);
-            this.label5.TabIndex = 63;
-            this.label5.Text = "Recent Transactions";
-            // 
-            // flowLayoutPanel_top7
-            // 
-            this.flowLayoutPanel_top7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_top7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.flowLayoutPanel_top7.Location = new System.Drawing.Point(8, 663);
-            this.flowLayoutPanel_top7.Name = "flowLayoutPanel_top7";
-            this.flowLayoutPanel_top7.Size = new System.Drawing.Size(548, 288);
-            this.flowLayoutPanel_top7.TabIndex = 34;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(506, 997);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 28);
+            this.label6.TabIndex = 65;
+            this.label6.Text = "END";
             // 
             // guna2TileButton1
             // 
@@ -246,15 +241,35 @@
             this.guna2TileButton1.TabIndex = 64;
             this.guna2TileButton1.Text = "Show More";
             // 
-            // label6
+            // flowLayoutPanel_top7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(506, 997);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 28);
-            this.label6.TabIndex = 65;
-            this.label6.Text = "END";
+            this.flowLayoutPanel_top7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel_top7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.flowLayoutPanel_top7.Location = new System.Drawing.Point(8, 663);
+            this.flowLayoutPanel_top7.Name = "flowLayoutPanel_top7";
+            this.flowLayoutPanel_top7.Size = new System.Drawing.Size(548, 288);
+            this.flowLayoutPanel_top7.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(3, 616);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(214, 28);
+            this.label5.TabIndex = 63;
+            this.label5.Text = "Recent Transactions";
+            // 
+            // pictureBox_menu
+            // 
+            this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
+            this.pictureBox_menu.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox_menu.Name = "pictureBox_menu";
+            this.pictureBox_menu.Size = new System.Drawing.Size(54, 46);
+            this.pictureBox_menu.TabIndex = 66;
+            this.pictureBox_menu.TabStop = false;
+            this.pictureBox_menu.Click += new System.EventHandler(this.pictureBox_menu_Click);
+            this.pictureBox_menu.MouseEnter += new System.EventHandler(this.pictureBox_menu_MouseEnter);
             // 
             // StartPageForm
             // 
@@ -276,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +315,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox_menu;
     }
 }
