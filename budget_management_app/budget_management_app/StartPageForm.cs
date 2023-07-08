@@ -25,7 +25,8 @@ namespace budget_management_app
         {
             getTableAcc();
             getDataSum();
-            getDataRecExp();
+            get7DaysRecExp();
+            getRecTrns();
         }
         private void getTableAcc()
         {
@@ -49,6 +50,12 @@ namespace budget_management_app
 
                 flowLayoutPanel_account.Controls.Add(button);
             }
+            Button buttonAdd = new Button();
+            buttonAdd.Text = "Add New\nAccount";
+            buttonAdd.AutoSize = true;
+
+            flowLayoutPanel_account.Controls.Add(buttonAdd);
+
             dbcon.CloseCon();
         }
         private void getDataSum()
@@ -117,7 +124,7 @@ namespace budget_management_app
                 MessageBox.Show(ex.Message);
             }
         }
-        private void getDataRecExp()
+        private void get7DaysRecExp()
         {
             string selectQuery = "SELECT ExpDate, ExpAmount FROM Expenses WHERE ExpDate >= DATEADD(day, -6, GETDATE()) AND UserId="+LoginForm.userId;
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
@@ -157,6 +164,62 @@ namespace budget_management_app
 
             // Dodanie serii do wykresu
             chart_rec_exp.Series.Add(series);
+        }
+        private void getRecTrns()
+        {
+            string selectQuery = "SELECT Acc.AccName, Cat.CatName, ";
+            selectQuery += "CASE WHEN Inc.InAmount IS NOT NULL THEN CONCAT('+', Inc.InAmount) ";
+            selectQuery += "WHEN Sav.SavAmount IS NOT NULL THEN CONCAT('+', Sav.SavAmount) ";
+            selectQuery += "WHEN Exp.ExpAmount IS NOT NULL THEN CONCAT('-', Exp.ExpAmount) ";
+            selectQuery += "END AS Amount, ";
+            selectQuery += "CASE WHEN Inc.InDate IS NOT NULL THEN Inc.InDate ";
+            selectQuery += "WHEN Sav.SavDate IS NOT NULL THEN Sav.SavDate ";
+            selectQuery += "WHEN Exp.ExpDate IS NOT NULL THEN Exp.ExpDate ";
+            selectQuery += "END AS Date ";
+            selectQuery += "FROM Income Inc ";
+            selectQuery += "LEFT JOIN Account Acc ON Acc.AccId = Inc.AccId ";
+            selectQuery += "LEFT JOIN Category Cat ON Cat.CatId = Inc.CatId ";
+            selectQuery += "WHERE Inc.UserId = " + LoginForm.userId + " ";
+            selectQuery += "UNION ALL ";
+            selectQuery += "SELECT Acc.AccName, Cat.CatName, CONCAT('-', Exp.ExpAmount) AS Amount, Exp.ExpDate AS Date ";
+            selectQuery += "FROM Expenses Exp ";
+            selectQuery += "LEFT JOIN Account Acc ON Acc.AccId = Exp.AccId ";
+            selectQuery += "LEFT JOIN Category Cat ON Cat.CatId = Exp.CatId ";
+            selectQuery += "WHERE Exp.UserId = " + LoginForm.userId + " ";
+            selectQuery += "UNION ALL ";
+            selectQuery += "SELECT Acc.AccName, Cat.CatName, CONCAT('+', Sav.SavAmount) AS Amount, Sav.SavDate AS Date ";
+            selectQuery += "FROM Savings Sav ";
+            selectQuery += "LEFT JOIN Account Acc ON Acc.AccId = Sav.AccId ";
+            selectQuery += "LEFT JOIN Category Cat ON Cat.CatId = Sav.CatId ";
+            selectQuery += "WHERE Sav.UserId = " + LoginForm.userId + " ";
+            selectQuery += "ORDER BY Date ASC ";
+
+
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            DataTable top7 = table.AsEnumerable().Take(7).CopyToDataTable();
+
+            foreach (DataRow row in top7.Rows)
+            {
+                string accName = row["AccName"].ToString();
+                string catName = row["CatName"].ToString();
+                string amount = row["Amount"].ToString();
+                string date = row["Date"].ToString();
+
+
+                string labelText = row["CatName"].ToString().Trim() + "              " + row["Amount"].ToString() + "\n" + row["AccName"].ToString().Trim() + "              " + row["Date"].ToString();
+
+                Label label = new Label();
+                label.Text = labelText;
+                label.AutoSize = true;
+
+                flowLayoutPanel_top7.Controls.Add(label);
+            }
+            dbcon.CloseCon();
         }
     }
 }
