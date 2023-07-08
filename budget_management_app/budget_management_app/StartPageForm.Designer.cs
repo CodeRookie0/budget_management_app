@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,10 +41,13 @@
             this.flowLayoutPanel_account = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.chart_summary = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label_total = new System.Windows.Forms.Label();
             this.Button_add = new Guna.UI2.WinForms.Guna2TileButton();
+            this.label_rec_trns = new System.Windows.Forms.Label();
+            this.chart_rec_exp = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -89,7 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 53);
+            this.label1.Location = new System.Drawing.Point(16, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 28);
             this.label1.TabIndex = 32;
@@ -100,16 +105,16 @@
             this.flowLayoutPanel_account.AutoScroll = true;
             this.flowLayoutPanel_account.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_account.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.flowLayoutPanel_account.Location = new System.Drawing.Point(8, 84);
+            this.flowLayoutPanel_account.Location = new System.Drawing.Point(21, 85);
             this.flowLayoutPanel_account.Name = "flowLayoutPanel_account";
-            this.flowLayoutPanel_account.Size = new System.Drawing.Size(561, 75);
+            this.flowLayoutPanel_account.Size = new System.Drawing.Size(548, 75);
             this.flowLayoutPanel_account.TabIndex = 33;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 174);
+            this.label3.Location = new System.Drawing.Point(16, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 28);
             this.label3.TabIndex = 34;
@@ -117,30 +122,20 @@
             // 
             // chart_summary
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend2);
-            this.chart_summary.Location = new System.Drawing.Point(8, 218);
+            chartArea1.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend1);
+            this.chart_summary.Location = new System.Drawing.Point(21, 219);
             this.chart_summary.Name = "chart_summary";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series2.Legend = "Legend1";
-            series2.Name = "DataSeries";
-            this.chart_summary.Series.Add(series2);
-            this.chart_summary.Size = new System.Drawing.Size(249, 169);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series1.Legend = "Legend1";
+            series1.Name = "DataSeries";
+            this.chart_summary.Series.Add(series1);
+            this.chart_summary.Size = new System.Drawing.Size(548, 203);
             this.chart_summary.TabIndex = 35;
-            // 
-            // label_total
-            // 
-            this.label_total.AutoSize = true;
-            this.label_total.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_total.Location = new System.Drawing.Point(194, 326);
-            this.label_total.Name = "label_total";
-            this.label_total.Size = new System.Drawing.Size(47, 17);
-            this.label_total.TabIndex = 36;
-            this.label_total.Text = "Total : ";
             // 
             // Button_add
             // 
@@ -153,11 +148,42 @@
             this.Button_add.FillColor = System.Drawing.Color.Transparent;
             this.Button_add.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
             this.Button_add.ForeColor = System.Drawing.Color.Black;
-            this.Button_add.Location = new System.Drawing.Point(8, 402);
+            this.Button_add.Location = new System.Drawing.Point(21, 428);
             this.Button_add.Name = "Button_add";
             this.Button_add.Size = new System.Drawing.Size(119, 25);
             this.Button_add.TabIndex = 59;
             this.Button_add.Text = "Show More";
+            // 
+            // label_rec_trns
+            // 
+            this.label_rec_trns.AutoSize = true;
+            this.label_rec_trns.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_rec_trns.Location = new System.Drawing.Point(16, 482);
+            this.label_rec_trns.Name = "label_rec_trns";
+            this.label_rec_trns.Size = new System.Drawing.Size(177, 28);
+            this.label_rec_trns.TabIndex = 60;
+            this.label_rec_trns.Text = "Recent Expenses";
+            // 
+            // chart_rec_exp
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend2);
+            this.chart_rec_exp.Location = new System.Drawing.Point(21, 527);
+            this.chart_rec_exp.Name = "chart_rec_exp";
+            this.chart_rec_exp.Size = new System.Drawing.Size(435, 116);
+            this.chart_rec_exp.TabIndex = 61;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(18, 203);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "LAST 30 DAYS";
             // 
             // StartPageForm
             // 
@@ -165,8 +191,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(581, 750);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.chart_rec_exp);
+            this.Controls.Add(this.label_rec_trns);
             this.Controls.Add(this.Button_add);
-            this.Controls.Add(this.label_total);
             this.Controls.Add(this.chart_summary);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.flowLayoutPanel_account);
@@ -181,6 +209,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +225,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_account;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_summary;
-        private System.Windows.Forms.Label label_total;
         private Guna.UI2.WinForms.Guna2TileButton Button_add;
+        private System.Windows.Forms.Label label_rec_trns;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_rec_exp;
+        private System.Windows.Forms.Label label4;
     }
 }
