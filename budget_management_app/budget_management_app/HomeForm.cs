@@ -5,11 +5,14 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using static Guna.UI2.Native.WinApi;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static TheArtOfDevHtmlRenderer.Adapters.RGraphicsPath;
 
 namespace budget_management_app
 {
@@ -179,32 +182,14 @@ namespace budget_management_app
         // Adding data about the last 7 transactions flowLayoutPanel_top7
         private void getRecTrns()
         {
-            string selectQuery = "SELECT Acc.AccName, Cat.CatName, ";
-            selectQuery += "CASE WHEN Inc.InAmount IS NOT NULL THEN CONCAT('+', Inc.InAmount) ";
-            selectQuery += "WHEN Sav.SavAmount IS NOT NULL THEN CONCAT('+', Sav.SavAmount) ";
-            selectQuery += "WHEN Exp.ExpAmount IS NOT NULL THEN CONCAT('-', Exp.ExpAmount) ";
-            selectQuery += "END AS Amount, ";
-            selectQuery += "CASE WHEN Inc.InDate IS NOT NULL THEN Inc.InDate ";
-            selectQuery += "WHEN Sav.SavDate IS NOT NULL THEN Sav.SavDate ";
-            selectQuery += "WHEN Exp.ExpDate IS NOT NULL THEN Exp.ExpDate ";
-            selectQuery += "END AS Date ";
-            selectQuery += "FROM Income Inc ";
-            selectQuery += "LEFT JOIN Account Acc ON Acc.AccId = Inc.AccId ";
-            selectQuery += "LEFT JOIN Category Cat ON Cat.CatId = Inc.CatId ";
-            selectQuery += "WHERE Inc.UserId = " + LoginForm.userId + " ";
-            selectQuery += "UNION ALL ";
-            selectQuery += "SELECT Acc.AccName, Cat.CatName, CONCAT('-', Exp.ExpAmount) AS Amount, Exp.ExpDate AS Date ";
-            selectQuery += "FROM Expenses Exp ";
-            selectQuery += "LEFT JOIN Account Acc ON Acc.AccId = Exp.AccId ";
-            selectQuery += "LEFT JOIN Category Cat ON Cat.CatId = Exp.CatId ";
-            selectQuery += "WHERE Exp.UserId = " + LoginForm.userId + " ";
-            selectQuery += "UNION ALL ";
-            selectQuery += "SELECT Acc.AccName, Cat.CatName, CONCAT('+', Sav.SavAmount) AS Amount, Sav.SavDate AS Date ";
-            selectQuery += "FROM Savings Sav ";
-            selectQuery += "LEFT JOIN Account Acc ON Acc.AccId = Sav.AccId ";
-            selectQuery += "LEFT JOIN Category Cat ON Cat.CatId = Sav.CatId ";
-            selectQuery += "WHERE Sav.UserId = " + LoginForm.userId + " ";
-            selectQuery += "ORDER BY Date ASC ";
+            string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM ( SELECT  Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount,  Income.InDate AS DateTrns" + 
+                " FROM Income JOIN Account ON Account.AccId = Income.AccId JOIN Category ON Category.CatId = Income.CatId" + 
+                " WHERE Income.UserId = " + LoginForm.userId + 
+                " UNION ALL SELECT  Account.AccName, Category.CatName,  '+' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, Savings.SavDate AS DateTrns" + 
+                " FROM Savings JOIN Account ON Account.AccId = Savings.AccId  JOIN Category ON Category.CatId = Savings.CatId WHERE  Savings.UserId = " + LoginForm.userId + 
+                " UNION ALL  SELECT  Account.AccName,  Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, Expenses.ExpDate AS DateTrns" + 
+                "  FROM  Expenses   JOIN Account ON Account.AccId = Expenses.AccId JOIN Category ON Category.CatId = Expenses.CatId WHERE Expenses.UserId = " + LoginForm.userId + 
+                " ) AS CombinedData ORDER BY DateTrns DESC";
 
 
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
@@ -213,17 +198,16 @@ namespace budget_management_app
             DataTable table = new DataTable();
             adapter.Fill(table);
 
-            DataTable top7 = table.AsEnumerable().Take(7).CopyToDataTable();
 
-            foreach (DataRow row in top7.Rows)
+            foreach (DataRow row in table.Rows)
             {
                 string accName = row["AccName"].ToString();
                 string catName = row["CatName"].ToString();
                 string amount = row["Amount"].ToString();
-                string date = row["Date"].ToString();
+                string date = row["DateTrns"].ToString();
 
 
-                string labelText = row["CatName"].ToString().Trim() + "              " + row["Amount"].ToString() + "\n" + row["AccName"].ToString().Trim() + "              " + row["Date"].ToString();
+                string labelText = catName.Trim() + "              " + amount + "\n" + accName.Trim() + "              " + date;
 
                 Label label = new Label();
                 label.Text = labelText;
