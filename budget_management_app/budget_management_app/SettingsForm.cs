@@ -16,5 +16,10 @@ namespace budget_management_app
         {
             InitializeComponent();
         }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
