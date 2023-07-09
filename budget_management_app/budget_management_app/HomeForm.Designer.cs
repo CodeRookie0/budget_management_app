@@ -54,6 +54,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel_Sidebar = new System.Windows.Forms.Panel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox_menu = new System.Windows.Forms.PictureBox();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.button_logout = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@
             this.button_trns = new System.Windows.Forms.Button();
             this.button_home = new System.Windows.Forms.Button();
             this.sidebar_timer = new System.Windows.Forms.Timer(this.components);
-            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).BeginInit();
@@ -96,6 +96,9 @@
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 37;
             this.label_exit.Text = "X";
+            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
+            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
+            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
             // 
             // label2
             // 
@@ -309,16 +312,28 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(218, 119);
             this.guna2GradientPanel1.TabIndex = 69;
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(50, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(130, 46);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "Menu";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox_menu
             // 
             this.pictureBox_menu.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
-            this.pictureBox_menu.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox_menu.Location = new System.Drawing.Point(2, 0);
             this.pictureBox_menu.Name = "pictureBox_menu";
-            this.pictureBox_menu.Size = new System.Drawing.Size(54, 46);
+            this.pictureBox_menu.Size = new System.Drawing.Size(52, 46);
             this.pictureBox_menu.TabIndex = 67;
             this.pictureBox_menu.TabStop = false;
-            
+            this.pictureBox_menu.Click += new System.EventHandler(this.pictureBox_menu_Click_1);
             // 
             // guna2GradientPanel2
             // 
@@ -348,6 +363,9 @@
             this.button_logout.TabIndex = 69;
             this.button_logout.Text = "       LOGOUT";
             this.button_logout.UseVisualStyleBackColor = false;
+            this.button_logout.Click += new System.EventHandler(this.button_logout_Click);
+            this.button_logout.MouseEnter += new System.EventHandler(this.button_logout_MouseEnter);
+            this.button_logout.MouseLeave += new System.EventHandler(this.button_logout_MouseLeave);
             // 
             // button_settings
             // 
@@ -365,7 +383,7 @@
             this.button_settings.Text = "           Settings";
             this.button_settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_settings.UseVisualStyleBackColor = false;
-            this.button_settings.Click += new System.EventHandler(this.button1_Click);
+            this.button_settings.Click += new System.EventHandler(this.button_settings_Click);
             // 
             // button_acc
             // 
@@ -480,19 +498,7 @@
             this.sidebar_timer.Interval = 10;
             this.sidebar_timer.Tick += new System.EventHandler(this.sidebar_timer_Tick);
             // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(50, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 46);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "Menu";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // StartPageForm
+            // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -503,7 +509,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "StartPageForm";
+            this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StartPageForm";
             this.Load += new System.EventHandler(this.StartPageForm_Load);

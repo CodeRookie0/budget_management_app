@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static Guna.UI2.Native.WinApi;
 
 namespace budget_management_app
 {
@@ -28,7 +29,6 @@ namespace budget_management_app
             getTableAcc();
             getDataSum();
             get7DaysRecExp();
-            getRecTrns()
         }
 
         // Adding account data to flowLayoutPanel_account
@@ -235,7 +235,7 @@ namespace budget_management_app
 
 
         // Animations for the sidebar
-        private void pictureBox_menu_Click(object sender, EventArgs e)
+        private void pictureBox_menu_Click_1(object sender, EventArgs e)
         {
             sidebar_timer.Start();
         }
@@ -268,22 +268,30 @@ namespace budget_management_app
         // Side bar button functionality
         private void button_home_Click(object sender, EventArgs e)
         {
-           
+            HomeForm home=new HomeForm();
+            home.Show();
+            this.Hide();
         }
 
         private void button_acc_Click(object sender, EventArgs e)
         {
-
+            AccountForm acc=new AccountForm();
+            acc.Show();
+            this.Hide();
         }
 
         private void button_trns_Click(object sender, EventArgs e)
         {
-
+            TransactionForm trns=new TransactionForm();
+            trns.Show();
+            this.Hide();
         }
 
         private void button_cat_Click(object sender, EventArgs e)
         {
-
+            CategoriesForm categories=new CategoriesForm();
+            categories.Show();
+            this.Hide();
         }
 
         private void button_lim_Click(object sender, EventArgs e)
@@ -296,9 +304,50 @@ namespace budget_management_app
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_settings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                LoginForm login=new LoginForm();
+                login.Show();
+                this.Hide();
+            }
+        }
+
+        private void label_exit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to leave the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void label_exit_MouseEnter(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+        }
+
+        private void label_exit_MouseLeave(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.White;
+        }
+
+        private void button_logout_MouseEnter(object sender, EventArgs e)
+        {
+            button_logout.BackColor = Color.FromArgb(143, 157, 118);
+        }
+
+        private void button_logout_MouseLeave(object sender, EventArgs e)
+        {
+            button_logout.BackColor = Color.Transparent;
         }
     }
 }
