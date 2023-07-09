@@ -47,7 +47,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_changePasswd2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label_delete_acc = new System.Windows.Forms.Label();
+            this.Button_commit = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,11 +165,14 @@
             this.Button_change_passwd.FillColor = System.Drawing.Color.Transparent;
             this.Button_change_passwd.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
             this.Button_change_passwd.ForeColor = System.Drawing.Color.Black;
-            this.Button_change_passwd.Location = new System.Drawing.Point(206, 596);
+            this.Button_change_passwd.Location = new System.Drawing.Point(400, 549);
             this.Button_change_passwd.Name = "Button_change_passwd";
             this.Button_change_passwd.Size = new System.Drawing.Size(168, 30);
             this.Button_change_passwd.TabIndex = 60;
             this.Button_change_passwd.Text = "Change Password";
+            this.Button_change_passwd.Click += new System.EventHandler(this.Button_change_passwd_Click);
+            this.Button_change_passwd.MouseEnter += new System.EventHandler(this.Button_change_passwd_MouseEnter);
+            this.Button_change_passwd.MouseLeave += new System.EventHandler(this.Button_change_passwd_MouseLeave);
             // 
             // Button_logout
             // 
@@ -181,18 +185,21 @@
             this.Button_logout.FillColor = System.Drawing.Color.Transparent;
             this.Button_logout.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold);
             this.Button_logout.ForeColor = System.Drawing.Color.Black;
-            this.Button_logout.Location = new System.Drawing.Point(165, 268);
+            this.Button_logout.Location = new System.Drawing.Point(165, 634);
             this.Button_logout.Name = "Button_logout";
             this.Button_logout.Size = new System.Drawing.Size(250, 41);
             this.Button_logout.TabIndex = 62;
             this.Button_logout.Text = "LOGOUT";
+            this.Button_logout.Click += new System.EventHandler(this.Button_logout_Click);
+            this.Button_logout.MouseEnter += new System.EventHandler(this.Button_logout_MouseEnter);
+            this.Button_logout.MouseLeave += new System.EventHandler(this.Button_logout_MouseLeave);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(12, 356);
+            this.label4.Location = new System.Drawing.Point(13, 324);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(196, 28);
             this.label4.TabIndex = 63;
@@ -202,7 +209,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(219, 457);
+            this.label8.Location = new System.Drawing.Point(220, 425);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(337, 13);
             this.label8.TabIndex = 65;
@@ -212,7 +219,7 @@
             // 
             this.textBox_changePasswd1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_changePasswd1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_changePasswd1.Location = new System.Drawing.Point(219, 430);
+            this.textBox_changePasswd1.Location = new System.Drawing.Point(220, 398);
             this.textBox_changePasswd1.Name = "textBox_changePasswd1";
             this.textBox_changePasswd1.Size = new System.Drawing.Size(348, 22);
             this.textBox_changePasswd1.TabIndex = 64;
@@ -223,7 +230,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(22, 425);
+            this.label6.Location = new System.Drawing.Point(23, 393);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 28);
             this.label6.TabIndex = 69;
@@ -234,7 +241,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(22, 509);
+            this.label9.Location = new System.Drawing.Point(23, 477);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(167, 28);
             this.label9.TabIndex = 70;
@@ -244,7 +251,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(219, 536);
+            this.label7.Location = new System.Drawing.Point(220, 504);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(337, 13);
             this.label7.TabIndex = 72;
@@ -254,22 +261,43 @@
             // 
             this.textBox_changePasswd2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox_changePasswd2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_changePasswd2.Location = new System.Drawing.Point(219, 509);
+            this.textBox_changePasswd2.Location = new System.Drawing.Point(220, 477);
             this.textBox_changePasswd2.Name = "textBox_changePasswd2";
             this.textBox_changePasswd2.Size = new System.Drawing.Size(348, 22);
             this.textBox_changePasswd2.TabIndex = 71;
             this.textBox_changePasswd2.UseSystemPasswordChar = true;
             // 
-            // label10
+            // label_delete_acc
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(218, 679);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(135, 20);
-            this.label10.TabIndex = 73;
-            this.label10.Text = "DELETE ACCOUNT";
+            this.label_delete_acc.AutoSize = true;
+            this.label_delete_acc.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_delete_acc.ForeColor = System.Drawing.Color.Red;
+            this.label_delete_acc.Location = new System.Drawing.Point(223, 692);
+            this.label_delete_acc.Name = "label_delete_acc";
+            this.label_delete_acc.Size = new System.Drawing.Size(135, 20);
+            this.label_delete_acc.TabIndex = 73;
+            this.label_delete_acc.Text = "DELETE ACCOUNT";
+            this.label_delete_acc.Click += new System.EventHandler(this.label_delete_acc_Click);
+            // 
+            // Button_commit
+            // 
+            this.Button_commit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
+            this.Button_commit.BorderThickness = 1;
+            this.Button_commit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_commit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_commit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_commit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_commit.FillColor = System.Drawing.Color.Transparent;
+            this.Button_commit.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            this.Button_commit.ForeColor = System.Drawing.Color.Black;
+            this.Button_commit.Location = new System.Drawing.Point(400, 244);
+            this.Button_commit.Name = "Button_commit";
+            this.Button_commit.Size = new System.Drawing.Size(168, 30);
+            this.Button_commit.TabIndex = 74;
+            this.Button_commit.Text = "Commit Changes";
+            this.Button_commit.Click += new System.EventHandler(this.Button_commit_Click);
+            this.Button_commit.MouseEnter += new System.EventHandler(this.Button_commit_MouseEnter);
+            this.Button_commit.MouseLeave += new System.EventHandler(this.Button_commit_MouseLeave);
             // 
             // SettingsForm
             // 
@@ -277,7 +305,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 750);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.Button_commit);
+            this.Controls.Add(this.label_delete_acc);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox_changePasswd2);
             this.Controls.Add(this.label9);
@@ -327,6 +356,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_changePasswd2;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label_delete_acc;
+        private Guna.UI2.WinForms.Guna2TileButton Button_commit;
     }
 }
