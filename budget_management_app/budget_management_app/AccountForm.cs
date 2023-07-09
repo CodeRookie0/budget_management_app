@@ -12,9 +12,15 @@ namespace budget_management_app
 {
     public partial class AccountForm : Form
     {
+        DBConnection dbcon=new DBConnection();
         public AccountForm()
         {
             InitializeComponent();
+        }
+
+        private void AccountForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

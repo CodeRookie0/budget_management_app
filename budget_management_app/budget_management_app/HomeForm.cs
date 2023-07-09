@@ -29,6 +29,7 @@ namespace budget_management_app
             getTableAcc();
             getDataSum();
             get7DaysRecExp();
+            getRecTrns();
         }
 
         // Adding account data to flowLayoutPanel_account
