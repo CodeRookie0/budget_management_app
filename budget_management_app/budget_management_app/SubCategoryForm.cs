@@ -67,6 +67,7 @@ namespace budget_management_app
                 this.Hide();
             }
         }
+
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)
         {
