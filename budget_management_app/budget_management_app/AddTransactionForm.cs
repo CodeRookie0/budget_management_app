@@ -60,7 +60,7 @@ namespace budget_management_app
         //Exit from AddTransactionForm
         private void label_exit_Click(object sender, EventArgs e)
         {
-            StartPageForm start = new StartPageForm();
+            HomeForm start = new HomeForm();
             start.Show();
             this.Hide();
         }
@@ -84,7 +84,7 @@ namespace budget_management_app
         private void button_category_Click(object sender, EventArgs e)
         {
             CategoriesForm cat=new CategoriesForm();
-            StartPageForm.lastForm = "AddTransactionForm";
+            HomeForm.lastForm = "AddTransactionForm";
             cat.Show();
         }
 

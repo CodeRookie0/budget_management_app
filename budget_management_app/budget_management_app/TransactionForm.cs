@@ -80,7 +80,7 @@ namespace budget_management_app
         //Exit from TransactionForm
         private void label_exit_Click(object sender, EventArgs e)
         {
-            StartPageForm start = new StartPageForm();
+            HomeForm start = new HomeForm();
             start.Show();
             this.Hide();
         }

@@ -41,7 +41,7 @@ namespace budget_management_app
                     if (table.Rows.Count > 0)
                     {
                         userId = Convert.ToInt32(table.Rows[0]["UserId"]);
-                        StartPageForm start = new StartPageForm();
+                        HomeForm start = new HomeForm();
                         start.Show();
                         this.Hide();
                     }

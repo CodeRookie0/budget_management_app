@@ -12,12 +12,12 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace budget_management_app
 {
-    public partial class StartPageForm : Form
+    public partial class HomeForm : Form
     {
         DBConnection dbcon=new DBConnection();
         public static string lastForm;
         bool sidebarExpand;
-        public StartPageForm()
+        public HomeForm()
         {
             InitializeComponent();
             panel_Sidebar.Visible = true;
@@ -28,7 +28,10 @@ namespace budget_management_app
             getTableAcc();
             getDataSum();
             get7DaysRecExp();
+            getRecTrns()
         }
+
+        // Adding account data to flowLayoutPanel_account
         private void getTableAcc()
         {
             string selectQuerry = "SELECT AccName,AccBalance,Currency.CurrCode FROM Account JOIN Currency ON Account.AccCurrId = Currency.CurrId WHERE UserId=" + LoginForm.userId;
@@ -59,6 +62,9 @@ namespace budget_management_app
 
             dbcon.CloseCon();
         }
+
+
+        // Adding transaction data for the last month to chart_summary
         private void getDataSum()
         {
             try
@@ -125,6 +131,8 @@ namespace budget_management_app
                 MessageBox.Show(ex.Message);
             }
         }
+
+        // Adding data about last week's transactions to chart_rec_exp
         private void get7DaysRecExp()
         {
             string selectQuery = "SELECT ExpDate, ExpAmount FROM Expenses WHERE ExpDate >= DATEADD(day, -6, GETDATE()) AND UserId="+LoginForm.userId;
@@ -166,6 +174,8 @@ namespace budget_management_app
             // Dodanie serii do wykresu
             chart_rec_exp.Series.Add(series);
         }
+
+        // Adding data about the last 7 transactions flowLayoutPanel_top7
         private void getRecTrns()
         {
             string selectQuery = "SELECT Acc.AccName, Cat.CatName, ";
@@ -223,14 +233,11 @@ namespace budget_management_app
             dbcon.CloseCon();
         }
 
+
+        // Animations for the sidebar
         private void pictureBox_menu_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox_menu_MouseEnter(object sender, EventArgs e)
-        {
-            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+            sidebar_timer.Start();
         }
 
         private void sidebar_timer_Tick(object sender, EventArgs e)
@@ -256,9 +263,42 @@ namespace budget_management_app
 
         }
 
-        private void pictureBox_menu_Click_1(object sender, EventArgs e)
+
+
+        // Side bar button functionality
+        private void button_home_Click(object sender, EventArgs e)
         {
-            sidebar_timer.Start();
+           
+        }
+
+        private void button_acc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_trns_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_cat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_lim_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_stat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

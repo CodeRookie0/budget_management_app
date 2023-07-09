@@ -1,6 +1,6 @@
 ﻿namespace budget_management_app
 {
-    partial class StartPageForm
+    partial class HomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartPageForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.pictureBox_menu = new System.Windows.Forms.PictureBox();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.button_logout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_settings = new System.Windows.Forms.Button();
             this.button_acc = new System.Windows.Forms.Button();
             this.button_lim = new System.Windows.Forms.Button();
             this.button_cat = new System.Windows.Forms.Button();
@@ -147,18 +147,18 @@
             // 
             // chart_summary
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend3);
             this.chart_summary.Location = new System.Drawing.Point(8, 176);
             this.chart_summary.Name = "chart_summary";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series1.Legend = "Legend1";
-            series1.Name = "DataSeries";
-            this.chart_summary.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series2.Legend = "Legend1";
+            series2.Name = "DataSeries";
+            this.chart_summary.Series.Add(series2);
             this.chart_summary.Size = new System.Drawing.Size(459, 203);
             this.chart_summary.TabIndex = 35;
             // 
@@ -191,10 +191,10 @@
             // 
             // chart_rec_exp
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend4);
             this.chart_rec_exp.Location = new System.Drawing.Point(8, 484);
             this.chart_rec_exp.Name = "chart_rec_exp";
             this.chart_rec_exp.Size = new System.Drawing.Size(459, 116);
@@ -281,7 +281,7 @@
             this.panel_Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
             this.panel_Sidebar.Controls.Add(this.guna2GradientPanel1);
             this.panel_Sidebar.Controls.Add(this.guna2GradientPanel2);
-            this.panel_Sidebar.Controls.Add(this.button1);
+            this.panel_Sidebar.Controls.Add(this.button_settings);
             this.panel_Sidebar.Controls.Add(this.button_acc);
             this.panel_Sidebar.Controls.Add(this.button_lim);
             this.panel_Sidebar.Controls.Add(this.button_cat);
@@ -318,7 +318,7 @@
             this.pictureBox_menu.Size = new System.Drawing.Size(54, 46);
             this.pictureBox_menu.TabIndex = 67;
             this.pictureBox_menu.TabStop = false;
-            this.pictureBox_menu.Click += new System.EventHandler(this.pictureBox_menu_Click_1);
+            
             // 
             // guna2GradientPanel2
             // 
@@ -349,22 +349,23 @@
             this.button_logout.Text = "       LOGOUT";
             this.button_logout.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // button_settings
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 36);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "           Settings";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_settings.FlatAppearance.BorderSize = 0;
+            this.button_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_settings.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.button_settings.ForeColor = System.Drawing.Color.White;
+            this.button_settings.Image = ((System.Drawing.Image)(resources.GetObject("button_settings.Image")));
+            this.button_settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_settings.Location = new System.Drawing.Point(0, 491);
+            this.button_settings.Name = "button_settings";
+            this.button_settings.Size = new System.Drawing.Size(216, 36);
+            this.button_settings.TabIndex = 81;
+            this.button_settings.Text = "           Settings";
+            this.button_settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_settings.UseVisualStyleBackColor = false;
+            this.button_settings.Click += new System.EventHandler(this.button1_Click);
             // 
             // button_acc
             // 
@@ -382,6 +383,7 @@
             this.button_acc.Text = "             Accounts";
             this.button_acc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_acc.UseVisualStyleBackColor = false;
+            this.button_acc.Click += new System.EventHandler(this.button_acc_Click);
             // 
             // button_lim
             // 
@@ -399,6 +401,7 @@
             this.button_lim.Text = "           Limits";
             this.button_lim.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_lim.UseVisualStyleBackColor = false;
+            this.button_lim.Click += new System.EventHandler(this.button_lim_Click);
             // 
             // button_cat
             // 
@@ -416,6 +419,7 @@
             this.button_cat.Text = "           Categories";
             this.button_cat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_cat.UseVisualStyleBackColor = false;
+            this.button_cat.Click += new System.EventHandler(this.button_cat_Click);
             // 
             // button_stat
             // 
@@ -433,6 +437,7 @@
             this.button_stat.Text = "           Statistics";
             this.button_stat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_stat.UseVisualStyleBackColor = false;
+            this.button_stat.Click += new System.EventHandler(this.button_stat_Click);
             // 
             // button_trns
             // 
@@ -450,6 +455,7 @@
             this.button_trns.Text = "             Transactions";
             this.button_trns.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_trns.UseVisualStyleBackColor = false;
+            this.button_trns.Click += new System.EventHandler(this.button_trns_Click);
             // 
             // button_home
             // 
@@ -467,6 +473,7 @@
             this.button_home.Text = "             HOME";
             this.button_home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_home.UseVisualStyleBackColor = false;
+            this.button_home.Click += new System.EventHandler(this.button_home_Click);
             // 
             // sidebar_timer
             // 
@@ -538,7 +545,7 @@
         private System.Windows.Forms.PictureBox pictureBox_menu;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private System.Windows.Forms.Button button_logout;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_settings;
         private System.Windows.Forms.Button button_acc;
         private System.Windows.Forms.Button button_lim;
         private System.Windows.Forms.Button button_cat;

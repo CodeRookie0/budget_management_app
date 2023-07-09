@@ -118,27 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox_menu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAFVJREFUaEPt1skNgAAIBEBKt3PUxCdvBZxJtoB9cAQAn8jMY0PuIiso0s2qIuXw
-        TMuzuwDg56orOTGexm4U6WbPsAMAl+pKToynsRtFutkz7AC8L+IEKzFt4BgwW8gAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button_logout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAbpJREFUWEftmL0uBGEUhgcRK6GjkMiKTlRavYZOpXcP3ACFC9D7CSJUoqJRUXEF
-        JEisn4aEbKP5PGfO2U02O9/MyM7MLtkneYr5vnfeORIzuztBFM65STzED8wS6TvACbtUPBLEN8yTVyzb
-        Jf0Q2g3jyi0e41EGSo/01di2S/oh9KJZd48DtpwJ0ocPUg4VW/ZDqKpZd25LmSK9Wu+qtuRHQprtDtOI
-        hDT7T4bh3F6cwz5bqsOa3FlCYcMsaYU7xSFbDuF4GM+wsGFWtCLkBsdsK4Tjfty0Qz+EshhmVSvqVHDG
-        ttPDSXkMI3zhgkXSwQmxw7A+jeu4EeMFRvGNy1aVDOGkYa51uyXkj+mxSj+EkoZ51O2WkVt80GqjIVDU
-        MMIVjlp1M2wWOYxwYtXNsFnkMJc4YtXNsFnk/0zJaqMhkDRMR91NU7iGUc+XmsU8Z9LAuVFP4E+ct0g6
-        OCGPYZ6wbZ9NHfWpvagVHfB9RuD8WWz/N704pFfru8M0Ir1a/weHedZsLr+1S/ir39o7mg25wyzfQkhf
-        jS27pB9CZZT3J3kibzrG7ZLxEJQXRvv4jlkifXsY8aIoCH4AT4TB/aelQncAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button_settings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DQAACw0B7QfALAAAApNJREFUWEfdmMtqFEEUhsdgkicw8QHiXaMRjCSavWBwbVyrr+BOhChRg7eVEYSI
@@ -260,6 +240,26 @@
         NvFZXQPkBTds5W8oDuM2fmAR6OO/h6MWIYaDKTzFMjjHmU4QfQfc4xuWgfZqf01h9KW0j2tYBtqr/dXo
         6Qje1FUpgbpF+EaHca1wfBgX/yuMfn03U1Q9K7nDNK0tEdXja5nwYVz4MC58GBc+jAsfxkVimArqX4W7
         DDasLRHVf9x3qX0Va/M4CIIvOajn+Tmy7+oAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox_menu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAFVJREFUaEPt1skNgAAIBEBKt3PUxCdvBZxJtoB9cAQAn8jMY0PuIiso0s2qIuXw
+        TMuzuwDg56orOTGexm4U6WbPsAMAl+pKToynsRtFutkz7AC8L+IEKzFt4BgwW8gAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button_logout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DgAACw4BQL7hQQAAAbpJREFUWEftmL0uBGEUhgcRK6GjkMiKTlRavYZOpXcP3ACFC9D7CSJUoqJRUXEF
+        JEisn4aEbKP5PGfO2U02O9/MyM7MLtkneYr5vnfeORIzuztBFM65STzED8wS6TvACbtUPBLEN8yTVyzb
+        Jf0Q2g3jyi0e41EGSo/01di2S/oh9KJZd48DtpwJ0ocPUg4VW/ZDqKpZd25LmSK9Wu+qtuRHQprtDtOI
+        hDT7T4bh3F6cwz5bqsOa3FlCYcMsaYU7xSFbDuF4GM+wsGFWtCLkBsdsK4Tjfty0Qz+EshhmVSvqVHDG
+        ttPDSXkMI3zhgkXSwQmxw7A+jeu4EeMFRvGNy1aVDOGkYa51uyXkj+mxSj+EkoZ51O2WkVt80GqjIVDU
+        MMIVjlp1M2wWOYxwYtXNsFnkMJc4YtXNsFnk/0zJaqMhkDRMR91NU7iGUc+XmsU8Z9LAuVFP4E+ct0g6
+        OCGPYZ6wbZ9NHfWpvagVHfB9RuD8WWz/N704pFfru8M0Ir1a/weHedZsLr+1S/ir39o7mg25wyzfQkhf
+        jS27pB9CZZT3J3kibzrG7ZLxEJQXRvv4jlkifXsY8aIoCH4AT4TB/aelQncAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="sidebar_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

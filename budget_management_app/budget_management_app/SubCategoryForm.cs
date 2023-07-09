@@ -54,7 +54,7 @@ namespace budget_management_app
         //Exit from SubCategoryForm
         private void label_exit_Click(object sender, EventArgs e)
         {
-            if (StartPageForm.lastForm == "AddTransactionForm")
+            if (HomeForm.lastForm == "AddTransactionForm")
             {
                 AddTransactionForm trns = new AddTransactionForm();
                 trns.Show();
@@ -100,7 +100,7 @@ namespace budget_management_app
 
         private void DataGridView_selectedCat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (StartPageForm.lastForm == "AddTransactionForm")
+            if (HomeForm.lastForm == "AddTransactionForm")
             {
                 this.Hide();
             }
@@ -108,12 +108,12 @@ namespace budget_management_app
 
         private void DataGridView_subcat_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (StartPageForm.lastForm == "AddTransactionForm")
+            if (HomeForm.lastForm == "AddTransactionForm")
             {
                 selectedSubCat = DataGridView_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
                 this.Hide();
             }
-            StartPageForm.lastForm = "";
+            HomeForm.lastForm = "";
         }
     }
 }
