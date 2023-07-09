@@ -105,6 +105,13 @@ namespace budget_management_app
             {
                 this.Hide();
             }
+            else
+            {
+                CategoriesForm cat=new CategoriesForm();
+                cat.Show();
+                this.Hide();
+            }
+            HomeForm.lastForm = "";
         }
 
         private void DataGridView_subcat_CellContentClick(object sender, DataGridViewCellEventArgs e)
