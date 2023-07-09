@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartPageForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
@@ -51,23 +52,38 @@
             this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
             this.flowLayoutPanel_top7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel_Sidebar = new System.Windows.Forms.Panel();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pictureBox_menu = new System.Windows.Forms.PictureBox();
+            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.button_logout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button_acc = new System.Windows.Forms.Button();
+            this.button_lim = new System.Windows.Forms.Button();
+            this.button_cat = new System.Windows.Forms.Button();
+            this.button_stat = new System.Windows.Forms.Button();
+            this.button_trns = new System.Windows.Forms.Button();
+            this.button_home = new System.Windows.Forms.Button();
+            this.sidebar_timer = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).BeginInit();
             this.panel_main.SuspendLayout();
+            this.panel_Sidebar.SuspendLayout();
+            this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).BeginInit();
+            this.guna2GradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel2.Controls.Add(this.pictureBox_menu);
             this.panel2.Controls.Add(this.label_exit);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(58, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(583, 50);
+            this.panel2.Size = new System.Drawing.Size(524, 50);
             this.panel2.TabIndex = 30;
             // 
             // label_exit
@@ -75,7 +91,7 @@
             this.label_exit.AutoSize = true;
             this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
             this.label_exit.ForeColor = System.Drawing.Color.White;
-            this.label_exit.Location = new System.Drawing.Point(550, 0);
+            this.label_exit.Location = new System.Drawing.Point(491, 0);
             this.label_exit.Name = "label_exit";
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 37;
@@ -86,7 +102,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(250, 11);
+            this.label2.Location = new System.Drawing.Point(221, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 29);
             this.label2.TabIndex = 36;
@@ -95,9 +111,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel1.Location = new System.Drawing.Point(-1, 732);
+            this.panel1.Location = new System.Drawing.Point(58, 732);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 22);
+            this.panel1.Size = new System.Drawing.Size(524, 22);
             this.panel1.TabIndex = 31;
             // 
             // label1
@@ -116,7 +132,7 @@
             this.flowLayoutPanel_account.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.flowLayoutPanel_account.Location = new System.Drawing.Point(8, 42);
             this.flowLayoutPanel_account.Name = "flowLayoutPanel_account";
-            this.flowLayoutPanel_account.Size = new System.Drawing.Size(548, 75);
+            this.flowLayoutPanel_account.Size = new System.Drawing.Size(459, 75);
             this.flowLayoutPanel_account.TabIndex = 33;
             // 
             // label3
@@ -131,19 +147,19 @@
             // 
             // chart_summary
             // 
-            chartArea15.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea15);
-            legend15.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend15);
+            chartArea1.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend1);
             this.chart_summary.Location = new System.Drawing.Point(8, 176);
             this.chart_summary.Name = "chart_summary";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series8.Legend = "Legend1";
-            series8.Name = "DataSeries";
-            this.chart_summary.Series.Add(series8);
-            this.chart_summary.Size = new System.Drawing.Size(548, 203);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series1.Legend = "Legend1";
+            series1.Name = "DataSeries";
+            this.chart_summary.Series.Add(series1);
+            this.chart_summary.Size = new System.Drawing.Size(459, 203);
             this.chart_summary.TabIndex = 35;
             // 
             // Button_add
@@ -175,13 +191,13 @@
             // 
             // chart_rec_exp
             // 
-            chartArea16.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea16);
-            legend16.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend16);
+            chartArea2.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend2);
             this.chart_rec_exp.Location = new System.Drawing.Point(8, 484);
             this.chart_rec_exp.Name = "chart_rec_exp";
-            this.chart_rec_exp.Size = new System.Drawing.Size(435, 116);
+            this.chart_rec_exp.Size = new System.Drawing.Size(459, 116);
             this.chart_rec_exp.TabIndex = 61;
             // 
             // label4
@@ -209,16 +225,16 @@
             this.panel_main.Controls.Add(this.label_rec_trns);
             this.panel_main.Controls.Add(this.chart_summary);
             this.panel_main.Controls.Add(this.Button_add);
-            this.panel_main.Location = new System.Drawing.Point(0, 52);
+            this.panel_main.Location = new System.Drawing.Point(76, 52);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(582, 680);
+            this.panel_main.Size = new System.Drawing.Size(501, 680);
             this.panel_main.TabIndex = 63;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(506, 997);
+            this.label6.Location = new System.Drawing.Point(369, 997);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 28);
             this.label6.TabIndex = 65;
@@ -247,7 +263,7 @@
             this.flowLayoutPanel_top7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
             this.flowLayoutPanel_top7.Location = new System.Drawing.Point(8, 663);
             this.flowLayoutPanel_top7.Name = "flowLayoutPanel_top7";
-            this.flowLayoutPanel_top7.Size = new System.Drawing.Size(548, 288);
+            this.flowLayoutPanel_top7.Size = new System.Drawing.Size(459, 288);
             this.flowLayoutPanel_top7.TabIndex = 34;
             // 
             // label5
@@ -260,16 +276,214 @@
             this.label5.TabIndex = 63;
             this.label5.Text = "Recent Transactions";
             // 
+            // panel_Sidebar
+            // 
+            this.panel_Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.panel_Sidebar.Controls.Add(this.guna2GradientPanel1);
+            this.panel_Sidebar.Controls.Add(this.guna2GradientPanel2);
+            this.panel_Sidebar.Controls.Add(this.button1);
+            this.panel_Sidebar.Controls.Add(this.button_acc);
+            this.panel_Sidebar.Controls.Add(this.button_lim);
+            this.panel_Sidebar.Controls.Add(this.button_cat);
+            this.panel_Sidebar.Controls.Add(this.button_stat);
+            this.panel_Sidebar.Controls.Add(this.button_trns);
+            this.panel_Sidebar.Controls.Add(this.button_home);
+            this.panel_Sidebar.Location = new System.Drawing.Point(0, 0);
+            this.panel_Sidebar.MaximumSize = new System.Drawing.Size(218, 750);
+            this.panel_Sidebar.MinimumSize = new System.Drawing.Size(58, 750);
+            this.panel_Sidebar.Name = "panel_Sidebar";
+            this.panel_Sidebar.Size = new System.Drawing.Size(58, 750);
+            this.panel_Sidebar.TabIndex = 69;
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
+            this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2GradientPanel1.Controls.Add(this.label7);
+            this.guna2GradientPanel1.Controls.Add(this.pictureBox_menu);
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(218, 119);
+            this.guna2GradientPanel1.TabIndex = 69;
+            // 
             // pictureBox_menu
             // 
+            this.pictureBox_menu.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
-            this.pictureBox_menu.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox_menu.Location = new System.Drawing.Point(1, 0);
             this.pictureBox_menu.Name = "pictureBox_menu";
             this.pictureBox_menu.Size = new System.Drawing.Size(54, 46);
-            this.pictureBox_menu.TabIndex = 66;
+            this.pictureBox_menu.TabIndex = 67;
             this.pictureBox_menu.TabStop = false;
-            this.pictureBox_menu.Click += new System.EventHandler(this.pictureBox_menu_Click);
-            this.pictureBox_menu.MouseEnter += new System.EventHandler(this.pictureBox_menu_MouseEnter);
+            this.pictureBox_menu.Click += new System.EventHandler(this.pictureBox_menu_Click_1);
+            // 
+            // guna2GradientPanel2
+            // 
+            this.guna2GradientPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
+            this.guna2GradientPanel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2GradientPanel2.Controls.Add(this.button_logout);
+            this.guna2GradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 634);
+            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(218, 116);
+            this.guna2GradientPanel2.TabIndex = 70;
+            // 
+            // button_logout
+            // 
+            this.button_logout.BackColor = System.Drawing.Color.Transparent;
+            this.button_logout.FlatAppearance.BorderSize = 0;
+            this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_logout.Font = new System.Drawing.Font("Cambria", 18.75F, System.Drawing.FontStyle.Bold);
+            this.button_logout.ForeColor = System.Drawing.Color.White;
+            this.button_logout.Image = ((System.Drawing.Image)(resources.GetObject("button_logout.Image")));
+            this.button_logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_logout.Location = new System.Drawing.Point(0, 66);
+            this.button_logout.Name = "button_logout";
+            this.button_logout.Size = new System.Drawing.Size(218, 50);
+            this.button_logout.TabIndex = 69;
+            this.button_logout.Text = "       LOGOUT";
+            this.button_logout.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 491);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(216, 36);
+            this.button1.TabIndex = 81;
+            this.button1.Text = "           Settings";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button_acc
+            // 
+            this.button_acc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_acc.FlatAppearance.BorderSize = 0;
+            this.button_acc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_acc.Font = new System.Drawing.Font("Cambria", 16.25F, System.Drawing.FontStyle.Bold);
+            this.button_acc.ForeColor = System.Drawing.Color.White;
+            this.button_acc.Image = ((System.Drawing.Image)(resources.GetObject("button_acc.Image")));
+            this.button_acc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_acc.Location = new System.Drawing.Point(0, 186);
+            this.button_acc.Name = "button_acc";
+            this.button_acc.Size = new System.Drawing.Size(216, 36);
+            this.button_acc.TabIndex = 80;
+            this.button_acc.Text = "             Accounts";
+            this.button_acc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_acc.UseVisualStyleBackColor = false;
+            // 
+            // button_lim
+            // 
+            this.button_lim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_lim.FlatAppearance.BorderSize = 0;
+            this.button_lim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_lim.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.button_lim.ForeColor = System.Drawing.Color.White;
+            this.button_lim.Image = ((System.Drawing.Image)(resources.GetObject("button_lim.Image")));
+            this.button_lim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_lim.Location = new System.Drawing.Point(0, 369);
+            this.button_lim.Name = "button_lim";
+            this.button_lim.Size = new System.Drawing.Size(216, 36);
+            this.button_lim.TabIndex = 79;
+            this.button_lim.Text = "           Limits";
+            this.button_lim.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_lim.UseVisualStyleBackColor = false;
+            // 
+            // button_cat
+            // 
+            this.button_cat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_cat.FlatAppearance.BorderSize = 0;
+            this.button_cat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cat.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.button_cat.ForeColor = System.Drawing.Color.White;
+            this.button_cat.Image = ((System.Drawing.Image)(resources.GetObject("button_cat.Image")));
+            this.button_cat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cat.Location = new System.Drawing.Point(0, 308);
+            this.button_cat.Name = "button_cat";
+            this.button_cat.Size = new System.Drawing.Size(216, 36);
+            this.button_cat.TabIndex = 78;
+            this.button_cat.Text = "           Categories";
+            this.button_cat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cat.UseVisualStyleBackColor = false;
+            // 
+            // button_stat
+            // 
+            this.button_stat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_stat.FlatAppearance.BorderSize = 0;
+            this.button_stat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_stat.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.button_stat.ForeColor = System.Drawing.Color.White;
+            this.button_stat.Image = ((System.Drawing.Image)(resources.GetObject("button_stat.Image")));
+            this.button_stat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_stat.Location = new System.Drawing.Point(0, 430);
+            this.button_stat.Name = "button_stat";
+            this.button_stat.Size = new System.Drawing.Size(216, 36);
+            this.button_stat.TabIndex = 77;
+            this.button_stat.Text = "           Statistics";
+            this.button_stat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_stat.UseVisualStyleBackColor = false;
+            // 
+            // button_trns
+            // 
+            this.button_trns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_trns.FlatAppearance.BorderSize = 0;
+            this.button_trns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_trns.Font = new System.Drawing.Font("Cambria", 16.25F, System.Drawing.FontStyle.Bold);
+            this.button_trns.ForeColor = System.Drawing.Color.White;
+            this.button_trns.Image = ((System.Drawing.Image)(resources.GetObject("button_trns.Image")));
+            this.button_trns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_trns.Location = new System.Drawing.Point(0, 247);
+            this.button_trns.Name = "button_trns";
+            this.button_trns.Size = new System.Drawing.Size(216, 36);
+            this.button_trns.TabIndex = 76;
+            this.button_trns.Text = "             Transactions";
+            this.button_trns.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_trns.UseVisualStyleBackColor = false;
+            // 
+            // button_home
+            // 
+            this.button_home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button_home.FlatAppearance.BorderSize = 0;
+            this.button_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_home.Font = new System.Drawing.Font("Cambria", 16.25F, System.Drawing.FontStyle.Bold);
+            this.button_home.ForeColor = System.Drawing.Color.White;
+            this.button_home.Image = ((System.Drawing.Image)(resources.GetObject("button_home.Image")));
+            this.button_home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_home.Location = new System.Drawing.Point(0, 125);
+            this.button_home.Name = "button_home";
+            this.button_home.Size = new System.Drawing.Size(218, 36);
+            this.button_home.TabIndex = 74;
+            this.button_home.Text = "             HOME";
+            this.button_home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_home.UseVisualStyleBackColor = false;
+            // 
+            // sidebar_timer
+            // 
+            this.sidebar_timer.Interval = 10;
+            this.sidebar_timer.Tick += new System.EventHandler(this.sidebar_timer_Tick);
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(50, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(130, 46);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "Menu";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StartPageForm
             // 
@@ -277,6 +491,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 750);
+            this.Controls.Add(this.panel_Sidebar);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -291,7 +506,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
+            this.panel_Sidebar.ResumeLayout(false);
+            this.guna2GradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).EndInit();
+            this.guna2GradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -315,6 +533,19 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel_Sidebar;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.PictureBox pictureBox_menu;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
+        private System.Windows.Forms.Button button_logout;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_acc;
+        private System.Windows.Forms.Button button_lim;
+        private System.Windows.Forms.Button button_cat;
+        private System.Windows.Forms.Button button_stat;
+        private System.Windows.Forms.Button button_trns;
+        private System.Windows.Forms.Button button_home;
+        private System.Windows.Forms.Timer sidebar_timer;
+        private System.Windows.Forms.Label label7;
     }
 }

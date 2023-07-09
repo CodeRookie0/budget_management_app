@@ -16,9 +16,11 @@ namespace budget_management_app
     {
         DBConnection dbcon=new DBConnection();
         public static string lastForm;
+        bool sidebarExpand;
         public StartPageForm()
         {
             InitializeComponent();
+            panel_Sidebar.Visible = true;
         }
 
         private void StartPageForm_Load(object sender, EventArgs e)
@@ -26,7 +28,6 @@ namespace budget_management_app
             getTableAcc();
             getDataSum();
             get7DaysRecExp();
-            getRecTrns();
         }
         private void getTableAcc()
         {
@@ -230,6 +231,34 @@ namespace budget_management_app
         private void pictureBox_menu_MouseEnter(object sender, EventArgs e)
         {
             label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+        }
+
+        private void sidebar_timer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand) 
+            { 
+                panel_Sidebar.Width -= 10;
+                if (panel_Sidebar.Width == panel_Sidebar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebar_timer.Stop();
+                }
+            }
+            else
+            {
+                panel_Sidebar.Width += 10;
+                if (panel_Sidebar.Width == panel_Sidebar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebar_timer.Stop();
+                }
+            }
+
+        }
+
+        private void pictureBox_menu_Click_1(object sender, EventArgs e)
+        {
+            sidebar_timer.Start();
         }
     }
 }
