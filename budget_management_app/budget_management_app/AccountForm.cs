@@ -86,9 +86,8 @@ namespace budget_management_app
         private void DataGridView_acc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             accToUpdate= DataGridView_acc.SelectedRows[0].Cells[0].Value.ToString().Trim();
-            AddAccountForm addAcc = new AddAccountForm();
-            addAcc.Show();
-            this.Hide();
+            UpdateAccountForm updAcc = new UpdateAccountForm();
+            updAcc.Show();
         }
     }
 }

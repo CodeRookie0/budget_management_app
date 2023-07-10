@@ -53,9 +53,6 @@ namespace budget_management_app
                 button.Text = AccInfo.Trim();
                 button.AutoSize = true;
 
-///////        // Dodanie obsługi zdarzeń dla przycisku
-                
-
                 flowLayoutPanel_account.Controls.Add(button);
             }
             Button buttonAdd = new Button();
@@ -66,7 +63,6 @@ namespace budget_management_app
 
             dbcon.CloseCon();
         }
-
 
         // Adding transaction data for the last month to chart_summary
         private void getDataSum()

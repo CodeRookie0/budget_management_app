@@ -1,0 +1,165 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace budget_management_app
+{
+    public partial class UpdateAccountForm : Form
+    {
+        DBConnection dbcon=new DBConnection();
+        static string newCurrCode;
+        static int newAccCurrId;
+        static int accId;
+        public UpdateAccountForm()
+        {
+            InitializeComponent();
+            getData();
+            textBox_name.Text = AccountForm.accToUpdate;
+        }
+
+        private void getData()
+        {
+            string selectQuery = "SELECT AccId,AccCurrId, AccBalance FROM Account WHERE AccName = "+ AccountForm.accToUpdate;
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+
+            int accCurrId=0;
+            while (reader.Read())
+            {
+                accId = reader.GetInt32(0);
+                textBox_amount.Text = reader.GetDecimal(2).ToString();
+                accCurrId = reader.GetInt32(1);  
+            }
+            reader.Close();
+            string selectQueryCurr = "SELECT Currency.CurrId, Currency.CurrCode " +
+                     "FROM Account " +
+                     "JOIN Currency ON Account.AccCurrId = Currency.CurrId " +
+                     "WHERE Account.AccCurrId = "+ accCurrId;
+            SqlCommand commandCurr = new SqlCommand(selectQueryCurr, dbcon.GetCon());
+            SqlDataReader readerCurr = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ComboBox_currency.SelectedIndex = readerCurr.GetInt32(0);
+                label_currency.Text = readerCurr.GetString(1);
+            }
+            dbcon.CloseCon();
+        }
+
+        // Gets the currency code based on the selected currency name from the ComboBox_currency
+        public void getCurrCode()
+        {
+            string selectQuery = "SELECT CurrCode FROM Currency WHERE CurrName ='" + ComboBox_currency.SelectedItem.ToString() + "'";
+            SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            object result = comm.ExecuteScalar();
+            if (result != null)
+            {
+                newCurrCode = result.ToString();
+            }
+            dbcon.CloseCon();
+        }
+
+        private void label_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label_exit_MouseEnter(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+        }
+
+        private void label_exit_MouseLeave(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.White;
+        }
+
+        private void Button_add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal balance = 0.00m;
+    
+                if (string.IsNullOrEmpty(textBox_amount.Text))
+                {
+                    MessageBox.Show("Starting balance value is required.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (!decimal.TryParse(textBox_amount.Text.Replace('.', ','), out balance))
+                {
+                    MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    if (balance < 0m)
+                    {
+                        MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+    
+                if (string.IsNullOrEmpty(textBox_name.Text) || ComboBox_currency.SelectedItem == null)
+                {
+                    MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    // Update the account in the database
+                    string updateQuery = "UPDATE Account SET AccName = @AccName, AccBalance = @AccBalance, AccCurrId = @AccCurrId WHERE AccId = @AccId";
+                    SqlCommand command = new SqlCommand(updateQuery, dbcon.GetCon());
+                    dbcon.OpenCon();
+                    command.Parameters.AddWithValue("@AccName", textBox_name.Text);
+                    command.Parameters.AddWithValue("@AccBalance", balance);
+                    command.Parameters.AddWithValue("@AccCurrId", newAccCurrId);
+                    command.Parameters.AddWithValue("@AccId", accId);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Account Updated Successfully", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbcon.CloseCon();
+    
+                    AccountForm acc = new AccountForm();
+                    acc.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button_add_MouseEnter(object sender, EventArgs e)
+        {
+            Button_add.BackColor = Color.FromArgb(212, 163, 115);
+        }
+
+        private void Button_add_MouseLeave(object sender, EventArgs e)
+        {
+            Button_add.BackColor = Color.FromArgb(250, 237, 205);
+        }
+
+        private void ComboBox_currency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getCurrCode();
+            string selectQuery = "SELECT CurrId FROM Currency WHERE CurrName ='" + ComboBox_currency.SelectedItem.ToString() + "'";
+            SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            object result = comm.ExecuteScalar();
+            if (result != null)
+            {
+                newAccCurrId = Convert.ToInt32(result);
+            }
+            dbcon.CloseCon();
+        }
+    }
+}
