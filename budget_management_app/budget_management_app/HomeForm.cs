@@ -53,15 +53,32 @@ namespace budget_management_app
                 button.Text = AccInfo.Trim();
                 button.AutoSize = true;
 
+                button.Click += button_click;
+
                 flowLayoutPanel_account.Controls.Add(button);
             }
             Button buttonAdd = new Button();
             buttonAdd.Text = "Add New\nAccount";
             buttonAdd.AutoSize = true;
 
+            buttonAdd.Click += button_Add_click;
+
             flowLayoutPanel_account.Controls.Add(buttonAdd);
 
             dbcon.CloseCon();
+        }
+
+        private void button_click(object sender, EventArgs e)
+        {
+            AccountForm acc=new AccountForm();
+            acc.Show();
+            this.Close();
+        }
+        private void button_Add_click(object sender, EventArgs e)
+        {
+            AddAccountForm addAcc = new AddAccountForm();
+            addAcc.Show();
+            this.Close();
         }
 
         // Adding transaction data for the last month to chart_summary

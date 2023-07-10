@@ -20,13 +20,14 @@ namespace budget_management_app
         public UpdateAccountForm()
         {
             InitializeComponent();
+            getCurr();
             getData();
             textBox_name.Text = AccountForm.accToUpdate;
         }
 
         private void getData()
         {
-            string selectQuery = "SELECT AccId,AccCurrId, AccBalance FROM Account WHERE AccName = "+ AccountForm.accToUpdate;
+            string selectQuery = "SELECT AccId,AccCurrId, AccBalance,AccName FROM Account WHERE AccName = '"+ AccountForm.accToUpdate+"'";
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
             dbcon.OpenCon();
             SqlDataReader reader = command.ExecuteReader();
@@ -36,21 +37,34 @@ namespace budget_management_app
             {
                 accId = reader.GetInt32(0);
                 textBox_amount.Text = reader.GetDecimal(2).ToString();
-                accCurrId = reader.GetInt32(1);  
+                accCurrId = reader.GetInt32(1);
+                label_name_acc.Text = reader.GetString(3).Trim();
             }
             reader.Close();
-            string selectQueryCurr = "SELECT Currency.CurrId, Currency.CurrCode " +
-                     "FROM Account " +
-                     "JOIN Currency ON Account.AccCurrId = Currency.CurrId " +
-                     "WHERE Account.AccCurrId = "+ accCurrId;
+            string selectQueryCurr = "SELECT CurrCode FROM Currency WHERE CurrId = " + accCurrId;
             SqlCommand commandCurr = new SqlCommand(selectQueryCurr, dbcon.GetCon());
-            SqlDataReader readerCurr = command.ExecuteReader();
+            SqlDataReader readerCurr = commandCurr.ExecuteReader();
 
+            while (readerCurr.Read())
+            {
+                label_currency.Text=readerCurr.GetString(0).ToString();
+            }
+            dbcon.CloseCon();
+        }
+
+        // Getting currency from Currency table
+        private void getCurr()
+        {
+            string selectQuery = "SELECT CurrName From Currency";
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                ComboBox_currency.SelectedIndex = readerCurr.GetInt32(0);
-                label_currency.Text = readerCurr.GetString(1);
+                string data = reader.GetString(0);
+                ComboBox_currency.Items.Add(data.Trim());
             }
+            reader.Close();
             dbcon.CloseCon();
         }
 
@@ -70,6 +84,8 @@ namespace budget_management_app
 
         private void label_exit_Click(object sender, EventArgs e)
         {
+            AccountForm acc = new AccountForm();
+            acc.Show();
             this.Close();
         }
 
@@ -83,12 +99,12 @@ namespace budget_management_app
             label_exit.ForeColor = Color.White;
         }
 
-        private void Button_add_Click(object sender, EventArgs e)
+        private void Button_update_Click(object sender, EventArgs e)
         {
             try
             {
                 decimal balance = 0.00m;
-    
+
                 if (string.IsNullOrEmpty(textBox_amount.Text))
                 {
                     MessageBox.Show("Starting balance value is required.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -107,7 +123,7 @@ namespace budget_management_app
                         return;
                     }
                 }
-    
+
                 if (string.IsNullOrEmpty(textBox_name.Text) || ComboBox_currency.SelectedItem == null)
                 {
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -126,10 +142,10 @@ namespace budget_management_app
                     command.ExecuteNonQuery();
                     MessageBox.Show("Account Updated Successfully", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dbcon.CloseCon();
-    
+
                     AccountForm acc = new AccountForm();
                     acc.Show();
-                    this.Hide();
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -138,14 +154,14 @@ namespace budget_management_app
             }
         }
 
-        private void Button_add_MouseEnter(object sender, EventArgs e)
+        private void Button_update_MouseEnter(object sender, EventArgs e)
         {
-            Button_add.BackColor = Color.FromArgb(212, 163, 115);
+            Button_update.BackColor = Color.FromArgb(212, 163, 115);
         }
 
-        private void Button_add_MouseLeave(object sender, EventArgs e)
+        private void Button_update_MouseLeave(object sender, EventArgs e)
         {
-            Button_add.BackColor = Color.FromArgb(250, 237, 205);
+            Button_update.BackColor = Color.FromArgb(250, 237, 205);
         }
 
         private void ComboBox_currency_SelectedIndexChanged(object sender, EventArgs e)

@@ -23,6 +23,11 @@ namespace budget_management_app
         private void AccountForm_Load(object sender, EventArgs e)
         {
             getTable();
+            DataGridView_acc.Columns[0].HeaderText = "Account Name";
+            DataGridView_acc.Columns[1].HeaderText = "Balance";
+            DataGridView_acc.Columns[2].HeaderText = "Currency";
+            DataGridView_acc.Columns[1].Width = 150;
+            DataGridView_acc.Columns[2].Width = 100;
         }
 
         // Get data from database, table Account 
@@ -88,6 +93,7 @@ namespace budget_management_app
             accToUpdate= DataGridView_acc.SelectedRows[0].Cells[0].Value.ToString().Trim();
             UpdateAccountForm updAcc = new UpdateAccountForm();
             updAcc.Show();
+            this.Close();
         }
     }
 }

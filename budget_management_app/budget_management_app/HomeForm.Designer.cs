@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -361,18 +361,18 @@
             // 
             // chart_summary
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend5);
+            chartArea7.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend7);
             this.chart_summary.Location = new System.Drawing.Point(8, 252);
             this.chart_summary.Name = "chart_summary";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series3.Legend = "Legend1";
-            series3.Name = "DataSeries";
-            this.chart_summary.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series4.Legend = "Legend1";
+            series4.Name = "DataSeries";
+            this.chart_summary.Series.Add(series4);
             this.chart_summary.Size = new System.Drawing.Size(459, 203);
             this.chart_summary.TabIndex = 35;
             // 
@@ -398,10 +398,10 @@
             // 
             // chart_rec_exp
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend6);
+            chartArea8.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend8);
             this.chart_rec_exp.Location = new System.Drawing.Point(8, 560);
             this.chart_rec_exp.Name = "chart_rec_exp";
             this.chart_rec_exp.Size = new System.Drawing.Size(459, 116);
@@ -430,6 +430,7 @@
             // flowLayoutPanel_account
             // 
             this.flowLayoutPanel_account.AutoScroll = true;
+            this.flowLayoutPanel_account.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_account.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.flowLayoutPanel_account.Location = new System.Drawing.Point(8, 53);
             this.flowLayoutPanel_account.Name = "flowLayoutPanel_account";

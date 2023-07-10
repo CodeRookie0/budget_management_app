@@ -59,7 +59,7 @@ namespace budget_management_app
             while (reader.Read())
             {
                 string data = reader.GetString(0);
-                comboBox_account.Items.Add(data);
+                comboBox_account.Items.Add(data.Trim());
             }
             reader.Close();
             dbcon.CloseCon();
@@ -75,7 +75,7 @@ namespace budget_management_app
             while (reader.Read())
             {
                 string data = reader.GetString(0);
-                comboBox_category.Items.Add(data);
+                comboBox_category.Items.Add(data.Trim());
             }
             reader.Close();
             dbcon.CloseCon();

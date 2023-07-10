@@ -57,7 +57,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(13, 130);
+            this.label5.Location = new System.Drawing.Point(13, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 28);
             this.label5.TabIndex = 45;
@@ -66,10 +66,10 @@
             // textBox_name
             // 
             this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.textBox_name.Location = new System.Drawing.Point(147, 74);
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(421, 22);
+            this.textBox_name.Size = new System.Drawing.Size(421, 27);
             this.textBox_name.TabIndex = 44;
             // 
             // label1
@@ -77,7 +77,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(13, 69);
+            this.label1.Location = new System.Drawing.Point(13, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 28);
             this.label1.TabIndex = 43;
@@ -129,21 +129,21 @@
             // textBox_email
             // 
             this.textBox_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_email.Location = new System.Drawing.Point(147, 135);
+            this.textBox_email.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.textBox_email.Location = new System.Drawing.Point(147, 129);
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.ReadOnly = true;
-            this.textBox_email.Size = new System.Drawing.Size(421, 22);
+            this.textBox_email.Size = new System.Drawing.Size(421, 27);
             this.textBox_email.TabIndex = 49;
             // 
             // textBox_createdAt
             // 
             this.textBox_createdAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_createdAt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_createdAt.Location = new System.Drawing.Point(147, 196);
+            this.textBox_createdAt.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.textBox_createdAt.Location = new System.Drawing.Point(147, 184);
             this.textBox_createdAt.Name = "textBox_createdAt";
             this.textBox_createdAt.ReadOnly = true;
-            this.textBox_createdAt.Size = new System.Drawing.Size(421, 22);
+            this.textBox_createdAt.Size = new System.Drawing.Size(421, 27);
             this.textBox_createdAt.TabIndex = 51;
             // 
             // label3
@@ -151,7 +151,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(13, 191);
+            this.label3.Location = new System.Drawing.Point(13, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 28);
             this.label3.TabIndex = 50;
@@ -274,13 +274,15 @@
             // 
             this.label_delete_acc.AutoSize = true;
             this.label_delete_acc.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_delete_acc.ForeColor = System.Drawing.Color.Red;
+            this.label_delete_acc.ForeColor = System.Drawing.Color.Firebrick;
             this.label_delete_acc.Location = new System.Drawing.Point(223, 692);
             this.label_delete_acc.Name = "label_delete_acc";
             this.label_delete_acc.Size = new System.Drawing.Size(135, 20);
             this.label_delete_acc.TabIndex = 73;
             this.label_delete_acc.Text = "DELETE ACCOUNT";
             this.label_delete_acc.Click += new System.EventHandler(this.label_delete_acc_Click);
+            this.label_delete_acc.MouseEnter += new System.EventHandler(this.label_delete_acc_MouseEnter);
+            this.label_delete_acc.MouseLeave += new System.EventHandler(this.label_delete_acc_MouseLeave);
             // 
             // Button_commit
             // 

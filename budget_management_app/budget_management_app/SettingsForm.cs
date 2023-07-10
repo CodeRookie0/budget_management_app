@@ -150,7 +150,7 @@ namespace budget_management_app
         // Design of button_logout
         private void Button_logout_MouseEnter(object sender, EventArgs e)
         {
-            Button_logout.BackColor = Color.FromArgb(275, 212, 212);
+            Button_logout.BackColor = Color.FromArgb(242, 182, 182);
         }
 
         private void Button_logout_MouseLeave(object sender, EventArgs e)
@@ -191,6 +191,16 @@ namespace budget_management_app
             }
         }
 
+        private void label_delete_acc_MouseEnter(object sender, EventArgs e)
+        {
+            label_delete_acc.ForeColor = Color.Red;
+        }
+
+        private void label_delete_acc_MouseLeave(object sender, EventArgs e)
+        {
+            label_delete_acc.ForeColor = Color.Firebrick;
+        }
+
         private void label_exit_Click(object sender, EventArgs e)
         {
             HomeForm home=new HomeForm();
@@ -207,5 +217,6 @@ namespace budget_management_app
         {
             label_exit.ForeColor = Color.White;
         }
+
     }
 }
