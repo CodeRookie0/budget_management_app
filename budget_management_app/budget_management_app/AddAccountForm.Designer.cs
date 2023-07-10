@@ -208,7 +208,7 @@
             this.textBox_amount.Name = "textBox_amount";
             this.textBox_amount.Size = new System.Drawing.Size(152, 40);
             this.textBox_amount.TabIndex = 65;
-            this.textBox_amount.Text = "0.00";
+            this.textBox_amount.Text = "0,00";
             this.textBox_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AddAccountForm

@@ -63,7 +63,7 @@ namespace budget_management_app
                     SqlCommand checkCommand_email = new SqlCommand(checkQuery_email, dbconn.GetCon());
                     int count_email = (int)checkCommand_email.ExecuteScalar();
 
-                    if (count > 0)
+                    if (count_email > 0)
                     {
                         MessageBox.Show("The entered Email is already taken. Please choose a different email.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -72,6 +72,16 @@ namespace budget_management_app
                     // Adding a new user to the database date
                     SqlCommand insertCommand = new SqlCommand(insertQuery, dbconn.GetCon());
                     insertCommand.ExecuteNonQuery();
+
+                    string getUserIdQuery = "SELECT UserId FROM [User] WHERE UserName='" + textBox_username.Text + "'";
+                    SqlCommand getUserIdCommand = new SqlCommand(getUserIdQuery, dbconn.GetCon());
+                    int userId = (int)getUserIdCommand.ExecuteScalar();
+
+                    // Create the default account for the new user
+                    string createAccountQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (" + userId + ", 'Wallet','0.00'"+", "+1+")";
+                    SqlCommand createAccountCommand = new SqlCommand(createAccountQuery, dbconn.GetCon());
+                    createAccountCommand.ExecuteNonQuery();
+
                     MessageBox.Show("New user added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dbconn.CloseCon();
                     LoginForm loginForm = new LoginForm();

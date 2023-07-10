@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel_Sidebar = new System.Windows.Forms.Panel();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox_menu = new System.Windows.Forms.PictureBox();
+            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.button_logout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button_acc = new System.Windows.Forms.Button();
             this.button_lim = new System.Windows.Forms.Button();
             this.button_cat = new System.Windows.Forms.Button();
             this.button_stat = new System.Windows.Forms.Button();
             this.button_trns = new System.Windows.Forms.Button();
             this.button_home = new System.Windows.Forms.Button();
-            this.button_logout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.pictureBox_menu = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -68,10 +68,12 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.button_add_trns = new Guna.UI2.WinForms.Guna2CircleButton();
             this.panel_Sidebar.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
-            this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).BeginInit();
+            this.guna2GradientPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,6 +87,7 @@
             // panel_Sidebar
             // 
             this.panel_Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.panel_Sidebar.Controls.Add(this.guna2CircleButton1);
             this.panel_Sidebar.Controls.Add(this.guna2GradientPanel1);
             this.panel_Sidebar.Controls.Add(this.guna2GradientPanel2);
             this.panel_Sidebar.Controls.Add(this.button1);
@@ -100,6 +103,91 @@
             this.panel_Sidebar.Name = "panel_Sidebar";
             this.panel_Sidebar.Size = new System.Drawing.Size(218, 750);
             this.panel_Sidebar.TabIndex = 68;
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
+            this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2GradientPanel1.Controls.Add(this.button2);
+            this.guna2GradientPanel1.Controls.Add(this.pictureBox_menu);
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(218, 119);
+            this.guna2GradientPanel1.TabIndex = 69;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Cambria", 16.25F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(91, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(79, 46);
+            this.button2.TabIndex = 82;
+            this.button2.Text = "Menu";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox_menu
+            // 
+            this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
+            this.pictureBox_menu.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox_menu.Name = "pictureBox_menu";
+            this.pictureBox_menu.Size = new System.Drawing.Size(54, 46);
+            this.pictureBox_menu.TabIndex = 67;
+            this.pictureBox_menu.TabStop = false;
+            // 
+            // guna2GradientPanel2
+            // 
+            this.guna2GradientPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
+            this.guna2GradientPanel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.guna2GradientPanel2.Controls.Add(this.button_logout);
+            this.guna2GradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
+            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 634);
+            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(218, 116);
+            this.guna2GradientPanel2.TabIndex = 70;
+            // 
+            // button_logout
+            // 
+            this.button_logout.BackColor = System.Drawing.Color.Transparent;
+            this.button_logout.FlatAppearance.BorderSize = 0;
+            this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_logout.Font = new System.Drawing.Font("Cambria", 18.75F, System.Drawing.FontStyle.Bold);
+            this.button_logout.ForeColor = System.Drawing.Color.White;
+            this.button_logout.Image = ((System.Drawing.Image)(resources.GetObject("button_logout.Image")));
+            this.button_logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_logout.Location = new System.Drawing.Point(0, 66);
+            this.button_logout.Name = "button_logout";
+            this.button_logout.Size = new System.Drawing.Size(218, 50);
+            this.button_logout.TabIndex = 69;
+            this.button_logout.Text = "       LOGOUT";
+            this.button_logout.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 464);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(216, 36);
+            this.button1.TabIndex = 81;
+            this.button1.Text = "           Settings";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button_acc
             // 
@@ -202,91 +290,6 @@
             this.button_home.Text = "             HOME";
             this.button_home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_home.UseVisualStyleBackColor = false;
-            // 
-            // button_logout
-            // 
-            this.button_logout.BackColor = System.Drawing.Color.Transparent;
-            this.button_logout.FlatAppearance.BorderSize = 0;
-            this.button_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_logout.Font = new System.Drawing.Font("Cambria", 18.75F, System.Drawing.FontStyle.Bold);
-            this.button_logout.ForeColor = System.Drawing.Color.White;
-            this.button_logout.Image = ((System.Drawing.Image)(resources.GetObject("button_logout.Image")));
-            this.button_logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_logout.Location = new System.Drawing.Point(0, 66);
-            this.button_logout.Name = "button_logout";
-            this.button_logout.Size = new System.Drawing.Size(218, 50);
-            this.button_logout.TabIndex = 69;
-            this.button_logout.Text = "       LOGOUT";
-            this.button_logout.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cambria", 18.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 464);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 36);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "           Settings";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
-            this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2GradientPanel1.Controls.Add(this.button2);
-            this.guna2GradientPanel1.Controls.Add(this.pictureBox_menu);
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(218, 119);
-            this.guna2GradientPanel1.TabIndex = 69;
-            // 
-            // guna2GradientPanel2
-            // 
-            this.guna2GradientPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
-            this.guna2GradientPanel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2GradientPanel2.Controls.Add(this.button_logout);
-            this.guna2GradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
-            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 634);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(218, 116);
-            this.guna2GradientPanel2.TabIndex = 70;
-            // 
-            // pictureBox_menu
-            // 
-            this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
-            this.pictureBox_menu.Location = new System.Drawing.Point(4, 3);
-            this.pictureBox_menu.Name = "pictureBox_menu";
-            this.pictureBox_menu.Size = new System.Drawing.Size(54, 46);
-            this.pictureBox_menu.TabIndex = 67;
-            this.pictureBox_menu.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Cambria", 16.25F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(91, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 46);
-            this.button2.TabIndex = 82;
-            this.button2.Text = "Menu";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -694,11 +697,44 @@
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button18.UseVisualStyleBackColor = false;
             // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Location = new System.Drawing.Point(216, 213);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(84, 63);
+            this.guna2CircleButton1.TabIndex = 82;
+            this.guna2CircleButton1.Text = "guna2CircleButton1";
+            // 
+            // button_add_trns
+            // 
+            this.button_add_trns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_add_trns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_add_trns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_add_trns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_add_trns.FillColor = System.Drawing.Color.Transparent;
+            this.button_add_trns.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.button_add_trns.ForeColor = System.Drawing.Color.White;
+            this.button_add_trns.Image = ((System.Drawing.Image)(resources.GetObject("button_add_trns.Image")));
+            this.button_add_trns.ImageSize = new System.Drawing.Size(48, 48);
+            this.button_add_trns.Location = new System.Drawing.Point(42, 328);
+            this.button_add_trns.Name = "button_add_trns";
+            this.button_add_trns.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.button_add_trns.Size = new System.Drawing.Size(42, 42);
+            this.button_add_trns.TabIndex = 73;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 811);
+            this.Controls.Add(this.button_add_trns);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_Sidebar);
@@ -706,8 +742,8 @@
             this.Text = "Form1";
             this.panel_Sidebar.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
-            this.guna2GradientPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).EndInit();
+            this.guna2GradientPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.guna2GradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -761,5 +797,7 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2CircleButton button_add_trns;
     }
 }

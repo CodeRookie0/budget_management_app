@@ -28,12 +28,19 @@ namespace budget_management_app
         // Get data from database, table Account 
         private void getTable()
         {
-            string selectQuerry = "SELECT AccName,AccBalance,AccCurrId FROM Account WHERE UserId =" + LoginForm.userId;
+            string selectQuerry = "SELECT AccName,AccBalance,Cur.CurrCode FROM Account JOIN Currency Cur ON AccCurrId = Cur.CurrId WHERE UserId =" + LoginForm.userId;
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
             DataGridView_acc.DataSource = table;
+            foreach (DataGridViewRow row in DataGridView_acc.Rows)
+            {
+                row.Height = 50;
+
+                string accName = row.Cells["AccName"].Value.ToString().Trim();
+                row.Cells["AccName"].Value = accName;
+            }
         }
 
         //Exit from AccountForm

@@ -190,5 +190,22 @@ namespace budget_management_app
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void label_exit_Click(object sender, EventArgs e)
+        {
+            HomeForm home=new HomeForm();
+            home.Show();
+            this.Hide();
+        }
+
+        private void label_exit_MouseEnter(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+        }
+
+        private void label_exit_MouseLeave(object sender, EventArgs e)
+        {
+            label_exit.ForeColor = Color.White;
+        }
     }
 }

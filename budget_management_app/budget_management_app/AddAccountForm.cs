@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace budget_management_app
 {
@@ -98,15 +99,32 @@ namespace budget_management_app
         {
             try
             {
-                decimal balance;
+                decimal balance=0.00m;
+
+                if (string.IsNullOrEmpty(textBox_amount.Text))
+                {
+                    MessageBox.Show("Starting balance value is required.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (!decimal.TryParse(textBox_amount.Text.Replace('.', ','), out balance))
+                {
+                    MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    if (balance < 0m)
+                    {
+                        MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
 
                 if (textBox_name.Text == ""|| ComboBox_currency.SelectedItem == null)
                 {
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (decimal.TryParse(textBox_amount.Text, out balance) || balance < 0.00m)
-                {
-                    MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
