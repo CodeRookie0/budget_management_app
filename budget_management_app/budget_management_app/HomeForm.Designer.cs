@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.button_trns = new System.Windows.Forms.Button();
             this.button_home = new System.Windows.Forms.Button();
             this.sidebar_timer = new System.Windows.Forms.Timer(this.components);
-            this.Button_add = new Guna.UI2.WinForms.Guna2TileButton();
+            this.Button_more_sum = new Guna.UI2.WinForms.Guna2TileButton();
             this.chart_summary = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label_rec_trns = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel_top7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.Button_more_trns = new Guna.UI2.WinForms.Guna2TileButton();
             this.Button_add_trns = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel_main = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
@@ -339,37 +339,40 @@
             this.sidebar_timer.Interval = 10;
             this.sidebar_timer.Tick += new System.EventHandler(this.sidebar_timer_Tick);
             // 
-            // Button_add
+            // Button_more_sum
             // 
-            this.Button_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.Button_add.BorderThickness = 1;
-            this.Button_add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_add.FillColor = System.Drawing.Color.Transparent;
-            this.Button_add.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.Button_add.ForeColor = System.Drawing.Color.Black;
-            this.Button_add.Location = new System.Drawing.Point(8, 461);
-            this.Button_add.Name = "Button_add";
-            this.Button_add.Size = new System.Drawing.Size(119, 25);
-            this.Button_add.TabIndex = 59;
-            this.Button_add.Text = "Show More";
+            this.Button_more_sum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.Button_more_sum.BorderThickness = 1;
+            this.Button_more_sum.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_more_sum.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_more_sum.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_more_sum.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_more_sum.FillColor = System.Drawing.Color.Transparent;
+            this.Button_more_sum.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.Button_more_sum.ForeColor = System.Drawing.Color.Black;
+            this.Button_more_sum.Location = new System.Drawing.Point(8, 461);
+            this.Button_more_sum.Name = "Button_more_sum";
+            this.Button_more_sum.Size = new System.Drawing.Size(119, 25);
+            this.Button_more_sum.TabIndex = 59;
+            this.Button_more_sum.Text = "Show More";
+            this.Button_more_sum.Click += new System.EventHandler(this.Button_more_sum_Click);
+            this.Button_more_sum.MouseEnter += new System.EventHandler(this.Button_more_sum_MouseEnter);
+            this.Button_more_sum.MouseLeave += new System.EventHandler(this.Button_more_sum_MouseLeave);
             // 
             // chart_summary
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend5);
             this.chart_summary.Location = new System.Drawing.Point(8, 252);
             this.chart_summary.Name = "chart_summary";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series1.Legend = "Legend1";
-            series1.Name = "DataSeries";
-            this.chart_summary.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series3.Legend = "Legend1";
+            series3.Name = "DataSeries";
+            this.chart_summary.Series.Add(series3);
             this.chart_summary.Size = new System.Drawing.Size(459, 203);
             this.chart_summary.TabIndex = 35;
             // 
@@ -395,10 +398,10 @@
             // 
             // chart_rec_exp
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend6);
             this.chart_rec_exp.Location = new System.Drawing.Point(8, 560);
             this.chart_rec_exp.Name = "chart_rec_exp";
             this.chart_rec_exp.Size = new System.Drawing.Size(459, 116);
@@ -408,7 +411,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 12);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 28);
             this.label1.TabIndex = 32;
@@ -428,7 +431,7 @@
             // 
             this.flowLayoutPanel_account.AutoScroll = true;
             this.flowLayoutPanel_account.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.flowLayoutPanel_account.Location = new System.Drawing.Point(8, 43);
+            this.flowLayoutPanel_account.Location = new System.Drawing.Point(8, 53);
             this.flowLayoutPanel_account.Name = "flowLayoutPanel_account";
             this.flowLayoutPanel_account.Size = new System.Drawing.Size(459, 75);
             this.flowLayoutPanel_account.TabIndex = 33;
@@ -462,22 +465,25 @@
             this.label6.TabIndex = 65;
             this.label6.Text = "END";
             // 
-            // guna2TileButton1
+            // Button_more_trns
             // 
-            this.guna2TileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.guna2TileButton1.BorderThickness = 1;
-            this.guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.guna2TileButton1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TileButton1.Location = new System.Drawing.Point(8, 1051);
-            this.guna2TileButton1.Name = "guna2TileButton1";
-            this.guna2TileButton1.Size = new System.Drawing.Size(119, 25);
-            this.guna2TileButton1.TabIndex = 64;
-            this.guna2TileButton1.Text = "Show More";
+            this.Button_more_trns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.Button_more_trns.BorderThickness = 1;
+            this.Button_more_trns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_more_trns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_more_trns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_more_trns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_more_trns.FillColor = System.Drawing.Color.Transparent;
+            this.Button_more_trns.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.Button_more_trns.ForeColor = System.Drawing.Color.Black;
+            this.Button_more_trns.Location = new System.Drawing.Point(8, 1051);
+            this.Button_more_trns.Name = "Button_more_trns";
+            this.Button_more_trns.Size = new System.Drawing.Size(119, 25);
+            this.Button_more_trns.TabIndex = 64;
+            this.Button_more_trns.Text = "Show More";
+            this.Button_more_trns.Click += new System.EventHandler(this.Button_more_trns_Click);
+            this.Button_more_trns.MouseEnter += new System.EventHandler(this.Button_more_trns_MouseEnter);
+            this.Button_more_trns.MouseLeave += new System.EventHandler(this.Button_more_trns_MouseLeave);
             // 
             // Button_add_trns
             // 
@@ -490,28 +496,31 @@
             this.Button_add_trns.FillColor = System.Drawing.Color.Transparent;
             this.Button_add_trns.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
             this.Button_add_trns.ForeColor = System.Drawing.Color.Black;
-            this.Button_add_trns.Location = new System.Drawing.Point(155, 134);
+            this.Button_add_trns.Location = new System.Drawing.Point(161, 145);
             this.Button_add_trns.Name = "Button_add_trns";
             this.Button_add_trns.Size = new System.Drawing.Size(167, 38);
             this.Button_add_trns.TabIndex = 66;
             this.Button_add_trns.Text = "Add Transaction";
+            this.Button_add_trns.Click += new System.EventHandler(this.Button_add_trns_Click);
+            this.Button_add_trns.MouseEnter += new System.EventHandler(this.Button_add_trns_MouseEnter);
+            this.Button_add_trns.MouseLeave += new System.EventHandler(this.Button_add_trns_MouseLeave);
             // 
             // panel_main
             // 
             this.panel_main.AutoScroll = true;
+            this.panel_main.Controls.Add(this.label1);
+            this.panel_main.Controls.Add(this.flowLayoutPanel_account);
             this.panel_main.Controls.Add(this.Button_add_trns);
-            this.panel_main.Controls.Add(this.guna2TileButton1);
+            this.panel_main.Controls.Add(this.Button_more_trns);
             this.panel_main.Controls.Add(this.label6);
             this.panel_main.Controls.Add(this.flowLayoutPanel_top7);
             this.panel_main.Controls.Add(this.label5);
-            this.panel_main.Controls.Add(this.flowLayoutPanel_account);
             this.panel_main.Controls.Add(this.label4);
-            this.panel_main.Controls.Add(this.label1);
             this.panel_main.Controls.Add(this.chart_rec_exp);
             this.panel_main.Controls.Add(this.label3);
             this.panel_main.Controls.Add(this.label_rec_trns);
             this.panel_main.Controls.Add(this.chart_summary);
-            this.panel_main.Controls.Add(this.Button_add);
+            this.panel_main.Controls.Add(this.Button_more_sum);
             this.panel_main.Location = new System.Drawing.Point(76, 52);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(501, 680);
@@ -566,7 +575,7 @@
         private System.Windows.Forms.Button button_home;
         private System.Windows.Forms.Timer sidebar_timer;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TileButton Button_add;
+        private Guna.UI2.WinForms.Guna2TileButton Button_more_sum;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_summary;
         private System.Windows.Forms.Label label_rec_trns;
         private System.Windows.Forms.Label label3;
@@ -577,7 +586,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_top7;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
+        private Guna.UI2.WinForms.Guna2TileButton Button_more_trns;
         private Guna.UI2.WinForms.Guna2TileButton Button_add_trns;
         private System.Windows.Forms.Panel panel_main;
     }

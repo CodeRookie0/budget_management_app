@@ -307,6 +307,8 @@ namespace budget_management_app
             }
         }
 
+
+        // Main Panel button functionality
         private void label_exit_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to leave the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -335,6 +337,55 @@ namespace budget_management_app
         private void button_logout_MouseLeave(object sender, EventArgs e)
         {
             button_logout.BackColor = Color.Transparent;
+        }
+
+        private void Button_add_trns_Click(object sender, EventArgs e)
+        {
+            AddTransactionForm addTrns= new AddTransactionForm();
+            addTrns.Show();
+            this.Hide();
+        }
+
+        private void Button_add_trns_MouseEnter(object sender, EventArgs e)
+        {
+            Button_add_trns.BackColor = Color.FromArgb(212, 163, 115);
+        }
+
+        private void Button_add_trns_MouseLeave(object sender, EventArgs e)
+        {
+            Button_add_trns.BackColor = Color.FromArgb(250, 237, 205);
+        }
+
+        private void Button_more_sum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_more_sum_MouseEnter(object sender, EventArgs e)
+        {
+            Button_more_sum.BackColor = Color.FromArgb(212, 163, 115);
+        }
+
+        private void Button_more_sum_MouseLeave(object sender, EventArgs e)
+        {
+            Button_more_sum.BackColor = Color.FromArgb(250, 237, 205);
+        }
+
+        private void Button_more_trns_Click(object sender, EventArgs e)
+        {
+            TransactionForm trns=new TransactionForm();
+            trns.Show();
+            this.Hide();
+        }
+
+        private void Button_more_trns_MouseEnter(object sender, EventArgs e)
+        {
+            Button_more_trns.BackColor = Color.FromArgb(212, 163, 115);
+        }
+
+        private void Button_more_trns_MouseLeave(object sender, EventArgs e)
+        {
+            Button_more_trns.BackColor = Color.FromArgb(250, 237, 205);
         }
     }
 }

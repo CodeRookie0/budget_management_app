@@ -187,7 +187,7 @@
             this.Button_add.FillColor = System.Drawing.Color.Transparent;
             this.Button_add.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Button_add.ForeColor = System.Drawing.Color.Black;
-            this.Button_add.Location = new System.Drawing.Point(339, 493);
+            this.Button_add.Location = new System.Drawing.Point(339, 483);
             this.Button_add.Name = "Button_add";
             this.Button_add.Size = new System.Drawing.Size(146, 36);
             this.Button_add.TabIndex = 58;

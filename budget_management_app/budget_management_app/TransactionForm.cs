@@ -16,6 +16,10 @@ namespace budget_management_app
     {
         DBConnection dbcon = new DBConnection();
 
+        static int selectedAccountId;
+        static int selectedCategoryId;
+        static string selectedType;
+
         public TransactionForm()
         {
             InitializeComponent();
@@ -33,9 +37,9 @@ namespace budget_management_app
         {
             string query = "SELECT 'Income' AS TransactionType, InDate AS TransactionDate, InAmount AS Amount FROM Income WHERE UserId =" +LoginForm.userId+
                "UNION ALL " +
-               "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount FROM Expenses " +
+               "SELECT 'Expense' AS TransactionType, ExpDate AS TransactionDate, ExpAmount FROM Expenses WHERE UserId = " +LoginForm.userId+
                "UNION ALL " +
-               "SELECT 'Savings' AS TransactionType, SavDate AS TransactionDate, SavAmount FROM Savings " +
+               "SELECT 'Savings' AS TransactionType, SavDate AS TransactionDate, SavAmount FROM Savings WHERE UserId = " + LoginForm.userId +
                "ORDER BY TransactionDate ASC";
 
             SqlCommand command = new SqlCommand(query, dbcon.GetCon());
@@ -48,7 +52,7 @@ namespace budget_management_app
         // Retrieving data on existing accounts for combo_box_account
         private void getAcc()
         {
-            string selectQuery = "SELECT AccName FROM Account";
+            string selectQuery = "SELECT AccName FROM Account WHERE UserId = " + LoginForm.userId;
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
             dbcon.OpenCon();
             SqlDataReader reader = command.ExecuteReader();
@@ -99,7 +103,7 @@ namespace budget_management_app
         // Filtering data in dataGridView
         private void comboBox_account_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox_type.SelectedItem != null)
+            if (comboBox_account.SelectedItem != null)
             {
                 int selectedAccountId = Convert.ToInt32(comboBox_account.SelectedValue);
                 UpdateDataGridView();
@@ -108,7 +112,7 @@ namespace budget_management_app
 
         private void comboBox_category_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox_type.SelectedItem != null)
+            if (comboBox_category.SelectedItem != null)
             {
                 int selectedCategoryId = Convert.ToInt32(comboBox_category.SelectedValue);
                 UpdateDataGridView();
@@ -128,9 +132,6 @@ namespace budget_management_app
         // Update dataGridView based on filters
         private void UpdateDataGridView()
         {
-            int selectedAccountId = Convert.ToInt32(comboBox_account.SelectedValue);
-            int selectedCategoryId = Convert.ToInt32(comboBox_category.SelectedValue);
-            string selectedType = comboBox_type.SelectedItem.ToString();
 
             string query = "SELECT 'Income' AS TransactionType, InDate AS TransactionDate, InAmount AS Amount FROM Income WHERE UserId =" + LoginForm.userId;
             if (selectedType == null)

@@ -34,9 +34,11 @@ namespace budget_management_app
             string selectQuery = "SELECT Currency.CurrCode " +
                      "FROM Account " +
                      "JOIN Currency ON Account.AccCurrId = Currency.CurrId " +
-                     "WHERE Account.AccName ="+ ComboBox_account.SelectedIndex.ToString();
+                     "WHERE Account.AccName ='"+ ComboBox_account.SelectedItem.ToString()+"'";
+            dbcon.OpenCon();
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
             string currCode=command.ExecuteScalar()?.ToString();
+            dbcon.CloseCon();
             label_currency.Text =currCode;
         }
 
@@ -93,31 +95,50 @@ namespace budget_management_app
         {
             try
             {
-                decimal amount;
-                if (CategoriesForm.SelectedCat == ""||selectedAcc=="")
-                {
-                    MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if(decimal.TryParse(textBox_amount.Text.Replace(",", "."), out amount) || amount < 0.00m)
+                decimal amount=0.00m;
+
+                if (string.IsNullOrEmpty(textBox_amount.Text))
                 {
                     MessageBox.Show("Invalid entered transaction value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (!decimal.TryParse(textBox_amount.Text.Replace('.', ','), out amount))
+                {
+                    MessageBox.Show("Invalid entered transaction value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
-                    string insertQuery="";
+                    if (amount <= 0m)
+                    {
+                        MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                string insertQuery = "";
+
+                if (CategoriesForm.SelectedCat == ""||selectedAcc==""|| ComboBox_type.SelectedItem == null|| string.IsNullOrWhiteSpace(maskedTextBox_date.Text))
+                {
+                    MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    
                     if (SubCategoryForm.selectedSubCat != "")
                     {
                         if (ComboBox_type.SelectedItem.ToString() == "Income")
                         {
-                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "')";
                         }
                         else if(ComboBox_type.SelectedItem.ToString() == "Expenses")
                         {
-                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "')";
                         }
                         else if (ComboBox_type.SelectedItem.ToString() == "Savings")
                         {
-                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "')";
                         }
                         SubCategoryForm.selectedSubCat = "";
                     }
@@ -125,15 +146,15 @@ namespace budget_management_app
                     {
                         if (ComboBox_type.SelectedItem.ToString() == "Income")
                         {
-                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "',NULL," + amount + ",'" + maskedTextBox_date.Text + "')";
                         }
                         else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
                         {
-                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "',NULL," + amount + ",'" + maskedTextBox_date.Text + "')";
                         }
                         else if (ComboBox_type.SelectedItem.ToString() == "Savings")
                         {
-                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES " + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "'," + amount + ",'" + maskedTextBox_date.Text + "'";
+                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "',NULL," + amount + ",'" + maskedTextBox_date.Text + "')";
                         }
                     }
                     CategoriesForm.SelectedCat = "";

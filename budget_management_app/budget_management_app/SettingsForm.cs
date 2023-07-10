@@ -30,7 +30,7 @@ namespace budget_management_app
         }
         private void getData()
         {
-            string selectQuerry = "SELECT UserName,UserEmail,UserCreatedAt,UserPasswd FROM User WHERE UserId =" + LoginForm.userId;
+            string selectQuerry = "SELECT UserName,UserEmail,UserCreatedAt,UserPasswd FROM [User] WHERE UserId =" + LoginForm.userId;
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             dbcon.OpenCon();
             SqlDataAdapter adapter = new SqlDataAdapter(command);
