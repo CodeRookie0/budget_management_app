@@ -58,13 +58,13 @@ namespace budget_management_app
             {
                 AddTransactionForm trns = new AddTransactionForm();
                 trns.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {
                 CategoriesForm cat = new CategoriesForm();
                 cat.Show();
-                this.Hide();
+                this.Close();
             }
         }
 
@@ -86,7 +86,7 @@ namespace budget_management_app
         {
             AddSubCatForm add = new AddSubCatForm();
             add.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of Button_add
         private void Button_add_MouseEnter(object sender, EventArgs e)

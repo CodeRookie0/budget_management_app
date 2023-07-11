@@ -53,7 +53,7 @@ namespace budget_management_app
         {
             HomeForm home=new HomeForm();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
         // Design of label_exit
@@ -73,7 +73,7 @@ namespace budget_management_app
         {
             AddAccountForm addAcc=new AddAccountForm();
             addAcc.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of Button_add
         private void Button_add_MouseEnter(object sender, EventArgs e)

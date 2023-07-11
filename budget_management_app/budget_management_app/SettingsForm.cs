@@ -144,7 +144,7 @@ namespace budget_management_app
             {
                 LoginForm login=new LoginForm();
                 login.Show();
-                this.Hide();
+                this.Close();
             }
         }
         // Design of button_logout
@@ -179,9 +179,9 @@ namespace budget_management_app
                         dbcon.CloseCon();
                         MessageBox.Show("Your account has been successfully deleted.", "Deleting your account", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
-                        this.Hide();
-                        LoginForm log = new LoginForm();
-                        log.Show();
+                        AccountForm acc = new AccountForm();
+                        acc.Show();
+                        this.Close();
                     }
                 }
             }
@@ -205,7 +205,7 @@ namespace budget_management_app
         {
             HomeForm home=new HomeForm();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void label_exit_MouseEnter(object sender, EventArgs e)

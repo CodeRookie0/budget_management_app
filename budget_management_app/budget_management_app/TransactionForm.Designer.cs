@@ -56,7 +56,7 @@
             this.panel1.Controls.Add(this.label_exit);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(687, 55);
+            this.panel1.Size = new System.Drawing.Size(701, 55);
             this.panel1.TabIndex = 4;
             // 
             // label2
@@ -64,7 +64,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(262, 13);
+            this.label2.Location = new System.Drawing.Point(269, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 29);
             this.label2.TabIndex = 35;
@@ -75,7 +75,7 @@
             this.label_exit.AutoSize = true;
             this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
             this.label_exit.ForeColor = System.Drawing.Color.White;
-            this.label_exit.Location = new System.Drawing.Point(654, 0);
+            this.label_exit.Location = new System.Drawing.Point(668, 0);
             this.label_exit.Name = "label_exit";
             this.label_exit.Size = new System.Drawing.Size(33, 36);
             this.label_exit.TabIndex = 36;
@@ -87,17 +87,14 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel2.Location = new System.Drawing.Point(0, 712);
+            this.panel2.Location = new System.Drawing.Point(0, 749);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(687, 55);
+            this.panel2.Size = new System.Drawing.Size(701, 55);
             this.panel2.TabIndex = 37;
             // 
             // DataGridView_transactions
             // 
             this.DataGridView_transactions.AllowUserToAddRows = false;
-            this.DataGridView_transactions.AllowUserToDeleteRows = false;
-            this.DataGridView_transactions.AllowUserToResizeColumns = false;
-            this.DataGridView_transactions.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DataGridView_transactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView_transactions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -114,7 +111,7 @@
             this.DataGridView_transactions.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -125,7 +122,7 @@
             this.DataGridView_transactions.Name = "DataGridView_transactions";
             this.DataGridView_transactions.ReadOnly = true;
             this.DataGridView_transactions.RowHeadersVisible = false;
-            this.DataGridView_transactions.Size = new System.Drawing.Size(533, 652);
+            this.DataGridView_transactions.Size = new System.Drawing.Size(550, 691);
             this.DataGridView_transactions.TabIndex = 38;
             this.DataGridView_transactions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView_transactions.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -161,7 +158,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(0, 55);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(145, 657);
+            this.panel3.Size = new System.Drawing.Size(145, 694);
             this.panel3.TabIndex = 38;
             // 
             // comboBox_type
@@ -251,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(685, 750);
+            this.ClientSize = new System.Drawing.Size(700, 800);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.DataGridView_transactions);
             this.Controls.Add(this.panel2);

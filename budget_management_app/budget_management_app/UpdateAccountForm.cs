@@ -177,5 +177,49 @@ namespace budget_management_app
             }
             dbcon.CloseCon();
         }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    string deleteAccountQuery = "DELETE FROM Account WHERE AccName = " + AccountForm.accToUpdate + " AND UserId= " + LoginForm.userId;
+
+                    string deleteExpensesQuery = "DELETE FROM Expenses WHERE AccId = " + accId + " AND UserId= " + LoginForm.userId;
+                    string deleteIncomeQuery = "DELETE FROM Income WHERE AccId =  " + accId + " AND UserId= " + LoginForm.userId;
+                    string deleteSavingsQuery = "DELETE FROM Savings WHERE AccId = " + accId + " AND UserId= " + LoginForm.userId;
+
+                    SqlCommand command = new SqlCommand(deleteAccountQuery, dbcon.GetCon());
+                    dbcon.OpenCon();
+                    command.ExecuteNonQuery();
+                    SqlCommand command2 = new SqlCommand(deleteSavingsQuery, dbcon.GetCon());
+                    command2.ExecuteNonQuery();
+                    SqlCommand command3 = new SqlCommand(deleteAccountQuery, dbcon.GetCon());
+                    command3.ExecuteNonQuery();
+
+                    dbcon.CloseCon();
+                    MessageBox.Show("Account was Deleted Successfully", "Delete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void button_delete_MouseEnter(object sender, EventArgs e)
+        {
+            button_delete.BackColor = Color.FromArgb(242, 182, 182);
+        }
+
+        private void button_delete_MouseLeave(object sender, EventArgs e)
+        {
+            button_delete.BackColor = Color.FromArgb(255, 192, 192);
+        }
     }
 }

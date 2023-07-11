@@ -43,7 +43,7 @@ namespace budget_management_app
                         userId = Convert.ToInt32(table.Rows[0]["UserId"]);
                         HomeForm start = new HomeForm();
                         start.Show();
-                        this.Hide();
+                        this.Close();
                     }
                     else
                     {
@@ -75,7 +75,7 @@ namespace budget_management_app
         {
             RegistrationForm sign = new RegistrationForm();
             sign.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of label_sign_up
         private void label_sign_up_MouseEnter(object sender, EventArgs e)

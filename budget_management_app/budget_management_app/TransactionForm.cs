@@ -35,16 +35,16 @@ namespace budget_management_app
         // Retrieving data for dataGridView
         public void getTable()
         {
-            string query = "SELECT Account.AccName, Category.CatName,CONVERT(varchar, InDate, 105) AS TransactionDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
+            string query = "SELECT Account.AccName, Category.CatName,CONVERT(varchar, InDate, 107) AS TransactionDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
                " JOIN Account ON Income.AccId = Account.AccId " +"JOIN Category ON Income.CatId = Category.CatId "+
                " WHERE Income.UserId =" + LoginForm.userId+
                " UNION ALL " +
-               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, ExpDate, 105) AS TransactionDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
+               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, ExpDate, 107) AS TransactionDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
                " JOIN Account ON Expenses.AccId = Account.AccId " +
                " JOIN Category ON Expenses.CatId = Category.CatId " +
                " WHERE Expenses.UserId = " + LoginForm.userId+
                " UNION ALL " +
-               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, SavDate, 105) AS TransactionDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, SavDate, 107) AS TransactionDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " +
                " JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId = " + LoginForm.userId +
@@ -94,7 +94,7 @@ namespace budget_management_app
         {
             HomeForm start = new HomeForm();
             start.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)

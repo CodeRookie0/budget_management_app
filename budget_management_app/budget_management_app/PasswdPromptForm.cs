@@ -24,7 +24,7 @@ namespace budget_management_app
             if (IsPasswordValid())
             {
                 this.DialogResult = DialogResult.OK;
-                this.Hide();
+                this.Close();
             }
             else
             {
@@ -54,7 +54,7 @@ namespace budget_management_app
 
         private void label_exit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void label_exit_MouseEnter(object sender, EventArgs e)

@@ -268,28 +268,28 @@ namespace budget_management_app
         {
             HomeForm home=new HomeForm();
             home.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button_acc_Click(object sender, EventArgs e)
         {
             AccountForm acc=new AccountForm();
             acc.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button_trns_Click(object sender, EventArgs e)
         {
             TransactionForm trns=new TransactionForm();
             trns.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button_cat_Click(object sender, EventArgs e)
         {
             CategoriesForm categories=new CategoriesForm();
             categories.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button_lim_Click(object sender, EventArgs e)
@@ -306,7 +306,7 @@ namespace budget_management_app
         {
             SettingsForm set=new SettingsForm();
             set.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button_logout_Click(object sender, EventArgs e)
@@ -316,7 +316,7 @@ namespace budget_management_app
             {
                 LoginForm login=new LoginForm();
                 login.Show();
-                this.Hide();
+                this.Close();
             }
         }
 
@@ -356,7 +356,7 @@ namespace budget_management_app
         {
             AddTransactionForm addTrns= new AddTransactionForm();
             addTrns.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Button_add_trns_MouseEnter(object sender, EventArgs e)
@@ -388,7 +388,7 @@ namespace budget_management_app
         {
             TransactionForm trns=new TransactionForm();
             trns.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Button_more_trns_MouseEnter(object sender, EventArgs e)

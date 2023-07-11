@@ -25,7 +25,7 @@ namespace budget_management_app
         {
             SubCategoryForm subCat = new SubCategoryForm();
             subCat.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)

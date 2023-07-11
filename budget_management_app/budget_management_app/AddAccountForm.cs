@@ -74,7 +74,7 @@ namespace budget_management_app
         {
             AccountForm acc = new AccountForm();
             acc.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of label_exit
         private void label_exit_MouseLeave(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace budget_management_app
                     dbcon.CloseCon();
                     AccountForm acc = new AccountForm();
                     acc.Show();
-                    this.Hide();
+                    this.Close();
 
                 }
             }

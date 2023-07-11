@@ -42,6 +42,7 @@
             this.label_exit = new System.Windows.Forms.Label();
             this.label_name_acc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button_delete = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,7 +160,7 @@
             this.Button_update.FillColor = System.Drawing.Color.Transparent;
             this.Button_update.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Button_update.ForeColor = System.Drawing.Color.Black;
-            this.Button_update.Location = new System.Drawing.Point(205, 419);
+            this.Button_update.Location = new System.Drawing.Point(101, 416);
             this.Button_update.Name = "Button_update";
             this.Button_update.Size = new System.Drawing.Size(146, 36);
             this.Button_update.TabIndex = 66;
@@ -211,12 +212,34 @@
             this.panel2.Size = new System.Drawing.Size(565, 22);
             this.panel2.TabIndex = 77;
             // 
+            // button_delete
+            // 
+            this.button_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button_delete.BorderThickness = 1;
+            this.button_delete.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_delete.FillColor = System.Drawing.Color.Transparent;
+            this.button_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button_delete.ForeColor = System.Drawing.Color.Black;
+            this.button_delete.Location = new System.Drawing.Point(296, 416);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(146, 36);
+            this.button_delete.TabIndex = 78;
+            this.button_delete.Text = "Delete";
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+            this.button_delete.MouseEnter += new System.EventHandler(this.button_delete_MouseEnter);
+            this.button_delete.MouseLeave += new System.EventHandler(this.button_delete_MouseLeave);
+            // 
             // UpdateAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 511);
+            this.Controls.Add(this.button_delete);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox_amount);
@@ -256,5 +279,6 @@
         private System.Windows.Forms.Label label_exit;
         private System.Windows.Forms.Label label_name_acc;
         private System.Windows.Forms.Panel panel2;
+        private Guna.UI2.WinForms.Guna2TileButton button_delete;
     }
 }

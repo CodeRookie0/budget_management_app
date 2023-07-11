@@ -87,7 +87,7 @@ namespace budget_management_app
         {
             HomeForm start = new HomeForm();
             start.Show();
-            this.Hide();
+            this.Close();
         }
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)
@@ -112,13 +112,6 @@ namespace budget_management_app
             HomeForm.lastForm = "AddTransactionForm";
             SubCategoryForm subcat=new SubCategoryForm();
             subcat.Show();
-        }
-
-        private void button_category_Click(object sender, EventArgs e)
-        {
-            CategoriesForm cat=new CategoriesForm();
-            HomeForm.lastForm = "AddTransactionForm";
-            cat.Show();
         }
 
         private void getSubCatId()
@@ -265,20 +258,25 @@ namespace budget_management_app
                     string updateQuery = "";
                     if (ComboBox_type.SelectedItem.ToString() == "Income")
                     {
-                        updateQuery = "UPDATE Account SET AccBalance = (AccBalance + " + amount + ") WHERE UserId =" + LoginForm.userId + " AND AccId =" + accId;
+                        updateQuery = "UPDATE Account SET AccBalance = (AccBalance + @Amount) WHERE UserId = @UserId AND AccId = @AccId";
                     }
                     else
                     {
-                        updateQuery = "UPDATE Account SET AccBalance = (AccBalance - " + amount + ") WHERE UserId =" + LoginForm.userId + " AND AccId =" + accId;
+                        updateQuery = "UPDATE Account SET AccBalance = (AccBalance - @Amount) WHERE UserId = @UserId AND AccId = @AccId";
                     }
                     SqlCommand comm = new SqlCommand(updateQuery, dbcon.GetCon());
+
+                    comm.Parameters.AddWithValue("@Amount", amount);
+                    comm.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    comm.Parameters.AddWithValue("@AccId", accId);
+
                     comm.ExecuteNonQuery();
 
                     MessageBox.Show("Transaction Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dbcon.CloseCon();
                     TransactionForm trns = new TransactionForm();
                     trns.Show();
-                    this.Hide();
+                    this.Close();
 
                 }
             }
