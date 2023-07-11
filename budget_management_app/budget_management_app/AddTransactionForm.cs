@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -17,7 +19,10 @@ namespace budget_management_app
     public partial class AddTransactionForm : Form
     {
         DBConnection dbcon=new DBConnection();
-        static string selectedAcc="";
+        static string selectedAcc ="";
+        static int accId;
+        static int subCatId;
+        static int catId;
         public AddTransactionForm()
         {
             InitializeComponent();
@@ -25,7 +30,9 @@ namespace budget_management_app
 
         private void AddTransactionForm_Load(object sender, EventArgs e)
         {
+            maskedTextBox_date.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
             getAcc();
+            getCat();
         }
 
         // Retrieving the currency code for the given account
@@ -45,7 +52,7 @@ namespace budget_management_app
         // Retrieving data on existing accounts for combo_box_account
         private void getAcc() 
         {
-            string selectQuery = "SELECT AccName FROM Account";
+            string selectQuery = "SELECT AccName FROM Account WHERE Account.UserId="+LoginForm.userId;
             SqlCommand command=new SqlCommand(selectQuery,dbcon.GetCon());
             dbcon.OpenCon();
             SqlDataReader reader = command.ExecuteReader();
@@ -53,6 +60,22 @@ namespace budget_management_app
             {
                 string data = reader.GetString(0);
                 ComboBox_account.Items.Add(data);
+            }
+            reader.Close();
+            dbcon.CloseCon();
+        }
+
+        // Retrieving data on existing categories for combo_box_cat
+        private void getCat()
+        {
+            string selectQuery = "SELECT CatName FROM Category";
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string data = reader.GetString(0);
+                ComboBox_cat.Items.Add(data.Trim());
             }
             reader.Close();
             dbcon.CloseCon();
@@ -80,7 +103,15 @@ namespace budget_management_app
         private void ComboBox_account_SelectedIndexChanged(object sender, EventArgs e)
         {
             getCurr();
-            selectedAcc=ComboBox_account.SelectedIndex.ToString();
+            selectedAcc=ComboBox_account.SelectedItem.ToString();
+        }
+
+        private void ComboBox_cat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CategoriesForm.SelectedCat=ComboBox_cat.SelectedItem.ToString();
+            HomeForm.lastForm = "AddTransactionForm";
+            SubCategoryForm subcat=new SubCategoryForm();
+            subcat.Show();
         }
 
         private void button_category_Click(object sender, EventArgs e)
@@ -88,6 +119,54 @@ namespace budget_management_app
             CategoriesForm cat=new CategoriesForm();
             HomeForm.lastForm = "AddTransactionForm";
             cat.Show();
+        }
+
+        private void getSubCatId()
+        {
+            string selectQuery = "SELECT SubId FROM SubCategory WHERE SubName = @SubName";
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SubName", SubCategoryForm.selectedSubCat);
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                subCatId = reader.GetInt32(0);
+            }
+
+            reader.Close();
+            dbcon.CloseCon();
+        }
+        private void getCatId()
+        {
+            string selectQuery = "SELECT CatId FROM Category WHERE CatName = @CatName";
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            command.Parameters.AddWithValue("@CatName", CategoriesForm.SelectedCat);
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                catId = reader.GetInt32(0);
+            }
+
+            reader.Close();
+            dbcon.CloseCon();
+        }
+        private void getAccId()
+        {
+            string selectQuery = "SELECT AccId FROM Account WHERE AccName ='"+selectedAcc+ "' AND UserId="+LoginForm.userId;
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                accId = reader.GetInt32(0);
+            }
+
+            reader.Close();
+            dbcon.CloseCon();
         }
 
         // Add data to Transaction table(Income or Expenses or Savings)
@@ -111,7 +190,7 @@ namespace budget_management_app
                 {
                     if (amount <= 0m)
                     {
-                        MessageBox.Show("Invalid entered starting balance value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid entered transaction value.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -123,22 +202,35 @@ namespace budget_management_app
                     MessageBox.Show("Missing Information", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                else if(!DateTime.TryParseExact(maskedTextBox_date.Text, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime userDate))
+                {
+                    MessageBox.Show("Incorrect data. Please, try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (userDate > DateTime.Today)
+                {
+                    MessageBox.Show("Incorrect data. Please, try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 else
                 {
-                    
+                    getCatId();
+                    getAccId();
+
                     if (SubCategoryForm.selectedSubCat != "")
                     {
+                        getSubCatId();
                         if (ComboBox_type.SelectedItem.ToString() == "Income")
                         {
-                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "')";
+                            insertQuery = "INSERT INTO Income (UserId, AccId, CatId, SubId, InAmount, InDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
                         }
-                        else if(ComboBox_type.SelectedItem.ToString() == "Expenses")
+                        else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
                         {
-                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "')";
+                            insertQuery = "INSERT INTO Expenses (UserId, AccId, CatId, SubId, ExpAmount, ExpDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
                         }
                         else if (ComboBox_type.SelectedItem.ToString() == "Savings")
                         {
-                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "','" + SubCategoryForm.selectedSubCat + "'," + amount + ",'" + maskedTextBox_date.Text + "')";
+                            insertQuery = "INSERT INTO Savings (UserId, AccId, CatId, SubId, SavAmount, SavDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
                         }
                         SubCategoryForm.selectedSubCat = "";
                     }
@@ -146,19 +238,27 @@ namespace budget_management_app
                     {
                         if (ComboBox_type.SelectedItem.ToString() == "Income")
                         {
-                            insertQuery = "INSERT INTO Income (UserId,AccId,CatId,SubId,InAmount,InDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "',NULL," + amount + ",'" + maskedTextBox_date.Text + "')";
+                            insertQuery = "INSERT INTO Income (UserId, AccId, CatId, InAmount, InDate) VALUES (@UserId, @AccId, @CatId, @Amount, @Date)";
                         }
                         else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
                         {
-                            insertQuery = "INSERT INTO Expenses (UserId,AccId,CatId,SubId,ExpAmount,ExpDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "',NULL," + amount + ",'" + maskedTextBox_date.Text + "')";
+                            insertQuery = "INSERT INTO Expenses (UserId, AccId, CatId, ExpAmount, ExpDate) VALUES (@UserId, @AccId, @CatId, @Amount, @Date)";
                         }
                         else if (ComboBox_type.SelectedItem.ToString() == "Savings")
                         {
-                            insertQuery = "INSERT INTO Savings (UserId,AccId,CatId,SubId,SavAmount,SavDate) VALUES (" + LoginForm.userId + ",'" + selectedAcc + "','" + CategoriesForm.SelectedCat + "',NULL," + amount + ",'" + maskedTextBox_date.Text + "')";
+                            insertQuery = "INSERT INTO Savings (UserId, AccId, CatId, SavAmount, SavDate) VALUES (@UserId, @AccId, @CatId, @Amount, @Date)";
                         }
                     }
                     CategoriesForm.SelectedCat = "";
+
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    command.Parameters.AddWithValue("@AccId", accId);
+                    command.Parameters.AddWithValue("@CatId", catId);
+                    command.Parameters.AddWithValue("@SubId", subCatId);
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@Date", maskedTextBox_date.Text);
+
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();
                     MessageBox.Show("Transaction Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -184,5 +284,6 @@ namespace budget_management_app
         {
             Button_add.BackColor = Color.FromArgb(250, 237, 205);
         }
+
     }
 }

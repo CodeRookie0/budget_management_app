@@ -103,13 +103,13 @@ namespace budget_management_app
         {
             if (HomeForm.lastForm == "AddTransactionForm")
             {
-                this.Hide();
+                this.Close();
             }
             else
             {
                 CategoriesForm cat=new CategoriesForm();
                 cat.Show();
-                this.Hide();
+                this.Close();
             }
             HomeForm.lastForm = "";
         }
@@ -119,7 +119,7 @@ namespace budget_management_app
             if (HomeForm.lastForm == "AddTransactionForm")
             {
                 selectedSubCat = DataGridView_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
-                this.Hide();
+                this.Close();
             }
             HomeForm.lastForm = "";
         }
