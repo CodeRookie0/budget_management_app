@@ -261,6 +261,19 @@ namespace budget_management_app
 
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();
+
+                    string updateQuery = "";
+                    if (ComboBox_type.SelectedItem.ToString() == "Income")
+                    {
+                        updateQuery = "UPDATE Account SET AccBalance = (AccBalance + " + amount + ") WHERE UserId =" + LoginForm.userId + " AND AccId =" + accId;
+                    }
+                    else
+                    {
+                        updateQuery = "UPDATE Account SET AccBalance = (AccBalance - " + amount + ") WHERE UserId =" + LoginForm.userId + " AND AccId =" + accId;
+                    }
+                    SqlCommand comm = new SqlCommand(updateQuery, dbcon.GetCon());
+                    comm.ExecuteNonQuery();
+
                     MessageBox.Show("Transaction Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dbcon.CloseCon();
                     TransactionForm trns = new TransactionForm();

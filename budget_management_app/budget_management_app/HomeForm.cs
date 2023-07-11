@@ -198,7 +198,7 @@ namespace budget_management_app
             string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM ( SELECT  Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount,  CONVERT(varchar, Income.InDate, 105) AS DateTrns" + 
                 " FROM Income JOIN Account ON Account.AccId = Income.AccId JOIN Category ON Category.CatId = Income.CatId" + 
                 " WHERE Income.UserId = " + LoginForm.userId +
-                " UNION ALL SELECT  Account.AccName, Category.CatName,  '+' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, CONVERT(varchar, Savings.SavDate, 105) AS DateTrns" + 
+                " UNION ALL SELECT  Account.AccName, Category.CatName,  '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, CONVERT(varchar, Savings.SavDate, 105) AS DateTrns" + 
                 " FROM Savings JOIN Account ON Account.AccId = Savings.AccId  JOIN Category ON Category.CatId = Savings.CatId WHERE  Savings.UserId = " + LoginForm.userId +
                 " UNION ALL  SELECT  Account.AccName,  Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, CONVERT(varchar, Expenses.ExpDate, 105) AS DateTrns" + 
                 "  FROM  Expenses   JOIN Account ON Account.AccId = Expenses.AccId JOIN Category ON Category.CatId = Expenses.CatId WHERE Expenses.UserId = " + LoginForm.userId + 

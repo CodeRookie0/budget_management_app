@@ -44,7 +44,7 @@ namespace budget_management_app
                " JOIN Category ON Expenses.CatId = Category.CatId " +
                " WHERE Expenses.UserId = " + LoginForm.userId+
                " UNION ALL " +
-               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, SavDate, 105) AS TransactionDate, '+' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, SavDate, 105) AS TransactionDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " +
                " JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId = " + LoginForm.userId +
@@ -187,7 +187,7 @@ namespace budget_management_app
                 }
 
                 query += "UNION ALL " +
-                        "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 105) AS TransDate, '+' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+                        "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 105) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId =" + LoginForm.userId;
 
@@ -229,7 +229,7 @@ namespace budget_management_app
             }
             else
             {
-                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 105) AS TransDate, '+' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 105) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId =" + LoginForm.userId;
 

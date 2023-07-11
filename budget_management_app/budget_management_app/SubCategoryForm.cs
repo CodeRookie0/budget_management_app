@@ -105,12 +105,6 @@ namespace budget_management_app
             {
                 this.Close();
             }
-            else
-            {
-                CategoriesForm cat=new CategoriesForm();
-                cat.Show();
-                this.Close();
-            }
             HomeForm.lastForm = "";
         }
 
