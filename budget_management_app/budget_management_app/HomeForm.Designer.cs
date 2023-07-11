@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -143,8 +143,8 @@
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
             this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2GradientPanel1.Controls.Add(this.label7);
             this.guna2GradientPanel1.Controls.Add(this.pictureBox_menu);
+            this.guna2GradientPanel1.Controls.Add(this.label7);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
@@ -169,7 +169,7 @@
             // 
             this.pictureBox_menu.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
-            this.pictureBox_menu.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox_menu.Location = new System.Drawing.Point(0, 0);
             this.pictureBox_menu.Name = "pictureBox_menu";
             this.pictureBox_menu.Size = new System.Drawing.Size(52, 46);
             this.pictureBox_menu.TabIndex = 67;
@@ -361,18 +361,18 @@
             // 
             // chart_summary
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chart_summary.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_summary.Legends.Add(legend1);
             this.chart_summary.Location = new System.Drawing.Point(8, 252);
             this.chart_summary.Name = "chart_summary";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series4.Legend = "Legend1";
-            series4.Name = "DataSeries";
-            this.chart_summary.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series1.Legend = "Legend1";
+            series1.Name = "DataSeries";
+            this.chart_summary.Series.Add(series1);
             this.chart_summary.Size = new System.Drawing.Size(459, 203);
             this.chart_summary.TabIndex = 35;
             // 
@@ -398,10 +398,10 @@
             // 
             // chart_rec_exp
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chart_rec_exp.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_rec_exp.Legends.Add(legend2);
             this.chart_rec_exp.Location = new System.Drawing.Point(8, 560);
             this.chart_rec_exp.Name = "chart_rec_exp";
             this.chart_rec_exp.Size = new System.Drawing.Size(459, 116);

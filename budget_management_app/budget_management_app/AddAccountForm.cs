@@ -128,6 +128,19 @@ namespace budget_management_app
                 }
                 else
                 {
+                    // Checking the existence of such a account name in the data base
+                    string checkQuery_accname = "SELECT COUNT(*) FROM Account WHERE AccName='" + textBox_name.Text + "'";
+                    dbcon.OpenCon();
+                    SqlCommand checkCommand_accname = new SqlCommand(checkQuery_accname, dbcon.GetCon());
+                    int count = (int)checkCommand_accname.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("The entered Account Name is already exists. Please choose a different Account Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
                     selectedCurrId();
                     string insertQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (@UserId, @AccName, @AccBalance, @AccCurrId)";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());

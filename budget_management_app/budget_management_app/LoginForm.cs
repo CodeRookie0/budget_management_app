@@ -43,7 +43,7 @@ namespace budget_management_app
                         userId = Convert.ToInt32(table.Rows[0]["UserId"]);
                         HomeForm start = new HomeForm();
                         start.Show();
-                        this.Close();
+                        this.Hide();
                     }
                     else
                     {
@@ -73,7 +73,7 @@ namespace budget_management_app
         // Referral to the RegistrationForm
         private void label_sign_up_Click(object sender, EventArgs e)
         {
-            RegistrationForm sign = new RegistrationForm();
+            SignUpForm sign = new SignUpForm();
             sign.Show();
             this.Close();
         }
