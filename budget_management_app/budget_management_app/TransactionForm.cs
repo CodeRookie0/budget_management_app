@@ -21,6 +21,8 @@ namespace budget_management_app
         static int selectedAccountId=-1;
         static int selectedCategoryId=-1;
         static string selectedType;
+        static int selectedTrnsId = -1;
+        static string selecetedTrnsType = "";
 
         public TransactionForm()
         {
@@ -298,5 +300,67 @@ namespace budget_management_app
         {
             label_clear.ForeColor = Color.FromArgb(163, 177, 138);
         }
+
+        private void Button_add_Click(object sender, EventArgs e)
+        {
+            AddTransactionForm addTrns=new AddTransactionForm();
+            addTrns.Show();
+            this.Hide();
+        }
+
+        private void Button_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectedTrnsId == -1)
+                {
+                    MessageBox.Show("Have not selected a transaction to delete. Please, try again", "Missing information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                DialogResult result = MessageBox.Show("Are you sure you want to delete selected transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    string deleteQuery = "";
+                    if (selecetedTrnsType == "Income")
+                    {
+                        deleteQuery= "DELETE FROM Income WHERE InId =  " + selectedTrnsId + " AND UserId= " + LoginForm.userId;
+                    }
+                    else if (selecetedTrnsType == "Expenses")
+                    {
+                        deleteQuery = "DELETE FROM Expenses WHERE ExpId = " + selectedTrnsId + " AND UserId= " + LoginForm.userId;
+                    }
+                    else
+                    {
+                        deleteQuery = "DELETE FROM Savings WHERE SavId = " + selectedTrnsId + " AND UserId= " + LoginForm.userId;
+                    }
+
+                    SqlCommand command = new SqlCommand(deleteQuery, dbcon.GetCon());
+                    dbcon.OpenCon();
+                    command.ExecuteNonQuery();
+
+                    dbcon.CloseCon();
+                    MessageBox.Show("Transaction was Deleted Successfully", "Delete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                selectedTrnsId = -1;
+                selecetedTrnsType = "";
+                getTable();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DataGridView_transactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selecetedTrnsType = DataGridView_transactions.Rows[e.RowIndex].Cells["TransactionType"].Value.ToString();
+                selectedTrnsId = Convert.ToInt32(DataGridView_transactions.Rows[e.RowIndex].Cells["TransactionId"].Value.ToString());
+            }
+        }
+
     }
 }
