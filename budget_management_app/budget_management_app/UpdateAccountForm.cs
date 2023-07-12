@@ -186,7 +186,7 @@ namespace budget_management_app
 
                 if (result == DialogResult.Yes)
                 {
-                    string deleteAccountQuery = "DELETE FROM Account WHERE AccName = " + AccountForm.accToUpdate + " AND UserId= " + LoginForm.userId;
+                    string deleteAccountQuery = "DELETE FROM Account WHERE AccName = '" + AccountForm.accToUpdate + "' AND UserId= " + LoginForm.userId;
 
                     string deleteExpensesQuery = "DELETE FROM Expenses WHERE AccId = " + accId + " AND UserId= " + LoginForm.userId;
                     string deleteIncomeQuery = "DELETE FROM Income WHERE AccId =  " + accId + " AND UserId= " + LoginForm.userId;
@@ -202,7 +202,12 @@ namespace budget_management_app
 
                     dbcon.CloseCon();
                     MessageBox.Show("Account was Deleted Successfully", "Delete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    AccountForm acc=new AccountForm();
+                    acc.Show();
+                    this.Hide();
                 }
+                AccountForm.accToUpdate = "";
 
             }
             catch(Exception ex)

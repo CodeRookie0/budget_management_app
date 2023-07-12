@@ -374,7 +374,7 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chart_summary.Legends.Add(legend1);
-            this.chart_summary.Location = new System.Drawing.Point(25, 273);
+            this.chart_summary.Location = new System.Drawing.Point(25, 256);
             this.chart_summary.Name = "chart_summary";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -382,7 +382,7 @@
             series1.Legend = "Legend1";
             series1.Name = "DataSeries";
             this.chart_summary.Series.Add(series1);
-            this.chart_summary.Size = new System.Drawing.Size(459, 236);
+            this.chart_summary.Size = new System.Drawing.Size(459, 243);
             this.chart_summary.TabIndex = 35;
             // 
             // label_rec_trns
@@ -399,7 +399,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(20, 216);
+            this.label3.Location = new System.Drawing.Point(20, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 28);
             this.label3.TabIndex = 34;
@@ -439,7 +439,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(22, 244);
+            this.label4.Location = new System.Drawing.Point(22, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 62;
@@ -506,7 +506,7 @@
             this.Button_add_trns.ForeColor = System.Drawing.Color.Black;
             this.Button_add_trns.Location = new System.Drawing.Point(168, 148);
             this.Button_add_trns.Name = "Button_add_trns";
-            this.Button_add_trns.Size = new System.Drawing.Size(167, 38);
+            this.Button_add_trns.Size = new System.Drawing.Size(167, 32);
             this.Button_add_trns.TabIndex = 66;
             this.Button_add_trns.Text = "Add Transaction";
             this.Button_add_trns.Click += new System.EventHandler(this.Button_add_trns_Click);

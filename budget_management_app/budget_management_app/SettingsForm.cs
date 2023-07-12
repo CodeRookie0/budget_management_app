@@ -76,6 +76,7 @@ namespace budget_management_app
                     dbcon.CloseCon();
                     MessageBox.Show("UserName updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                getData();
             }
             catch (Exception ex)
             {
