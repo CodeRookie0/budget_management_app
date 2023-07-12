@@ -35,14 +35,18 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_Sidebar = new System.Windows.Forms.Panel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pictureBox_sideBar = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox_menu = new System.Windows.Forms.PictureBox();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.button_logout = new System.Windows.Forms.Button();
             this.button_settings = new System.Windows.Forms.Button();
@@ -62,19 +66,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel_account = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel_top7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.Button_more_trns = new Guna.UI2.WinForms.Guna2TileButton();
             this.Button_add_trns = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.DataGridView_top7trns = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel2.SuspendLayout();
             this.panel_Sidebar.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_sideBar)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).BeginInit();
             this.panel_main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_top7trns)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -143,7 +148,7 @@
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(112)))), ((int)(((byte)(92)))));
             this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.guna2GradientPanel1.Controls.Add(this.pictureBox_menu);
+            this.guna2GradientPanel1.Controls.Add(this.pictureBox_sideBar);
             this.guna2GradientPanel1.Controls.Add(this.label7);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
@@ -152,6 +157,19 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(218, 119);
             this.guna2GradientPanel1.TabIndex = 69;
+            // 
+            // pictureBox_sideBar
+            // 
+            this.pictureBox_sideBar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_sideBar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_sideBar.Image")));
+            this.pictureBox_sideBar.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_sideBar.Name = "pictureBox_sideBar";
+            this.pictureBox_sideBar.Size = new System.Drawing.Size(219, 48);
+            this.pictureBox_sideBar.TabIndex = 71;
+            this.pictureBox_sideBar.TabStop = false;
+            this.pictureBox_sideBar.Click += new System.EventHandler(this.pictureBox_sideBar_Click);
+            this.pictureBox_sideBar.MouseEnter += new System.EventHandler(this.pictureBox_sideBar_MouseEnter);
+            this.pictureBox_sideBar.MouseLeave += new System.EventHandler(this.pictureBox_sideBar_MouseLeave);
             // 
             // label7
             // 
@@ -164,17 +182,6 @@
             this.label7.TabIndex = 70;
             this.label7.Text = "Menu";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox_menu
-            // 
-            this.pictureBox_menu.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_menu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menu.Image")));
-            this.pictureBox_menu.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox_menu.Name = "pictureBox_menu";
-            this.pictureBox_menu.Size = new System.Drawing.Size(52, 46);
-            this.pictureBox_menu.TabIndex = 67;
-            this.pictureBox_menu.TabStop = false;
-            this.pictureBox_menu.Click += new System.EventHandler(this.pictureBox_menu_Click_1);
             // 
             // guna2GradientPanel2
             // 
@@ -350,7 +357,7 @@
             this.Button_more_sum.FillColor = System.Drawing.Color.Transparent;
             this.Button_more_sum.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
             this.Button_more_sum.ForeColor = System.Drawing.Color.Black;
-            this.Button_more_sum.Location = new System.Drawing.Point(8, 461);
+            this.Button_more_sum.Location = new System.Drawing.Point(25, 526);
             this.Button_more_sum.Name = "Button_more_sum";
             this.Button_more_sum.Size = new System.Drawing.Size(119, 25);
             this.Button_more_sum.TabIndex = 59;
@@ -363,9 +370,11 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chart_summary.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chart_summary.Legends.Add(legend1);
-            this.chart_summary.Location = new System.Drawing.Point(8, 252);
+            this.chart_summary.Location = new System.Drawing.Point(25, 273);
             this.chart_summary.Name = "chart_summary";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -373,14 +382,14 @@
             series1.Legend = "Legend1";
             series1.Name = "DataSeries";
             this.chart_summary.Series.Add(series1);
-            this.chart_summary.Size = new System.Drawing.Size(459, 203);
+            this.chart_summary.Size = new System.Drawing.Size(459, 236);
             this.chart_summary.TabIndex = 35;
             // 
             // label_rec_trns
             // 
             this.label_rec_trns.AutoSize = true;
             this.label_rec_trns.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_rec_trns.Location = new System.Drawing.Point(3, 515);
+            this.label_rec_trns.Location = new System.Drawing.Point(20, 596);
             this.label_rec_trns.Name = "label_rec_trns";
             this.label_rec_trns.Size = new System.Drawing.Size(290, 28);
             this.label_rec_trns.TabIndex = 60;
@@ -390,7 +399,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(3, 208);
+            this.label3.Location = new System.Drawing.Point(20, 216);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 28);
             this.label3.TabIndex = 34;
@@ -398,20 +407,29 @@
             // 
             // chart_rec_exp
             // 
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
             chartArea2.Name = "ChartArea1";
             this.chart_rec_exp.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart_rec_exp.Legends.Add(legend2);
-            this.chart_rec_exp.Location = new System.Drawing.Point(8, 560);
+            this.chart_rec_exp.Location = new System.Drawing.Point(0, 641);
             this.chart_rec_exp.Name = "chart_rec_exp";
-            this.chart_rec_exp.Size = new System.Drawing.Size(459, 116);
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.OrangeRed;
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Expenses";
+            this.chart_rec_exp.Series.Add(series2);
+            this.chart_rec_exp.Size = new System.Drawing.Size(467, 276);
             this.chart_rec_exp.TabIndex = 61;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(20, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 28);
             this.label1.TabIndex = 32;
@@ -421,7 +439,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(5, 236);
+            this.label4.Location = new System.Drawing.Point(22, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 62;
@@ -432,39 +450,28 @@
             this.flowLayoutPanel_account.AutoScroll = true;
             this.flowLayoutPanel_account.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel_account.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.flowLayoutPanel_account.Location = new System.Drawing.Point(8, 53);
+            this.flowLayoutPanel_account.Location = new System.Drawing.Point(29, 53);
             this.flowLayoutPanel_account.Name = "flowLayoutPanel_account";
-            this.flowLayoutPanel_account.Size = new System.Drawing.Size(459, 75);
+            this.flowLayoutPanel_account.Size = new System.Drawing.Size(444, 75);
             this.flowLayoutPanel_account.TabIndex = 33;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(3, 692);
+            this.label5.Location = new System.Drawing.Point(20, 960);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(214, 28);
             this.label5.TabIndex = 63;
             this.label5.Text = "Recent Transactions";
             // 
-            // flowLayoutPanel_top7
-            // 
-            this.flowLayoutPanel_top7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_top7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.flowLayoutPanel_top7.Location = new System.Drawing.Point(8, 739);
-            this.flowLayoutPanel_top7.Name = "flowLayoutPanel_top7";
-            this.flowLayoutPanel_top7.Size = new System.Drawing.Size(459, 288);
-            this.flowLayoutPanel_top7.TabIndex = 34;
-            // 
             // label6
             // 
-            this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(378, 1100);
+            this.label6.Location = new System.Drawing.Point(383, 1244);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 28);
+            this.label6.Size = new System.Drawing.Size(56, 47);
             this.label6.TabIndex = 65;
-            this.label6.Text = "END";
             // 
             // Button_more_trns
             // 
@@ -477,7 +484,7 @@
             this.Button_more_trns.FillColor = System.Drawing.Color.Transparent;
             this.Button_more_trns.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
             this.Button_more_trns.ForeColor = System.Drawing.Color.Black;
-            this.Button_more_trns.Location = new System.Drawing.Point(8, 1051);
+            this.Button_more_trns.Location = new System.Drawing.Point(25, 1226);
             this.Button_more_trns.Name = "Button_more_trns";
             this.Button_more_trns.Size = new System.Drawing.Size(119, 25);
             this.Button_more_trns.TabIndex = 64;
@@ -497,7 +504,7 @@
             this.Button_add_trns.FillColor = System.Drawing.Color.Transparent;
             this.Button_add_trns.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
             this.Button_add_trns.ForeColor = System.Drawing.Color.Black;
-            this.Button_add_trns.Location = new System.Drawing.Point(161, 145);
+            this.Button_add_trns.Location = new System.Drawing.Point(168, 148);
             this.Button_add_trns.Name = "Button_add_trns";
             this.Button_add_trns.Size = new System.Drawing.Size(167, 38);
             this.Button_add_trns.TabIndex = 66;
@@ -509,12 +516,12 @@
             // panel_main
             // 
             this.panel_main.AutoScroll = true;
+            this.panel_main.Controls.Add(this.DataGridView_top7trns);
+            this.panel_main.Controls.Add(this.label6);
             this.panel_main.Controls.Add(this.label1);
             this.panel_main.Controls.Add(this.flowLayoutPanel_account);
             this.panel_main.Controls.Add(this.Button_add_trns);
             this.panel_main.Controls.Add(this.Button_more_trns);
-            this.panel_main.Controls.Add(this.label6);
-            this.panel_main.Controls.Add(this.flowLayoutPanel_top7);
             this.panel_main.Controls.Add(this.label5);
             this.panel_main.Controls.Add(this.label4);
             this.panel_main.Controls.Add(this.chart_rec_exp);
@@ -522,10 +529,64 @@
             this.panel_main.Controls.Add(this.label_rec_trns);
             this.panel_main.Controls.Add(this.chart_summary);
             this.panel_main.Controls.Add(this.Button_more_sum);
-            this.panel_main.Location = new System.Drawing.Point(76, 52);
+            this.panel_main.Location = new System.Drawing.Point(58, 52);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(501, 680);
+            this.panel_main.Size = new System.Drawing.Size(519, 680);
             this.panel_main.TabIndex = 63;
+            // 
+            // DataGridView_top7trns
+            // 
+            this.DataGridView_top7trns.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridView_top7trns.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_top7trns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DataGridView_top7trns.ColumnHeadersHeight = 4;
+            this.DataGridView_top7trns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_top7trns.ColumnHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_top7trns.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGridView_top7trns.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_top7trns.Location = new System.Drawing.Point(16, 1012);
+            this.DataGridView_top7trns.Name = "DataGridView_top7trns";
+            this.DataGridView_top7trns.ReadOnly = true;
+            this.DataGridView_top7trns.RowHeadersVisible = false;
+            this.DataGridView_top7trns.Size = new System.Drawing.Size(464, 198);
+            this.DataGridView_top7trns.TabIndex = 67;
+            this.DataGridView_top7trns.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_top7trns.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_top7trns.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_top7trns.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_top7trns.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_top7trns.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_top7trns.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_top7trns.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_top7trns.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_top7trns.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_top7trns.ThemeStyle.ReadOnly = true;
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_top7trns.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // HomeForm
             // 
@@ -546,12 +607,13 @@
             this.panel2.PerformLayout();
             this.panel_Sidebar.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_sideBar)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_top7trns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,7 +626,6 @@
         private System.Windows.Forms.Label label_exit;
         private System.Windows.Forms.Panel panel_Sidebar;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private System.Windows.Forms.PictureBox pictureBox_menu;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.Button button_settings;
@@ -585,10 +646,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_account;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_top7;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TileButton Button_more_trns;
         private Guna.UI2.WinForms.Guna2TileButton Button_add_trns;
         private System.Windows.Forms.Panel panel_main;
+        private System.Windows.Forms.PictureBox pictureBox_sideBar;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_top7trns;
     }
 }

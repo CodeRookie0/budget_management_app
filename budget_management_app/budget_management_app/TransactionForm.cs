@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace budget_management_app
@@ -54,6 +55,18 @@ namespace budget_management_app
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    if (row[i] != null && row[i] != DBNull.Value)
+                    {
+                        row[i] = row[i].ToString().Trim();
+                    }
+                }
+            }
+
             DataGridView_transactions.DataSource = dataTable;
         }
 
@@ -157,7 +170,7 @@ namespace budget_management_app
         private void UpdateDataGridView()
         {
 
-            string query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, InDate, 105) AS TransDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
+            string query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, InDate, 107) AS TransDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
                " JOIN Account ON Income.AccId = Account.AccId " + "JOIN Category ON Income.CatId = Category.CatId " +
                " WHERE Income.UserId =" + LoginForm.userId;
 
@@ -173,7 +186,7 @@ namespace budget_management_app
                 }
 
                 query += "UNION ALL " +
-                         "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, ExpDate, 105) AS TransDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
+                         "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, ExpDate, 107) AS TransDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
                " JOIN Account ON Expenses.AccId = Account.AccId " + "JOIN Category ON Expenses.CatId = Category.CatId " +
                " WHERE Expenses.UserId =" + LoginForm.userId;
 
@@ -187,7 +200,7 @@ namespace budget_management_app
                 }
 
                 query += "UNION ALL " +
-                        "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 105) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+                        "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 107) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId =" + LoginForm.userId;
 
@@ -214,7 +227,7 @@ namespace budget_management_app
             }
             else if (selectedType == "Expenses")
             {
-                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, ExpDate, 105) AS TransDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
+                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, ExpDate, 107) AS TransDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
                " JOIN Account ON Expenses.AccId = Account.AccId " + "JOIN Category ON Expenses.CatId = Category.CatId " +
                " WHERE Expenses.UserId =" + LoginForm.userId;
 
@@ -229,7 +242,7 @@ namespace budget_management_app
             }
             else
             {
-                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 105) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 107) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId =" + LoginForm.userId;
 

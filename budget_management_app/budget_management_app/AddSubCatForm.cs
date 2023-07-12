@@ -50,7 +50,32 @@ namespace budget_management_app
                 }
                 else
                 {
-                    string insertQuery = "INSERT INTO SubCategory (CatId,SubName,SubType) VALUES((SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat+"'),'" + textBox_name.Text + "','" + ComboBox_type.SelectedItem.ToString() +"')";
+                    // Checking the existence of such a Subcategory name in the data base
+                    string checkQuery_name = "SELECT COUNT(*) FROM [UserSubCat] WHERE Us_SubName='" + textBox_name.Text + "'";
+                    dbcon.OpenCon();
+                    SqlCommand checkCommand_name = new SqlCommand(checkQuery_name, dbcon.GetCon());
+                    int count = (int)checkCommand_name.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("The entered Subcategory Name is already taken. Please choose a different Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Checking the existence of such a Subcategory name in the data base
+                    string checkQuery_Name = "SELECT COUNT(*) FROM [SubCategory] WHERE SubName='" + textBox_name.Text + "'";
+                    dbcon.OpenCon();
+                    SqlCommand checkCommand_Name = new SqlCommand(checkQuery_Name, dbcon.GetCon());
+                    int count2 = (int)checkCommand_Name.ExecuteScalar();
+
+                    if (count2 > 0)
+                    {
+                        MessageBox.Show("The entered Subcategory Name is already taken. Please choose a different Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+                    string insertQuery = "INSERT INTO UserSubCat (UserId,Us_CatId,Us_SubName,Us_SubType) VALUES( "+LoginForm.userId+",(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat+"'),'" + textBox_name.Text + "','" + ComboBox_type.SelectedItem.ToString() +"')";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();

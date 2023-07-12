@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace budget_management_app
 {
@@ -15,6 +16,7 @@ namespace budget_management_app
     {
         DBConnection dbcon=new DBConnection();
         public static string selectedSubCat = "";
+        public static string deleteSubCat = "";
         public SubCategoryForm()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace budget_management_app
             label_category.Text =CategoriesForm.SelectedCat;
             getCat();
             getTable();
+            getMySub();
         }
 
         // Get data from database, table Category 
@@ -48,6 +51,17 @@ namespace budget_management_app
             DataTable table = new DataTable();
             adapter.Fill(table);
             DataGridView_subcat.DataSource = table;
+        }
+
+        // Get data from database, table UserSubCat 
+        private void getMySub()
+        {
+            string selectQuerry = "SELECT Us_SubName FROM UserSubCat WHERE Us_CatId =(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat + "') AND UserId= "+LoginForm.userId;
+            SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            DataGridView_my_subcat.DataSource = table;
         }
 
 
@@ -116,6 +130,53 @@ namespace budget_management_app
                 this.Hide();
             }
             HomeForm.lastForm = "";
+        }
+
+        private void Button_delete_Click(object sender, EventArgs e)
+        {
+            if (deleteSubCat == "")
+            {
+                MessageBox.Show("Subcategory not selected or cannot be deleted. Remember that you can only delete subcategories created by you", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this subcategory '" + deleteSubCat + "' ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result==DialogResult.Yes)
+                {
+                    string deleteQuery = "DELETE FROM UserSubCat WHERE UserId = @UserId AND Us_SubName = @Us_SubName";
+
+                    SqlCommand command = new SqlCommand(deleteQuery, dbcon.GetCon());
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    command.Parameters.AddWithValue("@Us_SubName", deleteSubCat);
+
+                    dbcon.OpenCon();
+                    command.ExecuteNonQuery();
+                    dbcon.CloseCon();
+
+                    getMySub();
+                    deleteSubCat = "";
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button_delete_MouseEnter(object sender, EventArgs e)
+        {
+            Button_delete.BackColor = Color.FromArgb(242, 182, 182);
+        }
+
+        private void Button_delete_MouseMove(object sender, MouseEventArgs e)
+        {
+            Button_delete.BackColor = Color.FromArgb(255, 192, 192);
+        }
+
+        private void DataGridView_my_subcat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            deleteSubCat = DataGridView_my_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
         }
     }
 }

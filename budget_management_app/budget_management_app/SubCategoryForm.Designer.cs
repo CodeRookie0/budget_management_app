@@ -34,6 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.label_category = new System.Windows.Forms.Label();
@@ -43,9 +46,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.DataGridView_subcat = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Button_add = new Guna.UI2.WinForms.Guna2TileButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DataGridView_my_subcat = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Button_delete = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_selectedCat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_subcat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_my_subcat)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -86,9 +93,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel1.Location = new System.Drawing.Point(0, 709);
+            this.panel1.Location = new System.Drawing.Point(0, 721);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 55);
+            this.panel1.Size = new System.Drawing.Size(583, 43);
             this.panel1.TabIndex = 4;
             // 
             // DataGridView_selectedCat
@@ -204,7 +211,7 @@
             this.DataGridView_subcat.Name = "DataGridView_subcat";
             this.DataGridView_subcat.ReadOnly = true;
             this.DataGridView_subcat.RowHeadersVisible = false;
-            this.DataGridView_subcat.Size = new System.Drawing.Size(580, 444);
+            this.DataGridView_subcat.Size = new System.Drawing.Size(580, 256);
             this.DataGridView_subcat.TabIndex = 7;
             this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView_subcat.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -240,7 +247,7 @@
             this.Button_add.FillColor = System.Drawing.Color.Transparent;
             this.Button_add.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Button_add.ForeColor = System.Drawing.Color.Black;
-            this.Button_add.Location = new System.Drawing.Point(217, 667);
+            this.Button_add.Location = new System.Drawing.Point(125, 667);
             this.Button_add.Name = "Button_add";
             this.Button_add.Size = new System.Drawing.Size(146, 36);
             this.Button_add.TabIndex = 26;
@@ -249,12 +256,104 @@
             this.Button_add.MouseEnter += new System.EventHandler(this.Button_add_MouseEnter);
             this.Button_add.MouseLeave += new System.EventHandler(this.Button_add_MouseLeave);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.label2.Location = new System.Drawing.Point(0, 486);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 25);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "MY SUBCATEGORIES";
+            // 
+            // DataGridView_my_subcat
+            // 
+            this.DataGridView_my_subcat.AllowUserToAddRows = false;
+            this.DataGridView_my_subcat.AllowUserToDeleteRows = false;
+            this.DataGridView_my_subcat.AllowUserToResizeColumns = false;
+            this.DataGridView_my_subcat.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.DataGridView_my_subcat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.DataGridView_my_subcat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_my_subcat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.DataGridView_my_subcat.ColumnHeadersHeight = 4;
+            this.DataGridView_my_subcat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_my_subcat.ColumnHeadersVisible = false;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Sitka Banner", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_my_subcat.DefaultCellStyle = dataGridViewCellStyle9;
+            this.DataGridView_my_subcat.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_my_subcat.Location = new System.Drawing.Point(0, 526);
+            this.DataGridView_my_subcat.Name = "DataGridView_my_subcat";
+            this.DataGridView_my_subcat.ReadOnly = true;
+            this.DataGridView_my_subcat.RowHeadersVisible = false;
+            this.DataGridView_my_subcat.Size = new System.Drawing.Size(580, 131);
+            this.DataGridView_my_subcat.TabIndex = 27;
+            this.DataGridView_my_subcat.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_my_subcat.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_my_subcat.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_my_subcat.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_my_subcat.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_my_subcat.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_my_subcat.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.DataGridView_my_subcat.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_my_subcat.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_my_subcat.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_my_subcat.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_my_subcat.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_my_subcat.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_my_subcat.ThemeStyle.ReadOnly = true;
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_my_subcat.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_my_subcat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_my_subcat_CellContentClick);
+            // 
+            // Button_delete
+            // 
+            this.Button_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Button_delete.BorderThickness = 1;
+            this.Button_delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_delete.FillColor = System.Drawing.Color.Transparent;
+            this.Button_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Button_delete.ForeColor = System.Drawing.Color.Black;
+            this.Button_delete.Location = new System.Drawing.Point(309, 667);
+            this.Button_delete.Name = "Button_delete";
+            this.Button_delete.Size = new System.Drawing.Size(146, 36);
+            this.Button_delete.TabIndex = 29;
+            this.Button_delete.Text = "DELETE";
+            this.Button_delete.Click += new System.EventHandler(this.Button_delete_Click);
+            this.Button_delete.MouseEnter += new System.EventHandler(this.Button_delete_MouseEnter);
+            this.Button_delete.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Button_delete_MouseMove);
+            // 
             // SubCategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 750);
+            this.Controls.Add(this.Button_delete);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.DataGridView_my_subcat);
             this.Controls.Add(this.Button_add);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DataGridView_subcat);
@@ -271,6 +370,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_selectedCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_subcat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_my_subcat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +387,8 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView_subcat;
         private Guna.UI2.WinForms.Guna2TileButton Button_add;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_my_subcat;
+        private Guna.UI2.WinForms.Guna2TileButton Button_delete;
     }
 }

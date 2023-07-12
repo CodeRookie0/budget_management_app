@@ -250,7 +250,7 @@ namespace budget_management_app
                     command.Parameters.AddWithValue("@CatId", catId);
                     command.Parameters.AddWithValue("@SubId", subCatId);
                     command.Parameters.AddWithValue("@Amount", amount);
-                    command.Parameters.AddWithValue("@Date", maskedTextBox_date.Text);
+                    command.Parameters.AddWithValue("@Date", userDate);
 
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();
