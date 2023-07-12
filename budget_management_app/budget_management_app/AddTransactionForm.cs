@@ -276,7 +276,7 @@ namespace budget_management_app
                     dbcon.CloseCon();
                     TransactionForm trns = new TransactionForm();
                     trns.Show();
-                    this.Close();
+                    this.Hide();
 
                 }
             }

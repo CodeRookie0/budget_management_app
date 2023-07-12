@@ -75,7 +75,7 @@ namespace budget_management_app
         {
             SignUpForm sign = new SignUpForm();
             sign.Show();
-            this.Close();
+            this.Hide();
         }
         // Design of label_sign_up
         private void label_sign_up_MouseEnter(object sender, EventArgs e)

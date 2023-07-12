@@ -94,7 +94,7 @@ namespace budget_management_app
         {
             HomeForm start = new HomeForm();
             start.Show();
-            this.Close();
+            this.Hide();
         }
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)

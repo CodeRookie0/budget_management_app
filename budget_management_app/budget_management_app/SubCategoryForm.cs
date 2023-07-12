@@ -58,13 +58,13 @@ namespace budget_management_app
             {
                 AddTransactionForm trns = new AddTransactionForm();
                 trns.Show();
-                this.Close();
+                this.Hide();
             }
             else
             {
                 CategoriesForm cat = new CategoriesForm();
                 cat.Show();
-                this.Close();
+                this.Hide();
             }
         }
 
@@ -86,7 +86,7 @@ namespace budget_management_app
         {
             AddSubCatForm add = new AddSubCatForm();
             add.Show();
-            this.Close();
+            this.Hide();
         }
         // Design of Button_add
         private void Button_add_MouseEnter(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace budget_management_app
         {
             if (HomeForm.lastForm == "AddTransactionForm")
             {
-                this.Close();
+                this.Hide();
             }
             HomeForm.lastForm = "";
         }
@@ -113,7 +113,7 @@ namespace budget_management_app
             if (HomeForm.lastForm == "AddTransactionForm")
             {
                 selectedSubCat = DataGridView_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
-                this.Close();
+                this.Hide();
             }
             HomeForm.lastForm = "";
         }

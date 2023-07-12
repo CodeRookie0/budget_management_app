@@ -53,7 +53,7 @@ namespace budget_management_app
         {
             HomeForm home=new HomeForm();
             home.Show();
-            this.Close();
+            this.Hide();
         }
 
         // Design of label_exit
@@ -73,7 +73,7 @@ namespace budget_management_app
         {
             AddAccountForm addAcc=new AddAccountForm();
             addAcc.Show();
-            this.Close();
+            this.Hide();
         }
         // Design of Button_add
         private void Button_add_MouseEnter(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace budget_management_app
             accToUpdate= DataGridView_acc.SelectedRows[0].Cells[0].Value.ToString().Trim();
             UpdateAccountForm updAcc = new UpdateAccountForm();
             updAcc.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

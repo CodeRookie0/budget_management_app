@@ -86,7 +86,7 @@ namespace budget_management_app
                     dbconn.CloseCon();
                     LoginForm loginForm = new LoginForm();
                     loginForm.Show();
-                    this.Close();
+                    this.Hide();
                 }
             }
             catch(Exception ex)
@@ -130,7 +130,7 @@ namespace budget_management_app
         {
             LoginForm login = new LoginForm();
             login.Show();
-            this.Close();
+            this.Hide();
         }
 
         // Design of linkLabel_log_in

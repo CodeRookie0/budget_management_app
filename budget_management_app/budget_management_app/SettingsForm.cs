@@ -144,7 +144,7 @@ namespace budget_management_app
             {
                 LoginForm login=new LoginForm();
                 login.Show();
-                this.Close();
+                this.Hide();
             }
         }
         // Design of button_logout
@@ -181,7 +181,7 @@ namespace budget_management_app
                         
                         AccountForm acc = new AccountForm();
                         acc.Show();
-                        this.Close();
+                        this.Hide();
                     }
                 }
             }
@@ -205,7 +205,7 @@ namespace budget_management_app
         {
             HomeForm home=new HomeForm();
             home.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void label_exit_MouseEnter(object sender, EventArgs e)

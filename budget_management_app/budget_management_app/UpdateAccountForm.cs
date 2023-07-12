@@ -86,7 +86,7 @@ namespace budget_management_app
         {
             AccountForm acc = new AccountForm();
             acc.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void label_exit_MouseEnter(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace budget_management_app
 
                     AccountForm acc = new AccountForm();
                     acc.Show();
-                    this.Close();
+                    this.Hide();
                 }
             }
             catch (Exception ex)

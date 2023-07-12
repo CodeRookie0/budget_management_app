@@ -42,7 +42,7 @@ namespace budget_management_app
         {
             HomeForm start=new HomeForm();
             start.Show();
-            this.Close();
+            this.Hide();
         }
         // Design of label_exit
         private void label_exit_MouseEnter(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace budget_management_app
             SelectedCat = DataGridView_categories.SelectedRows[0].Cells[0].Value.ToString().Trim();
             SubCategoryForm subCat=new SubCategoryForm();
             subCat.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
