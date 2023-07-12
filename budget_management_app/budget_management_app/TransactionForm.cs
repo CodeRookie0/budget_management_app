@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,20 +37,20 @@ namespace budget_management_app
         // Retrieving data for dataGridView
         public void getTable()
         {
-            string query = "SELECT Account.AccName, Category.CatName,CONVERT(varchar, InDate, 107) AS TransactionDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
+            string query = "SELECT 'Income' AS TransactionType, Income.InId AS TransactionId, Account.AccName, Category.CatName,Income.InDate AS TransactionDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
                " JOIN Account ON Income.AccId = Account.AccId " +"JOIN Category ON Income.CatId = Category.CatId "+
                " WHERE Income.UserId =" + LoginForm.userId+
                " UNION ALL " +
-               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, ExpDate, 107) AS TransactionDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
+               " SELECT 'Expenses' AS TransactionType, Expenses.ExpId AS TransactionId,  Account.AccName, Category.CatName,Expenses.ExpDate AS TransactionDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
                " JOIN Account ON Expenses.AccId = Account.AccId " +
                " JOIN Category ON Expenses.CatId = Category.CatId " +
                " WHERE Expenses.UserId = " + LoginForm.userId+
                " UNION ALL " +
-               " SELECT   Account.AccName, Category.CatName,CONVERT(varchar, SavDate, 107) AS TransactionDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+               " SELECT 'Savings' AS TransactionType, Savings.SavId AS TransactionId,  Account.AccName, Category.CatName,Savings.SavDate AS TransactionDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " +
                " JOIN Category ON Savings.CatId = Category.CatId " +
                " WHERE Savings.UserId = " + LoginForm.userId +
-               " ORDER BY TransactionDate ASC";
+               " ORDER BY TransactionDate DESC";
 
             SqlCommand command = new SqlCommand(query, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -65,9 +66,14 @@ namespace budget_management_app
                         row[i] = row[i].ToString().Trim();
                     }
                 }
+                
             }
 
             DataGridView_transactions.DataSource = dataTable;
+            DataGridView_transactions.Columns["TransactionDate"].DefaultCellStyle.Format = "dd MMM yyyy";
+            DataGridView_transactions.Columns["TransactionType"].Visible = false;
+            DataGridView_transactions.Columns["TransactionId"].Visible = false;
+
         }
 
         // Retrieving data on existing accounts for combo_box_account
@@ -170,92 +176,99 @@ namespace budget_management_app
         private void UpdateDataGridView()
         {
 
-            string query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, InDate, 107) AS TransDate, '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
+            string query = "SELECT 'Income' AS TransactionType, Income.InId AS TransactionId, Account.AccName AS AccName, Category.CatName AS CatName,Income.InDate AS TransactionDate," +
+                " '+' + CAST(Income.InAmount AS VARCHAR) AS Amount FROM Income " +
                " JOIN Account ON Income.AccId = Account.AccId " + "JOIN Category ON Income.CatId = Category.CatId " +
-               " WHERE Income.UserId =" + LoginForm.userId;
+               " WHERE Income.UserId = " + LoginForm.userId;
 
             if (selectedType == null)
             {
                 if (selectedAccountId != -1)
                 {
-                    query += " AND Income.AccId =  " + selectedAccountId;
+                    query += " AND Income.AccId = " + selectedAccountId;
                 }
                 if (selectedCategoryId != -1)
                 {
                     query += " AND Income.CatId = " + selectedCategoryId;
                 }
 
-                query += "UNION ALL " +
-                         "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, ExpDate, 107) AS TransDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
+                query += " UNION ALL " +
+                         "SELECT 'Expenses' AS TransactionType, Expenses.ExpId AS TransactionId, Account.AccName AS AccName, Category.CatName AS CatName,Expenses.ExpDate AS TransactionDate," +
+                         " '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
                " JOIN Account ON Expenses.AccId = Account.AccId " + "JOIN Category ON Expenses.CatId = Category.CatId " +
                " WHERE Expenses.UserId =" + LoginForm.userId;
 
                 if (selectedAccountId != -1)
                 {
-                    query += " AND Expenses.AccId =  " + selectedAccountId;
+                    query += " AND Expenses.AccId = " + selectedAccountId;
                 }
                 if (selectedCategoryId != -1)
                 {
                     query += " AND Expenses.CatId = " + selectedCategoryId;
                 }
 
-                query += "UNION ALL " +
-                        "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 107) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+                query += " UNION ALL " +
+                        "SELECT 'Savings' AS TransactionType, Savings.SavId AS TransactionId,Account.AccName AS AccName, Category.CatName AS CatName,Savings.SavDate AS TransactionDate," +
+                        " '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
-               " WHERE Savings.UserId =" + LoginForm.userId;
+               " WHERE Savings.UserId = " + LoginForm.userId;
 
                 if (selectedAccountId != -1)
                 {
-                    query += " AND Savings.AccId =  " + selectedAccountId;
+                    query += " AND Savings.AccId = " + selectedAccountId;
                 }
                 if (selectedCategoryId != -1)
                 {
                     query += " AND Savings.CatId = " + selectedCategoryId;
                 }
-                query += "ORDER BY TransDate ASC";
+                query += "ORDER BY TransactionDate DESC";
             }
             else if (selectedType == "Income")
             {
                 if (selectedAccountId != -1)
                 {
-                    query += " AND Income.AccId =  " + selectedAccountId;
+                    query += " AND Income.AccId = " + selectedAccountId;
                 }
                 if (selectedCategoryId != -1)
                 {
                     query += " AND Income.CatId = " + selectedCategoryId;
                 }
+                query += "ORDER BY TransactionDate DESC";
             }
             else if (selectedType == "Expenses")
             {
-                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, ExpDate, 107) AS TransDate, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
+                query = "SELECT 'Expenses' AS TransactionType, Expenses.ExpId AS TransactionId, Account.AccName AS AccName, Category.CatName AS CatName,Expenses.ExpDate AS TransactionDate," +
+                    " '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount FROM Expenses " +
                " JOIN Account ON Expenses.AccId = Account.AccId " + "JOIN Category ON Expenses.CatId = Category.CatId " +
-               " WHERE Expenses.UserId =" + LoginForm.userId;
+               " WHERE Expenses.UserId = " + LoginForm.userId;
 
                 if (selectedAccountId != -1)
                 {
-                    query += " AND Expenses.AccId =  " + selectedAccountId;
+                    query += " AND Expenses.AccId = " + selectedAccountId;
                 }
                 if (selectedCategoryId != -1)
                 {
                     query += " AND Expenses.CatId = " + selectedCategoryId;
                 }
+                query += "ORDER BY TransactionDate DESC";
             }
             else
             {
-                query = "SELECT Account.AccName AS AccName, Category.CatName AS CatName,CONVERT(varchar, SavDate, 107) AS TransDate, '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
+                query = "SELECT 'Savings' AS TransactionType, Savings.SavId AS TransactionId, Account.AccName AS AccName, Category.CatName AS CatName,Savings.SavDate AS TransactionDate," +
+                    " '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
                " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
-               " WHERE Savings.UserId =" + LoginForm.userId;
+               " WHERE Savings.UserId = " + LoginForm.userId;
 
                 if (selectedAccountId != -1)
                 {
-                    query += " AND Savings.AccId =  " + selectedAccountId;
+                    query += " AND Savings.AccId = " + selectedAccountId;
                 }
                 if (selectedCategoryId != -1)
                 {
                     query += " AND Savings.CatId = " + selectedCategoryId;
                 }
+                query += "ORDER BY TransactionDate DESC";
             }
-
             SqlCommand command = new SqlCommand(query, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
