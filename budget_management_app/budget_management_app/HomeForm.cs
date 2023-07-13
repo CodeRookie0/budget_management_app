@@ -301,7 +301,9 @@ namespace budget_management_app
 
         private void button_stat_Click(object sender, EventArgs e)
         {
-
+            StatisticsForm stat=new StatisticsForm();
+            stat.Show();
+            this.Hide();
         }
 
         private void button_settings_Click(object sender, EventArgs e)
