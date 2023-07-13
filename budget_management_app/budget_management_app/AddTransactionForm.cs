@@ -27,7 +27,6 @@ namespace budget_management_app
         {
             InitializeComponent();
         }
-
         private void AddTransactionForm_Load(object sender, EventArgs e)
         {
             maskedTextBox_date.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
@@ -130,6 +129,22 @@ namespace budget_management_app
             reader.Close();
             dbcon.CloseCon();
         }
+        private void getUs_SubCatId()
+        {
+            string selectQuery = "SELECT Us_SubId FROM UserSubCat WHERE Us_SubName = @Us_SubName";
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            command.Parameters.AddWithValue("@Us_SubName", SubCategoryForm.selectedUs_SubCat);
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                subCatId = reader.GetInt32(0);
+            }
+
+            reader.Close();
+            dbcon.CloseCon();
+        }
         private void getCatId()
         {
             string selectQuery = "SELECT CatId FROM Category WHERE CatName = @CatName";
@@ -210,22 +225,42 @@ namespace budget_management_app
                     getCatId();
                     getAccId();
 
-                    if (SubCategoryForm.selectedSubCat != "")
+                    if (SubCategoryForm.selectedSubCat != ""||SubCategoryForm.selectedUs_SubCat!="")
                     {
-                        getSubCatId();
-                        if (ComboBox_type.SelectedItem.ToString() == "Income")
+                        if (SubCategoryForm.selectedSubCat != "")
                         {
-                            insertQuery = "INSERT INTO Income (UserId, AccId, CatId, SubId, InAmount, InDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            getSubCatId();
+                            if (ComboBox_type.SelectedItem.ToString() == "Income")
+                            {
+                                insertQuery = "INSERT INTO Income (UserId, AccId, CatId, SubId, InAmount, InDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            }
+                            else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
+                            {
+                                insertQuery = "INSERT INTO Expenses (UserId, AccId, CatId, SubId, ExpAmount, ExpDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            }
+                            else if (ComboBox_type.SelectedItem.ToString() == "Savings")
+                            {
+                                insertQuery = "INSERT INTO Savings (UserId, AccId, CatId, SubId, SavAmount, SavDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            }
+                            SubCategoryForm.selectedSubCat = "";
                         }
-                        else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
+                        else
                         {
-                            insertQuery = "INSERT INTO Expenses (UserId, AccId, CatId, SubId, ExpAmount, ExpDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            getUs_SubCatId();
+                            if (ComboBox_type.SelectedItem.ToString() == "Income")
+                            {
+                                insertQuery = "INSERT INTO Income (UserId, AccId, CatId, Us_SubId, InAmount, InDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            }
+                            else if (ComboBox_type.SelectedItem.ToString() == "Expenses")
+                            {
+                                insertQuery = "INSERT INTO Expenses (UserId, AccId, CatId, Us_SubId, ExpAmount, ExpDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            }
+                            else if (ComboBox_type.SelectedItem.ToString() == "Savings")
+                            {
+                                insertQuery = "INSERT INTO Savings (UserId, AccId, CatId, Us_SubId, SavAmount, SavDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
+                            }
+                            SubCategoryForm.selectedSubCat = "";
                         }
-                        else if (ComboBox_type.SelectedItem.ToString() == "Savings")
-                        {
-                            insertQuery = "INSERT INTO Savings (UserId, AccId, CatId, SubId, SavAmount, SavDate) VALUES (@UserId, @AccId, @CatId, @SubId, @Amount, @Date)";
-                        }
-                        SubCategoryForm.selectedSubCat = "";
                     }
                     else
                     {

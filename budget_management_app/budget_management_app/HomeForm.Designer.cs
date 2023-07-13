@@ -417,7 +417,7 @@
             this.chart_rec_exp.Location = new System.Drawing.Point(0, 641);
             this.chart_rec_exp.Name = "chart_rec_exp";
             series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.OrangeRed;
+            series2.Color = System.Drawing.SystemColors.Highlight;
             series2.IsVisibleInLegend = false;
             series2.Legend = "Legend1";
             series2.Name = "Expenses";

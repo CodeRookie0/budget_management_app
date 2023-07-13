@@ -191,14 +191,14 @@ namespace budget_management_app
         // Adding data about the last 7 transactions flowLayoutPanel_top7
         private void getRecTrns()
         {
-            string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM ( SELECT  Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount,  CONVERT(varchar, Income.InDate, 107) AS DateTrns" + 
+            string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM ( SELECT  Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount,  Income.InDate AS DateTrns" + 
                 " FROM Income JOIN Account ON Account.AccId = Income.AccId JOIN Category ON Category.CatId = Income.CatId" + 
                 " WHERE Income.UserId = " + LoginForm.userId +
-                " UNION ALL SELECT  Account.AccName, Category.CatName,  '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, CONVERT(varchar, Savings.SavDate, 107) AS DateTrns" + 
+                " UNION ALL SELECT  Account.AccName, Category.CatName,  '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, Savings.SavDate AS DateTrns" + 
                 " FROM Savings JOIN Account ON Account.AccId = Savings.AccId  JOIN Category ON Category.CatId = Savings.CatId WHERE  Savings.UserId = " + LoginForm.userId +
-                " UNION ALL  SELECT  Account.AccName,  Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, CONVERT(varchar, Expenses.ExpDate, 107) AS DateTrns" + 
+                " UNION ALL  SELECT  Account.AccName,  Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, Expenses.ExpDate AS DateTrns" + 
                 "  FROM  Expenses   JOIN Account ON Account.AccId = Expenses.AccId JOIN Category ON Category.CatId = Expenses.CatId WHERE Expenses.UserId = " + LoginForm.userId + 
-                " ) AS CombinedData ORDER BY DateTrns ASC";
+                " ) AS CombinedData ORDER BY DateTrns DESC";
 
 
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
@@ -217,7 +217,6 @@ namespace budget_management_app
                     }
                 }
             }
-
             DataGridView_top7trns.DataSource = table;
 
             dbcon.CloseCon();

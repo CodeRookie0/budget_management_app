@@ -16,6 +16,7 @@ namespace budget_management_app
     {
         DBConnection dbcon=new DBConnection();
         public static string selectedSubCat = "";
+        public static string selectedUs_SubCat = "";
         public static string deleteSubCat = "";
         public SubCategoryForm()
         {
@@ -176,6 +177,12 @@ namespace budget_management_app
 
         private void DataGridView_my_subcat_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (HomeForm.lastForm == "AddTransactionForm")
+            {
+                selectedUs_SubCat = DataGridView_my_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
+                this.Hide();
+            }
+            HomeForm.lastForm = "";
             deleteSubCat = DataGridView_my_subcat.SelectedRows[0].Cells[0].Value.ToString().Trim();
         }
     }
