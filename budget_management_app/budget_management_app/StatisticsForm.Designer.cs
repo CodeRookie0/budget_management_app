@@ -29,76 +29,129 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea31 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea32 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend32 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea33 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend33 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea34 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend34 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea35 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend35 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea36 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend36 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series36 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(4D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(5D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(6D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint10 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint11 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint12 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(4D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint13 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(5D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint14 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(6D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint15 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint16 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint17 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint18 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint19 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(4D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint20 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(5D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint21 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(6D, 50D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.money_flow = new System.Windows.Forms.TabPage();
-            this.panel_mon_flow = new System.Windows.Forms.Panel();
             this.expenses = new System.Windows.Forms.TabPage();
             this.panel_exp = new System.Windows.Forms.Panel();
-            this.label_rec_trns = new System.Windows.Forms.Label();
-            this.chart_rec_exp = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart_summary = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label_today = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DataGridView_5High_exp = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label_exp_last_X = new System.Windows.Forms.Label();
+            this.label_exp_cat = new System.Windows.Forms.Label();
+            this.chart_exp_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_exp_cat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.income = new System.Windows.Forms.TabPage();
-            this.panel_in = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.savings = new System.Windows.Forms.TabPage();
-            this.panel_sav = new System.Windows.Forms.Panel();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.raports = new System.Windows.Forms.TabPage();
-            this.panel_raports = new System.Windows.Forms.Panel();
             this.panel_bottomBar = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox_account = new System.Windows.Forms.ComboBox();
+            this.pictureBox_bottomBar = new System.Windows.Forms.PictureBox();
             this.button_1Y = new Guna.UI2.WinForms.Guna2Button();
             this.button_6M = new Guna.UI2.WinForms.Guna2Button();
             this.button_30D = new Guna.UI2.WinForms.Guna2Button();
             this.button_12W = new Guna.UI2.WinForms.Guna2Button();
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
-            this.comboBox_account = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.timer_bottomBar = new System.Windows.Forms.Timer(this.components);
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label_exp_from_date = new System.Windows.Forms.Label();
+            this.panel_in = new System.Windows.Forms.Panel();
+            this.label_in_from_date = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.DataGridView_5High_in = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label_in_last_X = new System.Windows.Forms.Label();
+            this.label_in_cat = new System.Windows.Forms.Label();
+            this.chart_in_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_in_cat = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel_sav = new System.Windows.Forms.Panel();
+            this.label_sav_from_date = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.DataGridView_5High_sav = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label_sav_last_X = new System.Windows.Forms.Label();
+            this.label_sav_cat = new System.Windows.Forms.Label();
+            this.chart_sav_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_sac_cat = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel_raport = new System.Windows.Forms.Panel();
+            this.panel_money_flow = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.money_flow.SuspendLayout();
             this.expenses.SuspendLayout();
             this.panel_exp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_exp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_cat)).BeginInit();
             this.income.SuspendLayout();
-            this.panel_in.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.savings.SuspendLayout();
-            this.panel_sav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.raports.SuspendLayout();
             this.panel_bottomBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).BeginInit();
+            this.panel_in.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_in)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_in_column)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_in_cat)).BeginInit();
+            this.panel_sav.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_sav)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sav_column)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sac_cat)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -147,10 +200,10 @@
             this.guna2TabControl1.SelectedIndex = 0;
             this.guna2TabControl1.Size = new System.Drawing.Size(585, 680);
             this.guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(157)))), ((int)(((byte)(118)))));
             this.guna2TabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
             this.guna2TabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2TabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
+            this.guna2TabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(157)))), ((int)(((byte)(118)))));
             this.guna2TabControl1.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
             this.guna2TabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
             this.guna2TabControl1.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 13F);
@@ -169,20 +222,12 @@
             // money_flow
             // 
             this.money_flow.BackColor = System.Drawing.Color.White;
-            this.money_flow.Controls.Add(this.panel_mon_flow);
+            this.money_flow.Controls.Add(this.panel_money_flow);
             this.money_flow.Location = new System.Drawing.Point(4, 44);
             this.money_flow.Name = "money_flow";
             this.money_flow.Size = new System.Drawing.Size(577, 632);
             this.money_flow.TabIndex = 4;
             this.money_flow.Text = "Money flow";
-            // 
-            // panel_mon_flow
-            // 
-            this.panel_mon_flow.AutoScroll = true;
-            this.panel_mon_flow.Location = new System.Drawing.Point(0, 0);
-            this.panel_mon_flow.Name = "panel_mon_flow";
-            this.panel_mon_flow.Size = new System.Drawing.Size(577, 658);
-            this.panel_mon_flow.TabIndex = 1;
             // 
             // expenses
             // 
@@ -198,62 +243,180 @@
             // 
             // panel_exp
             // 
-            this.panel_exp.Controls.Add(this.label_rec_trns);
-            this.panel_exp.Controls.Add(this.chart_rec_exp);
-            this.panel_exp.Controls.Add(this.chart_summary);
+            this.panel_exp.AutoScroll = true;
+            this.panel_exp.Controls.Add(this.label_exp_from_date);
+            this.panel_exp.Controls.Add(this.label_today);
+            this.panel_exp.Controls.Add(this.label3);
+            this.panel_exp.Controls.Add(this.label1);
+            this.panel_exp.Controls.Add(this.DataGridView_5High_exp);
+            this.panel_exp.Controls.Add(this.label_exp_last_X);
+            this.panel_exp.Controls.Add(this.label_exp_cat);
+            this.panel_exp.Controls.Add(this.chart_exp_column);
+            this.panel_exp.Controls.Add(this.chart_exp_cat);
             this.panel_exp.Location = new System.Drawing.Point(0, 0);
             this.panel_exp.Name = "panel_exp";
-            this.panel_exp.Size = new System.Drawing.Size(577, 567);
+            this.panel_exp.Size = new System.Drawing.Size(577, 626);
             this.panel_exp.TabIndex = 0;
             // 
-            // label_rec_trns
+            // label_today
             // 
-            this.label_rec_trns.AutoSize = true;
-            this.label_rec_trns.Font = new System.Drawing.Font("Sitka Small Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_rec_trns.Location = new System.Drawing.Point(3, 17);
-            this.label_rec_trns.Name = "label_rec_trns";
-            this.label_rec_trns.Size = new System.Drawing.Size(227, 28);
-            this.label_rec_trns.TabIndex = 65;
-            this.label_rec_trns.Text = "Expenses by category";
+            this.label_today.AutoSize = true;
+            this.label_today.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label_today.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_today.Location = new System.Drawing.Point(506, 557);
+            this.label_today.Name = "label_today";
+            this.label_today.Size = new System.Drawing.Size(44, 18);
+            this.label_today.TabIndex = 70;
+            this.label_today.Text = "Today";
             // 
-            // chart_rec_exp
+            // label3
             // 
-            chartArea31.AxisX.MajorGrid.Enabled = false;
-            chartArea31.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea31.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea31.Name = "ChartArea1";
-            this.chart_rec_exp.ChartAreas.Add(chartArea31);
-            legend31.Name = "Legend1";
-            this.chart_rec_exp.Legends.Add(legend31);
-            this.chart_rec_exp.Location = new System.Drawing.Point(0, 369);
-            this.chart_rec_exp.Name = "chart_rec_exp";
-            series31.ChartArea = "ChartArea1";
-            series31.Color = System.Drawing.SystemColors.Highlight;
-            series31.IsVisibleInLegend = false;
-            series31.Legend = "Legend1";
-            series31.Name = "Expenses";
-            this.chart_rec_exp.Series.Add(series31);
-            this.chart_rec_exp.Size = new System.Drawing.Size(467, 276);
-            this.chart_rec_exp.TabIndex = 64;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 12F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(6, 336);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 23);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "CHART";
             // 
-            // chart_summary
+            // label1
             // 
-            chartArea32.Name = "ChartArea1";
-            this.chart_summary.ChartAreas.Add(chartArea32);
-            legend32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            legend32.IsTextAutoFit = false;
-            legend32.Name = "Legend1";
-            this.chart_summary.Legends.Add(legend32);
-            this.chart_summary.Location = new System.Drawing.Point(0, 105);
-            this.chart_summary.Name = "chart_summary";
-            series32.ChartArea = "ChartArea1";
-            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series32.Legend = "Legend1";
-            series32.Name = "DataSeries";
-            this.chart_summary.Series.Add(series32);
-            this.chart_summary.Size = new System.Drawing.Size(459, 243);
-            this.chart_summary.TabIndex = 63;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(6, 601);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 23);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "HIGHEST EXPENSES";
+            // 
+            // DataGridView_5High_exp
+            // 
+            this.DataGridView_5High_exp.AllowUserToAddRows = false;
+            this.DataGridView_5High_exp.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_exp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_5High_exp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DataGridView_5High_exp.ColumnHeadersHeight = 4;
+            this.DataGridView_5High_exp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_5High_exp.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DataGridView_5High_exp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_exp.Location = new System.Drawing.Point(8, 628);
+            this.DataGridView_5High_exp.Name = "DataGridView_5High_exp";
+            this.DataGridView_5High_exp.ReadOnly = true;
+            this.DataGridView_5High_exp.RowHeadersVisible = false;
+            this.DataGridView_5High_exp.Size = new System.Drawing.Size(542, 197);
+            this.DataGridView_5High_exp.TabIndex = 67;
+            this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_exp.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_exp.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_exp.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_exp.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_5High_exp.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_5High_exp.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_5High_exp.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_5High_exp.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_5High_exp.ThemeStyle.ReadOnly = true;
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_exp.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // label_exp_last_X
+            // 
+            this.label_exp_last_X.AutoSize = true;
+            this.label_exp_last_X.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label_exp_last_X.Location = new System.Drawing.Point(6, 48);
+            this.label_exp_last_X.Name = "label_exp_last_X";
+            this.label_exp_last_X.Size = new System.Drawing.Size(96, 19);
+            this.label_exp_last_X.TabIndex = 66;
+            this.label_exp_last_X.Text = "LAST 30 DAYS";
+            // 
+            // label_exp_cat
+            // 
+            this.label_exp_cat.AutoSize = true;
+            this.label_exp_cat.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label_exp_cat.Location = new System.Drawing.Point(3, 3);
+            this.label_exp_cat.Name = "label_exp_cat";
+            this.label_exp_cat.Size = new System.Drawing.Size(294, 36);
+            this.label_exp_cat.TabIndex = 65;
+            this.label_exp_cat.Text = "Expenses by category";
+            // 
+            // chart_exp_column
+            // 
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.Maximum = 6.5D;
+            chartArea1.AxisX.Minimum = -0.5D;
+            chartArea1.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.Name = "ChartArea1";
+            this.chart_exp_column.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chart_exp_column.Legends.Add(legend1);
+            this.chart_exp_column.Location = new System.Drawing.Point(8, 376);
+            this.chart_exp_column.Name = "chart_exp_column";
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.SystemColors.ControlLight;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Expenses";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            series1.Points.Add(dataPoint4);
+            series1.Points.Add(dataPoint5);
+            series1.Points.Add(dataPoint6);
+            series1.Points.Add(dataPoint7);
+            this.chart_exp_column.Series.Add(series1);
+            this.chart_exp_column.Size = new System.Drawing.Size(542, 184);
+            this.chart_exp_column.TabIndex = 64;
+            // 
+            // chart_exp_cat
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart_exp_cat.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chart_exp_cat.Legends.Add(legend2);
+            this.chart_exp_cat.Location = new System.Drawing.Point(8, 70);
+            this.chart_exp_cat.Name = "chart_exp_cat";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series2.Legend = "Legend1";
+            series2.Name = "DataSeries";
+            this.chart_exp_cat.Series.Add(series2);
+            this.chart_exp_cat.Size = new System.Drawing.Size(542, 243);
+            this.chart_exp_cat.TabIndex = 63;
             // 
             // income
             // 
@@ -264,54 +427,6 @@
             this.income.Size = new System.Drawing.Size(577, 632);
             this.income.TabIndex = 2;
             this.income.Text = "Income";
-            // 
-            // panel_in
-            // 
-            this.panel_in.Controls.Add(this.chart1);
-            this.panel_in.Controls.Add(this.chart2);
-            this.panel_in.Location = new System.Drawing.Point(0, 0);
-            this.panel_in.Name = "panel_in";
-            this.panel_in.Size = new System.Drawing.Size(577, 658);
-            this.panel_in.TabIndex = 1;
-            // 
-            // chart1
-            // 
-            chartArea33.AxisX.MajorGrid.Enabled = false;
-            chartArea33.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea33.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea33.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea33);
-            legend33.Name = "Legend1";
-            this.chart1.Legends.Add(legend33);
-            this.chart1.Location = new System.Drawing.Point(0, 369);
-            this.chart1.Name = "chart1";
-            series33.ChartArea = "ChartArea1";
-            series33.Color = System.Drawing.SystemColors.Highlight;
-            series33.IsVisibleInLegend = false;
-            series33.Legend = "Legend1";
-            series33.Name = "Expenses";
-            this.chart1.Series.Add(series33);
-            this.chart1.Size = new System.Drawing.Size(467, 276);
-            this.chart1.TabIndex = 64;
-            // 
-            // chart2
-            // 
-            chartArea34.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea34);
-            legend34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            legend34.IsTextAutoFit = false;
-            legend34.Name = "Legend1";
-            this.chart2.Legends.Add(legend34);
-            this.chart2.Location = new System.Drawing.Point(0, 0);
-            this.chart2.Name = "chart2";
-            series34.ChartArea = "ChartArea1";
-            series34.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series34.Legend = "Legend1";
-            series34.Name = "DataSeries";
-            this.chart2.Series.Add(series34);
-            this.chart2.Size = new System.Drawing.Size(459, 243);
-            this.chart2.TabIndex = 63;
             // 
             // savings
             // 
@@ -324,75 +439,20 @@
             this.savings.TabIndex = 1;
             this.savings.Text = "Savings";
             // 
-            // panel_sav
-            // 
-            this.panel_sav.Controls.Add(this.chart3);
-            this.panel_sav.Controls.Add(this.chart4);
-            this.panel_sav.Location = new System.Drawing.Point(0, 0);
-            this.panel_sav.Name = "panel_sav";
-            this.panel_sav.Size = new System.Drawing.Size(577, 658);
-            this.panel_sav.TabIndex = 1;
-            // 
-            // chart3
-            // 
-            chartArea35.AxisX.MajorGrid.Enabled = false;
-            chartArea35.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea35.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea35.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea35);
-            legend35.Name = "Legend1";
-            this.chart3.Legends.Add(legend35);
-            this.chart3.Location = new System.Drawing.Point(0, 369);
-            this.chart3.Name = "chart3";
-            series35.ChartArea = "ChartArea1";
-            series35.Color = System.Drawing.SystemColors.Highlight;
-            series35.IsVisibleInLegend = false;
-            series35.Legend = "Legend1";
-            series35.Name = "Expenses";
-            this.chart3.Series.Add(series35);
-            this.chart3.Size = new System.Drawing.Size(467, 276);
-            this.chart3.TabIndex = 64;
-            // 
-            // chart4
-            // 
-            chartArea36.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea36);
-            legend36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            legend36.IsTextAutoFit = false;
-            legend36.Name = "Legend1";
-            this.chart4.Legends.Add(legend36);
-            this.chart4.Location = new System.Drawing.Point(0, 0);
-            this.chart4.Name = "chart4";
-            series36.ChartArea = "ChartArea1";
-            series36.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series36.Legend = "Legend1";
-            series36.Name = "DataSeries";
-            this.chart4.Series.Add(series36);
-            this.chart4.Size = new System.Drawing.Size(459, 243);
-            this.chart4.TabIndex = 63;
-            // 
             // raports
             // 
             this.raports.BackColor = System.Drawing.Color.White;
-            this.raports.Controls.Add(this.panel_raports);
+            this.raports.Controls.Add(this.panel_raport);
             this.raports.Location = new System.Drawing.Point(4, 44);
             this.raports.Name = "raports";
             this.raports.Size = new System.Drawing.Size(577, 632);
             this.raports.TabIndex = 3;
             this.raports.Text = "Raports";
             // 
-            // panel_raports
-            // 
-            this.panel_raports.Location = new System.Drawing.Point(0, 0);
-            this.panel_raports.Name = "panel_raports";
-            this.panel_raports.Size = new System.Drawing.Size(668, 658);
-            this.panel_raports.TabIndex = 1;
-            // 
             // panel_bottomBar
             // 
             this.panel_bottomBar.Controls.Add(this.guna2Panel1);
-            this.panel_bottomBar.Controls.Add(this.pictureBox1);
+            this.panel_bottomBar.Controls.Add(this.pictureBox_bottomBar);
             this.panel_bottomBar.Controls.Add(this.button_1Y);
             this.panel_bottomBar.Controls.Add(this.button_6M);
             this.panel_bottomBar.Controls.Add(this.button_30D);
@@ -405,18 +465,50 @@
             this.panel_bottomBar.Size = new System.Drawing.Size(432, 58);
             this.panel_bottomBar.TabIndex = 34;
             // 
-            // pictureBox1
+            // guna2Panel1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(191, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 31);
-            this.pictureBox1.TabIndex = 40;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.comboBox_account);
+            this.guna2Panel1.Location = new System.Drawing.Point(1, 57);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(430, 170);
+            this.guna2Panel1.TabIndex = 72;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(18, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 28);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Account";
+            // 
+            // comboBox_account
+            // 
+            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.comboBox_account.FormattingEnabled = true;
+            this.comboBox_account.Location = new System.Drawing.Point(117, 12);
+            this.comboBox_account.Name = "comboBox_account";
+            this.comboBox_account.Size = new System.Drawing.Size(296, 31);
+            this.comboBox_account.TabIndex = 70;
+            // 
+            // pictureBox_bottomBar
+            // 
+            this.pictureBox_bottomBar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_bottomBar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_bottomBar.Image")));
+            this.pictureBox_bottomBar.Location = new System.Drawing.Point(191, 0);
+            this.pictureBox_bottomBar.Name = "pictureBox_bottomBar";
+            this.pictureBox_bottomBar.Size = new System.Drawing.Size(50, 31);
+            this.pictureBox_bottomBar.TabIndex = 40;
+            this.pictureBox_bottomBar.TabStop = false;
+            this.pictureBox_bottomBar.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_bottomBar.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox_bottomBar.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // button_1Y
             // 
@@ -518,42 +610,413 @@
             this.button_7D.Text = "7D";
             this.button_7D.Click += new System.EventHandler(this.button_7D_Click);
             // 
-            // comboBox_account
-            // 
-            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
-            this.comboBox_account.FormattingEnabled = true;
-            this.comboBox_account.Location = new System.Drawing.Point(117, 12);
-            this.comboBox_account.Name = "comboBox_account";
-            this.comboBox_account.Size = new System.Drawing.Size(296, 31);
-            this.comboBox_account.TabIndex = 70;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(18, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 28);
-            this.label2.TabIndex = 71;
-            this.label2.Text = "Account";
-            // 
             // timer_bottomBar
             // 
             this.timer_bottomBar.Interval = 10;
             this.timer_bottomBar.Tick += new System.EventHandler(this.timer_bottomBar_Tick);
             // 
-            // guna2Panel1
+            // label_exp_from_date
             // 
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
-            this.guna2Panel1.BorderThickness = 1;
-            this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.comboBox_account);
-            this.guna2Panel1.Location = new System.Drawing.Point(1, 57);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(430, 170);
-            this.guna2Panel1.TabIndex = 72;
+            this.label_exp_from_date.AutoSize = true;
+            this.label_exp_from_date.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label_exp_from_date.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_exp_from_date.Location = new System.Drawing.Point(5, 557);
+            this.label_exp_from_date.Name = "label_exp_from_date";
+            this.label_exp_from_date.Size = new System.Drawing.Size(40, 18);
+            this.label_exp_from_date.TabIndex = 71;
+            this.label_exp_from_date.Text = "7 Jun";
+            // 
+            // panel_in
+            // 
+            this.panel_in.AutoScroll = true;
+            this.panel_in.Controls.Add(this.label_in_from_date);
+            this.panel_in.Controls.Add(this.label7);
+            this.panel_in.Controls.Add(this.label8);
+            this.panel_in.Controls.Add(this.label9);
+            this.panel_in.Controls.Add(this.DataGridView_5High_in);
+            this.panel_in.Controls.Add(this.label_in_last_X);
+            this.panel_in.Controls.Add(this.label_in_cat);
+            this.panel_in.Controls.Add(this.chart_in_column);
+            this.panel_in.Controls.Add(this.chart_in_cat);
+            this.panel_in.Location = new System.Drawing.Point(0, 0);
+            this.panel_in.Name = "panel_in";
+            this.panel_in.Size = new System.Drawing.Size(577, 626);
+            this.panel_in.TabIndex = 1;
+            // 
+            // label_in_from_date
+            // 
+            this.label_in_from_date.AutoSize = true;
+            this.label_in_from_date.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label_in_from_date.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_in_from_date.Location = new System.Drawing.Point(5, 557);
+            this.label_in_from_date.Name = "label_in_from_date";
+            this.label_in_from_date.Size = new System.Drawing.Size(40, 18);
+            this.label_in_from_date.TabIndex = 71;
+            this.label_in_from_date.Text = "7 Jun";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(506, 557);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 18);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "Today";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Sitka Small", 12F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label8.Location = new System.Drawing.Point(6, 336);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 23);
+            this.label8.TabIndex = 69;
+            this.label8.Text = "CHART";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label9.Location = new System.Drawing.Point(6, 601);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(179, 23);
+            this.label9.TabIndex = 68;
+            this.label9.Text = "HIGHEST EXPENSES";
+            // 
+            // DataGridView_5High_in
+            // 
+            this.DataGridView_5High_in.AllowUserToAddRows = false;
+            this.DataGridView_5High_in.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_in.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_5High_in.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DataGridView_5High_in.ColumnHeadersHeight = 4;
+            this.DataGridView_5High_in.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_5High_in.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DataGridView_5High_in.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_in.Location = new System.Drawing.Point(8, 628);
+            this.DataGridView_5High_in.Name = "DataGridView_5High_in";
+            this.DataGridView_5High_in.ReadOnly = true;
+            this.DataGridView_5High_in.RowHeadersVisible = false;
+            this.DataGridView_5High_in.Size = new System.Drawing.Size(542, 197);
+            this.DataGridView_5High_in.TabIndex = 67;
+            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_in.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_in.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_5High_in.ThemeStyle.ReadOnly = true;
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_in.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // label_in_last_X
+            // 
+            this.label_in_last_X.AutoSize = true;
+            this.label_in_last_X.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label_in_last_X.Location = new System.Drawing.Point(6, 48);
+            this.label_in_last_X.Name = "label_in_last_X";
+            this.label_in_last_X.Size = new System.Drawing.Size(96, 19);
+            this.label_in_last_X.TabIndex = 66;
+            this.label_in_last_X.Text = "LAST 30 DAYS";
+            // 
+            // label_in_cat
+            // 
+            this.label_in_cat.AutoSize = true;
+            this.label_in_cat.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label_in_cat.Location = new System.Drawing.Point(3, 3);
+            this.label_in_cat.Name = "label_in_cat";
+            this.label_in_cat.Size = new System.Drawing.Size(294, 36);
+            this.label_in_cat.TabIndex = 65;
+            this.label_in_cat.Text = "Expenses by category";
+            // 
+            // chart_in_column
+            // 
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX.Maximum = 6.5D;
+            chartArea3.AxisX.Minimum = -0.5D;
+            chartArea3.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisY.MajorGrid.Enabled = false;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea3.Name = "ChartArea1";
+            this.chart_in_column.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chart_in_column.Legends.Add(legend3);
+            this.chart_in_column.Location = new System.Drawing.Point(8, 376);
+            this.chart_in_column.Name = "chart_in_column";
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.SystemColors.ControlLight;
+            series3.IsVisibleInLegend = false;
+            series3.Legend = "Legend1";
+            series3.Name = "Expenses";
+            series3.Points.Add(dataPoint8);
+            series3.Points.Add(dataPoint9);
+            series3.Points.Add(dataPoint10);
+            series3.Points.Add(dataPoint11);
+            series3.Points.Add(dataPoint12);
+            series3.Points.Add(dataPoint13);
+            series3.Points.Add(dataPoint14);
+            this.chart_in_column.Series.Add(series3);
+            this.chart_in_column.Size = new System.Drawing.Size(542, 184);
+            this.chart_in_column.TabIndex = 64;
+            // 
+            // chart_in_cat
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart_in_cat.ChartAreas.Add(chartArea4);
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            this.chart_in_cat.Legends.Add(legend4);
+            this.chart_in_cat.Location = new System.Drawing.Point(8, 70);
+            this.chart_in_cat.Name = "chart_in_cat";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series4.Legend = "Legend1";
+            series4.Name = "DataSeries";
+            this.chart_in_cat.Series.Add(series4);
+            this.chart_in_cat.Size = new System.Drawing.Size(542, 243);
+            this.chart_in_cat.TabIndex = 63;
+            // 
+            // panel_sav
+            // 
+            this.panel_sav.AutoScroll = true;
+            this.panel_sav.Controls.Add(this.label_sav_from_date);
+            this.panel_sav.Controls.Add(this.label13);
+            this.panel_sav.Controls.Add(this.label14);
+            this.panel_sav.Controls.Add(this.label15);
+            this.panel_sav.Controls.Add(this.DataGridView_5High_sav);
+            this.panel_sav.Controls.Add(this.label_sav_last_X);
+            this.panel_sav.Controls.Add(this.label_sav_cat);
+            this.panel_sav.Controls.Add(this.chart_sav_column);
+            this.panel_sav.Controls.Add(this.chart_sac_cat);
+            this.panel_sav.Location = new System.Drawing.Point(0, 0);
+            this.panel_sav.Name = "panel_sav";
+            this.panel_sav.Size = new System.Drawing.Size(577, 626);
+            this.panel_sav.TabIndex = 1;
+            // 
+            // label_sav_from_date
+            // 
+            this.label_sav_from_date.AutoSize = true;
+            this.label_sav_from_date.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label_sav_from_date.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_sav_from_date.Location = new System.Drawing.Point(5, 557);
+            this.label_sav_from_date.Name = "label_sav_from_date";
+            this.label_sav_from_date.Size = new System.Drawing.Size(40, 18);
+            this.label_sav_from_date.TabIndex = 71;
+            this.label_sav_from_date.Text = "7 Jun";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label13.Location = new System.Drawing.Point(506, 557);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 18);
+            this.label13.TabIndex = 70;
+            this.label13.Text = "Today";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Sitka Small", 12F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label14.Location = new System.Drawing.Point(6, 336);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 23);
+            this.label14.TabIndex = 69;
+            this.label14.Text = "CHART";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label15.Location = new System.Drawing.Point(6, 601);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(179, 23);
+            this.label15.TabIndex = 68;
+            this.label15.Text = "HIGHEST EXPENSES";
+            // 
+            // DataGridView_5High_sav
+            // 
+            this.DataGridView_5High_sav.AllowUserToAddRows = false;
+            this.DataGridView_5High_sav.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_sav.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_5High_sav.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.DataGridView_5High_sav.ColumnHeadersHeight = 4;
+            this.DataGridView_5High_sav.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_5High_sav.DefaultCellStyle = dataGridViewCellStyle9;
+            this.DataGridView_5High_sav.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_sav.Location = new System.Drawing.Point(8, 628);
+            this.DataGridView_5High_sav.Name = "DataGridView_5High_sav";
+            this.DataGridView_5High_sav.ReadOnly = true;
+            this.DataGridView_5High_sav.RowHeadersVisible = false;
+            this.DataGridView_5High_sav.Size = new System.Drawing.Size(542, 197);
+            this.DataGridView_5High_sav.TabIndex = 67;
+            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_5High_sav.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_sav.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.Height = 4;
+            this.DataGridView_5High_sav.ThemeStyle.ReadOnly = true;
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // label_sav_last_X
+            // 
+            this.label_sav_last_X.AutoSize = true;
+            this.label_sav_last_X.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label_sav_last_X.Location = new System.Drawing.Point(6, 48);
+            this.label_sav_last_X.Name = "label_sav_last_X";
+            this.label_sav_last_X.Size = new System.Drawing.Size(96, 19);
+            this.label_sav_last_X.TabIndex = 66;
+            this.label_sav_last_X.Text = "LAST 30 DAYS";
+            // 
+            // label_sav_cat
+            // 
+            this.label_sav_cat.AutoSize = true;
+            this.label_sav_cat.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label_sav_cat.Location = new System.Drawing.Point(3, 3);
+            this.label_sav_cat.Name = "label_sav_cat";
+            this.label_sav_cat.Size = new System.Drawing.Size(294, 36);
+            this.label_sav_cat.TabIndex = 65;
+            this.label_sav_cat.Text = "Expenses by category";
+            // 
+            // chart_sav_column
+            // 
+            chartArea5.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea5.AxisX.IsLabelAutoFit = false;
+            chartArea5.AxisX.LineColor = System.Drawing.Color.Transparent;
+            chartArea5.AxisX.MajorGrid.Enabled = false;
+            chartArea5.AxisX.Maximum = 6.5D;
+            chartArea5.AxisX.Minimum = -0.5D;
+            chartArea5.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea5.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea5.AxisY.MajorGrid.Enabled = false;
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea5.Name = "ChartArea1";
+            this.chart_sav_column.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart_sav_column.Legends.Add(legend5);
+            this.chart_sav_column.Location = new System.Drawing.Point(8, 376);
+            this.chart_sav_column.Name = "chart_sav_column";
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.SystemColors.ControlLight;
+            series5.IsVisibleInLegend = false;
+            series5.Legend = "Legend1";
+            series5.Name = "Expenses";
+            series5.Points.Add(dataPoint15);
+            series5.Points.Add(dataPoint16);
+            series5.Points.Add(dataPoint17);
+            series5.Points.Add(dataPoint18);
+            series5.Points.Add(dataPoint19);
+            series5.Points.Add(dataPoint20);
+            series5.Points.Add(dataPoint21);
+            this.chart_sav_column.Series.Add(series5);
+            this.chart_sav_column.Size = new System.Drawing.Size(542, 184);
+            this.chart_sav_column.TabIndex = 64;
+            // 
+            // chart_sac_cat
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.chart_sac_cat.ChartAreas.Add(chartArea6);
+            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            legend6.IsTextAutoFit = false;
+            legend6.Name = "Legend1";
+            this.chart_sac_cat.Legends.Add(legend6);
+            this.chart_sac_cat.Location = new System.Drawing.Point(8, 70);
+            this.chart_sac_cat.Name = "chart_sac_cat";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            series6.Legend = "Legend1";
+            series6.Name = "DataSeries";
+            this.chart_sac_cat.Series.Add(series6);
+            this.chart_sac_cat.Size = new System.Drawing.Size(542, 243);
+            this.chart_sac_cat.TabIndex = 63;
+            // 
+            // panel_raport
+            // 
+            this.panel_raport.AutoScroll = true;
+            this.panel_raport.Location = new System.Drawing.Point(0, 0);
+            this.panel_raport.Name = "panel_raport";
+            this.panel_raport.Size = new System.Drawing.Size(577, 626);
+            this.panel_raport.TabIndex = 1;
+            // 
+            // panel_money_flow
+            // 
+            this.panel_money_flow.AutoScroll = true;
+            this.panel_money_flow.Location = new System.Drawing.Point(0, 0);
+            this.panel_money_flow.Name = "panel_money_flow";
+            this.panel_money_flow.Size = new System.Drawing.Size(577, 626);
+            this.panel_money_flow.TabIndex = 1;
             // 
             // StatisticsForm
             // 
@@ -577,21 +1040,26 @@
             this.expenses.ResumeLayout(false);
             this.panel_exp.ResumeLayout(false);
             this.panel_exp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_rec_exp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_summary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_exp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_cat)).EndInit();
             this.income.ResumeLayout(false);
-            this.panel_in.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.savings.ResumeLayout(false);
-            this.panel_sav.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.raports.ResumeLayout(false);
             this.panel_bottomBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).EndInit();
+            this.panel_in.ResumeLayout(false);
+            this.panel_in.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_in)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_in_column)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_in_cat)).EndInit();
+            this.panel_sav.ResumeLayout(false);
+            this.panel_sav.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_sav)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sav_column)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sac_cat)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -613,22 +1081,42 @@
         private Guna.UI2.WinForms.Guna2Button button_30D;
         private Guna.UI2.WinForms.Guna2Button button_12W;
         private Guna.UI2.WinForms.Guna2Button button_7D;
-        private System.Windows.Forms.Panel panel_mon_flow;
         private System.Windows.Forms.Panel panel_exp;
-        private System.Windows.Forms.Panel panel_in;
-        private System.Windows.Forms.Panel panel_sav;
-        private System.Windows.Forms.Panel panel_raports;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_rec_exp;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_summary;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
-        private System.Windows.Forms.Label label_rec_trns;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_exp_column;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_exp_cat;
+        private System.Windows.Forms.Label label_exp_cat;
+        private System.Windows.Forms.PictureBox pictureBox_bottomBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox_account;
         private System.Windows.Forms.Timer timer_bottomBar;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_exp;
+        private System.Windows.Forms.Label label_exp_last_X;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_today;
+        private System.Windows.Forms.Label label_exp_from_date;
+        private System.Windows.Forms.Panel panel_in;
+        private System.Windows.Forms.Label label_in_from_date;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_in;
+        private System.Windows.Forms.Label label_in_last_X;
+        private System.Windows.Forms.Label label_in_cat;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_in_column;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_in_cat;
+        private System.Windows.Forms.Panel panel_sav;
+        private System.Windows.Forms.Label label_sav_from_date;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_sav;
+        private System.Windows.Forms.Label label_sav_last_X;
+        private System.Windows.Forms.Label label_sav_cat;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_sav_column;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_sac_cat;
+        private System.Windows.Forms.Panel panel_raport;
+        private System.Windows.Forms.Panel panel_money_flow;
     }
 }

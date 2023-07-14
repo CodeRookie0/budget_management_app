@@ -99,14 +99,14 @@ namespace budget_management_app
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Size = new Size(50, 40);
-            pictureBox1.Location = new Point(191, -9);
+            pictureBox_bottomBar.Size = new Size(50, 40);
+            pictureBox_bottomBar.Location = new Point(191, -9);
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.Size = new Size(50, 31);
-            pictureBox1.Location = new Point(191, 0);
+            pictureBox_bottomBar.Size = new Size(50, 31);
+            pictureBox_bottomBar.Location = new Point(191, 0);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -137,5 +137,6 @@ namespace budget_management_app
                 }
             }
         }
+
     }
 }
