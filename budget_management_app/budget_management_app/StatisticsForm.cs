@@ -21,5 +21,10 @@ namespace budget_management_app
         {
 
         }
+
+        private void StatisticsForm_Load(object sender, EventArgs e)
+        {
+        }
+
     }
 }
