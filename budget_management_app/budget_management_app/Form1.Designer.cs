@@ -70,12 +70,15 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button_add_trns = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button_1Y = new Guna.UI2.WinForms.Guna2Button();
+            this.button_6M = new Guna.UI2.WinForms.Guna2Button();
+            this.button_30D = new Guna.UI2.WinForms.Guna2Button();
+            this.button_12W = new Guna.UI2.WinForms.Guna2Button();
+            this.button_7D = new Guna.UI2.WinForms.Guna2Button();
+            this.comboBox_account = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_Sidebar.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,7 +91,8 @@
             this.guna2GradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2GradientPanel6.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Sidebar
@@ -736,71 +740,153 @@
             this.button_add_trns.Size = new System.Drawing.Size(42, 42);
             this.button_add_trns.TabIndex = 73;
             // 
-            // flowLayoutPanel1
+            // panel3
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Controls.Add(this.button19);
-            this.flowLayoutPanel1.Controls.Add(this.button20);
-            this.flowLayoutPanel1.Controls.Add(this.button21);
-            this.flowLayoutPanel1.Controls.Add(this.button22);
-            this.flowLayoutPanel1.Controls.Add(this.button23);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(62, 886);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(516, 40);
-            this.flowLayoutPanel1.TabIndex = 74;
+            this.panel3.Controls.Add(this.comboBox_account);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Controls.Add(this.button_1Y);
+            this.panel3.Controls.Add(this.button_6M);
+            this.panel3.Controls.Add(this.button_30D);
+            this.panel3.Controls.Add(this.button_12W);
+            this.panel3.Controls.Add(this.button_7D);
+            this.panel3.Location = new System.Drawing.Point(184, 797);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(432, 102);
+            this.panel3.TabIndex = 74;
             // 
-            // button19
+            // pictureBox3
             // 
-            this.button19.Location = new System.Drawing.Point(3, 3);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(97, 34);
-            this.button19.TabIndex = 0;
-            this.button19.Text = "button19";
-            this.button19.UseVisualStyleBackColor = true;
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(191, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 31);
+            this.pictureBox3.TabIndex = 40;
+            this.pictureBox3.TabStop = false;
             // 
-            // button20
+            // button_1Y
             // 
-            this.button20.Location = new System.Drawing.Point(106, 3);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(97, 34);
-            this.button20.TabIndex = 1;
-            this.button20.Text = "button20";
-            this.button20.UseVisualStyleBackColor = true;
+            this.button_1Y.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_1Y.BorderThickness = 1;
+            this.button_1Y.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_1Y.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_1Y.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_1Y.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_1Y.FillColor = System.Drawing.Color.White;
+            this.button_1Y.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.button_1Y.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_1Y.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.button_1Y.HoverState.ForeColor = System.Drawing.Color.White;
+            this.button_1Y.Location = new System.Drawing.Point(345, 31);
+            this.button_1Y.Name = "button_1Y";
+            this.button_1Y.Size = new System.Drawing.Size(86, 27);
+            this.button_1Y.TabIndex = 39;
+            this.button_1Y.Text = "1Y";
             // 
-            // button21
+            // button_6M
             // 
-            this.button21.Location = new System.Drawing.Point(209, 3);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(97, 34);
-            this.button21.TabIndex = 2;
-            this.button21.Text = "button21";
-            this.button21.UseVisualStyleBackColor = true;
+            this.button_6M.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_6M.BorderThickness = 1;
+            this.button_6M.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_6M.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_6M.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_6M.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_6M.FillColor = System.Drawing.Color.White;
+            this.button_6M.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.button_6M.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_6M.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.button_6M.HoverState.ForeColor = System.Drawing.Color.White;
+            this.button_6M.Location = new System.Drawing.Point(259, 31);
+            this.button_6M.Name = "button_6M";
+            this.button_6M.Size = new System.Drawing.Size(86, 27);
+            this.button_6M.TabIndex = 38;
+            this.button_6M.Text = "6M";
             // 
-            // button22
+            // button_30D
             // 
-            this.button22.Location = new System.Drawing.Point(312, 3);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(97, 34);
-            this.button22.TabIndex = 3;
-            this.button22.Text = "button22";
-            this.button22.UseVisualStyleBackColor = true;
+            this.button_30D.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_30D.BorderThickness = 1;
+            this.button_30D.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_30D.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_30D.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_30D.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_30D.FillColor = System.Drawing.Color.White;
+            this.button_30D.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.button_30D.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_30D.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.button_30D.HoverState.ForeColor = System.Drawing.Color.White;
+            this.button_30D.Location = new System.Drawing.Point(87, 31);
+            this.button_30D.Name = "button_30D";
+            this.button_30D.Size = new System.Drawing.Size(86, 27);
+            this.button_30D.TabIndex = 37;
+            this.button_30D.Text = "30D";
             // 
-            // button23
+            // button_12W
             // 
-            this.button23.FlatAppearance.BorderColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button23.Location = new System.Drawing.Point(415, 3);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(97, 34);
-            this.button23.TabIndex = 4;
-            this.button23.Text = "button23";
-            this.button23.UseVisualStyleBackColor = true;
+            this.button_12W.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_12W.BorderThickness = 1;
+            this.button_12W.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_12W.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_12W.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_12W.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_12W.FillColor = System.Drawing.Color.White;
+            this.button_12W.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.button_12W.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_12W.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.button_12W.HoverState.ForeColor = System.Drawing.Color.White;
+            this.button_12W.Location = new System.Drawing.Point(173, 31);
+            this.button_12W.Name = "button_12W";
+            this.button_12W.Size = new System.Drawing.Size(86, 27);
+            this.button_12W.TabIndex = 36;
+            this.button_12W.Text = "12W";
+            // 
+            // button_7D
+            // 
+            this.button_7D.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_7D.BorderThickness = 1;
+            this.button_7D.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_7D.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_7D.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_7D.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_7D.FillColor = System.Drawing.Color.White;
+            this.button_7D.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold);
+            this.button_7D.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.button_7D.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(163)))), ((int)(((byte)(115)))));
+            this.button_7D.HoverState.ForeColor = System.Drawing.Color.White;
+            this.button_7D.Location = new System.Drawing.Point(1, 31);
+            this.button_7D.Name = "button_7D";
+            this.button_7D.Size = new System.Drawing.Size(86, 27);
+            this.button_7D.TabIndex = 35;
+            this.button_7D.Text = "7D";
+            // 
+            // comboBox_account
+            // 
+            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.comboBox_account.FormattingEnabled = true;
+            this.comboBox_account.Location = new System.Drawing.Point(102, 69);
+            this.comboBox_account.Name = "comboBox_account";
+            this.comboBox_account.Size = new System.Drawing.Size(329, 31);
+            this.comboBox_account.TabIndex = 68;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(3, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 28);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "Account";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 1004);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.button_add_trns);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -819,7 +905,9 @@
             this.guna2GradientPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2GradientPanel6.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -867,11 +955,14 @@
         private System.Windows.Forms.Button button18;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2CircleButton button_add_trns;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private Guna.UI2.WinForms.Guna2Button button_1Y;
+        private Guna.UI2.WinForms.Guna2Button button_6M;
+        private Guna.UI2.WinForms.Guna2Button button_30D;
+        private Guna.UI2.WinForms.Guna2Button button_12W;
+        private Guna.UI2.WinForms.Guna2Button button_7D;
+        private System.Windows.Forms.ComboBox comboBox_account;
+        private System.Windows.Forms.Label label2;
     }
 }
