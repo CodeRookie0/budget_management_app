@@ -19,15 +19,14 @@ namespace budget_management_app
 {
     public partial class StatisticsForm : Form
     {
-        DBConnection dbcon = new DBConnection();
-        bool bottombarExpand;
-
-        DateTime currentDate = DateTime.Today;
-        static int selectedDay;
-        static int selectedMonth;
-        static int selectedYear;
-
-        int selectedAccId;
+        
+        private DBConnection dbcon = new DBConnection();
+        private bool bottombarExpand;
+        private int selectedAccId;
+        private DateTime currentDate = DateTime.Today;
+        private static int selectedDay;
+        private static int selectedMonth;
+        private static int selectedYear;
 
         public StatisticsForm()
         {
@@ -36,10 +35,6 @@ namespace budget_management_app
             getAcc();
             comboBox_account.SelectedIndex = 0;
             getSelectedAcc();
-        }
-        private void StatisticsForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void label_exit_Click(object sender, EventArgs e)
@@ -82,12 +77,12 @@ namespace budget_management_app
             {
                 selectedDay = daysInSelectedMonth;
             }
-            
-            UpdateCharts();
+
+            label_exp_from_date.Text=selectedDay.ToString() + "." + selectedMonth.ToString() + "." + selectedYear.ToString();
         }
-        private void UpdateCharts()
+       private void UpdateCharts()
         {
-            getPieChart();
+            getPieCharts();
             getHighestExpensees();
         }
 
@@ -97,8 +92,8 @@ namespace budget_management_app
             int startDay = startDateTime.Day;
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
+            label_exp_last_X.Text="LAST 7 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
-
         }
 
         private void button_30D_Click(object sender, EventArgs e)
@@ -107,6 +102,7 @@ namespace budget_management_app
             int startDay = 1;
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
+            label_exp_last_X.Text = "LAST 30 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
         }
 
@@ -115,6 +111,7 @@ namespace budget_management_app
             DateTime startDateTime = currentDate.AddMonths(-2);
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
+            label_exp_last_X.Text = "LAST 3 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
         }
 
@@ -123,11 +120,13 @@ namespace budget_management_app
             DateTime startDateTime = currentDate.AddMonths(-5);
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
+            label_exp_last_X.Text = "LAST 6 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
         }
 
         private void button_1Y_Click(object sender, EventArgs e)
         {
+            label_exp_last_X.Text = "LAST 12 MONTH";
             UpdateSelectedDate(1, 1, currentDate.Year);
         }
 
@@ -213,9 +212,9 @@ namespace budget_management_app
             }
         }
 
-        private void getPieChart()
+        private void getPieCharts()
         {
-            string query = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
+            string query_exp = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
                "FROM Expenses " +
                "JOIN Category ON Expenses.CatId = Category.CatId " +
                "WHERE Expenses.AccId = @SelectedAccId " +
@@ -223,19 +222,19 @@ namespace budget_management_app
                "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
                "GROUP BY Category.CatName";
             
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+            SqlCommand command_exp = new SqlCommand(query_exp, dbcon.GetCon());
+            command_exp.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command_exp.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command_exp.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
 
 
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
+            SqlDataAdapter adapter_exp = new SqlDataAdapter(command_exp);
+            DataTable dataTable_exp = new DataTable();
+            adapter_exp.Fill(dataTable_exp);
 
             chart_exp_cat.Series.Clear();
-
-            foreach (DataRow row in dataTable.Rows)
+            
+            foreach (DataRow row in dataTable_exp.Rows)
             {
                 decimal amount = Convert.ToDecimal(row["TotalAmount"]);
 
@@ -289,10 +288,12 @@ namespace budget_management_app
                     }
                 }
             }
-            DataGridView_5High_exp.DataSource = table;
+            DataGridView_7High_exp.DataSource = table;
             dbcon.CloseCon();
         }
-
+/// <summary>
+/// ////////////
+/// </summary>
         private void Button_more_trns_Click(object sender, EventArgs e)
         {
             TransactionForm trns = new TransactionForm();
@@ -302,12 +303,12 @@ namespace budget_management_app
 
         private void Button_more_trns_MouseEnter(object sender, EventArgs e)
         {
-            Button_more_trns.BackColor = Color.FromArgb(212, 163, 115);
+            Button_more_trns_exp.BackColor = Color.FromArgb(212, 163, 115);
         }
 
         private void Button_more_trns_MouseLeave(object sender, EventArgs e)
         {
-            Button_more_trns.BackColor = Color.FromArgb(250, 237, 205);
+            Button_more_trns_exp.BackColor = Color.FromArgb(250, 237, 205);
         }
     }
 }
