@@ -71,14 +71,14 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button_add_trns = new Guna.UI2.WinForms.Guna2CircleButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox_account = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button_1Y = new Guna.UI2.WinForms.Guna2Button();
             this.button_6M = new Guna.UI2.WinForms.Guna2Button();
             this.button_30D = new Guna.UI2.WinForms.Guna2Button();
             this.button_12W = new Guna.UI2.WinForms.Guna2Button();
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
-            this.comboBox_account = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel_Sidebar.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -755,6 +755,27 @@
             this.panel3.Size = new System.Drawing.Size(432, 102);
             this.panel3.TabIndex = 74;
             // 
+            // comboBox_account
+            // 
+            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.comboBox_account.FormattingEnabled = true;
+            this.comboBox_account.Location = new System.Drawing.Point(102, 69);
+            this.comboBox_account.Name = "comboBox_account";
+            this.comboBox_account.Size = new System.Drawing.Size(329, 31);
+            this.comboBox_account.TabIndex = 68;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(3, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 28);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "Account";
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
@@ -860,32 +881,11 @@
             this.button_7D.TabIndex = 35;
             this.button_7D.Text = "7D";
             // 
-            // comboBox_account
-            // 
-            this.comboBox_account.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox_account.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
-            this.comboBox_account.FormattingEnabled = true;
-            this.comboBox_account.Location = new System.Drawing.Point(102, 69);
-            this.comboBox_account.Name = "comboBox_account";
-            this.comboBox_account.Size = new System.Drawing.Size(329, 31);
-            this.comboBox_account.TabIndex = 68;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(148)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(3, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 28);
-            this.label2.TabIndex = 69;
-            this.label2.Text = "Account";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 1004);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button_add_trns);
             this.Controls.Add(this.panel2);

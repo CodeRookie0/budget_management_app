@@ -293,6 +293,13 @@ namespace budget_management_app
             dbcon.CloseCon();
         }
 
+        private void Button_more_trns_Click(object sender, EventArgs e)
+        {
+            TransactionForm trns = new TransactionForm();
+            trns.Show();
+            this.Hide();
+        }
+
         private void Button_more_trns_MouseEnter(object sender, EventArgs e)
         {
             Button_more_trns.BackColor = Color.FromArgb(212, 163, 115);
@@ -301,13 +308,6 @@ namespace budget_management_app
         private void Button_more_trns_MouseLeave(object sender, EventArgs e)
         {
             Button_more_trns.BackColor = Color.FromArgb(250, 237, 205);
-        }
-
-        private void Button_more_trns_Click(object sender, EventArgs e)
-        {
-            TransactionForm trns = new TransactionForm();
-            trns.Show();
-            this.Hide();
         }
     }
 }

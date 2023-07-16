@@ -32,39 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(4D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(5D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(6D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint10 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint11 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint12 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(4D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint13 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(5D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint14 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(6D, 50D);
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -72,37 +46,18 @@
             this.money_flow = new System.Windows.Forms.TabPage();
             this.panel_money_flow = new System.Windows.Forms.Panel();
             this.expenses = new System.Windows.Forms.TabPage();
-            this.panel_exp = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Button_more_trns = new Guna.UI2.WinForms.Guna2TileButton();
             this.chart_exp_cat = new LiveCharts.WinForms.PieChart();
             this.label_exp_from_date = new System.Windows.Forms.Label();
             this.label_today = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.DataGridView_5High_exp = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label_exp_last_X = new System.Windows.Forms.Label();
             this.label_exp_cat = new System.Windows.Forms.Label();
             this.income = new System.Windows.Forms.TabPage();
-            this.panel_in = new System.Windows.Forms.Panel();
-            this.label_in_from_date = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.DataGridView_5High_in = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label_in_last_X = new System.Windows.Forms.Label();
-            this.label_in_cat = new System.Windows.Forms.Label();
-            this.chart_in_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart_in_cat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.savings = new System.Windows.Forms.TabPage();
-            this.panel_sav = new System.Windows.Forms.Panel();
-            this.label_sav_from_date = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.DataGridView_5High_sav = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label_sav_last_X = new System.Windows.Forms.Label();
-            this.label_sav_cat = new System.Windows.Forms.Label();
-            this.chart_sav_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart_sac_cat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.raports = new System.Windows.Forms.TabPage();
             this.panel_raport = new System.Windows.Forms.Panel();
             this.panel_bottomBar = new System.Windows.Forms.Panel();
@@ -116,27 +71,39 @@
             this.button_12W = new Guna.UI2.WinForms.Guna2Button();
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
             this.timer_bottomBar = new System.Windows.Forms.Timer(this.components);
-            this.Button_more_trns = new Guna.UI2.WinForms.Guna2TileButton();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pieChart2 = new LiveCharts.WinForms.PieChart();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel2.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.money_flow.SuspendLayout();
             this.expenses.SuspendLayout();
-            this.panel_exp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_exp)).BeginInit();
             this.income.SuspendLayout();
-            this.panel_in.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_in)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_in_column)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_in_cat)).BeginInit();
             this.savings.SuspendLayout();
-            this.panel_sav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_sav)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_sav_column)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_sac_cat)).BeginInit();
             this.raports.SuspendLayout();
             this.panel_bottomBar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -226,7 +193,16 @@
             // 
             this.expenses.AutoScroll = true;
             this.expenses.BackColor = System.Drawing.Color.White;
-            this.expenses.Controls.Add(this.panel_exp);
+            this.expenses.Controls.Add(this.label1);
+            this.expenses.Controls.Add(this.Button_more_trns);
+            this.expenses.Controls.Add(this.chart_exp_cat);
+            this.expenses.Controls.Add(this.label_exp_from_date);
+            this.expenses.Controls.Add(this.label_today);
+            this.expenses.Controls.Add(this.label3);
+            this.expenses.Controls.Add(this.label4);
+            this.expenses.Controls.Add(this.DataGridView_5High_exp);
+            this.expenses.Controls.Add(this.label_exp_last_X);
+            this.expenses.Controls.Add(this.label_exp_cat);
             this.expenses.Location = new System.Drawing.Point(4, 44);
             this.expenses.Name = "expenses";
             this.expenses.Padding = new System.Windows.Forms.Padding(3);
@@ -234,29 +210,42 @@
             this.expenses.TabIndex = 0;
             this.expenses.Text = "Expenses";
             // 
-            // panel_exp
+            // label1
             // 
-            this.panel_exp.AutoScroll = true;
-            this.panel_exp.Controls.Add(this.Button_more_trns);
-            this.panel_exp.Controls.Add(this.chart_exp_cat);
-            this.panel_exp.Controls.Add(this.label_exp_from_date);
-            this.panel_exp.Controls.Add(this.label_today);
-            this.panel_exp.Controls.Add(this.label3);
-            this.panel_exp.Controls.Add(this.label1);
-            this.panel_exp.Controls.Add(this.DataGridView_5High_exp);
-            this.panel_exp.Controls.Add(this.label_exp_last_X);
-            this.panel_exp.Controls.Add(this.label_exp_cat);
-            this.panel_exp.Location = new System.Drawing.Point(0, 0);
-            this.panel_exp.Name = "panel_exp";
-            this.panel_exp.Size = new System.Drawing.Size(577, 626);
-            this.panel_exp.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(306, 994);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 18);
+            this.label1.TabIndex = 82;
+            // 
+            // Button_more_trns
+            // 
+            this.Button_more_trns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.Button_more_trns.BorderThickness = 1;
+            this.Button_more_trns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Button_more_trns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Button_more_trns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Button_more_trns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Button_more_trns.FillColor = System.Drawing.Color.Transparent;
+            this.Button_more_trns.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.Button_more_trns.ForeColor = System.Drawing.Color.Black;
+            this.Button_more_trns.Location = new System.Drawing.Point(8, 953);
+            this.Button_more_trns.Name = "Button_more_trns";
+            this.Button_more_trns.Size = new System.Drawing.Size(119, 25);
+            this.Button_more_trns.TabIndex = 81;
+            this.Button_more_trns.Text = "Show More";
+            this.Button_more_trns.Click += new System.EventHandler(this.Button_more_trns_Click);
+            this.Button_more_trns.MouseEnter += new System.EventHandler(this.Button_more_trns_MouseEnter);
+            this.Button_more_trns.MouseLeave += new System.EventHandler(this.Button_more_trns_MouseLeave);
             // 
             // chart_exp_cat
             // 
             this.chart_exp_cat.Location = new System.Drawing.Point(8, 70);
             this.chart_exp_cat.Name = "chart_exp_cat";
             this.chart_exp_cat.Size = new System.Drawing.Size(549, 372);
-            this.chart_exp_cat.TabIndex = 72;
+            this.chart_exp_cat.TabIndex = 80;
             // 
             // label_exp_from_date
             // 
@@ -266,7 +255,7 @@
             this.label_exp_from_date.Location = new System.Drawing.Point(5, 689);
             this.label_exp_from_date.Name = "label_exp_from_date";
             this.label_exp_from_date.Size = new System.Drawing.Size(40, 18);
-            this.label_exp_from_date.TabIndex = 71;
+            this.label_exp_from_date.TabIndex = 79;
             this.label_exp_from_date.Text = "7 Jun";
             // 
             // label_today
@@ -277,7 +266,7 @@
             this.label_today.Location = new System.Drawing.Point(506, 689);
             this.label_today.Name = "label_today";
             this.label_today.Size = new System.Drawing.Size(44, 18);
-            this.label_today.TabIndex = 70;
+            this.label_today.TabIndex = 78;
             this.label_today.Text = "Today";
             // 
             // label3
@@ -288,19 +277,19 @@
             this.label3.Location = new System.Drawing.Point(6, 468);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 23);
-            this.label3.TabIndex = 69;
+            this.label3.TabIndex = 77;
             this.label3.Text = "CHART";
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(6, 733);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 23);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "HIGHEST EXPENSES";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(6, 733);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 23);
+            this.label4.TabIndex = 76;
+            this.label4.Text = "HIGHEST EXPENSES";
             // 
             // DataGridView_5High_exp
             // 
@@ -321,19 +310,19 @@
             this.DataGridView_5High_exp.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView_5High_exp.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView_5High_exp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_exp.Location = new System.Drawing.Point(8, 769);
+            this.DataGridView_5High_exp.Location = new System.Drawing.Point(8, 774);
             this.DataGridView_5High_exp.Name = "DataGridView_5High_exp";
             this.DataGridView_5High_exp.ReadOnly = true;
             this.DataGridView_5High_exp.RowHeadersVisible = false;
             this.DataGridView_5High_exp.Size = new System.Drawing.Size(542, 163);
-            this.DataGridView_5High_exp.TabIndex = 67;
+            this.DataGridView_5High_exp.TabIndex = 75;
             this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.DataGridView_5High_exp.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -363,7 +352,7 @@
             this.label_exp_last_X.Location = new System.Drawing.Point(6, 48);
             this.label_exp_last_X.Name = "label_exp_last_X";
             this.label_exp_last_X.Size = new System.Drawing.Size(96, 19);
-            this.label_exp_last_X.TabIndex = 66;
+            this.label_exp_last_X.TabIndex = 74;
             this.label_exp_last_X.Text = "LAST 30 DAYS";
             // 
             // label_exp_cat
@@ -373,405 +362,49 @@
             this.label_exp_cat.Location = new System.Drawing.Point(3, 3);
             this.label_exp_cat.Name = "label_exp_cat";
             this.label_exp_cat.Size = new System.Drawing.Size(294, 36);
-            this.label_exp_cat.TabIndex = 65;
+            this.label_exp_cat.TabIndex = 73;
             this.label_exp_cat.Text = "Expenses by category";
             // 
             // income
             // 
+            this.income.AutoScroll = true;
             this.income.BackColor = System.Drawing.Color.White;
-            this.income.Controls.Add(this.panel_in);
+            this.income.Controls.Add(this.label17);
+            this.income.Controls.Add(this.guna2TileButton1);
+            this.income.Controls.Add(this.pieChart1);
+            this.income.Controls.Add(this.label5);
+            this.income.Controls.Add(this.label6);
+            this.income.Controls.Add(this.label7);
+            this.income.Controls.Add(this.label8);
+            this.income.Controls.Add(this.guna2DataGridView1);
+            this.income.Controls.Add(this.label9);
+            this.income.Controls.Add(this.label10);
             this.income.Location = new System.Drawing.Point(4, 44);
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(577, 632);
             this.income.TabIndex = 2;
             this.income.Text = "Income";
             // 
-            // panel_in
-            // 
-            this.panel_in.AutoScroll = true;
-            this.panel_in.Controls.Add(this.label_in_from_date);
-            this.panel_in.Controls.Add(this.label7);
-            this.panel_in.Controls.Add(this.label8);
-            this.panel_in.Controls.Add(this.label9);
-            this.panel_in.Controls.Add(this.DataGridView_5High_in);
-            this.panel_in.Controls.Add(this.label_in_last_X);
-            this.panel_in.Controls.Add(this.label_in_cat);
-            this.panel_in.Controls.Add(this.chart_in_column);
-            this.panel_in.Controls.Add(this.chart_in_cat);
-            this.panel_in.Location = new System.Drawing.Point(0, 0);
-            this.panel_in.Name = "panel_in";
-            this.panel_in.Size = new System.Drawing.Size(577, 626);
-            this.panel_in.TabIndex = 1;
-            // 
-            // label_in_from_date
-            // 
-            this.label_in_from_date.AutoSize = true;
-            this.label_in_from_date.Font = new System.Drawing.Font("Sitka Small", 9F);
-            this.label_in_from_date.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label_in_from_date.Location = new System.Drawing.Point(5, 557);
-            this.label_in_from_date.Name = "label_in_from_date";
-            this.label_in_from_date.Size = new System.Drawing.Size(40, 18);
-            this.label_in_from_date.TabIndex = 71;
-            this.label_in_from_date.Text = "7 Jun";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Sitka Small", 9F);
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(506, 557);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 18);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "Today";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Sitka Small", 12F);
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(6, 336);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 23);
-            this.label8.TabIndex = 69;
-            this.label8.Text = "CHART";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(6, 601);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 23);
-            this.label9.TabIndex = 68;
-            this.label9.Text = "HIGHEST EXPENSES";
-            // 
-            // DataGridView_5High_in
-            // 
-            this.DataGridView_5High_in.AllowUserToAddRows = false;
-            this.DataGridView_5High_in.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_in.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_5High_in.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.DataGridView_5High_in.ColumnHeadersHeight = 4;
-            this.DataGridView_5High_in.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_5High_in.DefaultCellStyle = dataGridViewCellStyle6;
-            this.DataGridView_5High_in.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_in.Location = new System.Drawing.Point(8, 628);
-            this.DataGridView_5High_in.Name = "DataGridView_5High_in";
-            this.DataGridView_5High_in.ReadOnly = true;
-            this.DataGridView_5High_in.RowHeadersVisible = false;
-            this.DataGridView_5High_in.Size = new System.Drawing.Size(542, 197);
-            this.DataGridView_5High_in.TabIndex = 67;
-            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DataGridView_5High_in.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_5High_in.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_in.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.DataGridView_5High_in.ThemeStyle.HeaderStyle.Height = 4;
-            this.DataGridView_5High_in.ThemeStyle.ReadOnly = true;
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.Height = 22;
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_in.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // label_in_last_X
-            // 
-            this.label_in_last_X.AutoSize = true;
-            this.label_in_last_X.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.label_in_last_X.Location = new System.Drawing.Point(6, 48);
-            this.label_in_last_X.Name = "label_in_last_X";
-            this.label_in_last_X.Size = new System.Drawing.Size(96, 19);
-            this.label_in_last_X.TabIndex = 66;
-            this.label_in_last_X.Text = "LAST 30 DAYS";
-            // 
-            // label_in_cat
-            // 
-            this.label_in_cat.AutoSize = true;
-            this.label_in_cat.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label_in_cat.Location = new System.Drawing.Point(3, 3);
-            this.label_in_cat.Name = "label_in_cat";
-            this.label_in_cat.Size = new System.Drawing.Size(294, 36);
-            this.label_in_cat.TabIndex = 65;
-            this.label_in_cat.Text = "Expenses by category";
-            // 
-            // chart_in_column
-            // 
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.Maximum = 6.5D;
-            chartArea1.AxisX.Minimum = -0.5D;
-            chartArea1.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea1.Name = "ChartArea1";
-            this.chart_in_column.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart_in_column.Legends.Add(legend1);
-            this.chart_in_column.Location = new System.Drawing.Point(8, 376);
-            this.chart_in_column.Name = "chart_in_column";
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.SystemColors.ControlLight;
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Expenses";
-            series1.Points.Add(dataPoint1);
-            series1.Points.Add(dataPoint2);
-            series1.Points.Add(dataPoint3);
-            series1.Points.Add(dataPoint4);
-            series1.Points.Add(dataPoint5);
-            series1.Points.Add(dataPoint6);
-            series1.Points.Add(dataPoint7);
-            this.chart_in_column.Series.Add(series1);
-            this.chart_in_column.Size = new System.Drawing.Size(542, 184);
-            this.chart_in_column.TabIndex = 64;
-            // 
-            // chart_in_cat
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_in_cat.ChartAreas.Add(chartArea2);
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chart_in_cat.Legends.Add(legend2);
-            this.chart_in_cat.Location = new System.Drawing.Point(8, 70);
-            this.chart_in_cat.Name = "chart_in_cat";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series2.Legend = "Legend1";
-            series2.Name = "DataSeries";
-            this.chart_in_cat.Series.Add(series2);
-            this.chart_in_cat.Size = new System.Drawing.Size(542, 243);
-            this.chart_in_cat.TabIndex = 63;
-            // 
             // savings
             // 
+            this.savings.AutoScroll = true;
             this.savings.BackColor = System.Drawing.Color.White;
-            this.savings.Controls.Add(this.panel_sav);
+            this.savings.Controls.Add(this.label18);
+            this.savings.Controls.Add(this.guna2TileButton2);
+            this.savings.Controls.Add(this.pieChart2);
+            this.savings.Controls.Add(this.label11);
+            this.savings.Controls.Add(this.label12);
+            this.savings.Controls.Add(this.label13);
+            this.savings.Controls.Add(this.label14);
+            this.savings.Controls.Add(this.guna2DataGridView2);
+            this.savings.Controls.Add(this.label15);
+            this.savings.Controls.Add(this.label16);
             this.savings.Location = new System.Drawing.Point(4, 44);
             this.savings.Name = "savings";
             this.savings.Padding = new System.Windows.Forms.Padding(3);
             this.savings.Size = new System.Drawing.Size(577, 632);
             this.savings.TabIndex = 1;
             this.savings.Text = "Savings";
-            // 
-            // panel_sav
-            // 
-            this.panel_sav.AutoScroll = true;
-            this.panel_sav.Controls.Add(this.label_sav_from_date);
-            this.panel_sav.Controls.Add(this.label13);
-            this.panel_sav.Controls.Add(this.label14);
-            this.panel_sav.Controls.Add(this.label15);
-            this.panel_sav.Controls.Add(this.DataGridView_5High_sav);
-            this.panel_sav.Controls.Add(this.label_sav_last_X);
-            this.panel_sav.Controls.Add(this.label_sav_cat);
-            this.panel_sav.Controls.Add(this.chart_sav_column);
-            this.panel_sav.Controls.Add(this.chart_sac_cat);
-            this.panel_sav.Location = new System.Drawing.Point(0, 0);
-            this.panel_sav.Name = "panel_sav";
-            this.panel_sav.Size = new System.Drawing.Size(577, 626);
-            this.panel_sav.TabIndex = 1;
-            // 
-            // label_sav_from_date
-            // 
-            this.label_sav_from_date.AutoSize = true;
-            this.label_sav_from_date.Font = new System.Drawing.Font("Sitka Small", 9F);
-            this.label_sav_from_date.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label_sav_from_date.Location = new System.Drawing.Point(5, 557);
-            this.label_sav_from_date.Name = "label_sav_from_date";
-            this.label_sav_from_date.Size = new System.Drawing.Size(40, 18);
-            this.label_sav_from_date.TabIndex = 71;
-            this.label_sav_from_date.Text = "7 Jun";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Sitka Small", 9F);
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label13.Location = new System.Drawing.Point(506, 557);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 18);
-            this.label13.TabIndex = 70;
-            this.label13.Text = "Today";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Sitka Small", 12F);
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label14.Location = new System.Drawing.Point(6, 336);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 23);
-            this.label14.TabIndex = 69;
-            this.label14.Text = "CHART";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label15.Location = new System.Drawing.Point(6, 601);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(179, 23);
-            this.label15.TabIndex = 68;
-            this.label15.Text = "HIGHEST EXPENSES";
-            // 
-            // DataGridView_5High_sav
-            // 
-            this.DataGridView_5High_sav.AllowUserToAddRows = false;
-            this.DataGridView_5High_sav.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_sav.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_5High_sav.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.DataGridView_5High_sav.ColumnHeadersHeight = 4;
-            this.DataGridView_5High_sav.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_5High_sav.DefaultCellStyle = dataGridViewCellStyle9;
-            this.DataGridView_5High_sav.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_sav.Location = new System.Drawing.Point(8, 628);
-            this.DataGridView_5High_sav.Name = "DataGridView_5High_sav";
-            this.DataGridView_5High_sav.ReadOnly = true;
-            this.DataGridView_5High_sav.RowHeadersVisible = false;
-            this.DataGridView_5High_sav.Size = new System.Drawing.Size(542, 197);
-            this.DataGridView_5High_sav.TabIndex = 67;
-            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DataGridView_5High_sav.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_5High_sav.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_sav.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.DataGridView_5High_sav.ThemeStyle.HeaderStyle.Height = 4;
-            this.DataGridView_5High_sav.ThemeStyle.ReadOnly = true;
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.Height = 22;
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_5High_sav.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // label_sav_last_X
-            // 
-            this.label_sav_last_X.AutoSize = true;
-            this.label_sav_last_X.Font = new System.Drawing.Font("Segoe UI", 10.25F);
-            this.label_sav_last_X.Location = new System.Drawing.Point(6, 48);
-            this.label_sav_last_X.Name = "label_sav_last_X";
-            this.label_sav_last_X.Size = new System.Drawing.Size(96, 19);
-            this.label_sav_last_X.TabIndex = 66;
-            this.label_sav_last_X.Text = "LAST 30 DAYS";
-            // 
-            // label_sav_cat
-            // 
-            this.label_sav_cat.AutoSize = true;
-            this.label_sav_cat.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label_sav_cat.Location = new System.Drawing.Point(3, 3);
-            this.label_sav_cat.Name = "label_sav_cat";
-            this.label_sav_cat.Size = new System.Drawing.Size(294, 36);
-            this.label_sav_cat.TabIndex = 65;
-            this.label_sav_cat.Text = "Expenses by category";
-            // 
-            // chart_sav_column
-            // 
-            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea3.AxisX.IsLabelAutoFit = false;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.Maximum = 6.5D;
-            chartArea3.AxisX.Minimum = -0.5D;
-            chartArea3.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea3.Name = "ChartArea1";
-            this.chart_sav_column.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chart_sav_column.Legends.Add(legend3);
-            this.chart_sav_column.Location = new System.Drawing.Point(8, 376);
-            this.chart_sav_column.Name = "chart_sav_column";
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.SystemColors.ControlLight;
-            series3.IsVisibleInLegend = false;
-            series3.Legend = "Legend1";
-            series3.Name = "Expenses";
-            series3.Points.Add(dataPoint8);
-            series3.Points.Add(dataPoint9);
-            series3.Points.Add(dataPoint10);
-            series3.Points.Add(dataPoint11);
-            series3.Points.Add(dataPoint12);
-            series3.Points.Add(dataPoint13);
-            series3.Points.Add(dataPoint14);
-            this.chart_sav_column.Series.Add(series3);
-            this.chart_sav_column.Size = new System.Drawing.Size(542, 184);
-            this.chart_sav_column.TabIndex = 64;
-            // 
-            // chart_sac_cat
-            // 
-            chartArea4.Name = "ChartArea1";
-            this.chart_sac_cat.ChartAreas.Add(chartArea4);
-            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            this.chart_sac_cat.Legends.Add(legend4);
-            this.chart_sac_cat.Location = new System.Drawing.Point(8, 70);
-            this.chart_sac_cat.Name = "chart_sac_cat";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            series4.Legend = "Legend1";
-            series4.Name = "DataSeries";
-            this.chart_sac_cat.Series.Add(series4);
-            this.chart_sac_cat.Size = new System.Drawing.Size(542, 243);
-            this.chart_sac_cat.TabIndex = 63;
             // 
             // raports
             // 
@@ -958,25 +591,309 @@
             this.timer_bottomBar.Interval = 10;
             this.timer_bottomBar.Tick += new System.EventHandler(this.timer_bottomBar_Tick);
             // 
-            // Button_more_trns
+            // pieChart1
             // 
-            this.Button_more_trns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.Button_more_trns.BorderThickness = 1;
-            this.Button_more_trns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_more_trns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_more_trns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_more_trns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_more_trns.FillColor = System.Drawing.Color.Transparent;
-            this.Button_more_trns.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.Button_more_trns.ForeColor = System.Drawing.Color.Black;
-            this.Button_more_trns.Location = new System.Drawing.Point(8, 945);
-            this.Button_more_trns.Name = "Button_more_trns";
-            this.Button_more_trns.Size = new System.Drawing.Size(119, 25);
-            this.Button_more_trns.TabIndex = 73;
-            this.Button_more_trns.Text = "Show More";
-            this.Button_more_trns.Click += new System.EventHandler(this.Button_more_trns_Click);
-            this.Button_more_trns.MouseEnter += new System.EventHandler(this.Button_more_trns_MouseEnter);
-            this.Button_more_trns.MouseLeave += new System.EventHandler(this.Button_more_trns_MouseLeave);
+            this.pieChart1.Location = new System.Drawing.Point(8, 70);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(549, 372);
+            this.pieChart1.TabIndex = 88;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(5, 689);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 18);
+            this.label5.TabIndex = 87;
+            this.label5.Text = "7 Jun";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(506, 689);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 18);
+            this.label6.TabIndex = 86;
+            this.label6.Text = "Today";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Sitka Small", 12F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(6, 468);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 23);
+            this.label7.TabIndex = 85;
+            this.label7.Text = "CHART";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label8.Location = new System.Drawing.Point(6, 733);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(179, 23);
+            this.label8.TabIndex = 84;
+            this.label8.Text = "HIGHEST EXPENSES";
+            // 
+            // guna2DataGridView1
+            // 
+            this.guna2DataGridView1.AllowUserToAddRows = false;
+            this.guna2DataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.guna2DataGridView1.ColumnHeadersHeight = 4;
+            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.guna2DataGridView1.ColumnHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView1.Location = new System.Drawing.Point(8, 773);
+            this.guna2DataGridView1.Name = "guna2DataGridView1";
+            this.guna2DataGridView1.ReadOnly = true;
+            this.guna2DataGridView1.RowHeadersVisible = false;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(542, 163);
+            this.guna2DataGridView1.TabIndex = 83;
+            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 4;
+            this.guna2DataGridView1.ThemeStyle.ReadOnly = true;
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 22;
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label9.Location = new System.Drawing.Point(6, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 19);
+            this.label9.TabIndex = 82;
+            this.label9.Text = "LAST 30 DAYS";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(3, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(294, 36);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Expenses by category";
+            // 
+            // pieChart2
+            // 
+            this.pieChart2.Location = new System.Drawing.Point(8, 70);
+            this.pieChart2.Name = "pieChart2";
+            this.pieChart2.Size = new System.Drawing.Size(549, 372);
+            this.pieChart2.TabIndex = 88;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label11.Location = new System.Drawing.Point(5, 689);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 18);
+            this.label11.TabIndex = 87;
+            this.label11.Text = "7 Jun";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label12.Location = new System.Drawing.Point(506, 689);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 18);
+            this.label12.TabIndex = 86;
+            this.label12.Text = "Today";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Sitka Small", 12F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label13.Location = new System.Drawing.Point(6, 468);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 23);
+            this.label13.TabIndex = 85;
+            this.label13.Text = "CHART";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label14.Location = new System.Drawing.Point(6, 733);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(179, 23);
+            this.label14.TabIndex = 84;
+            this.label14.Text = "HIGHEST EXPENSES";
+            // 
+            // guna2DataGridView2
+            // 
+            this.guna2DataGridView2.AllowUserToAddRows = false;
+            this.guna2DataGridView2.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.guna2DataGridView2.ColumnHeadersHeight = 4;
+            this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.guna2DataGridView2.ColumnHeadersVisible = false;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle9;
+            this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView2.Location = new System.Drawing.Point(8, 774);
+            this.guna2DataGridView2.Name = "guna2DataGridView2";
+            this.guna2DataGridView2.ReadOnly = true;
+            this.guna2DataGridView2.RowHeadersVisible = false;
+            this.guna2DataGridView2.Size = new System.Drawing.Size(542, 163);
+            this.guna2DataGridView2.TabIndex = 83;
+            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.guna2DataGridView2.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.guna2DataGridView2.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 4;
+            this.guna2DataGridView2.ThemeStyle.ReadOnly = true;
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.Height = 22;
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label15.Location = new System.Drawing.Point(6, 48);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(96, 19);
+            this.label15.TabIndex = 82;
+            this.label15.Text = "LAST 30 DAYS";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(3, 3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(294, 36);
+            this.label16.TabIndex = 81;
+            this.label16.Text = "Expenses by category";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label17.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label17.Location = new System.Drawing.Point(311, 1002);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(0, 18);
+            this.label17.TabIndex = 90;
+            // 
+            // guna2TileButton1
+            // 
+            this.guna2TileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.guna2TileButton1.BorderThickness = 1;
+            this.guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2TileButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.guna2TileButton1.ForeColor = System.Drawing.Color.Black;
+            this.guna2TileButton1.Location = new System.Drawing.Point(10, 952);
+            this.guna2TileButton1.Name = "guna2TileButton1";
+            this.guna2TileButton1.Size = new System.Drawing.Size(119, 25);
+            this.guna2TileButton1.TabIndex = 89;
+            this.guna2TileButton1.Text = "Show More";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label18.Location = new System.Drawing.Point(307, 1006);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(0, 18);
+            this.label18.TabIndex = 92;
+            // 
+            // guna2TileButton2
+            // 
+            this.guna2TileButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.guna2TileButton2.BorderThickness = 1;
+            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2TileButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.guna2TileButton2.ForeColor = System.Drawing.Color.Black;
+            this.guna2TileButton2.Location = new System.Drawing.Point(6, 955);
+            this.guna2TileButton2.Name = "guna2TileButton2";
+            this.guna2TileButton2.Size = new System.Drawing.Size(119, 25);
+            this.guna2TileButton2.TabIndex = 91;
+            this.guna2TileButton2.Text = "Show More";
             // 
             // StatisticsForm
             // 
@@ -998,26 +915,19 @@
             this.guna2TabControl1.ResumeLayout(false);
             this.money_flow.ResumeLayout(false);
             this.expenses.ResumeLayout(false);
-            this.panel_exp.ResumeLayout(false);
-            this.panel_exp.PerformLayout();
+            this.expenses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_exp)).EndInit();
             this.income.ResumeLayout(false);
-            this.panel_in.ResumeLayout(false);
-            this.panel_in.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_in)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_in_column)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_in_cat)).EndInit();
+            this.income.PerformLayout();
             this.savings.ResumeLayout(false);
-            this.panel_sav.ResumeLayout(false);
-            this.panel_sav.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_5High_sav)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_sav_column)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_sac_cat)).EndInit();
+            this.savings.PerformLayout();
             this.raports.ResumeLayout(false);
             this.panel_bottomBar.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1039,42 +949,42 @@
         private Guna.UI2.WinForms.Guna2Button button_30D;
         private Guna.UI2.WinForms.Guna2Button button_12W;
         private Guna.UI2.WinForms.Guna2Button button_7D;
-        private System.Windows.Forms.Panel panel_exp;
-        private System.Windows.Forms.Label label_exp_cat;
         private System.Windows.Forms.PictureBox pictureBox_bottomBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox_account;
         private System.Windows.Forms.Timer timer_bottomBar;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_exp;
-        private System.Windows.Forms.Label label_exp_last_X;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label_today;
-        private System.Windows.Forms.Label label_exp_from_date;
-        private System.Windows.Forms.Panel panel_in;
-        private System.Windows.Forms.Label label_in_from_date;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_in;
-        private System.Windows.Forms.Label label_in_last_X;
-        private System.Windows.Forms.Label label_in_cat;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_in_column;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_in_cat;
-        private System.Windows.Forms.Panel panel_sav;
-        private System.Windows.Forms.Label label_sav_from_date;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_sav;
-        private System.Windows.Forms.Label label_sav_last_X;
-        private System.Windows.Forms.Label label_sav_cat;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_sav_column;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_sac_cat;
         private System.Windows.Forms.Panel panel_raport;
         private System.Windows.Forms.Panel panel_money_flow;
         private LiveCharts.WinForms.PieChart chart_exp_cat;
+        private System.Windows.Forms.Label label_exp_from_date;
+        private System.Windows.Forms.Label label_today;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_5High_exp;
+        private System.Windows.Forms.Label label_exp_last_X;
+        private System.Windows.Forms.Label label_exp_cat;
         private Guna.UI2.WinForms.Guna2TileButton Button_more_trns;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label17;
+        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
+        private LiveCharts.WinForms.PieChart pieChart1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private LiveCharts.WinForms.PieChart pieChart2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
     }
 }
