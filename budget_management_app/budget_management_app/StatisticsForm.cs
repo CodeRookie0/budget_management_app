@@ -1,38 +1,50 @@
-﻿using System;
+﻿using LiveCharts.Wpf;
+using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Runtime.InteropServices.ComTypes;
+using System.Management;
+using System.Globalization;
 
 namespace budget_management_app
 {
     public partial class StatisticsForm : Form
     {
+        DBConnection dbcon = new DBConnection();
         bool bottombarExpand;
 
         DateTime currentDate = DateTime.Today;
-        int selectedDay;
-        int selectedMonth;
-        int selectedYear;
+        static int selectedDay;
+        static int selectedMonth;
+        static int selectedYear;
+
+        int selectedAccId;
 
         public StatisticsForm()
         {
             InitializeComponent();
+
+            getAcc();
+            comboBox_account.SelectedIndex = 0;
+            getSelectedAcc();
         }
         private void StatisticsForm_Load(object sender, EventArgs e)
         {
-            selectedDay = currentDate.Day;
-            selectedMonth = currentDate.Month;
-            selectedYear = currentDate.Year;
+
         }
 
         private void label_exit_Click(object sender, EventArgs e)
         {
-            HomeForm home=new HomeForm();
+            HomeForm home = new HomeForm();
             home.Show();
             this.Hide();
         }
@@ -47,12 +59,12 @@ namespace budget_management_app
             label_exit.ForeColor = Color.White;
         }
 
-        private void UpdateSelectedDate(int daysOffset)
+        private void UpdateSelectedDate(int startDay, int startMonth, int startYear)
         {
-            DateTime selectedDate = currentDate.AddDays(-daysOffset);
-            selectedDay = selectedDate.Day;
-            selectedMonth = selectedDate.Month;
-            selectedYear = selectedDate.Year;
+            
+            selectedDay = startDay;
+            selectedMonth = startMonth;
+            selectedYear = startYear;
 
             if (selectedMonth < 1)
             {
@@ -70,31 +82,53 @@ namespace budget_management_app
             {
                 selectedDay = daysInSelectedMonth;
             }
+            
+            UpdateCharts();
+        }
+        private void UpdateCharts()
+        {
+            getPieChart();
+            getHighestExpensees();
         }
 
         private void button_7D_Click(object sender, EventArgs e)
         {
-            UpdateSelectedDate(7);
+            DateTime startDateTime = currentDate.AddDays(-7);
+            int startDay = startDateTime.Day;
+            int startMonth = startDateTime.Month;
+            int startYear = startDateTime.Year;
+            UpdateSelectedDate(startDay, startMonth, startYear);
+
         }
 
         private void button_30D_Click(object sender, EventArgs e)
         {
-            UpdateSelectedDate(30);
+            DateTime startDateTime = currentDate.AddDays(-30);
+            int startDay = 1;
+            int startMonth = startDateTime.Month;
+            int startYear = startDateTime.Year;
+            UpdateSelectedDate(startDay, startMonth, startYear);
         }
 
         private void button_12W_Click(object sender, EventArgs e)
         {
-            UpdateSelectedDate(12*7);
+            DateTime startDateTime = currentDate.AddMonths(-2);
+            int startMonth = startDateTime.Month;
+            int startYear = startDateTime.Year;
+            UpdateSelectedDate(1, startMonth, startYear);
         }
 
         private void button_6M_Click(object sender, EventArgs e)
         {
-            UpdateSelectedDate(6*30);
+            DateTime startDateTime = currentDate.AddMonths(-5);
+            int startMonth = startDateTime.Month;
+            int startYear = startDateTime.Year;
+            UpdateSelectedDate(1, startMonth, startYear);
         }
 
         private void button_1Y_Click(object sender, EventArgs e)
         {
-            UpdateSelectedDate(365);
+            UpdateSelectedDate(1, 1, currentDate.Year);
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
@@ -138,5 +172,144 @@ namespace budget_management_app
             }
         }
 
+        // Retrieving data on existing accounts for combo_box_account
+        private void getAcc()
+        {
+            string selectQuery = "SELECT AccName FROM Account WHERE UserId = " + LoginForm.userId;
+            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                string data = reader.GetString(0);
+                comboBox_account.Items.Add(data.Trim());
+            }
+            reader.Close();
+            dbcon.CloseCon();
+        }
+
+        private void getSelectedAcc()
+        {
+            string selectQuery = "SELECT AccId FROM Account WHERE AccName ='" + comboBox_account.SelectedItem.ToString() + "' AND UserId=" + LoginForm.userId;
+            SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
+            dbcon.OpenCon();
+            object result = comm.ExecuteScalar();
+            if (result != null)
+            {
+                selectedAccId = Convert.ToInt32(result);
+            }
+            dbcon.CloseCon();
+        }
+
+        private void comboBox_account_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_account.SelectedItem != null)
+            {
+                getSelectedAcc();
+                DateTime startDateTime = currentDate.AddMonths(-2);
+                int startMonth = startDateTime.Month;
+                int startYear = startDateTime.Year;
+                UpdateSelectedDate(1, startMonth, startYear);
+            }
+        }
+
+        private void getPieChart()
+        {
+            string query = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
+               "FROM Expenses " +
+               "JOIN Category ON Expenses.CatId = Category.CatId " +
+               "WHERE Expenses.AccId = @SelectedAccId " +
+               "AND Expenses.UserId = @UserId " +
+               "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+               "GROUP BY Category.CatName";
+            
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            chart_exp_cat.Series.Clear();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                decimal amount = Convert.ToDecimal(row["TotalAmount"]);
+
+                if (amount > 0)
+                {
+                    var dataPoint = new PieSeries
+                    {
+                        Title = row["CatName"].ToString().Trim(),
+                        Values = new ChartValues<decimal> { amount },
+                        DataLabels = true,
+                        LabelPoint = point => $"{point.Participation:P}"
+                    };
+
+                    chart_exp_cat.Series.Add(dataPoint);
+                    chart_exp_cat.LegendLocation = LegendLocation.Bottom;
+                }
+            }
+        }
+        private void getHighestExpensees()
+        {
+            string query = "SELECT TOP 5 " +
+               "CASE " +
+               "  WHEN SubCategory.SubName IS NOT NULL THEN SubCategory.SubName " +
+               "  WHEN UserSubCat.Us_SubName IS NOT NULL THEN UserSubCat.Us_SubName " +
+               "  ELSE Category.CatName " +
+               "END AS SubName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, Expenses.ExpDate AS DateTrns " +
+               "FROM Expenses " +
+               "JOIN Account ON Account.AccId = Expenses.AccId " +
+               "JOIN Category ON Category.CatId = Expenses.CatId " +
+               "LEFT JOIN SubCategory ON Expenses.SubId = SubCategory.SubId " +
+               "LEFT JOIN UserSubCat ON Expenses.Us_SubId = UserSubCat.Us_SubId " +
+               "WHERE Expenses.AccId = " + selectedAccId +
+               " AND Expenses.UserId = " + LoginForm.userId +
+               " AND Expenses.ExpDate BETWEEN '" + selectedYear + "-" + selectedMonth + "-" + selectedDay +
+               "' AND GETDATE() " +
+               "ORDER BY Expenses.ExpAmount DESC";
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            dbcon.OpenCon();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            foreach (DataRow row in table.Rows)
+            {
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    if (row[i] != null && row[i] != DBNull.Value)
+                    {
+                        row[i] = row[i].ToString().Trim();
+                    }
+                }
+            }
+            DataGridView_5High_exp.DataSource = table;
+            dbcon.CloseCon();
+        }
+
+        private void Button_more_trns_MouseEnter(object sender, EventArgs e)
+        {
+            Button_more_trns.BackColor = Color.FromArgb(212, 163, 115);
+        }
+
+        private void Button_more_trns_MouseLeave(object sender, EventArgs e)
+        {
+            Button_more_trns.BackColor = Color.FromArgb(250, 237, 205);
+        }
+
+        private void Button_more_trns_Click(object sender, EventArgs e)
+        {
+            TransactionForm trns = new TransactionForm();
+            trns.Show();
+            this.Hide();
+        }
     }
 }
+
+
