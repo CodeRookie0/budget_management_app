@@ -256,7 +256,7 @@ namespace budget_management_app
         }
         private void getHighestExpensees()
         {
-            string query = "SELECT TOP 5 " +
+            string query = "SELECT TOP 7 " +
                "CASE " +
                "  WHEN SubCategory.SubName IS NOT NULL THEN SubCategory.SubName " +
                "  WHEN UserSubCat.Us_SubName IS NOT NULL THEN UserSubCat.Us_SubName " +
