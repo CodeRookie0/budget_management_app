@@ -14,6 +14,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Runtime.InteropServices.ComTypes;
 using System.Management;
 using System.Globalization;
+using System.Web.UI.WebControls;
 
 namespace budget_management_app
 {
@@ -35,8 +36,15 @@ namespace budget_management_app
             getAcc();
             comboBox_account.SelectedIndex = 0;
             getSelectedAcc();
-        }
 
+            DateTime startDateTime = currentDate.AddMonths(-2);
+            int startMonth = startDateTime.Month;
+            int startYear = startDateTime.Year;
+            UpdateSelectedDate(1, startMonth, startYear);
+
+            DataGridView_7High_exp.Columns[1].Width = 100;
+            DataGridView_7High_exp.Columns[2].Width = 90;
+        }
         private void label_exit_Click(object sender, EventArgs e)
         {
             HomeForm home = new HomeForm();
@@ -79,16 +87,34 @@ namespace budget_management_app
             }
 
             label_exp_from_date.Text=selectedDay.ToString() + "." + selectedMonth.ToString() + "." + selectedYear.ToString();
+            UpdateCharts();
         }
-       private void UpdateCharts()
+        private void UpdateCharts()
         {
-            getPieCharts();
+            getPieChart();
             getHighestExpensees();
+
+            DateTime selectedDate = new DateTime(selectedYear, selectedMonth, selectedDay);
+            DateTime currentDate = DateTime.Today;
+            int daysDifference = (currentDate - selectedDate).Days;
+
+            if (daysDifference > 123)
+            {
+                getColumnChart_Month();
+            }
+            else if (daysDifference > 31 && daysDifference <= 123)
+            {
+                getColumnChart_Week();
+            }
+            else
+            {
+                getColumnChart_Day();
+            }
         }
 
         private void button_7D_Click(object sender, EventArgs e)
         {
-            DateTime startDateTime = currentDate.AddDays(-7);
+            DateTime startDateTime = currentDate.AddDays(-6);
             int startDay = startDateTime.Day;
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
@@ -99,7 +125,7 @@ namespace budget_management_app
         private void button_30D_Click(object sender, EventArgs e)
         {
             DateTime startDateTime = currentDate.AddDays(-30);
-            int startDay = 1;
+            int startDay = startDateTime.Day;
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
             label_exp_last_X.Text = "LAST 30 DAYS";
@@ -122,12 +148,14 @@ namespace budget_management_app
             int startYear = startDateTime.Year;
             label_exp_last_X.Text = "LAST 6 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
+            getColumnChart_Month();
         }
 
         private void button_1Y_Click(object sender, EventArgs e)
         {
             label_exp_last_X.Text = "LAST 12 MONTH";
             UpdateSelectedDate(1, 1, currentDate.Year);
+            getColumnChart_Month();
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
@@ -212,7 +240,7 @@ namespace budget_management_app
             }
         }
 
-        private void getPieCharts()
+        private void getPieChart()
         {
             string query_exp = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
                "FROM Expenses " +
@@ -291,26 +319,177 @@ namespace budget_management_app
             DataGridView_7High_exp.DataSource = table;
             dbcon.CloseCon();
         }
-/// <summary>
-/// ////////////
-/// </summary>
+        private void getColumnChart_Month()
+        {
+            string query_exp = "SELECT DATEPART(MONTH, ExpDate) AS MonthNumber, DATEPART(YEAR, ExpDate) AS YearNumber, SUM(Expenses.ExpAmount) AS TotalAmount " +
+               "FROM Expenses " +
+               "WHERE Expenses.AccId = @SelectedAccId " +
+               "AND Expenses.UserId = @UserId " +
+               "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+               "GROUP BY DATEPART(MONTH, ExpDate), DATEPART(YEAR, ExpDate)";
+
+            SqlCommand command_exp = new SqlCommand(query_exp, dbcon.GetCon());
+            command_exp.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command_exp.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command_exp.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter_exp = new SqlDataAdapter(command_exp);
+            DataTable dataTable_exp = new DataTable();
+            adapter_exp.Fill(dataTable_exp);
+
+            chart_exp_column.Series["Expenses"].Points.Clear();
+            chart_exp_column.Series["Default"].Points.Clear();
+
+            double max_amount = 0;
+
+            int startYear = selectedYear;
+            int endYear = currentDate.Year;
+
+            for (int year = startYear; year <= endYear; year++)
+            {
+                int startMonth = (year == selectedYear) ? selectedMonth : 1;
+                int endMonth = (year == currentDate.Year) ? currentDate.Month : 12;
+
+                for (int month = startMonth; month <= endMonth; month++)
+                {
+                    DataRow[] rows = dataTable_exp.Select("MonthNumber = " + month + " AND YearNumber = " + year);
+
+                    double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
+                    chart_exp_column.Series["Expenses"].Points.Add(amount);
+
+                    if (amount > max_amount)
+                    {
+                        max_amount = amount;
+                    }
+                }
+            }
+
+            for (int i = 0; i < chart_exp_column.Series["Expenses"].Points.Count; i++)
+            {
+                double amount = chart_exp_column.Series["Expenses"].Points[i].YValues[0];
+                chart_exp_column.Series["Default"].Points.Add(max_amount*1.1 - amount);
+            }
+        }
+        private void getColumnChart_Week()
+        {
+            string query_exp = "SELECT ExpDate, SUM(Expenses.ExpAmount) AS TotalAmount " +
+                   "FROM Expenses " +
+                   "WHERE Expenses.AccId = @SelectedAccId " +
+                   "AND Expenses.UserId = @UserId " +
+                   "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+                   "GROUP BY ExpDate";
+
+            SqlCommand command_exp = new SqlCommand(query_exp, dbcon.GetCon());
+            command_exp.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command_exp.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command_exp.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter_exp = new SqlDataAdapter(command_exp);
+            DataTable dataTable_exp = new DataTable();
+            adapter_exp.Fill(dataTable_exp);
+
+            chart_exp_column.Series["Expenses"].Points.Clear();
+            chart_exp_column.Series["Default"].Points.Clear();
+
+            double max_amount = 0;
+
+            DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
+            DateTime endDate = currentDate;
+
+            DateTime currentWeekStart = GetWeekStartDate(startDate);
+            DateTime currentWeekEnd = currentWeekStart.AddDays(6);
+
+            while (currentWeekStart <= endDate)
+            {
+                DataRow[] rows = dataTable_exp.Select("ExpDate >= #" + currentWeekStart.ToString("MM/dd/yyyy") + "# AND ExpDate <= #" + currentWeekEnd.ToString("MM/dd/yyyy") + "#");
+
+                double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
+                chart_exp_column.Series["Expenses"].Points.Add(amount);
+
+                if (amount > max_amount)
+                {
+                    max_amount = amount;
+                }
+
+                currentWeekStart = currentWeekEnd.AddDays(1);
+                currentWeekEnd = currentWeekStart.AddDays(6);
+            }
+
+            for (int i = 0; i < chart_exp_column.Series["Expenses"].Points.Count; i++)
+            {
+                double amount = chart_exp_column.Series["Expenses"].Points[i].YValues[0];
+                chart_exp_column.Series["Default"].Points.Add(max_amount * 1.1 - amount);
+            }
+
+            DateTime GetWeekStartDate(DateTime date)
+            {
+                int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
+                return date.AddDays(-1 * diff).Date;
+            }
+        }
+        private void getColumnChart_Day()
+        {
+            string query_exp = "SELECT ExpDate, SUM(Expenses.ExpAmount) AS TotalAmount " +
+                   "FROM Expenses " +
+                   "WHERE Expenses.AccId = @SelectedAccId " +
+                   "AND Expenses.UserId = @UserId " +
+                   "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+                   "GROUP BY ExpDate";
+
+            SqlCommand command_exp = new SqlCommand(query_exp, dbcon.GetCon());
+            command_exp.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command_exp.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command_exp.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter_exp = new SqlDataAdapter(command_exp);
+            DataTable dataTable_exp = new DataTable();
+            adapter_exp.Fill(dataTable_exp);
+
+            chart_exp_column.Series["Expenses"].Points.Clear();
+            chart_exp_column.Series["Default"].Points.Clear();
+
+            double max_amount = 0;
+
+            DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
+            DateTime endDate = currentDate;
+
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            {
+                DataRow[] rows = dataTable_exp.Select("ExpDate = #" + date.ToString("MM/dd/yyyy") + "#");
+
+                double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
+                chart_exp_column.Series["Expenses"].Points.Add(amount);
+
+                if (amount > max_amount)
+                {
+                    max_amount = amount;
+                }
+            }
+
+            for (int i = 0; i < chart_exp_column.Series["Expenses"].Points.Count; i++)
+            {
+                double amount = chart_exp_column.Series["Expenses"].Points[i].YValues[0];
+                chart_exp_column.Series["Default"].Points.Add(max_amount * 1.1 - amount);
+            }
+        }
+
         private void Button_more_trns_Click(object sender, EventArgs e)
-        {
-            TransactionForm trns = new TransactionForm();
-            trns.Show();
-            this.Hide();
-        }
+            {
+                TransactionForm trns = new TransactionForm();
+                trns.Show();
+                this.Hide();
+            }
 
-        private void Button_more_trns_MouseEnter(object sender, EventArgs e)
-        {
-            Button_more_trns_exp.BackColor = Color.FromArgb(212, 163, 115);
-        }
+            private void Button_more_trns_MouseEnter(object sender, EventArgs e)
+            {
+                Button_more_trns_exp.BackColor = Color.FromArgb(212, 163, 115);
+            }
 
-        private void Button_more_trns_MouseLeave(object sender, EventArgs e)
-        {
-            Button_more_trns_exp.BackColor = Color.FromArgb(250, 237, 205);
+            private void Button_more_trns_MouseLeave(object sender, EventArgs e)
+            {
+                Button_more_trns_exp.BackColor = Color.FromArgb(250, 237, 205);
+            }
         }
-    }
 }
 
 

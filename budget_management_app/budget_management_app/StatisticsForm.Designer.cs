@@ -35,7 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -77,6 +82,7 @@
             this.button_12W = new Guna.UI2.WinForms.Guna2Button();
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
             this.timer_bottomBar = new System.Windows.Forms.Timer(this.components);
+            this.chart_exp_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel2.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.money_flow.SuspendLayout();
@@ -88,6 +94,7 @@
             this.panel_bottomBar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -176,6 +183,7 @@
             // 
             this.expenses.AutoScroll = true;
             this.expenses.BackColor = System.Drawing.Color.White;
+            this.expenses.Controls.Add(this.chart_exp_column);
             this.expenses.Controls.Add(this.label1);
             this.expenses.Controls.Add(this.Button_more_trns_exp);
             this.expenses.Controls.Add(this.chart_exp_cat);
@@ -196,12 +204,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Small", 9F);
+            this.label1.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(306, 994);
+            this.label1.Location = new System.Drawing.Point(6, 1001);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 18);
-            this.label1.TabIndex = 82;
+            this.label1.Size = new System.Drawing.Size(0, 23);
+            this.label1.TabIndex = 84;
             // 
             // Button_more_trns_exp
             // 
@@ -214,7 +222,7 @@
             this.Button_more_trns_exp.FillColor = System.Drawing.Color.Transparent;
             this.Button_more_trns_exp.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
             this.Button_more_trns_exp.ForeColor = System.Drawing.Color.Black;
-            this.Button_more_trns_exp.Location = new System.Drawing.Point(8, 953);
+            this.Button_more_trns_exp.Location = new System.Drawing.Point(8, 957);
             this.Button_more_trns_exp.Name = "Button_more_trns_exp";
             this.Button_more_trns_exp.Size = new System.Drawing.Size(119, 25);
             this.Button_more_trns_exp.TabIndex = 81;
@@ -278,6 +286,8 @@
             // 
             this.DataGridView_7High_exp.AllowUserToAddRows = false;
             this.DataGridView_7High_exp.AllowUserToDeleteRows = false;
+            this.DataGridView_7High_exp.AllowUserToResizeColumns = false;
+            this.DataGridView_7High_exp.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DataGridView_7High_exp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -293,17 +303,19 @@
             this.DataGridView_7High_exp.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView_7High_exp.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView_7High_exp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_7High_exp.Location = new System.Drawing.Point(8, 774);
+            this.DataGridView_7High_exp.Location = new System.Drawing.Point(8, 775);
             this.DataGridView_7High_exp.Name = "DataGridView_7High_exp";
             this.DataGridView_7High_exp.ReadOnly = true;
             this.DataGridView_7High_exp.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.DataGridView_7High_exp.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridView_7High_exp.Size = new System.Drawing.Size(542, 163);
             this.DataGridView_7High_exp.TabIndex = 75;
             this.DataGridView_7High_exp.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -450,27 +462,27 @@
             // 
             this.DataGridView_7High_in.AllowUserToAddRows = false;
             this.DataGridView_7High_in.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.DataGridView_7High_in.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_7High_in.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.DataGridView_7High_in.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_7High_in.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DataGridView_7High_in.ColumnHeadersHeight = 4;
             this.DataGridView_7High_in.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DataGridView_7High_in.ColumnHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_7High_in.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_7High_in.DefaultCellStyle = dataGridViewCellStyle7;
             this.DataGridView_7High_in.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_7High_in.Location = new System.Drawing.Point(8, 773);
             this.DataGridView_7High_in.Name = "DataGridView_7High_in";
@@ -705,6 +717,38 @@
             this.timer_bottomBar.Interval = 10;
             this.timer_bottomBar.Tick += new System.EventHandler(this.timer_bottomBar_Tick);
             // 
+            // chart_exp_column
+            // 
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.LabelStyle.Enabled = false;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.Name = "ChartArea1";
+            this.chart_exp_column.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chart_exp_column.Legends.Add(legend1);
+            this.chart_exp_column.Location = new System.Drawing.Point(10, 506);
+            this.chart_exp_column.Name = "chart_exp_column";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series1.Color = System.Drawing.Color.OrangeRed;
+            series1.Legend = "Legend1";
+            series1.Name = "Expenses";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series2.Color = System.Drawing.Color.WhiteSmoke;
+            series2.Legend = "Legend1";
+            series2.Name = "Default";
+            this.chart_exp_column.Series.Add(series1);
+            this.chart_exp_column.Series.Add(series2);
+            this.chart_exp_column.Size = new System.Drawing.Size(538, 183);
+            this.chart_exp_column.TabIndex = 85;
+            this.chart_exp_column.Text = "chart2";
+            // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,6 +778,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -770,7 +815,6 @@
         private System.Windows.Forms.Label label_exp_last_X;
         private System.Windows.Forms.Label label_exp_cat;
         private Guna.UI2.WinForms.Guna2TileButton Button_more_trns_exp;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2TileButton button_more_trns_in;
         private LiveCharts.WinForms.PieChart chart_in_cat;
@@ -781,5 +825,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView_7High_in;
         private System.Windows.Forms.Label label_in_last_X;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_exp_column;
     }
 }

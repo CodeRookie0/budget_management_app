@@ -108,7 +108,7 @@
             this.panel_Sidebar.Controls.Add(this.button_stat);
             this.panel_Sidebar.Controls.Add(this.button_trns);
             this.panel_Sidebar.Controls.Add(this.button_home);
-            this.panel_Sidebar.Location = new System.Drawing.Point(185, 12);
+            this.panel_Sidebar.Location = new System.Drawing.Point(489, 12);
             this.panel_Sidebar.MaximumSize = new System.Drawing.Size(218, 750);
             this.panel_Sidebar.MinimumSize = new System.Drawing.Size(58, 750);
             this.panel_Sidebar.Name = "panel_Sidebar";
@@ -340,7 +340,7 @@
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button10);
-            this.panel1.Location = new System.Drawing.Point(466, 15);
+            this.panel1.Location = new System.Drawing.Point(770, 15);
             this.panel1.MaximumSize = new System.Drawing.Size(218, 750);
             this.panel1.MinimumSize = new System.Drawing.Size(58, 750);
             this.panel1.Name = "panel1";
@@ -532,7 +532,7 @@
             this.panel2.Controls.Add(this.button16);
             this.panel2.Controls.Add(this.button17);
             this.panel2.Controls.Add(this.button18);
-            this.panel2.Location = new System.Drawing.Point(569, 18);
+            this.panel2.Location = new System.Drawing.Point(873, 18);
             this.panel2.MaximumSize = new System.Drawing.Size(218, 750);
             this.panel2.MinimumSize = new System.Drawing.Size(58, 750);
             this.panel2.Name = "panel2";
@@ -734,7 +734,7 @@
             this.button_add_trns.ForeColor = System.Drawing.Color.White;
             this.button_add_trns.Image = ((System.Drawing.Image)(resources.GetObject("button_add_trns.Image")));
             this.button_add_trns.ImageSize = new System.Drawing.Size(48, 48);
-            this.button_add_trns.Location = new System.Drawing.Point(42, 328);
+            this.button_add_trns.Location = new System.Drawing.Point(445, 12);
             this.button_add_trns.Name = "button_add_trns";
             this.button_add_trns.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.button_add_trns.Size = new System.Drawing.Size(42, 42);
@@ -750,7 +750,7 @@
             this.panel3.Controls.Add(this.button_30D);
             this.panel3.Controls.Add(this.button_12W);
             this.panel3.Controls.Add(this.button_7D);
-            this.panel3.Location = new System.Drawing.Point(184, 797);
+            this.panel3.Location = new System.Drawing.Point(12, 389);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(432, 102);
             this.panel3.TabIndex = 74;
@@ -885,7 +885,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1114, 807);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button_add_trns);
             this.Controls.Add(this.panel2);
