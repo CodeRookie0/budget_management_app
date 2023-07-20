@@ -18,6 +18,10 @@ using System.Web.UI.WebControls;
 using System.Timers;
 using System.Windows.Threading;
 using LiveCharts.Defaults;
+using LiveCharts.WinForms;
+using LiveCharts.Definitions.Charts;
+using System.Windows.Media;
+using System.Windows;
 
 namespace budget_management_app
 {
@@ -54,6 +58,7 @@ namespace budget_management_app
 
             DataGridView_7High_exp.Columns[1].Width = 100;
             DataGridView_7High_exp.Columns[2].Width = 90;
+
         }
         private void label_exit_Click(object sender, EventArgs e)
         {
@@ -64,12 +69,12 @@ namespace budget_management_app
 
         private void label_exit_MouseEnter(object sender, EventArgs e)
         {
-            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+            label_exit.ForeColor = System.Drawing.Color.FromArgb(212, 148, 85);
         }
 
         private void label_exit_MouseLeave(object sender, EventArgs e)
         {
-            label_exit.ForeColor = Color.White;
+            label_exit.ForeColor = System.Drawing.Color.White;
         }
 
         private void UpdateSelectedDate(int startDay, int startMonth, int startYear)
@@ -112,19 +117,23 @@ namespace budget_management_app
             {
                 getColumnChart_Month();
                 getCashFlow_Month();
+                getCartesianChart_Month();
             }
             else if (daysDifference > 31 && daysDifference <= 123)
             {
                 getColumnChart_Week();
                 getCashFlow_Week();
+                getCartesianChart_Week();
             }
             else
             {
                 getColumnChart_Day();
                 getCashFlow_Day();
+                getCartesianChart_Day();
             }
 
             getMoneyFlowChart();
+            
         }
 
         private void button_7D_Click(object sender, EventArgs e)
@@ -193,14 +202,14 @@ namespace budget_management_app
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox_bottomBar.Size = new Size(50, 40);
-            pictureBox_bottomBar.Location = new Point(191, -9);
+            pictureBox_bottomBar.Size = new System.Drawing.Size(50, 40);
+            pictureBox_bottomBar.Location = new System.Drawing.Point(191, -9);
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox_bottomBar.Size = new Size(50, 31);
-            pictureBox_bottomBar.Location = new Point(191, 0);
+            pictureBox_bottomBar.Size = new System.Drawing.Size(50, 31);
+            pictureBox_bottomBar.Location = new System.Drawing.Point(191, 0);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -212,7 +221,7 @@ namespace budget_management_app
         {
             if (bottombarExpand)
             {
-                panel_bottomBar.Location = new Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y + 10);
+                panel_bottomBar.Location = new System.Drawing.Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y + 10);
                 panel_bottomBar.Height -= 10;
                 if (panel_bottomBar.Height == panel_bottomBar.MinimumSize.Height)
                 {
@@ -222,7 +231,7 @@ namespace budget_management_app
             }
             else
             {
-                panel_bottomBar.Location = new Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y - 10);
+                panel_bottomBar.Location = new System.Drawing.Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y - 10);
                 panel_bottomBar.Height += 10;
                 if (panel_bottomBar.Height == panel_bottomBar.MaximumSize.Height)
                 {
@@ -558,11 +567,11 @@ namespace budget_management_app
             if (diff_in_exp >= 0)
             {
                 label_amount_diff_mf.Text = "+";
-                label_amount_diff_mf.ForeColor = Color.FromArgb(138, 201, 38);
+                label_amount_diff_mf.ForeColor = System.Drawing.Color.FromArgb(138, 201, 38);
             }
             else
             {
-                label_amount_diff_mf.ForeColor = Color.Red;
+                label_amount_diff_mf.ForeColor = System.Drawing.Color.Red;
             }
 
             label_amount_diff_mf.Text += (diff_in_exp).ToString();
@@ -864,6 +873,306 @@ namespace budget_management_app
             }
         }
 
+        private void getCartesianChart_Month()
+        {
+            string query = "SELECT " +
+                "  DATEPART(MONTH, Date) AS MonthNumber, " +
+                "  DATEPART(YEAR, Date) AS YearNumber, " +
+                "SUM(ExpAmount) AS TotalExpenses, " +
+                "SUM(InAmount) AS TotalIncome " +
+                "FROM ( " +
+                "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
+                "    FROM Expenses " +
+                "    WHERE Expenses.AccId = @SelectedAccId " +
+                "    AND Expenses.UserId = @UserId " +
+                "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+                "    UNION ALL " +
+                "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
+                "    FROM Income " +
+                "    WHERE Income.AccId = @SelectedAccId " +
+                "    AND Income.UserId = @UserId " +
+                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
+                ") AS CombinedData " +
+                " GROUP BY DATEPART(MONTH, Date), DATEPART(YEAR, Date) ";
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            cartesianChart1.Series.Clear();
+            cartesianChart1.AxisX.Clear();
+            cartesianChart1.AxisY.Clear();
+
+            // Tworzenie serii "Expenses"
+            LineSeries expensesSeries = new LineSeries
+            {
+                Title = "Expenses",
+                Values = new ChartValues<double>(),
+                PointGeometry = DefaultGeometries.Circle,
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B2FF0000")),
+                Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
+            };
+
+            // Tworzenie serii "Amount"
+            LineSeries incomeSeries = new LineSeries
+            {
+                Title = "Income",
+                Values = new ChartValues<double>(),
+                PointGeometry = DefaultGeometries.Diamond,
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B33CB666")),
+                Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#408DC499"))
+
+            };
+
+            int startYear = selectedYear;
+            int endYear = currentDate.Year;
+
+            List<string> dates = new List<string>();
+
+            for (int year = startYear; year <= endYear; year++)
+            {
+                int startMonth = (year == selectedYear) ? selectedMonth : 1;
+                int endMonth = (year == currentDate.Year) ? currentDate.Month : 12;
+
+                for (int month = startMonth; month <= endMonth; month++)
+                {
+                    DataRow[] rows = dataTable.Select("MonthNumber = " + month + " AND YearNumber = " + year);
+                    dates.Add(new DateTime(year, month, 1).ToString("MMM"));
+
+                    double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
+                    double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
+                    expensesSeries.Values.Add(amount_exp);
+                    incomeSeries.Values.Add(amount_in);
+                }
+            }
+
+            cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "",
+                Labels = dates,
+                LabelsRotation = 45,
+                Foreground = new SolidColorBrush(Colors.Black),
+                FontWeight = FontWeights.Normal,
+                FontSize = 13,
+                Separator = new Separator { Step = 1 }
+            });
+            cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "",
+                LabelFormatter = value => value.ToString(),
+                Foreground = new SolidColorBrush(Colors.Black),
+                FontWeight = FontWeights.Normal,
+                FontSize = 13
+            });
+
+            cartesianChart1.Series.Add(expensesSeries);
+            cartesianChart1.Series.Add(incomeSeries);
+        }
+
+        private void getCartesianChart_Week()
+        {
+            string query = "SELECT Date, " +
+                "SUM(ExpAmount) AS TotalExpenses, " +
+                "SUM(InAmount) AS TotalIncome " +
+                "FROM ( " +
+                "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
+                "    FROM Expenses " +
+                "    WHERE Expenses.AccId = @SelectedAccId " +
+                "    AND Expenses.UserId = @UserId " +
+                "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+                "    UNION ALL " +
+                "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
+                "    FROM Income " +
+                "    WHERE Income.AccId = @SelectedAccId " +
+                "    AND Income.UserId = @UserId " +
+                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
+                ") AS CombinedData " +
+                "GROUP BY Date ";
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            cartesianChart1.Series.Clear();
+            cartesianChart1.AxisX.Clear();
+            cartesianChart1.AxisY.Clear();
+
+            // Tworzenie serii "Expenses"
+            LineSeries expensesSeries = new LineSeries
+            {
+                Title = "Expenses",
+                Values = new ChartValues<double>(),
+                PointGeometry = DefaultGeometries.Circle,
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B2FF0000")),
+                Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
+            };
+
+            // Tworzenie serii "Amount"
+            LineSeries incomeSeries = new LineSeries
+            {
+                Title = "Income",
+                Values = new ChartValues<double>(),
+                PointGeometry = DefaultGeometries.Diamond,
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B33CB666")),
+                Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#408DC499"))
+
+            };
+
+            DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
+            DateTime endDate = currentDate;
+
+            DateTime currentWeekStart = GetWeekStartDate(startDate);
+            DateTime currentWeekEnd = currentWeekStart.AddDays(6);
+
+            List<string> dates = new List<string>();
+
+            while (currentWeekStart <= endDate)
+            {
+                DataRow[] rows = dataTable.Select("Date >= #" + currentWeekStart.ToString("MM/dd/yyyy") + "# AND Date <= #" + currentWeekEnd.ToString("MM/dd/yyyy") + "#");
+                dates.Add(currentWeekStart.ToString("d.MM") + "-" + currentWeekEnd.ToString("d.MM"));
+
+                double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
+                double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
+                expensesSeries.Values.Add(amount_exp);
+                incomeSeries.Values.Add(amount_in);
+
+                currentWeekStart = currentWeekEnd.AddDays(1);
+                currentWeekEnd = currentWeekStart.AddDays(6);
+            }
+
+            cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "",
+                Labels = dates,
+                MinValue = 0,
+                MaxValue = 12,
+                LabelsRotation = 45,
+                Foreground = new SolidColorBrush(Colors.Black),
+                FontWeight = FontWeights.Normal,
+                FontSize = 13,
+            });
+            cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "",
+                LabelFormatter = value => value.ToString(),
+                Foreground = new SolidColorBrush(Colors.Black),
+                FontWeight = FontWeights.Normal,
+                FontSize = 13
+            });
+
+            cartesianChart1.Series.Add(expensesSeries);
+            cartesianChart1.Series.Add(incomeSeries);
+
+            DateTime GetWeekStartDate(DateTime date)
+            {
+                int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
+                return date.AddDays(-1 * diff).Date;
+            }
+        }
+
+        private void getCartesianChart_Day()
+        {
+            string query = "SELECT Date, " +
+                "SUM(ExpAmount) AS TotalExpenses, " +
+                "SUM(InAmount) AS TotalIncome " +
+                "FROM ( " +
+                "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
+                "    FROM Expenses " +
+                "    WHERE Expenses.AccId = @SelectedAccId " +
+                "    AND Expenses.UserId = @UserId " +
+                "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+                "    UNION ALL " +
+                "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
+                "    FROM Income " +
+                "    WHERE Income.AccId = @SelectedAccId " +
+                "    AND Income.UserId = @UserId " +
+                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
+                ") AS CombinedData " +
+                "GROUP BY Date ";
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            cartesianChart1.Series.Clear();
+            cartesianChart1.AxisX.Clear();
+            cartesianChart1.AxisY.Clear();
+
+            // Tworzenie serii "Expenses"
+            LineSeries expensesSeries = new LineSeries
+            {
+                Title = "Expenses",
+                Values = new ChartValues<double>(),
+                PointGeometry = DefaultGeometries.Circle,
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B2FF0000")),
+                Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
+            };
+
+            // Tworzenie serii "Amount"
+            LineSeries incomeSeries = new LineSeries
+            {
+                Title = "Income",
+                Values = new ChartValues<double>(),
+                PointGeometry = DefaultGeometries.Diamond,
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B33CB666")),
+                Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#408DC499"))
+                
+            };
+
+            DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
+            DateTime endDate = currentDate;
+
+            List<string> dates = new List<string>();
+
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            {
+                DataRow[] rows = dataTable.Select("Date = #" + date.ToString("MM/dd/yyyy") + "#");
+                dates.Add(date.ToString("d.MM"));
+
+                double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
+                double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
+                expensesSeries.Values.Add(amount_exp);
+                incomeSeries.Values.Add(amount_in);
+            }
+
+            cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "",
+                Labels = dates,
+                LabelsRotation = 45,
+                Foreground = new SolidColorBrush(Colors.Black),
+                FontWeight = FontWeights.Normal, 
+                FontSize = 13,
+            });
+            cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "",
+                LabelFormatter = value => value.ToString(),
+                Foreground = new SolidColorBrush(Colors.Black),
+                FontWeight = FontWeights.Normal,
+                FontSize = 13
+            });
+
+            cartesianChart1.Series.Add(expensesSeries);
+            cartesianChart1.Series.Add(incomeSeries);
+        }
+
+
         private void Button_more_trns_Click(object sender, EventArgs e)
         {
             TransactionForm trns = new TransactionForm();
@@ -873,12 +1182,12 @@ namespace budget_management_app
 
         private void Button_more_trns_MouseEnter(object sender, EventArgs e)
         {
-            Button_more_trns_exp.BackColor = Color.FromArgb(212, 163, 115);
+            Button_more_trns_exp.BackColor = System.Drawing.Color.FromArgb(212, 163, 115);
         }
 
         private void Button_more_trns_MouseLeave(object sender, EventArgs e)
         {
-            Button_more_trns_exp.BackColor = Color.FromArgb(250, 237, 205);
+            Button_more_trns_exp.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
         }
     }
 }

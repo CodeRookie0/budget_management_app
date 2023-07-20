@@ -79,6 +79,7 @@
             this.button_30D = new Guna.UI2.WinForms.Guna2Button();
             this.button_12W = new Guna.UI2.WinForms.Guna2Button();
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.panel_Sidebar.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -881,11 +882,20 @@
             this.button_7D.TabIndex = 35;
             this.button_7D.Text = "7D";
             // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Location = new System.Drawing.Point(13, 15);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(400, 272);
+            this.cartesianChart1.TabIndex = 75;
+            this.cartesianChart1.Text = "cartesianChart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 807);
+            this.Controls.Add(this.cartesianChart1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button_add_trns);
             this.Controls.Add(this.panel2);
@@ -964,5 +974,6 @@
         private Guna.UI2.WinForms.Guna2Button button_7D;
         private System.Windows.Forms.ComboBox comboBox_account;
         private System.Windows.Forms.Label label2;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
     }
 }

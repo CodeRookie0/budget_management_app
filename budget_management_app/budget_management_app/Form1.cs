@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using LiveCharts.WinForms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Media;
+using LiveCharts.Definitions.Charts;
 
 namespace budget_management_app
 {
@@ -22,5 +24,6 @@ namespace budget_management_app
         {
             InitializeComponent();
         }
+
     }
 }
