@@ -29,6 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.LegendItem legendItem1 = new System.Windows.Forms.DataVisualization.Charting.LegendItem();
+            System.Windows.Forms.DataVisualization.Charting.LegendItem legendItem2 = new System.Windows.Forms.DataVisualization.Charting.LegendItem();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,17 +58,30 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.money_flow = new System.Windows.Forms.TabPage();
             this.panel_money_flow = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.chart_cash_flow = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label_last_X_cf = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label_in_amount_mf = new System.Windows.Forms.Label();
+            this.label_exp_amount_mf = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.chart_in_mf = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_exp_mf = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label_amount_diff_mf = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label_last_X_mf = new System.Windows.Forms.Label();
             this.expenses = new System.Windows.Forms.TabPage();
+            this.chart_exp_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.Button_more_trns_exp = new Guna.UI2.WinForms.Guna2TileButton();
             this.chart_exp_cat = new LiveCharts.WinForms.PieChart();
@@ -82,11 +116,18 @@
             this.button_12W = new Guna.UI2.WinForms.Guna2Button();
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
             this.timer_bottomBar = new System.Windows.Forms.Timer(this.components);
-            this.chart_exp_column = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.timer_mf = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.money_flow.SuspendLayout();
+            this.panel_money_flow.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_cash_flow)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_in_mf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_mf)).BeginInit();
             this.expenses.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_7High_exp)).BeginInit();
             this.income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_7High_in)).BeginInit();
@@ -94,7 +135,6 @@
             this.panel_bottomBar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -174,10 +214,300 @@
             // panel_money_flow
             // 
             this.panel_money_flow.AutoScroll = true;
+            this.panel_money_flow.Controls.Add(this.panel4);
+            this.panel_money_flow.Controls.Add(this.panel3);
             this.panel_money_flow.Location = new System.Drawing.Point(0, 0);
             this.panel_money_flow.Name = "panel_money_flow";
             this.panel_money_flow.Size = new System.Drawing.Size(577, 626);
             this.panel_money_flow.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.chart_cash_flow);
+            this.panel4.Controls.Add(this.label26);
+            this.panel4.Controls.Add(this.label28);
+            this.panel4.Controls.Add(this.label_last_X_cf);
+            this.panel4.Location = new System.Drawing.Point(4, 361);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(546, 495);
+            this.panel4.TabIndex = 81;
+            // 
+            // chart_cash_flow
+            // 
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorTickMark.Enabled = false;
+            chartArea1.AxisX.ScaleView.Zoomable = false;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX2.MajorGrid.Enabled = false;
+            chartArea1.AxisX2.MajorTickMark.Enabled = false;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.Interval = 100D;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.MajorTickMark.Enabled = false;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY2.MajorGrid.Enabled = false;
+            chartArea1.AxisY2.MajorTickMark.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            this.chart_cash_flow.ChartAreas.Add(chartArea1);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legendItem1.ImageStyle = System.Windows.Forms.DataVisualization.Charting.LegendImageStyle.Marker;
+            legendItem1.MarkerColor = System.Drawing.Color.Red;
+            legendItem1.MarkerSize = 10;
+            legendItem1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            legendItem1.Name = "Expenses";
+            legendItem2.ImageStyle = System.Windows.Forms.DataVisualization.Charting.LegendImageStyle.Marker;
+            legendItem2.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(201)))), ((int)(((byte)(38)))));
+            legendItem2.MarkerSize = 10;
+            legendItem2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            legendItem2.Name = "Income";
+            legend1.CustomItems.Add(legendItem1);
+            legend1.CustomItems.Add(legendItem2);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chart_cash_flow.Legends.Add(legend1);
+            this.chart_cash_flow.Location = new System.Drawing.Point(11, 115);
+            this.chart_cash_flow.Name = "chart_cash_flow";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(201)))), ((int)(((byte)(38)))));
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Income";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series2.Color = System.Drawing.Color.Red;
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Expenses";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series3.Color = System.Drawing.Color.WhiteSmoke;
+            series3.IsVisibleInLegend = false;
+            series3.Legend = "Legend1";
+            series3.Name = "Default_down";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series4.Color = System.Drawing.Color.WhiteSmoke;
+            series4.IsVisibleInLegend = false;
+            series4.Legend = "Legend1";
+            series4.Name = "Default_up";
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Black;
+            series5.Legend = "Legend1";
+            series5.Name = "Money_flow";
+            series5.YValuesPerPoint = 6;
+            this.chart_cash_flow.Series.Add(series1);
+            this.chart_cash_flow.Series.Add(series2);
+            this.chart_cash_flow.Series.Add(series3);
+            this.chart_cash_flow.Series.Add(series4);
+            this.chart_cash_flow.Series.Add(series5);
+            this.chart_cash_flow.Size = new System.Drawing.Size(526, 377);
+            this.chart_cash_flow.TabIndex = 77;
+            this.chart_cash_flow.Text = "chart1";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label26.Location = new System.Drawing.Point(5, 3);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(144, 36);
+            this.label26.TabIndex = 74;
+            this.label26.Text = "Cash flow";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label28.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label28.Location = new System.Drawing.Point(5, 48);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(332, 19);
+            this.label28.TabIndex = 75;
+            this.label28.Text = "During which periods did I save more or less money?";
+            // 
+            // label_last_X_cf
+            // 
+            this.label_last_X_cf.AutoSize = true;
+            this.label_last_X_cf.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label_last_X_cf.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_last_X_cf.Location = new System.Drawing.Point(5, 86);
+            this.label_last_X_cf.Name = "label_last_X_cf";
+            this.label_last_X_cf.Size = new System.Drawing.Size(96, 19);
+            this.label_last_X_cf.TabIndex = 76;
+            this.label_last_X_cf.Text = "LAST 30 DAYS";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label_in_amount_mf);
+            this.panel3.Controls.Add(this.label_exp_amount_mf);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.chart_in_mf);
+            this.panel3.Controls.Add(this.chart_exp_mf);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label_amount_diff_mf);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.label_last_X_mf);
+            this.panel3.Location = new System.Drawing.Point(4, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(546, 343);
+            this.panel3.TabIndex = 80;
+            // 
+            // label_in_amount_mf
+            // 
+            this.label_in_amount_mf.AutoSize = true;
+            this.label_in_amount_mf.BackColor = System.Drawing.Color.Transparent;
+            this.label_in_amount_mf.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold);
+            this.label_in_amount_mf.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_in_amount_mf.Location = new System.Drawing.Point(445, 157);
+            this.label_in_amount_mf.Name = "label_in_amount_mf";
+            this.label_in_amount_mf.Size = new System.Drawing.Size(76, 19);
+            this.label_in_amount_mf.TabIndex = 83;
+            this.label_in_amount_mf.Text = "1527,54 zł";
+            // 
+            // label_exp_amount_mf
+            // 
+            this.label_exp_amount_mf.AutoSize = true;
+            this.label_exp_amount_mf.BackColor = System.Drawing.Color.Transparent;
+            this.label_exp_amount_mf.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold);
+            this.label_exp_amount_mf.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_exp_amount_mf.Location = new System.Drawing.Point(445, 227);
+            this.label_exp_amount_mf.Name = "label_exp_amount_mf";
+            this.label_exp_amount_mf.Size = new System.Drawing.Size(74, 19);
+            this.label_exp_amount_mf.TabIndex = 82;
+            this.label_exp_amount_mf.Text = "-742,56 zł";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label16.Location = new System.Drawing.Point(24, 223);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(72, 23);
+            this.label16.TabIndex = 81;
+            this.label16.Text = "Expense";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12.25F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(24, 154);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(67, 23);
+            this.label15.TabIndex = 80;
+            this.label15.Text = "Income";
+            // 
+            // chart_in_mf
+            // 
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.Name = "ChartArea1";
+            this.chart_in_mf.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart_in_mf.Legends.Add(legend2);
+            this.chart_in_mf.Location = new System.Drawing.Point(5, 157);
+            this.chart_in_mf.Margin = new System.Windows.Forms.Padding(0);
+            this.chart_in_mf.Name = "chart_in_mf";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar100;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(201)))), ((int)(((byte)(38)))));
+            series6.Legend = "Legend1";
+            series6.Name = "Income";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar100;
+            series7.Color = System.Drawing.Color.WhiteSmoke;
+            series7.Legend = "Legend1";
+            series7.Name = "Default";
+            this.chart_in_mf.Series.Add(series6);
+            this.chart_in_mf.Series.Add(series7);
+            this.chart_in_mf.Size = new System.Drawing.Size(532, 70);
+            this.chart_in_mf.TabIndex = 0;
+            this.chart_in_mf.Text = "chart1";
+            // 
+            // chart_exp_mf
+            // 
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.Name = "ChartArea1";
+            this.chart_exp_mf.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chart_exp_mf.Legends.Add(legend3);
+            this.chart_exp_mf.Location = new System.Drawing.Point(5, 227);
+            this.chart_exp_mf.Margin = new System.Windows.Forms.Padding(0);
+            this.chart_exp_mf.Name = "chart_exp_mf";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar100;
+            series8.Color = System.Drawing.Color.Red;
+            series8.Legend = "Legend1";
+            series8.Name = "Expenses";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar100;
+            series9.Color = System.Drawing.Color.WhiteSmoke;
+            series9.Legend = "Legend1";
+            series9.Name = "Default";
+            this.chart_exp_mf.Series.Add(series8);
+            this.chart_exp_mf.Series.Add(series9);
+            this.chart_exp_mf.Size = new System.Drawing.Size(532, 70);
+            this.chart_exp_mf.TabIndex = 1;
+            this.chart_exp_mf.Text = "chart2";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Sitka Small Semibold", 18.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(5, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(169, 36);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "Money flow";
+            // 
+            // label_amount_diff_mf
+            // 
+            this.label_amount_diff_mf.AutoSize = true;
+            this.label_amount_diff_mf.Font = new System.Drawing.Font("Segoe UI", 18.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_amount_diff_mf.ForeColor = System.Drawing.Color.Lime;
+            this.label_amount_diff_mf.Location = new System.Drawing.Point(3, 105);
+            this.label_amount_diff_mf.Name = "label_amount_diff_mf";
+            this.label_amount_diff_mf.Size = new System.Drawing.Size(102, 35);
+            this.label_amount_diff_mf.TabIndex = 77;
+            this.label_amount_diff_mf.Text = "-202,40";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label9.Location = new System.Drawing.Point(5, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(201, 19);
+            this.label9.TabIndex = 75;
+            this.label9.Text = "Am I spending less than I earn?";
+            // 
+            // label_last_X_mf
+            // 
+            this.label_last_X_mf.AutoSize = true;
+            this.label_last_X_mf.Font = new System.Drawing.Font("Segoe UI", 10.25F);
+            this.label_last_X_mf.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_last_X_mf.Location = new System.Drawing.Point(3, 86);
+            this.label_last_X_mf.Name = "label_last_X_mf";
+            this.label_last_X_mf.Size = new System.Drawing.Size(96, 19);
+            this.label_last_X_mf.TabIndex = 76;
+            this.label_last_X_mf.Text = "LAST 30 DAYS";
             // 
             // expenses
             // 
@@ -200,6 +530,38 @@
             this.expenses.Size = new System.Drawing.Size(577, 632);
             this.expenses.TabIndex = 0;
             this.expenses.Text = "Expenses";
+            // 
+            // chart_exp_column
+            // 
+            chartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea4.AxisX.LabelStyle.Enabled = false;
+            chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea4.AxisY.LabelStyle.Enabled = false;
+            chartArea4.AxisY.MajorGrid.Enabled = false;
+            chartArea4.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea4.Name = "ChartArea1";
+            this.chart_exp_column.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chart_exp_column.Legends.Add(legend4);
+            this.chart_exp_column.Location = new System.Drawing.Point(10, 506);
+            this.chart_exp_column.Name = "chart_exp_column";
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series10.Color = System.Drawing.Color.OrangeRed;
+            series10.Legend = "Legend1";
+            series10.Name = "Expenses";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series11.Color = System.Drawing.Color.WhiteSmoke;
+            series11.Legend = "Legend1";
+            series11.Name = "Default";
+            this.chart_exp_column.Series.Add(series10);
+            this.chart_exp_column.Series.Add(series11);
+            this.chart_exp_column.Size = new System.Drawing.Size(538, 183);
+            this.chart_exp_column.TabIndex = 85;
+            this.chart_exp_column.Text = "chart2";
             // 
             // label1
             // 
@@ -303,7 +665,7 @@
             this.DataGridView_7High_exp.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -717,37 +1079,9 @@
             this.timer_bottomBar.Interval = 10;
             this.timer_bottomBar.Tick += new System.EventHandler(this.timer_bottomBar_Tick);
             // 
-            // chart_exp_column
+            // timer_mf
             // 
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.LabelStyle.Enabled = false;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.Name = "ChartArea1";
-            this.chart_exp_column.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart_exp_column.Legends.Add(legend1);
-            this.chart_exp_column.Location = new System.Drawing.Point(10, 506);
-            this.chart_exp_column.Name = "chart_exp_column";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series1.Color = System.Drawing.Color.OrangeRed;
-            series1.Legend = "Legend1";
-            series1.Name = "Expenses";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series2.Color = System.Drawing.Color.WhiteSmoke;
-            series2.Legend = "Legend1";
-            series2.Name = "Default";
-            this.chart_exp_column.Series.Add(series1);
-            this.chart_exp_column.Series.Add(series2);
-            this.chart_exp_column.Size = new System.Drawing.Size(538, 183);
-            this.chart_exp_column.TabIndex = 85;
-            this.chart_exp_column.Text = "chart2";
+            this.timer_mf.Tick += new System.EventHandler(this.timer_mf_Tick);
             // 
             // StatisticsForm
             // 
@@ -767,8 +1101,17 @@
             this.panel2.PerformLayout();
             this.guna2TabControl1.ResumeLayout(false);
             this.money_flow.ResumeLayout(false);
+            this.panel_money_flow.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_cash_flow)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_in_mf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_mf)).EndInit();
             this.expenses.ResumeLayout(false);
             this.expenses.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_7High_exp)).EndInit();
             this.income.ResumeLayout(false);
             this.income.PerformLayout();
@@ -778,7 +1121,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_exp_column)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -827,5 +1169,22 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_exp_column;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_in_mf;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_exp_mf;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_amount_diff_mf;
+        private System.Windows.Forms.Label label_last_X_mf;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label_in_amount_mf;
+        private System.Windows.Forms.Label label_exp_amount_mf;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label_last_X_cf;
+        private System.Windows.Forms.Timer timer_mf;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_cash_flow;
     }
 }

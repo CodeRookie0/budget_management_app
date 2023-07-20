@@ -17,14 +17,10 @@ namespace budget_management_app
 {
     public partial class Form1 : Form
     {
-        DBConnection dbcon=new DBConnection();
+        DBConnection dbcon = new DBConnection();
         public Form1()
         {
             InitializeComponent();
         }
-        
-            
-
-
     }
 }
