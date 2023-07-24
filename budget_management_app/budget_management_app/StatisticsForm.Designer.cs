@@ -57,6 +57,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -69,9 +72,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -121,7 +121,10 @@
             this.DataGridView_7High_in = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label_in_last_X = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.raports = new System.Windows.Forms.TabPage();
+            this.reports = new System.Windows.Forms.TabPage();
+            this.button_print_raport_mf = new Guna.UI2.WinForms.Guna2TileButton();
+            this.button_print_raport_ledger = new Guna.UI2.WinForms.Guna2TileButton();
+            this.DataGridView_raport_in = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label22 = new System.Windows.Forms.Label();
             this.DataGridView_raport_exp = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
@@ -130,7 +133,7 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_raport_total_in = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label_raport_ledger = new System.Windows.Forms.Label();
             this.label_raport_mf = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.DataGridView_raport_mf = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -155,11 +158,8 @@
             this.timer_mf = new System.Windows.Forms.Timer(this.components);
             this.CategoryExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridView_raport_in = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_print_raport_ledger = new Guna.UI2.WinForms.Guna2TileButton();
-            this.button_print_raport_mf = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel2.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.money_flow.SuspendLayout();
@@ -174,7 +174,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_7High_exp)).BeginInit();
             this.income.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_7High_in)).BeginInit();
-            this.raports.SuspendLayout();
+            this.reports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_raport_in)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_raport_exp)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -182,7 +183,6 @@
             this.panel_bottomBar.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_raport_in)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -221,7 +221,7 @@
             this.guna2TabControl1.Controls.Add(this.money_flow);
             this.guna2TabControl1.Controls.Add(this.expenses);
             this.guna2TabControl1.Controls.Add(this.income);
-            this.guna2TabControl1.Controls.Add(this.raports);
+            this.guna2TabControl1.Controls.Add(this.reports);
             this.guna2TabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(145, 40);
             this.guna2TabControl1.Location = new System.Drawing.Point(0, 36);
@@ -960,30 +960,131 @@
             this.label10.TabIndex = 81;
             this.label10.Text = "Expenses by category";
             // 
-            // raports
+            // reports
             // 
-            this.raports.AutoScroll = true;
-            this.raports.BackColor = System.Drawing.Color.White;
-            this.raports.Controls.Add(this.button_print_raport_mf);
-            this.raports.Controls.Add(this.button_print_raport_ledger);
-            this.raports.Controls.Add(this.DataGridView_raport_in);
-            this.raports.Controls.Add(this.label22);
-            this.raports.Controls.Add(this.DataGridView_raport_exp);
-            this.raports.Controls.Add(this.guna2Panel3);
-            this.raports.Controls.Add(this.guna2Panel2);
-            this.raports.Controls.Add(this.label13);
-            this.raports.Controls.Add(this.label_raport_mf);
-            this.raports.Controls.Add(this.label14);
-            this.raports.Controls.Add(this.DataGridView_raport_mf);
-            this.raports.Controls.Add(this.label_last_X_raport_mf);
-            this.raports.Controls.Add(this.label19);
-            this.raports.Controls.Add(this.label_last_X_raport_ledger);
-            this.raports.Controls.Add(this.label12);
-            this.raports.Location = new System.Drawing.Point(4, 44);
-            this.raports.Name = "raports";
-            this.raports.Size = new System.Drawing.Size(577, 632);
-            this.raports.TabIndex = 3;
-            this.raports.Text = "Raports";
+            this.reports.AutoScroll = true;
+            this.reports.BackColor = System.Drawing.Color.White;
+            this.reports.Controls.Add(this.button_print_raport_mf);
+            this.reports.Controls.Add(this.button_print_raport_ledger);
+            this.reports.Controls.Add(this.DataGridView_raport_in);
+            this.reports.Controls.Add(this.label22);
+            this.reports.Controls.Add(this.DataGridView_raport_exp);
+            this.reports.Controls.Add(this.guna2Panel3);
+            this.reports.Controls.Add(this.guna2Panel2);
+            this.reports.Controls.Add(this.label_raport_ledger);
+            this.reports.Controls.Add(this.label_raport_mf);
+            this.reports.Controls.Add(this.label14);
+            this.reports.Controls.Add(this.DataGridView_raport_mf);
+            this.reports.Controls.Add(this.label_last_X_raport_mf);
+            this.reports.Controls.Add(this.label19);
+            this.reports.Controls.Add(this.label_last_X_raport_ledger);
+            this.reports.Controls.Add(this.label12);
+            this.reports.Location = new System.Drawing.Point(4, 44);
+            this.reports.Name = "reports";
+            this.reports.Size = new System.Drawing.Size(577, 632);
+            this.reports.TabIndex = 3;
+            this.reports.Text = "Reports";
+            // 
+            // button_print_raport_mf
+            // 
+            this.button_print_raport_mf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.button_print_raport_mf.BorderThickness = 1;
+            this.button_print_raport_mf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_print_raport_mf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_print_raport_mf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_print_raport_mf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_print_raport_mf.FillColor = System.Drawing.Color.Transparent;
+            this.button_print_raport_mf.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.button_print_raport_mf.ForeColor = System.Drawing.Color.Black;
+            this.button_print_raport_mf.Location = new System.Drawing.Point(9, 296);
+            this.button_print_raport_mf.Name = "button_print_raport_mf";
+            this.button_print_raport_mf.Size = new System.Drawing.Size(136, 27);
+            this.button_print_raport_mf.TabIndex = 103;
+            this.button_print_raport_mf.Text = "Print";
+            this.button_print_raport_mf.Click += new System.EventHandler(this.button_print_raport_mf_Click);
+            this.button_print_raport_mf.MouseEnter += new System.EventHandler(this.button_print_raport_mf_MouseEnter);
+            this.button_print_raport_mf.MouseLeave += new System.EventHandler(this.button_print_raport_mf_MouseLeave);
+            // 
+            // button_print_raport_ledger
+            // 
+            this.button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
+            this.button_print_raport_ledger.BorderThickness = 1;
+            this.button_print_raport_ledger.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_print_raport_ledger.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_print_raport_ledger.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_print_raport_ledger.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_print_raport_ledger.FillColor = System.Drawing.Color.Transparent;
+            this.button_print_raport_ledger.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.button_print_raport_ledger.ForeColor = System.Drawing.Color.Black;
+            this.button_print_raport_ledger.Location = new System.Drawing.Point(5, 1057);
+            this.button_print_raport_ledger.Name = "button_print_raport_ledger";
+            this.button_print_raport_ledger.Size = new System.Drawing.Size(136, 27);
+            this.button_print_raport_ledger.TabIndex = 102;
+            this.button_print_raport_ledger.Text = "Print";
+            this.button_print_raport_ledger.Click += new System.EventHandler(this.button_print_raport_ledger_Click);
+            this.button_print_raport_ledger.MouseEnter += new System.EventHandler(this.button_print_raport_ledger_MouseEnter);
+            this.button_print_raport_ledger.MouseLeave += new System.EventHandler(this.button_print_raport_ledger_MouseLeave);
+            // 
+            // DataGridView_raport_in
+            // 
+            this.DataGridView_raport_in.AllowUserToAddRows = false;
+            this.DataGridView_raport_in.AllowUserToDeleteRows = false;
+            this.DataGridView_raport_in.AllowUserToResizeColumns = false;
+            this.DataGridView_raport_in.AllowUserToResizeRows = false;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.DataGridView_raport_in.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.DataGridView_raport_in.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_raport_in.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.DataGridView_raport_in.ColumnHeadersHeight = 30;
+            this.DataGridView_raport_in.ColumnHeadersVisible = false;
+            this.DataGridView_raport_in.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_raport_in.DefaultCellStyle = dataGridViewCellStyle12;
+            this.DataGridView_raport_in.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.DataGridView_raport_in.Location = new System.Drawing.Point(5, 507);
+            this.DataGridView_raport_in.MultiSelect = false;
+            this.DataGridView_raport_in.Name = "DataGridView_raport_in";
+            this.DataGridView_raport_in.ReadOnly = true;
+            this.DataGridView_raport_in.RowHeadersVisible = false;
+            this.DataGridView_raport_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DataGridView_raport_in.Size = new System.Drawing.Size(400, 116);
+            this.DataGridView_raport_in.TabIndex = 100;
+            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DataGridView_raport_in.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_raport_in.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.Height = 30;
+            this.DataGridView_raport_in.ThemeStyle.ReadOnly = true;
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.Height = 22;
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.DataGridView_raport_in.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // label22
             // 
@@ -1127,15 +1228,15 @@
             this.label18.TabIndex = 96;
             this.label18.Text = "Income";
             // 
-            // label13
+            // label_raport_ledger
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(8, 423);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 26);
-            this.label13.TabIndex = 94;
-            this.label13.Text = "0";
+            this.label_raport_ledger.AutoSize = true;
+            this.label_raport_ledger.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
+            this.label_raport_ledger.Location = new System.Drawing.Point(8, 423);
+            this.label_raport_ledger.Name = "label_raport_ledger";
+            this.label_raport_ledger.Size = new System.Drawing.Size(24, 26);
+            this.label_raport_ledger.TabIndex = 94;
+            this.label_raport_ledger.Text = "0";
             // 
             // label_raport_mf
             // 
@@ -1489,12 +1590,12 @@
             this.CategoryExp.ReadOnly = true;
             this.CategoryExp.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CategoryExp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CategoryExp.Width = 230;
+            this.CategoryExp.Width = 280;
             // 
             // AmountExp
             // 
             this.AmountExp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial", 10.75F);
             dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
@@ -1504,68 +1605,6 @@
             this.AmountExp.Name = "AmountExp";
             this.AmountExp.ReadOnly = true;
             this.AmountExp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.AmountExp.Width = 150;
-            // 
-            // DataGridView_raport_in
-            // 
-            this.DataGridView_raport_in.AllowUserToAddRows = false;
-            this.DataGridView_raport_in.AllowUserToDeleteRows = false;
-            this.DataGridView_raport_in.AllowUserToResizeColumns = false;
-            this.DataGridView_raport_in.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.DataGridView_raport_in.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.DataGridView_raport_in.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_raport_in.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.DataGridView_raport_in.ColumnHeadersHeight = 30;
-            this.DataGridView_raport_in.ColumnHeadersVisible = false;
-            this.DataGridView_raport_in.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_raport_in.DefaultCellStyle = dataGridViewCellStyle12;
-            this.DataGridView_raport_in.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.DataGridView_raport_in.Location = new System.Drawing.Point(5, 507);
-            this.DataGridView_raport_in.MultiSelect = false;
-            this.DataGridView_raport_in.Name = "DataGridView_raport_in";
-            this.DataGridView_raport_in.ReadOnly = true;
-            this.DataGridView_raport_in.RowHeadersVisible = false;
-            this.DataGridView_raport_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DataGridView_raport_in.Size = new System.Drawing.Size(400, 116);
-            this.DataGridView_raport_in.TabIndex = 100;
-            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DataGridView_raport_in.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_raport_in.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_raport_in.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DataGridView_raport_in.ThemeStyle.HeaderStyle.Height = 30;
-            this.DataGridView_raport_in.ThemeStyle.ReadOnly = true;
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.Height = 22;
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_raport_in.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1581,12 +1620,12 @@
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 230;
+            this.dataGridViewTextBoxColumn1.Width = 280;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 10.75F);
             dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
@@ -1596,41 +1635,6 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // button_print_raport_ledger
-            // 
-            this.button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.button_print_raport_ledger.BorderThickness = 1;
-            this.button_print_raport_ledger.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_print_raport_ledger.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_print_raport_ledger.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_print_raport_ledger.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_print_raport_ledger.FillColor = System.Drawing.Color.Transparent;
-            this.button_print_raport_ledger.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.button_print_raport_ledger.ForeColor = System.Drawing.Color.Black;
-            this.button_print_raport_ledger.Location = new System.Drawing.Point(5, 1057);
-            this.button_print_raport_ledger.Name = "button_print_raport_ledger";
-            this.button_print_raport_ledger.Size = new System.Drawing.Size(136, 27);
-            this.button_print_raport_ledger.TabIndex = 102;
-            this.button_print_raport_ledger.Text = "Print";
-            // 
-            // button_print_raport_mf
-            // 
-            this.button_print_raport_mf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.button_print_raport_mf.BorderThickness = 1;
-            this.button_print_raport_mf.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_print_raport_mf.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button_print_raport_mf.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button_print_raport_mf.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button_print_raport_mf.FillColor = System.Drawing.Color.Transparent;
-            this.button_print_raport_mf.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.button_print_raport_mf.ForeColor = System.Drawing.Color.Black;
-            this.button_print_raport_mf.Location = new System.Drawing.Point(9, 296);
-            this.button_print_raport_mf.Name = "button_print_raport_mf";
-            this.button_print_raport_mf.Size = new System.Drawing.Size(136, 27);
-            this.button_print_raport_mf.TabIndex = 103;
-            this.button_print_raport_mf.Text = "Print";
             // 
             // StatisticsForm
             // 
@@ -1665,8 +1669,9 @@
             this.income.ResumeLayout(false);
             this.income.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_7High_in)).EndInit();
-            this.raports.ResumeLayout(false);
-            this.raports.PerformLayout();
+            this.reports.ResumeLayout(false);
+            this.reports.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_raport_in)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_raport_exp)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
@@ -1677,7 +1682,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bottomBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_raport_in)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1690,7 +1694,7 @@
         private Guna.UI2.WinForms.Guna2TabControl guna2TabControl1;
         private System.Windows.Forms.TabPage expenses;
         private System.Windows.Forms.TabPage income;
-        private System.Windows.Forms.TabPage raports;
+        private System.Windows.Forms.TabPage reports;
         private System.Windows.Forms.TabPage money_flow;
         private System.Windows.Forms.Panel panel_bottomBar;
         private Guna.UI2.WinForms.Guna2Button button_1Y;
@@ -1751,7 +1755,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView_raport_mf;
         private System.Windows.Forms.Label label_raport_mf;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label_raport_ledger;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label_raport_total_in;
         private System.Windows.Forms.Label label18;
@@ -1763,12 +1767,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QuickView;
         private System.Windows.Forms.DataGridViewTextBoxColumn IncomeRaport;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpenseRaport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryExp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountExp;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView_raport_in;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private Guna.UI2.WinForms.Guna2TileButton button_print_raport_ledger;
         private Guna.UI2.WinForms.Guna2TileButton button_print_raport_mf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryExp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountExp;
     }
 }

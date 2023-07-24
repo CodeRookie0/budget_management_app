@@ -140,6 +140,7 @@ namespace budget_management_app
 
             getMoneyFlowChart();
             getRaportMf();
+            label_raport_ledger.Text = label_raport_mf.Text;
             getRaportExp();
             getRaportIn();
         }
@@ -1309,7 +1310,7 @@ namespace budget_management_app
             {
                 string catName = row_cat["CatName"].ToString().Trim();
                 double catAmount = -(row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0);
-                DataGridView_raport_exp.Rows.Add(catName, catAmount.ToString()+"            ");
+                DataGridView_raport_exp.Rows.Add(catName,catAmount.ToString());
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -1317,7 +1318,7 @@ namespace budget_management_app
                     {
                         string subName = "          "+row["SubName"].ToString().Trim();
                         double subAmount = -(row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0);
-                        DataGridView_raport_exp.Rows.Add(subName,subAmount);
+                        DataGridView_raport_exp.Rows.Add(subName, "            " + subAmount);
                         int rowIndex = DataGridView_raport_exp.Rows.Count - 1;
                         DataGridView_raport_exp.Rows[rowIndex].Cells[0].Style.Font =new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
                         DataGridView_raport_exp.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
@@ -1379,7 +1380,7 @@ namespace budget_management_app
             {
                 string catName = row_cat["CatName"].ToString().Trim();
                 double catAmount = row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0;
-                DataGridView_raport_in.Rows.Add(catName, "+"+catAmount.ToString() + "            ");
+                DataGridView_raport_in.Rows.Add(catName, "+"+catAmount.ToString());
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -1387,7 +1388,7 @@ namespace budget_management_app
                     {
                         string subName = "          " + row["SubName"].ToString().Trim();
                         double subAmount = row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0;
-                        DataGridView_raport_in.Rows.Add(subName, "+" + subAmount);
+                        DataGridView_raport_in.Rows.Add(subName, "            " + "+" + subAmount);
                         int rowIndex = DataGridView_raport_in.Rows.Count - 1;
                         DataGridView_raport_in.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
                         DataGridView_raport_in.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
@@ -1398,6 +1399,256 @@ namespace budget_management_app
             }
 
             label_raport_total_in.Text = "+" + totalAmount.ToString();
+        }
+
+        private void printMf()
+        {
+            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+            saveFileDialog.FileName = "Report.pdf";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                    {
+                        PdfWriter.GetInstance(doc, stream);
+
+                        doc.Open();
+
+                        int x = 50;
+                        int y = 50;
+                        int lineHeight = 20;
+                        BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
+                        iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(128, 128, 128));
+
+                        iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph();
+                        paragraph.Font = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+
+                        Chunk textChunk = new Chunk("Money flow table");
+                        paragraph.Add(textChunk);
+                        doc.Add(paragraph);
+
+                        y += 5 * lineHeight;
+                        iTextSharp.text.Paragraph last_X_DaysParagraph = new iTextSharp.text.Paragraph(label_last_X_raport_mf.Text, font);
+                        last_X_DaysParagraph.SpacingAfter = 20;
+                        doc.Add(last_X_DaysParagraph);
+
+                        PdfPTable table = new PdfPTable(3);
+                        BaseColor smokeWhite = new BaseColor(245, 245, 245);
+
+                        table.AddCell(new PdfPCell(new Phrase("Quick view", new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.BOLD, new BaseColor(128, 128, 128)))) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_RIGHT 
+                        });
+                        table.AddCell(new PdfPCell(new Phrase("Income", font)) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_RIGHT 
+                        });
+                        table.AddCell(new PdfPCell(new Phrase("Expenses", new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(255, 0, 0)))) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_RIGHT 
+                        });
+
+                        foreach (DataGridViewRow row in DataGridView_raport_mf.Rows)
+                        {
+                            string column1Value= row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
+                            string incomeValue = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
+                            string expValue = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : "0";
+
+                            BaseColor color;
+                            if (table.Rows.Count % 2 == 1) { color = smokeWhite; }
+                            else { color = BaseColor.WHITE; }
+
+                            table.AddCell(new PdfPCell(new Phrase(column1Value, font)) 
+                            { 
+                                BackgroundColor = color, 
+                                Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                                HorizontalAlignment = Element.ALIGN_RIGHT 
+                            });
+                            table.AddCell(new PdfPCell(new Phrase(incomeValue, new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)))
+                            { 
+                                BackgroundColor = color, 
+                                Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                                HorizontalAlignment = Element.ALIGN_RIGHT 
+                            });
+                            table.AddCell(new PdfPCell(new Phrase(expValue, new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(255, 0, 0)))) 
+                            { 
+                                BackgroundColor = color, 
+                                Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                                HorizontalAlignment = Element.ALIGN_RIGHT 
+                            });
+                        }
+
+                        table.SpacingBefore = 10;
+                        table.SpacingAfter = 10;
+                        table.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                        float[] columnWidths = { 0.35f, 0.5f, 0.5f };
+                        table.SetWidths(columnWidths);
+                        doc.Add(table);
+                        iTextSharp.text.Paragraph flowParagraph = new iTextSharp.text.Paragraph("Money flow : "+label_raport_mf.Text, new iTextSharp.text.Font(baseFont, 13, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
+                        flowParagraph.Alignment = Element.ALIGN_LEFT;
+                        doc.Add(flowParagraph);
+
+                        doc.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred while creating the PDF file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void printLedger()
+        {
+            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+            saveFileDialog.FileName = "Report_Ledger.pdf";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                    {
+                        PdfWriter.GetInstance(doc, stream);
+
+                        doc.Open();
+
+                        int x = 50;
+                        int y = 50;
+                        int lineHeight = 20;
+                        BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
+                        iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+                        iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph();
+                        paragraph.Font = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+
+                        Chunk textChunk = new Chunk("Revenue and expense ledger");
+                        paragraph.Add(textChunk);
+                        doc.Add(paragraph);
+
+                        y += 5 * lineHeight;
+                        iTextSharp.text.Paragraph last_X_DaysParagraph = new iTextSharp.text.Paragraph(label_last_X_raport_ledger.Text, new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(128, 128, 128)));
+                        doc.Add(last_X_DaysParagraph);
+                        iTextSharp.text.Paragraph totalAmountParagraph = new iTextSharp.text.Paragraph(label_raport_ledger.Text, new iTextSharp.text.Font(baseFont, 16, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
+                        totalAmountParagraph.SpacingAfter = 20;
+                        doc.Add(totalAmountParagraph);
+
+                        PdfPTable table = new PdfPTable(2);
+
+                        BaseColor smokeWhite = new BaseColor(245, 245, 245);
+
+                        table.AddCell(new PdfPCell(new Phrase("Income", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK))) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_LEFT, 
+                            BackgroundColor = new BaseColor(245, 245, 245), 
+                            PaddingTop = 5 
+                        });
+                        table.AddCell(new PdfPCell(new Phrase(label_raport_total_in.Text, new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_RIGHT, 
+                            BackgroundColor = new BaseColor(245, 245, 245), 
+                            PaddingTop = 5 
+                        });
+                        
+                        foreach(DataGridViewRow row in DataGridView_raport_in.Rows)
+                        {
+                            string name = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
+                            string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
+                            
+                            int fontSize = 13;
+                            BaseColor fontColor = BaseColor.BLACK;
+                            if (name.Contains("  "))
+                            {
+                                fontSize = 11;
+                                fontColor = new BaseColor(128, 128, 128);
+                            }
+
+                            table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL,fontColor))) 
+                            { 
+                                Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                                HorizontalAlignment = Element.ALIGN_LEFT, 
+                                PaddingTop = 5 
+                            });
+                            table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize-1, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                            { 
+                                Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                                HorizontalAlignment = Element.ALIGN_LEFT, 
+                                PaddingTop = 5 
+                            });
+                        }
+
+                        table.AddCell(new PdfPCell(new Phrase("Expenses", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK))) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_LEFT, 
+                            BackgroundColor = new BaseColor(245, 245, 245), 
+                            PaddingTop = 5 
+                        });
+                        table.AddCell(new PdfPCell(new Phrase(label_raport_total_exp.Text, new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                        { 
+                            Border = iTextSharp.text.Rectangle.NO_BORDER, 
+                            HorizontalAlignment = Element.ALIGN_RIGHT, 
+                            BackgroundColor = new BaseColor(245, 245, 245), 
+                            PaddingTop = 5 
+                        });
+
+                        foreach (DataGridViewRow row in DataGridView_raport_exp.Rows)
+                        {
+                            string name = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
+                            string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
+
+                            int fontSize = 13;
+                            BaseColor fontColor = BaseColor.BLACK;
+                            if (name.Contains("  "))
+                            {
+                                fontSize = 11;
+                                fontColor = new BaseColor(128, 128, 128);
+                            }
+
+                            table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, fontColor)))
+                            {
+                                Border = iTextSharp.text.Rectangle.NO_BORDER,
+                                HorizontalAlignment = Element.ALIGN_LEFT,
+                                PaddingTop = 5
+                            });
+                            table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)))
+                            {
+                                Border = iTextSharp.text.Rectangle.NO_BORDER,
+                                HorizontalAlignment = Element.ALIGN_LEFT,
+                                PaddingTop = 5
+                            });
+                        }
+
+                        table.SpacingBefore = 10;
+                        table.SpacingAfter = 10;
+                        table.HorizontalAlignment = Element.ALIGN_LEFT;
+                        
+                        float[] columnWidths = { 1.5f, 0.5f};
+                        table.SetWidths(columnWidths);
+                        doc.Add(table);
+
+                        doc.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred while creating the PDF file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void Button_more_trns_Click(object sender, EventArgs e)
@@ -1416,6 +1667,35 @@ namespace budget_management_app
         {
             Button_more_trns_exp.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
         }
+        private void button_print_raport_mf_Click(object sender, EventArgs e)
+        {
+            printMf();
+        }
+
+        private void button_print_raport_mf_MouseEnter(object sender, EventArgs e)
+        {
+            button_print_raport_mf.BackColor = System.Drawing.Color.FromArgb(212, 163, 115);
+        }
+
+        private void button_print_raport_mf_MouseLeave(object sender, EventArgs e)
+        {
+            button_print_raport_mf.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
+        }
+        private void button_print_raport_ledger_Click(object sender, EventArgs e)
+        {
+            printLedger();
+        }
+
+        private void button_print_raport_ledger_MouseEnter(object sender, EventArgs e)
+        {
+            button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(212, 163, 115);
+        }
+
+        private void button_print_raport_ledger_MouseLeave(object sender, EventArgs e)
+        {
+            button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
+        }
+
     }
 }
 
