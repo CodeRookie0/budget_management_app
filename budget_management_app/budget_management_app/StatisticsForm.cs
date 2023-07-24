@@ -22,6 +22,12 @@ using LiveCharts.WinForms;
 using LiveCharts.Definitions.Charts;
 using System.Windows.Media;
 using System.Windows;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Markup;
 
 namespace budget_management_app
 {
@@ -133,7 +139,9 @@ namespace budget_management_app
             }
 
             getMoneyFlowChart();
-            
+            getRaportMf();
+            getRaportExp();
+            getRaportIn();
         }
 
         private void button_7D_Click(object sender, EventArgs e)
@@ -145,6 +153,8 @@ namespace budget_management_app
             label_exp_last_X.Text = "LAST 7 DAYS";
             label_last_X_cf.Text = "LAST 7 DAYS";
             label_last_X_mf.Text = "LAST 7 DAYS";
+            label_last_X_raport_mf.Text = "LAST 7 DAYS";
+            label_last_X_raport_ledger.Text = "LAST 7 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
             getColumnChart_Day();
             getCashFlow_Day();
@@ -159,6 +169,8 @@ namespace budget_management_app
             label_exp_last_X.Text = "LAST 30 DAYS";
             label_last_X_cf.Text = "LAST 30 DAYS";
             label_last_X_mf.Text = "LAST 30 DAYS";
+            label_last_X_raport_mf.Text = "LAST 30 DAYS";
+            label_last_X_raport_ledger.Text = "LAST 30 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
             getColumnChart_Day();
             getCashFlow_Day();
@@ -172,6 +184,8 @@ namespace budget_management_app
             label_exp_last_X.Text = "LAST 3 MONTH";
             label_last_X_cf.Text = "LAST 3 MONTH";
             label_last_X_mf.Text = "LAST 3 MONTH";
+            label_last_X_raport_mf.Text = "LAST 3 MONTH";
+            label_last_X_raport_ledger.Text = "LAST 3 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
             getColumnChart_Week();
             getCashFlow_Week();
@@ -185,6 +199,8 @@ namespace budget_management_app
             label_exp_last_X.Text = "LAST 6 MONTH";
             label_last_X_cf.Text = "LAST 6 MONTH";
             label_last_X_mf.Text = "LAST 6 MONTH";
+            label_last_X_raport_mf.Text = "LAST 6 MONTH";
+            label_last_X_raport_ledger.Text = "LAST 6 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
             getColumnChart_Month();
             getCashFlow_Month();
@@ -195,6 +211,8 @@ namespace budget_management_app
             label_exp_last_X.Text = "LAST 12 MONTH";
             label_last_X_cf.Text = "LAST 12 MONTH";
             label_last_X_mf.Text = "LAST 12 MONTH";
+            label_last_X_raport_mf.Text = "LAST 12 MONTH";
+            label_last_X_raport_ledger.Text = "LAST 12 MONTH";
             UpdateSelectedDate(1, 1, currentDate.Year);
             getColumnChart_Month();
             getCashFlow_Month();
@@ -959,7 +977,7 @@ namespace budget_management_app
                 Foreground = new SolidColorBrush(Colors.Black),
                 FontWeight = FontWeights.Normal,
                 FontSize = 13,
-                Separator = new Separator { Step = 1 }
+                Separator = new LiveCharts.Wpf.Separator { Step = 1 }
             });
             cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
             {
@@ -1172,6 +1190,215 @@ namespace budget_management_app
             cartesianChart1.Series.Add(incomeSeries);
         }
 
+        private void getRaportMf()
+        {
+            string query = "SELECT " +
+               "    SUM(ExpAmount) AS TotalExpenses, " +
+               "    SUM(InAmount) AS TotalIncome, " +
+               "    COUNT(ExpAmount) AS ExpensesRowCount, " +
+               "    COUNT(InAmount) AS IncomeRowCount, " +
+               "    DATEDIFF(DAY, @StartDate, GETDATE()) AS DaysBetweenDates " +
+               "FROM ( " +
+               "    SELECT ExpAmount, NULL AS InAmount " +
+               "    FROM Expenses " +
+               "    WHERE Expenses.AccId = @SelectedAccId " +
+               "    AND Expenses.UserId = @UserId " +
+               "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+               "    UNION ALL " +
+               "    SELECT NULL AS ExpAmount, InAmount " +
+               "    FROM Income " +
+               "    WHERE Income.AccId = @SelectedAccId " +
+               "    AND Income.UserId = @UserId " +
+               "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
+               ") AS CombinedData ";
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            DataGridView_raport_mf.Rows.Clear();
+
+            double exp = (dataTable.Rows.Count > 0 && !DBNull.Value.Equals(dataTable.Rows[0]["TotalExpenses"]))
+                ? Convert.ToDouble(dataTable.Rows[0]["TotalExpenses"]) : 0;
+            double income = (dataTable.Rows.Count > 0 && !DBNull.Value.Equals(dataTable.Rows[0]["TotalIncome"]))
+                ? Convert.ToDouble(dataTable.Rows[0]["TotalIncome"]) : 0;
+            int num_exp = dataTable.Rows.Count > 0 && dataTable.Rows[0]["ExpensesRowCount"] != DBNull.Value
+                ? Convert.ToInt32(dataTable.Rows[0]["ExpensesRowCount"]) : 0;
+            int num_income = dataTable.Rows.Count > 0 && dataTable.Rows[0]["IncomeRowCount"] != DBNull.Value
+                ? Convert.ToInt32(dataTable.Rows[0]["IncomeRowCount"]) : 0;
+            int days = dataTable.Rows.Count > 0 && dataTable.Rows[0]["DaysBetweenDates"] != DBNull.Value
+                ? Convert.ToInt32(dataTable.Rows[0]["DaysBetweenDates"]) : 0;
+
+
+            DataGridView_raport_mf.Rows.Add("Number", num_income, num_exp);
+            DataGridView_raport_mf.Rows[0].DefaultCellStyle.BackColor= System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            DataGridView_raport_mf.Rows[0].DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            DataGridView_raport_mf.Rows.Add("Average/Day","+"+Math.Round(income / days, 2), Math.Round(-exp / days,2));
+            DataGridView_raport_mf.Rows.Add("Average/Entry", "+" + Math.Round(income / num_income, 2), Math.Round(-exp / num_exp, 2));
+            DataGridView_raport_mf.Rows[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            DataGridView_raport_mf.Rows[2].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            DataGridView_raport_mf.Rows.Add("Total", "+" + income, -exp);
+
+            if (income - exp > 0)
+            {
+                label_raport_mf.Text = "+"+(income - exp).ToString();
+            }
+            else
+            {
+                label_raport_mf.Text = (income - exp).ToString();
+            }
+            
+
+            DataGridView_raport_mf.ClearSelection();
+            DataGridView_raport_mf.ColumnHeadersDefaultCellStyle.Font= new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Bold);
+            dbcon.CloseCon();
+        }
+
+        private void getRaportExp()
+        {
+            string query = "SELECT Category.CatName, " +
+               "COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName)) AS SubName, " +
+               "SUM(Expenses.ExpAmount) AS TotalAmount " +
+               "FROM Expenses " +
+               "JOIN Category ON Expenses.CatId = Category.CatId " +
+               "LEFT JOIN SubCategory ON Expenses.SubId = SubCategory.SubId " +
+               "LEFT JOIN UserSubCat ON Expenses.Us_SubId = UserSubCat.Us_SubId " +
+               "WHERE Expenses.AccId = @SelectedAccId " +
+               "AND Expenses.UserId = @UserId " +
+               "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+               "GROUP BY Category.CatName, COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName))";
+
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            string query_cat = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
+               "FROM Expenses " +
+               "JOIN Category ON Expenses.CatId = Category.CatId " +
+               "WHERE Expenses.AccId = @SelectedAccId " +
+               "AND Expenses.UserId = @UserId " +
+               "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+               "GROUP BY Category.CatName";
+
+            SqlCommand command_cat = new SqlCommand(query_cat, dbcon.GetCon());
+            command_cat.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command_cat.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command_cat.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter_cat = new SqlDataAdapter(command_cat);
+            DataTable dataTable_cat = new DataTable();
+            adapter_cat.Fill(dataTable_cat);
+
+            DataGridView_raport_exp.Rows.Clear();
+
+            double totalAmount = 0;
+
+            foreach (DataRow row_cat in dataTable_cat.Rows)
+            {
+                string catName = row_cat["CatName"].ToString().Trim();
+                double catAmount = -(row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0);
+                DataGridView_raport_exp.Rows.Add(catName, catAmount.ToString()+"            ");
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if(row["CatName"].ToString().Trim() == catName)
+                    {
+                        string subName = "          "+row["SubName"].ToString().Trim();
+                        double subAmount = -(row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0);
+                        DataGridView_raport_exp.Rows.Add(subName,subAmount);
+                        int rowIndex = DataGridView_raport_exp.Rows.Count - 1;
+                        DataGridView_raport_exp.Rows[rowIndex].Cells[0].Style.Font =new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
+                        DataGridView_raport_exp.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
+                        DataGridView_raport_exp.Rows[rowIndex].Cells[0].Style.ForeColor = System.Drawing.Color.Gray;
+                    }
+                }
+                totalAmount += catAmount;
+            }
+
+            label_raport_total_exp.Text = totalAmount.ToString();
+        }
+
+        private void getRaportIn()
+        {
+            string query = "SELECT Category.CatName, " +
+               "COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName)) AS SubName, " +
+               "SUM(Income.InAmount) AS TotalAmount " +
+               "FROM Income " +
+               "JOIN Category ON Income.CatId = Category.CatId " +
+               "LEFT JOIN SubCategory ON Income.SubId = SubCategory.SubId " +
+               "LEFT JOIN UserSubCat ON Income.Us_SubId = UserSubCat.Us_SubId " +
+               "WHERE Income.AccId = @SelectedAccId " +
+               "AND Income.UserId = @UserId " +
+               "AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
+               "GROUP BY Category.CatName, COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName))";
+
+
+            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            string query_cat = "SELECT Category.CatName, SUM(Income.InAmount) AS TotalAmount " +
+               "FROM Income " +
+               "JOIN Category ON Income.CatId = Category.CatId " +
+               "WHERE Income.AccId = @SelectedAccId " +
+               "AND Income.UserId = @UserId " +
+               "AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
+               "GROUP BY Category.CatName";
+
+            SqlCommand command_cat = new SqlCommand(query_cat, dbcon.GetCon());
+            command_cat.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
+            command_cat.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            command_cat.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
+
+            SqlDataAdapter adapter_cat = new SqlDataAdapter(command_cat);
+            DataTable dataTable_cat = new DataTable();
+            adapter_cat.Fill(dataTable_cat);
+
+            DataGridView_raport_in.Rows.Clear();
+
+            double totalAmount = 0;
+
+            foreach (DataRow row_cat in dataTable_cat.Rows)
+            {
+                string catName = row_cat["CatName"].ToString().Trim();
+                double catAmount = row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0;
+                DataGridView_raport_in.Rows.Add(catName, "+"+catAmount.ToString() + "            ");
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if (row["CatName"].ToString().Trim() == catName)
+                    {
+                        string subName = "          " + row["SubName"].ToString().Trim();
+                        double subAmount = row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0;
+                        DataGridView_raport_in.Rows.Add(subName, "+" + subAmount);
+                        int rowIndex = DataGridView_raport_in.Rows.Count - 1;
+                        DataGridView_raport_in.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
+                        DataGridView_raport_in.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
+                        DataGridView_raport_in.Rows[rowIndex].Cells[0].Style.ForeColor = System.Drawing.Color.Gray;
+                    }
+                }
+                totalAmount += catAmount;
+            }
+
+            label_raport_total_in.Text = "+" + totalAmount.ToString();
+        }
 
         private void Button_more_trns_Click(object sender, EventArgs e)
         {
