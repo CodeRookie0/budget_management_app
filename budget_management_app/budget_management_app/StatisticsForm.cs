@@ -28,6 +28,9 @@ using iTextSharp.text;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Markup;
+using LiveCharts.Wpf.Charts.Base;
+using System.Xml.Linq;
+using System.Reflection;
 
 namespace budget_management_app
 {
@@ -48,6 +51,8 @@ namespace budget_management_app
         private decimal currentInTotalAmount;
         private decimal max_amount = 0;
         private int animationDuration = 40;
+
+        private string expensesTooltip = "";
 
         public StatisticsForm()
         {
@@ -418,6 +423,10 @@ namespace budget_management_app
                     double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
                     chart_exp_column.Series["Expenses"].Points.Add(amount);
 
+                    string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
+                    int index = chart_exp_column.Series["Expenses"].Points.Count - 1;
+                    chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", monthName + "\nAmount: " + amount.ToString());
+
                     if (amount > max_amount)
                     {
                         max_amount = amount;
@@ -466,6 +475,9 @@ namespace budget_management_app
 
                 double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
                 chart_exp_column.Series["Expenses"].Points.Add(amount);
+
+                int index = chart_exp_column.Series["Expenses"].Points.Count - 1;
+                chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", "From: " + currentWeekStart.ToString("dd/MM/yyyy")+ "\nTo: " + currentWeekEnd.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString());
 
                 if (amount > max_amount)
                 {
@@ -521,6 +533,9 @@ namespace budget_management_app
                 double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
                 chart_exp_column.Series["Expenses"].Points.Add(amount);
 
+                int index = chart_exp_column.Series["Expenses"].Points.Count - 1;
+                chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString());
+
                 if (amount > max_amount)
                 {
                     max_amount = amount;
@@ -532,6 +547,26 @@ namespace budget_management_app
                 double amount = chart_exp_column.Series["Expenses"].Points[i].YValues[0];
                 chart_exp_column.Series["Default"].Points.Add(max_amount * 1.1 - amount);
             }
+        }
+
+        private void chart_exp_column_MouseMove(object sender, MouseEventArgs e)
+        {
+            var chart = (System.Windows.Forms.DataVisualization.Charting.Chart)sender;
+
+            var hitTestResult = chart.HitTest(e.X, e.Y);
+
+            if (hitTestResult.ChartElementType == ChartElementType.DataPoint)
+            {
+                int pointIndex = hitTestResult.PointIndex;
+
+                expensesTooltip = chart.Series["Expenses"].Points[pointIndex].GetCustomProperty("Tooltip");
+            }
+            else
+            {
+                expensesTooltip = "";
+            }
+            chart.Series["Expenses"].ToolTip = expensesTooltip;
+            chart.Series["Default"].ToolTip = expensesTooltip;
         }
 
         private void getMoneyFlowChart()
@@ -1498,6 +1533,7 @@ namespace budget_management_app
                         doc.Add(flowParagraph);
 
                         doc.Close();
+                        System.Windows.Forms.MessageBox.Show("Successful download of the report ", "Download Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -1642,6 +1678,7 @@ namespace budget_management_app
                         doc.Add(table);
 
                         doc.Close();
+                        System.Windows.Forms.MessageBox.Show("Successful download of the report ", "Download Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -1695,7 +1732,6 @@ namespace budget_management_app
         {
             button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
         }
-
     }
 }
 
