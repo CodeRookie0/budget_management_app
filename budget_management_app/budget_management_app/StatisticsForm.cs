@@ -1196,7 +1196,7 @@ namespace budget_management_app
             for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
             {
                 DataRow[] rows = dataTable.Select("Date = #" + date.ToString("MM/dd/yyyy") + "#");
-                dates.Add(date.ToString("d.MM"));
+                dates.Add(date.ToString("d.MMM"));
 
                 double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
                 double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
@@ -1276,7 +1276,9 @@ namespace budget_management_app
             DataGridView_raport_mf.Rows[0].DefaultCellStyle.BackColor= System.Drawing.Color.FromArgb(255, 245, 245, 245);
             DataGridView_raport_mf.Rows[0].DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(255, 245, 245, 245);
             DataGridView_raport_mf.Rows.Add("Average/Day","+"+Math.Round(income / days, 2), Math.Round(-exp / days,2));
-            DataGridView_raport_mf.Rows.Add("Average/Entry", "+" + Math.Round(income / num_income, 2), Math.Round(-exp / num_exp, 2));
+            double averageIncome = num_income != 0 ? Math.Round(income / num_income, 2) : 0;
+            double averageExpenses = num_exp != 0 ? Math.Round(-exp / num_exp, 2) : 0;
+            DataGridView_raport_mf.Rows.Add("Average/Entry", "+" + averageIncome, averageExpenses);
             DataGridView_raport_mf.Rows[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
             DataGridView_raport_mf.Rows[2].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
             DataGridView_raport_mf.Rows.Add("Total", "+" + income, -exp);
