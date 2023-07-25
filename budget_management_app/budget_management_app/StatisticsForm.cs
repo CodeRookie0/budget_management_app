@@ -31,6 +31,7 @@ using System.Windows.Markup;
 using LiveCharts.Wpf.Charts.Base;
 using System.Xml.Linq;
 using System.Reflection;
+using System.Windows.Media.Media3D;
 
 namespace budget_management_app
 {
@@ -1275,21 +1276,22 @@ namespace budget_management_app
             DataGridView_raport_mf.Rows.Add("Number", num_income, num_exp);
             DataGridView_raport_mf.Rows[0].DefaultCellStyle.BackColor= System.Drawing.Color.FromArgb(255, 245, 245, 245);
             DataGridView_raport_mf.Rows[0].DefaultCellStyle.SelectionBackColor= System.Drawing.Color.FromArgb(255, 245, 245, 245);
-            DataGridView_raport_mf.Rows.Add("Average/Day","+"+Math.Round(income / days, 2), Math.Round(-exp / days,2));
+            DataGridView_raport_mf.Rows[0].DefaultCellStyle.Format = "0";
+            DataGridView_raport_mf.Rows.Add("Average/Day","+"+Math.Round(income / days, 2).ToString("0.00"), Math.Round(-exp / days,2).ToString("0.00"));
             double averageIncome = num_income != 0 ? Math.Round(income / num_income, 2) : 0;
             double averageExpenses = num_exp != 0 ? Math.Round(-exp / num_exp, 2) : 0;
-            DataGridView_raport_mf.Rows.Add("Average/Entry", "+" + averageIncome, averageExpenses);
+            DataGridView_raport_mf.Rows.Add("Average/Entry", "+" + averageIncome.ToString("0.00"), averageExpenses.ToString("0.00"));
             DataGridView_raport_mf.Rows[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
             DataGridView_raport_mf.Rows[2].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
-            DataGridView_raport_mf.Rows.Add("Total", "+" + income, -exp);
+            DataGridView_raport_mf.Rows.Add("Total", "+" + income.ToString("0.00"), (-exp).ToString("0.00"));
 
             if (income - exp > 0)
             {
-                label_raport_mf.Text = "+"+(income - exp).ToString();
+                label_raport_mf.Text = "+"+(income - exp).ToString("0.00");
             }
             else
             {
-                label_raport_mf.Text = (income - exp).ToString();
+                label_raport_mf.Text = (income - exp).ToString("0.00");
             }
             
 
@@ -1347,7 +1349,7 @@ namespace budget_management_app
             {
                 string catName = row_cat["CatName"].ToString().Trim();
                 double catAmount = -(row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0);
-                DataGridView_raport_exp.Rows.Add(catName,catAmount.ToString());
+                DataGridView_raport_exp.Rows.Add(catName,catAmount);
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -1355,7 +1357,7 @@ namespace budget_management_app
                     {
                         string subName = "          "+row["SubName"].ToString().Trim();
                         double subAmount = -(row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0);
-                        DataGridView_raport_exp.Rows.Add(subName, "            " + subAmount);
+                        DataGridView_raport_exp.Rows.Add(subName, "            " + subAmount.ToString("0.00"));
                         int rowIndex = DataGridView_raport_exp.Rows.Count - 1;
                         DataGridView_raport_exp.Rows[rowIndex].Cells[0].Style.Font =new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
                         DataGridView_raport_exp.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
@@ -1365,7 +1367,7 @@ namespace budget_management_app
                 totalAmount += catAmount;
             }
 
-            label_raport_total_exp.Text = totalAmount.ToString();
+            label_raport_total_exp.Text = totalAmount.ToString("0.00");
         }
 
         private void getRaportIn()
@@ -1417,7 +1419,7 @@ namespace budget_management_app
             {
                 string catName = row_cat["CatName"].ToString().Trim();
                 double catAmount = row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0;
-                DataGridView_raport_in.Rows.Add(catName, "+"+catAmount.ToString());
+                DataGridView_raport_in.Rows.Add(catName, catAmount);
 
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -1425,7 +1427,7 @@ namespace budget_management_app
                     {
                         string subName = "          " + row["SubName"].ToString().Trim();
                         double subAmount = row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0;
-                        DataGridView_raport_in.Rows.Add(subName, "            " + "+" + subAmount);
+                        DataGridView_raport_in.Rows.Add(subName, "            " + "+" + subAmount.ToString("0.00"));
                         int rowIndex = DataGridView_raport_in.Rows.Count - 1;
                         DataGridView_raport_in.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
                         DataGridView_raport_in.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
@@ -1435,7 +1437,7 @@ namespace budget_management_app
                 totalAmount += catAmount;
             }
 
-            label_raport_total_in.Text = "+" + totalAmount.ToString();
+            label_raport_total_in.Text = "+" + totalAmount.ToString("0.00");
         }
 
         private void printMf()
@@ -1605,14 +1607,16 @@ namespace budget_management_app
                         foreach(DataGridViewRow row in DataGridView_raport_in.Rows)
                         {
                             string name = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
-                            string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
+                            string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0.00";
                             
                             int fontSize = 13;
+                            bool left = true;
                             BaseColor fontColor = BaseColor.BLACK;
                             if (name.Contains("  "))
                             {
                                 fontSize = 11;
                                 fontColor = new BaseColor(128, 128, 128);
+                                left = false;
                             }
 
                             table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL,fontColor))) 
@@ -1624,7 +1628,7 @@ namespace budget_management_app
                             table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize-1, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                             { 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                                HorizontalAlignment = Element.ALIGN_LEFT, 
+                                HorizontalAlignment = (left == true)?Element.ALIGN_LEFT:Element.ALIGN_RIGHT, 
                                 PaddingTop = 5 
                             });
                         }
@@ -1650,11 +1654,13 @@ namespace budget_management_app
                             string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
 
                             int fontSize = 13;
+                            bool left = true;
                             BaseColor fontColor = BaseColor.BLACK;
                             if (name.Contains("  "))
                             {
                                 fontSize = 11;
                                 fontColor = new BaseColor(128, 128, 128);
+                                left = false;
                             }
 
                             table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, fontColor)))
@@ -1666,7 +1672,7 @@ namespace budget_management_app
                             table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)))
                             {
                                 Border = iTextSharp.text.Rectangle.NO_BORDER,
-                                HorizontalAlignment = Element.ALIGN_LEFT,
+                                HorizontalAlignment = (left == true) ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
                                 PaddingTop = 5
                             });
                         }

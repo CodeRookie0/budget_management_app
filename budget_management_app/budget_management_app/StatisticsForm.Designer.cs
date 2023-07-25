@@ -57,20 +57,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_exit = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -111,12 +111,8 @@
             this.button_print_raport_mf = new Guna.UI2.WinForms.Guna2TileButton();
             this.button_print_raport_ledger = new Guna.UI2.WinForms.Guna2TileButton();
             this.DataGridView_raport_in = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label22 = new System.Windows.Forms.Label();
             this.DataGridView_raport_exp = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.CategoryExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_raport_total_exp = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -127,9 +123,6 @@
             this.label_raport_mf = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.DataGridView_raport_mf = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.QuickView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IncomeRaport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpenseRaport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label_last_X_raport_mf = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label_last_X_raport_ledger = new System.Windows.Forms.Label();
@@ -146,6 +139,13 @@
             this.button_7D = new Guna.UI2.WinForms.Guna2Button();
             this.timer_bottomBar = new System.Windows.Forms.Timer(this.components);
             this.timer_mf = new System.Windows.Forms.Timer(this.components);
+            this.QuickView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IncomeRaport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpenseRaport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.money_flow.SuspendLayout();
@@ -587,6 +587,7 @@
             chartArea4.AxisX.MajorGrid.Enabled = false;
             chartArea4.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             chartArea4.AxisY.LabelStyle.Enabled = false;
+            chartArea4.AxisY.LabelStyle.Format = "0.00";
             chartArea4.AxisY.MajorGrid.Enabled = false;
             chartArea4.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             chartArea4.Name = "ChartArea1";
@@ -899,36 +900,6 @@
             this.DataGridView_raport_in.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_raport_in.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 280;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 10.75F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -999,36 +970,6 @@
             this.DataGridView_raport_exp.ThemeStyle.RowsStyle.Height = 22;
             this.DataGridView_raport_exp.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_raport_exp.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // CategoryExp
-            // 
-            this.CategoryExp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.CategoryExp.DefaultCellStyle = dataGridViewCellStyle12;
-            this.CategoryExp.HeaderText = "Category";
-            this.CategoryExp.Name = "CategoryExp";
-            this.CategoryExp.ReadOnly = true;
-            this.CategoryExp.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CategoryExp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CategoryExp.Width = 280;
-            // 
-            // AmountExp
-            // 
-            this.AmountExp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 10.75F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.AmountExp.DefaultCellStyle = dataGridViewCellStyle13;
-            this.AmountExp.HeaderText = "Amount";
-            this.AmountExp.Name = "AmountExp";
-            this.AmountExp.ReadOnly = true;
-            this.AmountExp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // guna2Panel3
             // 
@@ -1189,53 +1130,6 @@
             this.DataGridView_raport_mf.ThemeStyle.RowsStyle.Height = 22;
             this.DataGridView_raport_mf.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DataGridView_raport_mf.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // QuickView
-            // 
-            this.QuickView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Gray;
-            this.QuickView.DefaultCellStyle = dataGridViewCellStyle17;
-            this.QuickView.HeaderText = "Quick view";
-            this.QuickView.Name = "QuickView";
-            this.QuickView.ReadOnly = true;
-            this.QuickView.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.QuickView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.QuickView.Width = 130;
-            // 
-            // IncomeRaport
-            // 
-            this.IncomeRaport.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            this.IncomeRaport.DefaultCellStyle = dataGridViewCellStyle18;
-            this.IncomeRaport.HeaderText = "Income";
-            this.IncomeRaport.Name = "IncomeRaport";
-            this.IncomeRaport.ReadOnly = true;
-            this.IncomeRaport.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.IncomeRaport.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.IncomeRaport.Width = 212;
-            // 
-            // ExpenseRaport
-            // 
-            this.ExpenseRaport.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Red;
-            this.ExpenseRaport.DefaultCellStyle = dataGridViewCellStyle19;
-            this.ExpenseRaport.HeaderText = "Expense";
-            this.ExpenseRaport.Name = "ExpenseRaport";
-            this.ExpenseRaport.ReadOnly = true;
-            this.ExpenseRaport.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ExpenseRaport.Width = 212;
             // 
             // label_last_X_raport_mf
             // 
@@ -1448,6 +1342,119 @@
             // 
             this.timer_mf.Tick += new System.EventHandler(this.timer_mf_Tick);
             // 
+            // QuickView
+            // 
+            this.QuickView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Gray;
+            this.QuickView.DefaultCellStyle = dataGridViewCellStyle17;
+            this.QuickView.HeaderText = "Quick view";
+            this.QuickView.Name = "QuickView";
+            this.QuickView.ReadOnly = true;
+            this.QuickView.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.QuickView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.QuickView.Width = 130;
+            // 
+            // IncomeRaport
+            // 
+            this.IncomeRaport.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.Format = "0.00";
+            dataGridViewCellStyle18.NullValue = null;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.IncomeRaport.DefaultCellStyle = dataGridViewCellStyle18;
+            this.IncomeRaport.HeaderText = "Income";
+            this.IncomeRaport.Name = "IncomeRaport";
+            this.IncomeRaport.ReadOnly = true;
+            this.IncomeRaport.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.IncomeRaport.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.IncomeRaport.Width = 212;
+            // 
+            // ExpenseRaport
+            // 
+            this.ExpenseRaport.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle19.Format = "0.00";
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Red;
+            this.ExpenseRaport.DefaultCellStyle = dataGridViewCellStyle19;
+            this.ExpenseRaport.HeaderText = "Expense";
+            this.ExpenseRaport.Name = "ExpenseRaport";
+            this.ExpenseRaport.ReadOnly = true;
+            this.ExpenseRaport.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ExpenseRaport.Width = 212;
+            // 
+            // CategoryExp
+            // 
+            this.CategoryExp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.CategoryExp.DefaultCellStyle = dataGridViewCellStyle12;
+            this.CategoryExp.HeaderText = "Category";
+            this.CategoryExp.Name = "CategoryExp";
+            this.CategoryExp.ReadOnly = true;
+            this.CategoryExp.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CategoryExp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.CategoryExp.Width = 280;
+            // 
+            // AmountExp
+            // 
+            this.AmountExp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 10.75F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.Format = "0.00";
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            this.AmountExp.DefaultCellStyle = dataGridViewCellStyle13;
+            this.AmountExp.HeaderText = "Amount";
+            this.AmountExp.Name = "AmountExp";
+            this.AmountExp.ReadOnly = true;
+            this.AmountExp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 280;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 10.75F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Format = "+0.00";
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1562,15 +1569,15 @@
         private System.Windows.Forms.Label label_raport_total_exp;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuickView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeRaport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpenseRaport;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView_raport_in;
         private Guna.UI2.WinForms.Guna2TileButton button_print_raport_ledger;
         private Guna.UI2.WinForms.Guna2TileButton button_print_raport_mf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuickView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IncomeRaport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpenseRaport;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryExp;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountExp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }
