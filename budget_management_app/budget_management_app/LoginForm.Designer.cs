@@ -60,7 +60,7 @@
             this.loginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.loginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.loginButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            this.loginButton.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.loginButton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.loginButton.Location = new System.Drawing.Point(63, 645);
             this.loginButton.Name = "loginButton";
@@ -80,20 +80,20 @@
             // 
             this.emailLabel.AutoSize = true;
             this.emailLabel.BackColor = System.Drawing.Color.White;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.emailLabel.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
             this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.emailLabel.Location = new System.Drawing.Point(67, 6);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(44, 15);
+            this.emailLabel.Size = new System.Drawing.Size(42, 17);
             this.emailLabel.TabIndex = 18;
             this.emailLabel.Text = "Email";
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 33F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 35);
+            this.label1.Location = new System.Drawing.Point(3, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(319, 142);
             this.label1.TabIndex = 15;
@@ -103,11 +103,11 @@
             // signupLabel
             // 
             this.signupLabel.AutoSize = true;
-            this.signupLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.signupLabel.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.signupLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
-            this.signupLabel.Location = new System.Drawing.Point(139, 719);
+            this.signupLabel.Location = new System.Drawing.Point(138, 719);
             this.signupLabel.Name = "signupLabel";
-            this.signupLabel.Size = new System.Drawing.Size(264, 20);
+            this.signupLabel.Size = new System.Drawing.Size(266, 20);
             this.signupLabel.TabIndex = 27;
             this.signupLabel.Text = "Don\'t have an account yet?  SIGN UP";
             this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
@@ -145,11 +145,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
-            this.label2.Location = new System.Drawing.Point(9, 189);
+            this.label2.Location = new System.Drawing.Point(9, 205);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(304, 22);
+            this.label2.Size = new System.Drawing.Size(255, 22);
             this.label2.TabIndex = 32;
             this.label2.Text = "Log in to your account or sign up";
             // 
@@ -238,11 +238,11 @@
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.BackColor = System.Drawing.Color.White;
-            this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
             this.passwordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.passwordLabel.Location = new System.Drawing.Point(67, 6);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(69, 15);
+            this.passwordLabel.Size = new System.Drawing.Size(66, 17);
             this.passwordLabel.TabIndex = 18;
             this.passwordLabel.Text = "Password";
             // 
@@ -290,6 +290,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(542, 750);
             this.Controls.Add(this.passwordPanel);
             this.Controls.Add(this.emailPanel);
