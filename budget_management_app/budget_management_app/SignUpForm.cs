@@ -14,135 +14,176 @@ namespace budget_management_app
 {
     public partial class SignUpForm : Form
     {
-        DBConnection dbconn=new DBConnection();
+        // Create an instance of the DBConnection class to manage database connections
+        DBConnection dbConnection =new DBConnection();
+
+        // Constructor for the SignUpForm class
         public SignUpForm()
         {
             InitializeComponent();
         }
 
-        private void RegistrationForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        // Adding data to database. Referral to the MainMenuForm
-        private void Button_sign_up_Click(object sender, EventArgs e)
+        // Event handler for the "Sign Up" button click
+        private void signupButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (textBox_username.Text == "" || textBox_email.Text == "" || textBox_passw.Text == "" || textBox_passw2.Text == "")
+                dbConnection.OpenCon();
+                
+                // Check if any of the required fields are empty
+                if (string.IsNullOrWhiteSpace(usernameTextBox.Text) || string.IsNullOrWhiteSpace(emailTextBox.Text)
+                || string.IsNullOrWhiteSpace(passwordTextBox.Text) || string.IsNullOrWhiteSpace(password2TextBox.Text))
                 {
                     MessageBox.Show("Please Complete the blank fields", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                // Check that the passwords are the same
-                else if (textBox_passw.Text != textBox_passw2.Text)
+
+                // Check if the entered passwords match
+                if (passwordTextBox.Text != password2TextBox.Text)
                 {
                     MessageBox.Show("The entered password doesn't match, Please try again", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    textBox_passw.Clear();
-                    textBox_passw2.Clear();
+                    passwordTextBox.Clear();
+                    password2TextBox.Clear();
+                    return;
                 }
-                else 
+
+                // Check if the chosen username is available
+                if (!IsUsernameAvailable(usernameTextBox.Text))
                 {
-                    string insertQuery = "INSERT INTO [User] (UserName, UserEmail, UserPasswd) VALUES ('" + textBox_username.Text + "', '" + textBox_email.Text + "', '" + textBox_passw.Text + "')";
-
-                    // Checking the existence of such a user name in the data base
-                    string checkQuery_username = "SELECT COUNT(*) FROM [User] WHERE UserName='"+textBox_username.Text+"'";
-                    dbconn.OpenCon();
-                    SqlCommand checkCommand_username = new SqlCommand(checkQuery_username, dbconn.GetCon());
-                    int count = (int)checkCommand_username.ExecuteScalar();
-
-                    if (count > 0)
-                    {
-                        MessageBox.Show("The entered UserName is already taken. Please choose a different UserName.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    // Checking the existence of such email in the data base
-                    string checkQuery_email = "SELECT COUNT(*) FROM [User] WHERE UserEmail='" + textBox_email.Text + "'";
-                    dbconn.OpenCon();
-                    SqlCommand checkCommand_email = new SqlCommand(checkQuery_email, dbconn.GetCon());
-                    int count_email = (int)checkCommand_email.ExecuteScalar();
-
-                    if (count_email > 0)
-                    {
-                        MessageBox.Show("The entered Email is already taken. Please choose a different email.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    // Adding a new user to the database date
-                    SqlCommand insertCommand = new SqlCommand(insertQuery, dbconn.GetCon());
-                    insertCommand.ExecuteNonQuery();
-
-                    string getUserIdQuery = "SELECT UserId FROM [User] WHERE UserName='" + textBox_username.Text + "'";
-                    SqlCommand getUserIdCommand = new SqlCommand(getUserIdQuery, dbconn.GetCon());
-                    int userId = (int)getUserIdCommand.ExecuteScalar();
-
-                    // Create the default account for the new user
-                    string createAccountQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (" + userId + ", 'Wallet','0.00'"+", "+1+")";
-                    SqlCommand createAccountCommand = new SqlCommand(createAccountQuery, dbconn.GetCon());
-                    createAccountCommand.ExecuteNonQuery();
-
-                    MessageBox.Show("New user added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dbconn.CloseCon();
-                    LoginForm loginForm = new LoginForm();
-                    loginForm.Show();
-                    this.Hide();
+                    MessageBox.Show("The entered UserName is already taken. Please choose a different UserName.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+
+                // Check if the entered email is available
+                if (!IsEmailAvailable(emailTextBox.Text))
+                {
+                    MessageBox.Show("The entered email is already taken. Please choose a different email.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Insert new user into the database
+                InsertNewUser();
+
+                // Create default account for the new user
+                CreateDefaultAccount();
+
+                // Show a success message and navigate to the LoginForm
+                MessageBox.Show("New user added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dbConnection.CloseCon();
+
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+                this.Hide();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                dbConnection.CloseCon();
             }
         }
-        // Design of Button_sign_up
-        private void Button_sign_up_MouseEnter(object sender, EventArgs e)
+
+        // Check if the chosen username is available in the database
+        private bool IsUsernameAvailable(string userName)
         {
-            Button_sign_up.BackColor = Color.FromArgb(212, 163, 115);
+            string checkQuery = "SELECT COUNT(*) FROM [User] WHERE UserName=@UserName";
+            SqlCommand checkCommand = new SqlCommand(checkQuery, dbConnection.GetCon());
+            checkCommand.Parameters.AddWithValue("@UserName", userName);
+            int count = (int)checkCommand.ExecuteScalar();
+            return count == 0;
         }
 
-        private void Button_sign_up_MouseLeave(object sender, EventArgs e)
+        // Check if the entered email is available in the database
+        private bool IsEmailAvailable(string userEmail)
         {
-            Button_sign_up.BackColor = Color.FromArgb(250, 237, 205);
+            string checkQuery = "SELECT COUNT(*) FROM [User] WHERE UserEmail=@UserEmail";
+            SqlCommand checkCommand = new SqlCommand(checkQuery, dbConnection.GetCon());
+            checkCommand.Parameters.AddWithValue("@UserEmail", userEmail);
+            int count = (int)checkCommand.ExecuteScalar();
+            return count == 0;
         }
 
-
-
-        //Exit from the application
-        private void label_exit_Click(object sender, EventArgs e)
+        // Insert a new user record into the database
+        private void InsertNewUser()
         {
-            Application.Exit();
-        }
-        // Design of label_exit
-        private void label_exit_MouseEnter(object sender, EventArgs e)
-        {
-            label_exit.ForeColor = Color.Red;
+            string insertQuery = "INSERT INTO [User] (UserName, UserEmail, UserPasswd) VALUES (@UserName, @UserEmail, @UserPasswd)";
+            SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection.GetCon());
+            insertCommand.Parameters.AddWithValue("@UserName", usernameTextBox.Text);
+            insertCommand.Parameters.AddWithValue("@UserEmail", emailTextBox.Text);
+            insertCommand.Parameters.AddWithValue("@UserPasswd", passwordTextBox.Text);
+            insertCommand.ExecuteNonQuery();
         }
 
-        private void label_exit_MouseLeave(object sender, EventArgs e)
+        // Create a default account for the new user
+        private void CreateDefaultAccount()
         {
-            label_exit.ForeColor = Color.FromArgb(212, 148, 85);
+            // Get the UserId of the newly created user
+            int userId = GetUserIdByUsername(usernameTextBox.Text);
+
+            string createAccountQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (@UserId, 'Wallet', 0.00, 1)";
+            SqlCommand createAccountCommand = new SqlCommand(createAccountQuery, dbConnection.GetCon());
+            createAccountCommand.Parameters.AddWithValue("@UserId", userId);
+            createAccountCommand.ExecuteNonQuery();
         }
 
+        // Get the UserId of a user by their username
+        private int GetUserIdByUsername(string userName)
+        {
+            string getUserIdQuery = "SELECT UserId FROM [User] WHERE UserName=@UserName";
+            SqlCommand getUserIdCommand = new SqlCommand(getUserIdQuery, dbConnection.GetCon());
+            getUserIdCommand.Parameters.AddWithValue("@UserName", userName);
+            return (int)getUserIdCommand.ExecuteScalar();
+        }
 
-        
-        // Referral to the LoginForm
-        private void label_log_in_Click(object sender, EventArgs e)
+        // Event handlers for mouse enter and leave on the "Sign Up" button
+        private void signupButton_MouseEnter(object sender, EventArgs e)
+        {
+            signupButton.FillColor = Color.FromArgb(230, 31, 52);
+        }
+
+        private void signupButton_MouseLeave(object sender, EventArgs e)
+        {
+            signupButton.FillColor = Color.FromArgb(233, 31, 52);
+        }
+
+        // Event handler for the "Exit" label click
+        private void exitLabel_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to leave the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        // Event handlers for mouse enter and leave on the "Exit" label
+        private void exitLabel_MouseEnter(object sender, EventArgs e)
+        {
+            exitLabel.ForeColor = Color.FromArgb(233, 31, 52);
+        }
+
+        private void exitLabel_MouseLeave(object sender, EventArgs e)
+        {
+            exitLabel.ForeColor = Color.FromArgb(100, 120, 130);
+        }
+
+        // Event handler for the "Login" label click
+        private void loginLabel_Click(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
             login.Show();
             this.Hide();
         }
 
-        // Design of linkLabel_log_in
-        private void label_log_in_MouseEnter(object sender, EventArgs e)
+        // Event handlers for mouse enter and leave on the "Login" label
+        private void loginLabel_MouseEnter(object sender, EventArgs e)
         {
-            label_log_in.ForeColor = Color.FromArgb(212, 148, 85);
+            loginLabel.ForeColor = Color.FromArgb(30, 41, 59);
         }
 
-        private void label_log_in_MouseLeave(object sender, EventArgs e)
+        private void loginLabel_MouseLeave(object sender, EventArgs e)
         {
-            label_log_in.ForeColor = Color.Black;
+            loginLabel.ForeColor = Color.FromArgb(100, 120, 130);
         }
-
     }
 }

@@ -112,7 +112,12 @@ namespace budget_management_app
         // Event handler for the "Exit" label click
         private void exitLabel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Are you sure you want to leave the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         // Event handlers to change the color of the "Exit" label when the mouse hovers over it

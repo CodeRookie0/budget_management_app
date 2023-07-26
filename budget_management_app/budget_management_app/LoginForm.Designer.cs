@@ -36,16 +36,16 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.emailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.emailPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.passwordPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.passwordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
-            this.guna2GradientPanel1.SuspendLayout();
+            this.emailPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            this.guna2GradientPanel2.SuspendLayout();
+            this.passwordPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,14 +62,14 @@
             this.loginButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.loginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
             this.loginButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.loginButton.Location = new System.Drawing.Point(34, 639);
+            this.loginButton.Location = new System.Drawing.Point(63, 645);
             this.loginButton.Name = "loginButton";
             this.loginButton.ShadowDecoration.BorderRadius = 20;
             this.loginButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.loginButton.ShadowDecoration.Depth = 20;
             this.loginButton.ShadowDecoration.Enabled = true;
             this.loginButton.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.loginButton.Size = new System.Drawing.Size(475, 67);
+            this.loginButton.Size = new System.Drawing.Size(416, 61);
             this.loginButton.TabIndex = 25;
             this.loginButton.Text = "Login";
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -177,26 +177,26 @@
             this.emailTextBox.Size = new System.Drawing.Size(334, 33);
             this.emailTextBox.TabIndex = 33;
             // 
-            // guna2GradientPanel1
+            // emailPanel
             // 
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.guna2GradientPanel1.BorderRadius = 20;
-            this.guna2GradientPanel1.Controls.Add(this.emailLabel);
-            this.guna2GradientPanel1.Controls.Add(this.iconPictureBox1);
-            this.guna2GradientPanel1.Controls.Add(this.emailTextBox);
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(63, 243);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.ShadowDecoration.BorderRadius = 20;
-            this.guna2GradientPanel1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.guna2GradientPanel1.ShadowDecoration.Depth = 20;
-            this.guna2GradientPanel1.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(416, 61);
-            this.guna2GradientPanel1.TabIndex = 32;
-            this.guna2GradientPanel1.UseTransparentBackground = true;
+            this.emailPanel.BackColor = System.Drawing.Color.Transparent;
+            this.emailPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.emailPanel.BorderRadius = 20;
+            this.emailPanel.Controls.Add(this.emailLabel);
+            this.emailPanel.Controls.Add(this.iconPictureBox1);
+            this.emailPanel.Controls.Add(this.emailTextBox);
+            this.emailPanel.FillColor = System.Drawing.Color.White;
+            this.emailPanel.FillColor2 = System.Drawing.Color.White;
+            this.emailPanel.Location = new System.Drawing.Point(63, 243);
+            this.emailPanel.Name = "emailPanel";
+            this.emailPanel.ShadowDecoration.BorderRadius = 20;
+            this.emailPanel.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.emailPanel.ShadowDecoration.Depth = 20;
+            this.emailPanel.ShadowDecoration.Enabled = true;
+            this.emailPanel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.emailPanel.Size = new System.Drawing.Size(416, 61);
+            this.emailPanel.TabIndex = 32;
+            this.emailPanel.UseTransparentBackground = true;
             // 
             // iconPictureBox1
             // 
@@ -213,26 +213,26 @@
             this.iconPictureBox1.TabIndex = 33;
             this.iconPictureBox1.TabStop = false;
             // 
-            // guna2GradientPanel2
+            // passwordPanel
             // 
-            this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.guna2GradientPanel2.BorderRadius = 20;
-            this.guna2GradientPanel2.Controls.Add(this.passwordLabel);
-            this.guna2GradientPanel2.Controls.Add(this.iconPictureBox2);
-            this.guna2GradientPanel2.Controls.Add(this.passwordTextBox);
-            this.guna2GradientPanel2.FillColor = System.Drawing.Color.White;
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(63, 333);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.ShadowDecoration.BorderRadius = 20;
-            this.guna2GradientPanel2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.guna2GradientPanel2.ShadowDecoration.Depth = 20;
-            this.guna2GradientPanel2.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(416, 61);
-            this.guna2GradientPanel2.TabIndex = 34;
-            this.guna2GradientPanel2.UseTransparentBackground = true;
+            this.passwordPanel.BackColor = System.Drawing.Color.Transparent;
+            this.passwordPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.passwordPanel.BorderRadius = 20;
+            this.passwordPanel.Controls.Add(this.passwordLabel);
+            this.passwordPanel.Controls.Add(this.iconPictureBox2);
+            this.passwordPanel.Controls.Add(this.passwordTextBox);
+            this.passwordPanel.FillColor = System.Drawing.Color.White;
+            this.passwordPanel.FillColor2 = System.Drawing.Color.White;
+            this.passwordPanel.Location = new System.Drawing.Point(63, 333);
+            this.passwordPanel.Name = "passwordPanel";
+            this.passwordPanel.ShadowDecoration.BorderRadius = 20;
+            this.passwordPanel.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.passwordPanel.ShadowDecoration.Depth = 20;
+            this.passwordPanel.ShadowDecoration.Enabled = true;
+            this.passwordPanel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.passwordPanel.Size = new System.Drawing.Size(416, 61);
+            this.passwordPanel.TabIndex = 34;
+            this.passwordPanel.UseTransparentBackground = true;
             // 
             // passwordLabel
             // 
@@ -253,10 +253,10 @@
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox2.IconSize = 40;
-            this.iconPictureBox2.Location = new System.Drawing.Point(9, 10);
+            this.iconPictureBox2.IconSize = 35;
+            this.iconPictureBox2.Location = new System.Drawing.Point(12, 13);
             this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.iconPictureBox2.Size = new System.Drawing.Size(35, 35);
             this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.iconPictureBox2.TabIndex = 33;
             this.iconPictureBox2.TabStop = false;
@@ -291,8 +291,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 750);
-            this.Controls.Add(this.guna2GradientPanel2);
-            this.Controls.Add(this.guna2GradientPanel1);
+            this.Controls.Add(this.passwordPanel);
+            this.Controls.Add(this.emailPanel);
             this.Controls.Add(this.signupLabel);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.guna2Panel1);
@@ -302,11 +302,11 @@
             this.Text = "LoginForm";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.guna2GradientPanel1.ResumeLayout(false);
-            this.guna2GradientPanel1.PerformLayout();
+            this.emailPanel.ResumeLayout(false);
+            this.emailPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            this.guna2GradientPanel2.ResumeLayout(false);
-            this.guna2GradientPanel2.PerformLayout();
+            this.passwordPanel.ResumeLayout(false);
+            this.passwordPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -323,9 +323,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox emailTextBox;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2GradientPanel emailPanel;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
+        private Guna.UI2.WinForms.Guna2GradientPanel passwordPanel;
         private System.Windows.Forms.Label passwordLabel;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private Guna.UI2.WinForms.Guna2TextBox passwordTextBox;
