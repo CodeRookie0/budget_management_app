@@ -107,9 +107,9 @@
             this.signupLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
             this.signupLabel.Location = new System.Drawing.Point(138, 719);
             this.signupLabel.Name = "signupLabel";
-            this.signupLabel.Size = new System.Drawing.Size(266, 20);
+            this.signupLabel.Size = new System.Drawing.Size(261, 20);
             this.signupLabel.TabIndex = 27;
-            this.signupLabel.Text = "Don\'t have an account yet?  SIGN UP";
+            this.signupLabel.Text = "Don\'t have an account yet?  Sign up";
             this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
             this.signupLabel.MouseEnter += new System.EventHandler(this.signupLabel_MouseEnter);
             this.signupLabel.MouseLeave += new System.EventHandler(this.signupLabel_MouseLeave);
