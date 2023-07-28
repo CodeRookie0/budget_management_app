@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.moreStaticsticButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.label_rec_trns = new System.Windows.Forms.Label();
@@ -84,19 +84,23 @@
             // moreStaticsticButton
             // 
             this.moreStaticsticButton.BackColor = System.Drawing.Color.Transparent;
+            this.moreStaticsticButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.moreStaticsticButton.BorderRadius = 15;
+            this.moreStaticsticButton.BorderThickness = 2;
             this.moreStaticsticButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.moreStaticsticButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.moreStaticsticButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.moreStaticsticButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.moreStaticsticButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.moreStaticsticButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.moreStaticsticButton.ForeColor = System.Drawing.Color.White;
+            this.moreStaticsticButton.FillColor = System.Drawing.Color.White;
+            this.moreStaticsticButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 10.75F, System.Drawing.FontStyle.Bold);
+            this.moreStaticsticButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreStaticsticButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreStaticsticButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreStaticsticButton.HoverState.ForeColor = System.Drawing.Color.White;
             this.moreStaticsticButton.Location = new System.Drawing.Point(387, 16);
             this.moreStaticsticButton.Name = "moreStaticsticButton";
             this.moreStaticsticButton.ShadowDecoration.BorderRadius = 20;
             this.moreStaticsticButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.moreStaticsticButton.ShadowDecoration.Depth = 10;
             this.moreStaticsticButton.ShadowDecoration.Enabled = true;
             this.moreStaticsticButton.Size = new System.Drawing.Size(119, 35);
             this.moreStaticsticButton.TabIndex = 59;
@@ -167,19 +171,23 @@
             // moreTransactionsButton
             // 
             this.moreTransactionsButton.BackColor = System.Drawing.Color.Transparent;
+            this.moreTransactionsButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.moreTransactionsButton.BorderRadius = 15;
+            this.moreTransactionsButton.BorderThickness = 2;
             this.moreTransactionsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.moreTransactionsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.moreTransactionsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.moreTransactionsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.moreTransactionsButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreTransactionsButton.FillColor = System.Drawing.Color.White;
             this.moreTransactionsButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 10.75F, System.Drawing.FontStyle.Bold);
-            this.moreTransactionsButton.ForeColor = System.Drawing.Color.White;
+            this.moreTransactionsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreTransactionsButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreTransactionsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.moreTransactionsButton.HoverState.ForeColor = System.Drawing.Color.White;
             this.moreTransactionsButton.Location = new System.Drawing.Point(387, 16);
             this.moreTransactionsButton.Name = "moreTransactionsButton";
             this.moreTransactionsButton.ShadowDecoration.BorderRadius = 20;
             this.moreTransactionsButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.moreTransactionsButton.ShadowDecoration.Depth = 10;
             this.moreTransactionsButton.ShadowDecoration.Enabled = true;
             this.moreTransactionsButton.Size = new System.Drawing.Size(119, 35);
             this.moreTransactionsButton.TabIndex = 64;
@@ -190,29 +198,29 @@
             // DataGridView_top7trns
             // 
             this.DataGridView_top7trns.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.DataGridView_top7trns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridView_top7trns.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_top7trns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_top7trns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGridView_top7trns.ColumnHeadersHeight = 4;
             this.DataGridView_top7trns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DataGridView_top7trns.ColumnHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_top7trns.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_top7trns.DefaultCellStyle = dataGridViewCellStyle6;
             this.DataGridView_top7trns.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.DataGridView_top7trns.Location = new System.Drawing.Point(13, 67);
             this.DataGridView_top7trns.Name = "DataGridView_top7trns";
@@ -316,34 +324,34 @@
             // 
             // lastWeekExpensesChart
             // 
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.LabelStyle.Enabled = false;
-            chartArea1.AxisY.LabelStyle.Format = "0.00";
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.Name = "ChartArea1";
-            this.lastWeekExpensesChart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.lastWeekExpensesChart.Legends.Add(legend1);
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisX.LabelStyle.Enabled = false;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.LabelStyle.Enabled = false;
+            chartArea2.AxisY.LabelStyle.Format = "0.00";
+            chartArea2.AxisY.MajorGrid.Enabled = false;
+            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.Name = "ChartArea1";
+            this.lastWeekExpensesChart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.lastWeekExpensesChart.Legends.Add(legend2);
             this.lastWeekExpensesChart.Location = new System.Drawing.Point(0, 70);
             this.lastWeekExpensesChart.Name = "lastWeekExpensesChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            series1.LabelToolTip = "#VAL{D2}";
-            series1.Legend = "Legend1";
-            series1.Name = "Expenses";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series2.Color = System.Drawing.Color.WhiteSmoke;
-            series2.Legend = "Legend1";
-            series2.Name = "Default";
-            this.lastWeekExpensesChart.Series.Add(series1);
-            this.lastWeekExpensesChart.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            series3.LabelToolTip = "#VAL{D2}";
+            series3.Legend = "Legend1";
+            series3.Name = "Expenses";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series4.Color = System.Drawing.Color.WhiteSmoke;
+            series4.Legend = "Legend1";
+            series4.Name = "Default";
+            this.lastWeekExpensesChart.Series.Add(series3);
+            this.lastWeekExpensesChart.Series.Add(series4);
             this.lastWeekExpensesChart.Size = new System.Drawing.Size(538, 203);
             this.lastWeekExpensesChart.TabIndex = 88;
             this.lastWeekExpensesChart.Text = "chart2";
@@ -572,6 +580,7 @@
             this.statisticButtonBar.FillColor = System.Drawing.Color.Transparent;
             this.statisticButtonBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statisticButtonBar.ForeColor = System.Drawing.Color.Transparent;
+            this.statisticButtonBar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.statisticButtonBar.Image = ((System.Drawing.Image)(resources.GetObject("statisticButtonBar.Image")));
             this.statisticButtonBar.ImageSize = new System.Drawing.Size(35, 35);
             this.statisticButtonBar.Location = new System.Drawing.Point(387, 0);
@@ -591,6 +600,7 @@
             this.categoriesButton.FillColor = System.Drawing.Color.Transparent;
             this.categoriesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.categoriesButton.ForeColor = System.Drawing.Color.Transparent;
+            this.categoriesButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.categoriesButton.Image = ((System.Drawing.Image)(resources.GetObject("categoriesButton.Image")));
             this.categoriesButton.ImageSize = new System.Drawing.Size(35, 35);
             this.categoriesButton.Location = new System.Drawing.Point(290, 0);
@@ -610,6 +620,7 @@
             this.transactionsButton.FillColor = System.Drawing.Color.Transparent;
             this.transactionsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.transactionsButton.ForeColor = System.Drawing.Color.Transparent;
+            this.transactionsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.transactionsButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsButton.Image")));
             this.transactionsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.transactionsButton.Location = new System.Drawing.Point(193, 0);
@@ -629,6 +640,7 @@
             this.accountsButton.FillColor = System.Drawing.Color.Transparent;
             this.accountsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountsButton.ForeColor = System.Drawing.Color.Transparent;
+            this.accountsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.accountsButton.Image = ((System.Drawing.Image)(resources.GetObject("accountsButton.Image")));
             this.accountsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.accountsButton.Location = new System.Drawing.Point(96, 0);
@@ -648,6 +660,7 @@
             this.homeButton.FillColor = System.Drawing.Color.Transparent;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.homeButton.ForeColor = System.Drawing.Color.Transparent;
+            this.homeButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
             this.homeButton.ImageSize = new System.Drawing.Size(35, 35);
             this.homeButton.Location = new System.Drawing.Point(0, 0);
@@ -667,6 +680,7 @@
             this.settingsButton.FillColor = System.Drawing.Color.Transparent;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.settingsButton.ForeColor = System.Drawing.Color.Transparent;
+            this.settingsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
             this.settingsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.settingsButton.Location = new System.Drawing.Point(484, 0);

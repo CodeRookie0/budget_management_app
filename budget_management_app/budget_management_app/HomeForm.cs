@@ -102,7 +102,7 @@ namespace budget_management_app
                 string accName = row["AccName"].ToString().Trim();
 
                 // Create a string to display account information on the button
-                string accInfo = $"{accName}\n{accBalance}  {currCode}\n\n\n--/--\n**** **** **** ****";
+                string accInfo = $"\n{accName}\n{accBalance}  {currCode}\n\n\n__________________________________";
 
                 // Create a Guna2Button with the account information
                 Guna2Button button = new Guna2Button
@@ -128,7 +128,7 @@ namespace budget_management_app
             // Create an "Add new account" button
             Guna2Button buttonAdd = new Guna2Button
             {
-                Text = "Add new account\n\n\n--/--\n**** **** **** ****",
+                Text = "Add new account\n\n\n\n__________________________________",
                 TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
                 ForeColor = System.Drawing.Color.White,
                 Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
@@ -151,7 +151,7 @@ namespace budget_management_app
         // Event handler for account buttons' Click event
         private void AccountButton_Click(object sender, EventArgs e)
         {
-            AccountForm accountForm = new AccountForm();
+            AccountsForm accountForm = new AccountsForm();
             accountForm.Show();
             this.Hide();
         }
@@ -380,7 +380,7 @@ namespace budget_management_app
         
         private void accountsButton_Click(object sender, EventArgs e)
         {
-            AccountForm acc = new AccountForm();
+            AccountsForm acc = new AccountsForm();
             acc.Show();
             this.Hide();
         }

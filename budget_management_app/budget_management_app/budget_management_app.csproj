@@ -92,11 +92,11 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountForm.cs">
+    <Compile Include="AccountsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountForm.Designer.cs">
-      <DependentUpon>AccountForm.cs</DependentUpon>
+    <Compile Include="AccountsForm.Designer.cs">
+      <DependentUpon>AccountsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAccountForm.cs">
       <SubType>Form</SubType>
@@ -189,14 +189,14 @@
     <Compile Include="TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateAccountForm.cs">
+    <Compile Include="AccountStatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateAccountForm.Designer.cs">
-      <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    <Compile Include="AccountStatisticsForm.Designer.cs">
+      <DependentUpon>AccountStatisticsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccountForm.resx">
-      <DependentUpon>AccountForm.cs</DependentUpon>
+    <EmbeddedResource Include="AccountsForm.resx">
+      <DependentUpon>AccountsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAccountForm.resx">
       <DependentUpon>AddAccountForm.cs</DependentUpon>
@@ -247,8 +247,8 @@
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateAccountForm.resx">
-      <DependentUpon>UpdateAccountForm.cs</DependentUpon>
+    <EmbeddedResource Include="AccountStatisticsForm.resx">
+      <DependentUpon>AccountStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Budget_managementDataSet.xsc">
       <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>

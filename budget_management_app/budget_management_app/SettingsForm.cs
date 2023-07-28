@@ -180,7 +180,7 @@ namespace budget_management_app
                         dbcon.CloseCon();
                         MessageBox.Show("Your account has been successfully deleted.", "Deleting your account", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
-                        AccountForm acc = new AccountForm();
+                        AccountsForm acc = new AccountsForm();
                         acc.Show();
                         this.Hide();
                     }
