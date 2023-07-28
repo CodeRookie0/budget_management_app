@@ -42,6 +42,7 @@ namespace budget_management_app
                 // Prepare the SQL query to retrieve user data based on email and password
                 string loginQuery = "SELECT * FROM [User] WHERE UserEmail = @UserEmail AND UserPasswd = @UserPasswd";
                 SqlCommand command = new SqlCommand(loginQuery, dbConnection.GetCon());
+                dbConnection.OpenCon();
 
                 // Add parameters to the SQL query to prevent SQL injection
                 command.Parameters.AddWithValue("@UserEmail", emailTextBox.Text);
@@ -76,6 +77,10 @@ namespace budget_management_app
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.CloseCon();
             }
         }
 

@@ -73,12 +73,14 @@ namespace budget_management_app
 
                 addButton.Click += AddAccountButton_Click;
                 accountsFlowLayoutPanel.Controls.Add(addButton);
-
-                dbConnection.CloseCon();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.CloseCon();
             }
         }
 

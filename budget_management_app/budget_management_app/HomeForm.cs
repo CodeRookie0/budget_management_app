@@ -53,61 +53,93 @@ namespace budget_management_app
         // Method to load the user name and display a greeting message
         private void LoadUserName()
         {
-            // SQL query to retrieve the user's name from the database
-            string selectQuery = "SELECT UserName FROM [User] WHERE UserId = @UserId";
-            SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            dbConnection.OpenCon();
-
-            // Execute the query and get the user name
-            string userName = command.ExecuteScalar() as string;
-
-            // Set the greeting message based on whether the user name is available
-            if (!string.IsNullOrEmpty(userName))
+            try
             {
-                hiLabel.Text = "Hi, " + userName.Trim();
-            }
-            else
-            {
-                hiLabel.Text = "Hi, User";
-            }
+                // SQL query to retrieve the user's name from the database
+                string selectQuery = "SELECT UserName FROM [User] WHERE UserId = @UserId";
+                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
 
-            dbConnection.CloseCon();
+                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                dbConnection.OpenCon();
+
+                // Execute the query and get the user name
+                string userName = command.ExecuteScalar() as string;
+
+                // Set the greeting message based on whether the user name is available
+                if (!string.IsNullOrEmpty(userName))
+                {
+                    hiLabel.Text = "Hi, " + userName.Trim();
+                }
+                else
+                {
+                    hiLabel.Text = "Hi, User";
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.CloseCon();
+            }
         }
 
         // Method to load account data and display it as buttons on the form
         private void LoadAccountData()
         {
-            // SQL query to retrieve account data from the database
-            string selectQuery = "SELECT AccName, AccBalance, Currency.CurrCode FROM Account JOIN Currency ON Account.AccCurrId = Currency.CurrId WHERE UserId=@UserId";
-            SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-
-            // Add parameters to the SQL query to prevent SQL injection
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-
-            dbConnection.OpenCon();
-
-            // Create a data adapter and fill a data table with the results from the query
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-
-            // Iterate through the rows of the DataTable to create account buttons
-            foreach (DataRow row in table.Rows)
+            try
             {
-                // Extract relevant account data from the current row
-                string accBalance = row["AccBalance"].ToString().Trim();
-                string currCode = row["CurrCode"].ToString();
-                string accName = row["AccName"].ToString().Trim();
+                // SQL query to retrieve account data from the database
+                string selectQuery = "SELECT AccName, AccBalance, Currency.CurrCode FROM Account JOIN Currency ON Account.AccCurrId = Currency.CurrId WHERE UserId=@UserId";
+                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
 
-                // Create a string to display account information on the button
-                string accInfo = $"\n{accName}\n{accBalance}  {currCode}\n\n\n__________________________________";
+                // Add parameters to the SQL query to prevent SQL injection
+                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
 
-                // Create a Guna2Button with the account information
-                Guna2Button button = new Guna2Button
+                dbConnection.OpenCon();
+
+                // Create a data adapter and fill a data table with the results from the query
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                // Iterate through the rows of the DataTable to create account buttons
+                foreach (DataRow row in table.Rows)
                 {
-                    Text = accInfo.Trim(),
+                    // Extract relevant account data from the current row
+                    string accBalance = row["AccBalance"].ToString().Trim();
+                    string currCode = row["CurrCode"].ToString();
+                    string accName = row["AccName"].ToString().Trim();
+
+                    // Create a string to display account information on the button
+                    string accInfo = $"\n{accName}\n{accBalance}  {currCode}\n\n\n__________________________________";
+
+                    // Create a Guna2Button with the account information
+                    Guna2Button button = new Guna2Button
+                    {
+                        Text = accInfo.Trim(),
+                        TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
+                        ForeColor = System.Drawing.Color.White,
+                        Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
+                        BorderRadius = 20,
+                        FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
+                        Width = flowLayoutPanel_account.Width - 200,
+                        Height = flowLayoutPanel_account.Height - 30,
+                        Margin = new Padding(15, 0, 15, 0)
+                    };
+
+                    // Attach the AccountButton_Click event handler to the button's Click event
+                    button.Click += AccountButton_Click;
+
+                    // Add the button to the flowLayoutPanel_account
+                    flowLayoutPanel_account.Controls.Add(button);
+                }
+
+                // Create an "Add new account" button
+                Guna2Button buttonAdd = new Guna2Button
+                {
+                    Text = "Add new account\n\n\n\n__________________________________",
                     TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
                     ForeColor = System.Drawing.Color.White,
                     Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
@@ -115,37 +147,23 @@ namespace budget_management_app
                     FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
                     Width = flowLayoutPanel_account.Width - 200,
                     Height = flowLayoutPanel_account.Height - 30,
-                    Margin=new Padding(15,0,15,0)
+                    Margin = new Padding(15, 0, 15, 0)
                 };
 
-                // Attach the AccountButton_Click event handler to the button's Click event
-                button.Click += AccountButton_Click;
+                // Attach the AddAccountButton_Click event handler to the button's Click event
+                buttonAdd.Click += AddAccountButton_Click;
 
-                // Add the button to the flowLayoutPanel_account
-                flowLayoutPanel_account.Controls.Add(button);
+                // Add the "Add new account" button to the flowLayoutPanel_account
+                flowLayoutPanel_account.Controls.Add(buttonAdd);
             }
-
-            // Create an "Add new account" button
-            Guna2Button buttonAdd = new Guna2Button
+            catch(Exception ex)
             {
-                Text = "Add new account\n\n\n\n__________________________________",
-                TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
-                ForeColor = System.Drawing.Color.White,
-                Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
-                BorderRadius = 20,
-                FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
-                Width = flowLayoutPanel_account.Width - 200,
-                Height = flowLayoutPanel_account.Height - 30,
-                Margin = new Padding(15, 0, 15, 0)
-            };
-
-            // Attach the AddAccountButton_Click event handler to the button's Click event
-            buttonAdd.Click += AddAccountButton_Click;
-
-            // Add the "Add new account" button to the flowLayoutPanel_account
-            flowLayoutPanel_account.Controls.Add(buttonAdd);
-
-            dbConnection.CloseCon();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.CloseCon();
+            }
         }
 
         // Event handler for account buttons' Click event
@@ -194,8 +212,6 @@ namespace budget_management_app
                 incomeCommand.Parameters.AddWithValue("@CurrentYear", currentYear);
                 totalIncome = Convert.ToDecimal(incomeCommand.ExecuteScalar());
 
-                dbConnection.CloseCon();
-
                 // Clear existing series from the pie chart
                 pieChart1.Series.Clear();
 
@@ -239,67 +255,83 @@ namespace budget_management_app
             {
                 MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                dbConnection.CloseCon();
+            }
         }
 
         // Method to load last week's transaction data and display it as a chart
         private void LoadLastWeekTransactions()
         {
-            // SQL query to retrieve last week's expenses data from the database
-            string query_exp = "SELECT ExpDate, SUM(Expenses.ExpAmount) AS TotalAmount " +
-                   "FROM Expenses " +
-                   "WHERE Expenses.UserId = @UserId " +
-                   "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
-                   "GROUP BY ExpDate";
-
-            // Create a SqlCommand with the query and database connection
-            SqlCommand command_exp = new SqlCommand(query_exp, dbConnection.GetCon());
-            command_exp.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command_exp.Parameters.AddWithValue("@StartDate", DateTime.Today.AddDays(-6));
-
-            // Create a data adapter to retrieve data from the database
-            SqlDataAdapter adapter_exp = new SqlDataAdapter(command_exp);
-
-            // Create a DataTable to hold the retrieved data
-            DataTable dataTable_exp = new DataTable();
-            adapter_exp.Fill(dataTable_exp);
-
-            // Clear existing points from the chart series
-            lastWeekExpensesChart.Series["Expenses"].Points.Clear();
-            lastWeekExpensesChart.Series["Default"].Points.Clear();
-
-            double max_amount = 0;
-
-            // Define the start and end dates for the last week
-            DateTime startDate = DateTime.Today.AddDays(-6);
-            DateTime endDate = DateTime.Today;
-
-            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            try
             {
-                // Select the row from the DataTable that matches the current date
-                DataRow[] rows = dataTable_exp.Select("ExpDate = #" + date.ToString("MM/dd/yyyy") + "#");
+                // SQL query to retrieve last week's expenses data from the database
+                string query_exp = "SELECT ExpDate, SUM(Expenses.ExpAmount) AS TotalAmount " +
+                       "FROM Expenses " +
+                       "WHERE Expenses.UserId = @UserId " +
+                       "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
+                       "GROUP BY ExpDate";
 
-                // Get the total amount for the current date (if available)
-                double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
+                // Create a SqlCommand with the query and database connection
+                SqlCommand command_exp = new SqlCommand(query_exp, dbConnection.GetCon());
+                command_exp.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                command_exp.Parameters.AddWithValue("@StartDate", DateTime.Today.AddDays(-6));
+                dbConnection.OpenCon();
 
-                // Add the amount as a data point to the "Expenses" series on the chart
-                lastWeekExpensesChart.Series["Expenses"].Points.Add(amount);
+                // Create a data adapter to retrieve data from the database
+                SqlDataAdapter adapter_exp = new SqlDataAdapter(command_exp);
 
-                // Set a custom tooltip for the data point
-                int index = lastWeekExpensesChart.Series["Expenses"].Points.Count - 1;
-                lastWeekExpensesChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString());
+                // Create a DataTable to hold the retrieved data
+                DataTable dataTable_exp = new DataTable();
+                adapter_exp.Fill(dataTable_exp);
 
-                // Find the maximum amount for scaling the "Default" series on the chart
-                if (amount > max_amount)
+                // Clear existing points from the chart series
+                lastWeekExpensesChart.Series["Expenses"].Points.Clear();
+                lastWeekExpensesChart.Series["Default"].Points.Clear();
+
+                double max_amount = 0;
+
+                // Define the start and end dates for the last week
+                DateTime startDate = DateTime.Today.AddDays(-6);
+                DateTime endDate = DateTime.Today;
+
+                for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
                 {
-                    max_amount = amount;
+                    // Select the row from the DataTable that matches the current date
+                    DataRow[] rows = dataTable_exp.Select("ExpDate = #" + date.ToString("MM/dd/yyyy") + "#");
+
+                    // Get the total amount for the current date (if available)
+                    double amount = rows.Length > 0 ? Convert.ToDouble(rows[0]["TotalAmount"]) : 0;
+
+                    // Add the amount as a data point to the "Expenses" series on the chart
+                    lastWeekExpensesChart.Series["Expenses"].Points.Add(amount);
+
+                    // Set a custom tooltip for the data point
+                    int index = lastWeekExpensesChart.Series["Expenses"].Points.Count - 1;
+                    lastWeekExpensesChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString());
+
+                    // Find the maximum amount for scaling the "Default" series on the chart
+                    if (amount > max_amount)
+                    {
+                        max_amount = amount;
+                    }
+                }
+
+                // Calculate and add points to the "Default" series for visual scaling
+                for (int i = 0; i < lastWeekExpensesChart.Series["Expenses"].Points.Count; i++)
+                {
+                    double amount = lastWeekExpensesChart.Series["Expenses"].Points[i].YValues[0];
+                    lastWeekExpensesChart.Series["Default"].Points.Add(max_amount * 1.1 - amount);
                 }
             }
-
-            // Calculate and add points to the "Default" series for visual scaling
-            for (int i = 0; i < lastWeekExpensesChart.Series["Expenses"].Points.Count; i++)
+            catch(Exception ex)
             {
-                double amount = lastWeekExpensesChart.Series["Expenses"].Points[i].YValues[0];
-                lastWeekExpensesChart.Series["Default"].Points.Add(max_amount * 1.1 - amount);
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.CloseCon();
             }
         }
 
@@ -329,45 +361,54 @@ namespace budget_management_app
         // Method to load the top 7 transactions and display them in the DataGridView_top7trns
         private void LoadTop7Transactions()
         {
-            // SQL query to retrieve the top 7 transactions for the current user
-            string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM (SELECT Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount, Income.InDate AS DateTrns" +
-            " FROM Income JOIN Account ON Account.AccId = Income.AccId JOIN Category ON Category.CatId = Income.CatId" +
-            " WHERE Income.UserId = @UserId" +
-            " UNION ALL SELECT Account.AccName, Category.CatName,  '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, Savings.SavDate AS DateTrns" +
-            " FROM Savings JOIN Account ON Account.AccId = Savings.AccId JOIN Category ON Category.CatId = Savings.CatId WHERE Savings.UserId = @UserId" +
-            " UNION ALL SELECT Account.AccName, Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, Expenses.ExpDate AS DateTrns" +
-            " FROM Expenses JOIN Account ON Account.AccId = Expenses.AccId JOIN Category ON Category.CatId = Expenses.CatId WHERE Expenses.UserId = @UserId" +
-            ") AS CombinedData ORDER BY DateTrns DESC";
-
-            dbConnection.OpenCon();
-
-            // Create a SqlCommand with the query and database connection
-            SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-
-            // Create a data adapter to retrieve data from the database
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-            // Create a DataTable to hold the retrieved data
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-
-            // Trim whitespace from each cell in the DataTable
-            foreach (DataRow row in table.Rows)
+            try
             {
-                for (int i = 0; i < table.Columns.Count; i++)
+                // SQL query to retrieve the top 7 transactions for the current user
+                string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM (SELECT Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount, Income.InDate AS DateTrns" +
+                " FROM Income JOIN Account ON Account.AccId = Income.AccId JOIN Category ON Category.CatId = Income.CatId" +
+                " WHERE Income.UserId = @UserId" +
+                " UNION ALL SELECT Account.AccName, Category.CatName,  '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, Savings.SavDate AS DateTrns" +
+                " FROM Savings JOIN Account ON Account.AccId = Savings.AccId JOIN Category ON Category.CatId = Savings.CatId WHERE Savings.UserId = @UserId" +
+                " UNION ALL SELECT Account.AccName, Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, Expenses.ExpDate AS DateTrns" +
+                " FROM Expenses JOIN Account ON Account.AccId = Expenses.AccId JOIN Category ON Category.CatId = Expenses.CatId WHERE Expenses.UserId = @UserId" +
+                ") AS CombinedData ORDER BY DateTrns DESC";
+
+                dbConnection.OpenCon();
+
+                // Create a SqlCommand with the query and database connection
+                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
+                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+
+                // Create a data adapter to retrieve data from the database
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                // Create a DataTable to hold the retrieved data
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                // Trim whitespace from each cell in the DataTable
+                foreach (DataRow row in table.Rows)
                 {
-                    if (row[i] != null && row[i] != DBNull.Value)
+                    for (int i = 0; i < table.Columns.Count; i++)
                     {
-                        row[i] = row[i].ToString().Trim();
+                        if (row[i] != null && row[i] != DBNull.Value)
+                        {
+                            row[i] = row[i].ToString().Trim();
+                        }
                     }
                 }
+
+                // Bind the DataTable to the DataGridView_top7trns to display the top 7 transactions
+                DataGridView_top7trns.DataSource = table;
             }
-
-            // Bind the DataTable to the DataGridView_top7trns to display the top 7 transactions
-            DataGridView_top7trns.DataSource = table;
-
-            dbConnection.CloseCon();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbConnection.CloseCon();
+            }
         }
 
         // Event handlers for various button clicks to navigate to other forms
