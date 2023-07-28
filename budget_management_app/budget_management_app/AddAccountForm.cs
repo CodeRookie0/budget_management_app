@@ -137,7 +137,7 @@ namespace budget_management_app
 
                 if (IsAccountNameExist(accountNameTextBox.Text))
                 {
-                    MessageBox.Show("The entered Account Name already exists. Please choose a different Account Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An account with the same name already exists. Please choose a different Account Name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     accountNameTextBox.Text = "";
                     return;
                 }

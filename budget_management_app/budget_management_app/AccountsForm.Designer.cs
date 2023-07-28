@@ -75,7 +75,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(579, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tap on an account to view statistics or to change information";
+            this.label1.Text = "Click on an account to change information anout it or delete it";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // AccountsForm

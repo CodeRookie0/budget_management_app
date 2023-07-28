@@ -143,6 +143,7 @@
             this.accountNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.accountNameTextBox.HoverState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.accountNameTextBox.Location = new System.Drawing.Point(47, 154);
+            this.accountNameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.accountNameTextBox.Name = "accountNameTextBox";
             this.accountNameTextBox.PasswordChar = '\0';
             this.accountNameTextBox.PlaceholderText = "";
@@ -198,7 +199,7 @@
             this.addButton.Location = new System.Drawing.Point(210, 614);
             this.addButton.Name = "addButton";
             this.addButton.ShadowDecoration.BorderRadius = 20;
-            this.addButton.ShadowDecoration.Color = System.Drawing.Color.White;
+            this.addButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.addButton.ShadowDecoration.Enabled = true;
             this.addButton.Size = new System.Drawing.Size(161, 58);
             this.addButton.TabIndex = 69;

@@ -123,8 +123,8 @@ namespace budget_management_app
         private void AccountButton_Click(string accountName)
         {
             selectedAccountName = accountName;
-            AccountStatisticsForm updateAccount = new AccountStatisticsForm();
-            updateAccount.Show();
+            EditAccountForm editAccount = new EditAccountForm();
+            editAccount.Show();
             this.Hide();
         }
     }

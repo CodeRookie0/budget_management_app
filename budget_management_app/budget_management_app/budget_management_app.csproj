@@ -189,11 +189,11 @@
     <Compile Include="TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountStatisticsForm.cs">
+    <Compile Include="EditAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountStatisticsForm.Designer.cs">
-      <DependentUpon>AccountStatisticsForm.cs</DependentUpon>
+    <Compile Include="EditAccountForm.Designer.cs">
+      <DependentUpon>EditAccountForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AccountsForm.resx">
       <DependentUpon>AccountsForm.cs</DependentUpon>
@@ -247,8 +247,8 @@
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AccountStatisticsForm.resx">
-      <DependentUpon>AccountStatisticsForm.cs</DependentUpon>
+    <EmbeddedResource Include="EditAccountForm.resx">
+      <DependentUpon>EditAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Budget_managementDataSet.xsc">
       <DependentUpon>Budget_managementDataSet.xsd</DependentUpon>
