@@ -86,31 +86,37 @@ namespace budget_management_app
         private bool IsUsernameAvailable(string userName)
         {
             string checkQuery = "SELECT COUNT(*) FROM [User] WHERE UserName=@UserName";
-            SqlCommand checkCommand = new SqlCommand(checkQuery, dbConnection.GetCon());
-            checkCommand.Parameters.AddWithValue("@UserName", userName);
-            int count = (int)checkCommand.ExecuteScalar();
-            return count == 0;
+            using (SqlCommand checkCommand = new SqlCommand(checkQuery, dbConnection.GetCon()))
+            {
+                checkCommand.Parameters.AddWithValue("@UserName", userName);
+                int count = (int)checkCommand.ExecuteScalar();
+                return count == 0;
+            }
         }
 
         // Check if the entered email is available in the database
         private bool IsEmailAvailable(string userEmail)
         {
             string checkQuery = "SELECT COUNT(*) FROM [User] WHERE UserEmail=@UserEmail";
-            SqlCommand checkCommand = new SqlCommand(checkQuery, dbConnection.GetCon());
-            checkCommand.Parameters.AddWithValue("@UserEmail", userEmail);
-            int count = (int)checkCommand.ExecuteScalar();
-            return count == 0;
+            using (SqlCommand checkCommand = new SqlCommand(checkQuery, dbConnection.GetCon()))
+            {
+                checkCommand.Parameters.AddWithValue("@UserEmail", userEmail);
+                int count = (int)checkCommand.ExecuteScalar();
+                return count == 0;
+            }
         }
 
         // Insert a new user record into the database
         private void InsertNewUser()
         {
             string insertQuery = "INSERT INTO [User] (UserName, UserEmail, UserPasswd) VALUES (@UserName, @UserEmail, @UserPasswd)";
-            SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection.GetCon());
-            insertCommand.Parameters.AddWithValue("@UserName", usernameTextBox.Text);
-            insertCommand.Parameters.AddWithValue("@UserEmail", emailTextBox.Text);
-            insertCommand.Parameters.AddWithValue("@UserPasswd", passwordTextBox.Text);
-            insertCommand.ExecuteNonQuery();
+            using (SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection.GetCon()))
+            {
+                insertCommand.Parameters.AddWithValue("@UserName", usernameTextBox.Text);
+                insertCommand.Parameters.AddWithValue("@UserEmail", emailTextBox.Text);
+                insertCommand.Parameters.AddWithValue("@UserPasswd", passwordTextBox.Text);
+                insertCommand.ExecuteNonQuery();
+            }
         }
 
         // Create a default account for the new user
@@ -120,18 +126,22 @@ namespace budget_management_app
             int userId = GetUserIdByUsername(usernameTextBox.Text);
 
             string createAccountQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (@UserId, 'Wallet', 0.00, 1)";
-            SqlCommand createAccountCommand = new SqlCommand(createAccountQuery, dbConnection.GetCon());
-            createAccountCommand.Parameters.AddWithValue("@UserId", userId);
-            createAccountCommand.ExecuteNonQuery();
+            using (SqlCommand createAccountCommand = new SqlCommand(createAccountQuery, dbConnection.GetCon()))
+            {
+                createAccountCommand.Parameters.AddWithValue("@UserId", userId);
+                createAccountCommand.ExecuteNonQuery();
+            }
         }
 
         // Get the UserId of a user by their username
         private int GetUserIdByUsername(string userName)
         {
             string getUserIdQuery = "SELECT UserId FROM [User] WHERE UserName=@UserName";
-            SqlCommand getUserIdCommand = new SqlCommand(getUserIdQuery, dbConnection.GetCon());
-            getUserIdCommand.Parameters.AddWithValue("@UserName", userName);
-            return (int)getUserIdCommand.ExecuteScalar();
+            using (SqlCommand getUserIdCommand = new SqlCommand(getUserIdQuery, dbConnection.GetCon()))
+            {
+                getUserIdCommand.Parameters.AddWithValue("@UserName", userName);
+                return (int)getUserIdCommand.ExecuteScalar();
+            }
         }
 
         // Event handlers for mouse enter and leave on the "Sign Up" button

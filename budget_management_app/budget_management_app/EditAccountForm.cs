@@ -32,37 +32,39 @@ namespace budget_management_app
             {
                 // SQL query to retrieve account data using its name
                 string selectQuery = "SELECT AccId, AccCurrId, AccBalance, AccName FROM Account WHERE AccName = @AccountName";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
-                dbConnection.OpenCon();
-                SqlDataReader reader = command.ExecuteReader();
-
-                // Read and populate the account data from the database
-                while (reader.Read())
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    accountId = reader.GetInt32(0);
-                    startBalanceTextBox.Text = reader.GetDecimal(2).ToString();
-                    currencyId = reader.GetInt32(1);
-                    accountNameTextBox.Text = reader.GetString(3).Trim();
-                    accountNameLabel.Text = reader.GetString(3).Trim();
+                    command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
+                    dbConnection.OpenCon();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Read and populate the account data from the database
+                        while (reader.Read())
+                        {
+                            accountId = reader.GetInt32(0);
+                            startBalanceTextBox.Text = reader.GetDecimal(2).ToString();
+                            currencyId = reader.GetInt32(1);
+                            accountNameTextBox.Text = reader.GetString(3).Trim();
+                            accountNameLabel.Text = reader.GetString(3).Trim();
+                        }
+                    }
                 }
-
-                reader.Close();
 
                 // SQL query to retrieve the currency code for the selected account
                 string selectQueryCurr = "SELECT CurrCode FROM Currency WHERE CurrId = @CurrencyId";
-                SqlCommand commandCurr = new SqlCommand(selectQueryCurr, dbConnection.GetCon());
-                commandCurr.Parameters.AddWithValue("@CurrencyId", currencyId);
-                SqlDataReader readerCurr = commandCurr.ExecuteReader();
-
-                // Read and display the currency code
-                while (readerCurr.Read())
+                using (SqlCommand commandCurr = new SqlCommand(selectQueryCurr, dbConnection.GetCon()))
                 {
-                    currencyCode = readerCurr.GetString(0).Trim();
-                    currencyLabel.Text = currencyCode;
+                    commandCurr.Parameters.AddWithValue("@CurrencyId", currencyId);
+                    using (SqlDataReader readerCurr = commandCurr.ExecuteReader())
+                    {
+                        // Read and display the currency code
+                        while (readerCurr.Read())
+                        {
+                            currencyCode = readerCurr.GetString(0).Trim();
+                            currencyLabel.Text = currencyCode;
+                        }
+                    }
                 }
-
-                readerCurr.Close();
             }
             catch (Exception ex)
             {
@@ -81,15 +83,18 @@ namespace budget_management_app
             {
                 // SQL query to retrieve currency names from the database
                 string selectQuery = "SELECT CurrName From Currency";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                dbConnection.OpenCon();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    string currencyName = reader.GetString(0).Trim();
-                    accountCurrencyComboBox.Items.Add(currencyName);
+                    dbConnection.OpenCon();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string currencyName = reader.GetString(0).Trim();
+                            accountCurrencyComboBox.Items.Add(currencyName);
+                        }
+                    }
                 }
-                reader.Close();
             }
             catch (Exception ex)
             {
@@ -144,21 +149,23 @@ namespace budget_management_app
 
                 // SQL query to update the account information in the database
                 string updateQuery = "UPDATE Account SET AccName = @AccName, AccBalance = @AccBalance, AccCurrId = @AccCurrId WHERE AccId = @AccId";
-                SqlCommand command = new SqlCommand(updateQuery, dbConnection.GetCon());
-                dbConnection.OpenCon();
+                using (SqlCommand command = new SqlCommand(updateQuery, dbConnection.GetCon()))
+                {
+                    dbConnection.OpenCon();
 
-                // Go back to the AccountsForm after successful update
-                command.Parameters.AddWithValue("@AccName", accountNameTextBox.Text);
-                command.Parameters.AddWithValue("@AccBalance", balance);
-                command.Parameters.AddWithValue("@AccCurrId", currencyId);
-                command.Parameters.AddWithValue("@AccId", accountId);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Account Updated Successfully", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Go back to the AccountsForm after successful update
+                    command.Parameters.AddWithValue("@AccName", accountNameTextBox.Text);
+                    command.Parameters.AddWithValue("@AccBalance", balance);
+                    command.Parameters.AddWithValue("@AccCurrId", currencyId);
+                    command.Parameters.AddWithValue("@AccId", accountId);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Account Updated Successfully", "Update Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                AccountsForm accounts = new AccountsForm();
-                accounts.Show();
-                this.Hide();
-                
+                    AccountsForm accounts = new AccountsForm();
+                    accounts.Show();
+                    this.Hide();
+                }
+
             }
             catch (Exception ex)
             {
@@ -180,17 +187,20 @@ namespace budget_management_app
                 {
                     // SQL query to get the currency ID based on the selected currency name
                     string selectQuery = "SELECT CurrId,CurrCode FROM Currency WHERE CurrName = @CurrencyName";
-                    SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                    command.Parameters.AddWithValue("@CurrencyName", selectedCurrencyName);
-                    dbConnection.OpenCon();
-
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                     {
-                        currencyId = reader.GetInt32(0);
-                        currencyLabel.Text = reader.GetString(1);
+                        command.Parameters.AddWithValue("@CurrencyName", selectedCurrencyName);
+                        dbConnection.OpenCon();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                currencyId = reader.GetInt32(0);
+                                currencyLabel.Text = reader.GetString(1);
+                            }
+                        }
                     }
-                    reader.Close();
                 }
             }
             catch (Exception ex)
@@ -214,31 +224,35 @@ namespace budget_management_app
                 {
                     // SQL query to delete the account
                     string deleteAccountQuery = "DELETE FROM Account WHERE AccName = @AccountName AND UserId = @UserId";
-                    SqlCommand command = new SqlCommand(deleteAccountQuery, dbConnection.GetCon());
-                    command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
-                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                    dbConnection.OpenCon();
-                    command.ExecuteNonQuery();
+                    using (SqlCommand command = new SqlCommand(deleteAccountQuery, dbConnection.GetCon()))
+                    {
+                        command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
+                        command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                        dbConnection.OpenCon();
+                        command.ExecuteNonQuery();
+                    }
 
                     // SQL queries to delete related transactions
                     string deleteExpensesQuery = "DELETE FROM Expenses WHERE AccId = @AccId AND UserId = @UserId";
                     string deleteIncomeQuery = "DELETE FROM Income WHERE AccId = @AccId AND UserId = @UserId";
                     string deleteSavingsQuery = "DELETE FROM Savings WHERE AccId = @AccId AND UserId = @UserId";
 
-                    SqlCommand commandExpenses = new SqlCommand(deleteExpensesQuery, dbConnection.GetCon());
-                    commandExpenses.Parameters.AddWithValue("@AccId", accountId);
-                    commandExpenses.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                    commandExpenses.ExecuteNonQuery();
+                    using (SqlCommand commandExpenses = new SqlCommand(deleteExpensesQuery, dbConnection.GetCon()))
+                    using (SqlCommand commandIncome = new SqlCommand(deleteIncomeQuery, dbConnection.GetCon()))
+                    using (SqlCommand commandSavings = new SqlCommand(deleteSavingsQuery, dbConnection.GetCon()))
+                    {
+                        commandExpenses.Parameters.AddWithValue("@AccId", accountId);
+                        commandExpenses.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                        commandIncome.Parameters.AddWithValue("@AccId", accountId);
+                        commandIncome.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                        commandSavings.Parameters.AddWithValue("@AccId", accountId);
+                        commandSavings.Parameters.AddWithValue("@UserId", LoginForm.userId);
 
-                    SqlCommand commandIncome = new SqlCommand(deleteIncomeQuery, dbConnection.GetCon());
-                    commandIncome.Parameters.AddWithValue("@AccId", accountId);
-                    commandIncome.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                    commandIncome.ExecuteNonQuery();
-
-                    SqlCommand commandSavings = new SqlCommand(deleteSavingsQuery, dbConnection.GetCon());
-                    commandSavings.Parameters.AddWithValue("@AccId", accountId);
-                    commandSavings.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                    commandSavings.ExecuteNonQuery();
+                        dbConnection.OpenCon();
+                        commandExpenses.ExecuteNonQuery();
+                        commandIncome.ExecuteNonQuery();
+                        commandSavings.ExecuteNonQuery();
+                    }
 
                     MessageBox.Show("Account was Deleted Successfully", "Delete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

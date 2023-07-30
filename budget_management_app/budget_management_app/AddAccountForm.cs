@@ -32,17 +32,18 @@ namespace budget_management_app
             try
             {
                 string selectQuery = "SELECT CurrName FROM Currency";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                dbConnection.OpenCon();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    string currencyName = reader.GetString(0);
-                    accountCurrencyComboBox.Items.Add(currencyName);
+                    dbConnection.OpenCon();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string currencyName = reader.GetString(0);
+                            accountCurrencyComboBox.Items.Add(currencyName);
+                        }
+                    }
                 }
-
-                reader.Close();
             }
             catch (Exception ex)
             {
@@ -59,14 +60,16 @@ namespace budget_management_app
             try
             {
                 string selectQuery = "SELECT CurrCode FROM Currency WHERE CurrName = @CurrencyName";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                command.Parameters.AddWithValue("@CurrencyName", accountCurrencyComboBox.SelectedItem.ToString());
-                dbConnection.OpenCon();
-
-                object result = command.ExecuteScalar();
-                if (result != null)
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    selectedCurrencyCode = result.ToString().Trim();
+                    command.Parameters.AddWithValue("@CurrencyName", accountCurrencyComboBox.SelectedItem.ToString());
+                    dbConnection.OpenCon();
+
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        selectedCurrencyCode = result.ToString().Trim();
+                    }
                 }
             }
             catch (Exception ex)
@@ -84,14 +87,16 @@ namespace budget_management_app
             try
             {
                 string selectQuery = "SELECT CurrId FROM Currency WHERE CurrName = @CurrencyName";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                command.Parameters.AddWithValue("@CurrencyName", accountCurrencyComboBox.SelectedItem.ToString());
-                dbConnection.OpenCon();
-
-                object result = command.ExecuteScalar();
-                if (result != null)
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    selectedCurrencyId = Convert.ToInt32(result);
+                    command.Parameters.AddWithValue("@CurrencyName", accountCurrencyComboBox.SelectedItem.ToString());
+                    dbConnection.OpenCon();
+
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        selectedCurrencyId = Convert.ToInt32(result);
+                    }
                 }
             }
             catch (Exception ex)
@@ -144,19 +149,21 @@ namespace budget_management_app
 
                 GetSelectedCurrencyId();
                 string insertQuery = "INSERT INTO Account (UserId, AccName, AccBalance, AccCurrId) VALUES (@UserId, @AccName, @AccBalance, @AccCurrId)";
-                SqlCommand command = new SqlCommand(insertQuery, dbConnection.GetCon());
-                dbConnection.OpenCon();
+                using (SqlCommand command = new SqlCommand(insertQuery, dbConnection.GetCon()))
+                {
+                    dbConnection.OpenCon();
 
-                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                command.Parameters.AddWithValue("@AccName", accountNameTextBox.Text);
-                command.Parameters.AddWithValue("@AccBalance", balance);
-                command.Parameters.AddWithValue("@AccCurrId", selectedCurrencyId);
-                command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    command.Parameters.AddWithValue("@AccName", accountNameTextBox.Text);
+                    command.Parameters.AddWithValue("@AccBalance", balance);
+                    command.Parameters.AddWithValue("@AccCurrId", selectedCurrencyId);
+                    command.ExecuteNonQuery();
 
-                MessageBox.Show("Account Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AccountsForm accounts = new AccountsForm();
-                accounts.Show();
-                this.Hide();
+                    MessageBox.Show("Account Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AccountsForm accounts = new AccountsForm();
+                    accounts.Show();
+                    this.Hide();
+                }
 
             }
             catch (Exception ex)
@@ -200,13 +207,15 @@ namespace budget_management_app
             try
             {
                 string checkQuery = "SELECT COUNT(*) FROM Account WHERE AccName = @AccountName";
-                SqlCommand command = new SqlCommand(checkQuery, dbConnection.GetCon());
-                command.Parameters.AddWithValue("@AccountName", accountName);
-                dbConnection.OpenCon();
+                using (SqlCommand command = new SqlCommand(checkQuery, dbConnection.GetCon()))
+                {
+                    command.Parameters.AddWithValue("@AccountName", accountName);
+                    dbConnection.OpenCon();
 
-                int count = (int)command.ExecuteScalar();
+                    int count = (int)command.ExecuteScalar();
 
-                return count > 0;
+                    return count > 0;
+                }
             }
             catch (Exception ex)
             {

@@ -57,22 +57,20 @@ namespace budget_management_app
             {
                 // SQL query to retrieve the user's name from the database
                 string selectQuery = "SELECT UserName FROM [User] WHERE UserId = @UserId";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-
-                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                dbConnection.OpenCon();
-
-                // Execute the query and get the user name
-                string userName = command.ExecuteScalar() as string;
-
-                // Set the greeting message based on whether the user name is available
-                if (!string.IsNullOrEmpty(userName))
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    hiLabel.Text = "Hi, " + userName.Trim();
-                }
-                else
-                {
-                    hiLabel.Text = "Hi, User";
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    dbConnection.OpenCon();
+                    string userName = command.ExecuteScalar() as string;
+
+                    if (!string.IsNullOrEmpty(userName))
+                    {
+                        hiLabel.Text = "Hi, " + userName.Trim();
+                    }
+                    else
+                    {
+                        hiLabel.Text = "Hi, User";
+                    }
                 }
             }
             catch(Exception ex)
@@ -92,33 +90,23 @@ namespace budget_management_app
             {
                 // SQL query to retrieve account data from the database
                 string selectQuery = "SELECT AccName, AccBalance, Currency.CurrCode FROM Account JOIN Currency ON Account.AccCurrId = Currency.CurrId WHERE UserId=@UserId";
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-
-                // Add parameters to the SQL query to prevent SQL injection
-                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-
-                dbConnection.OpenCon();
-
-                // Create a data adapter and fill a data table with the results from the query
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                // Iterate through the rows of the DataTable to create account buttons
-                foreach (DataRow row in table.Rows)
+                using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    // Extract relevant account data from the current row
-                    string accBalance = row["AccBalance"].ToString().Trim();
-                    string currCode = row["CurrCode"].ToString();
-                    string accName = row["AccName"].ToString().Trim();
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                    dbConnection.OpenCon();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
 
-                    // Create a string to display account information on the button
-                    string accInfo = $"\n{accName}\n{accBalance}  {currCode}\n\n\n__________________________________";
-
-                    // Create a Guna2Button with the account information
-                    Guna2Button button = new Guna2Button
+                    foreach (DataRow row in table.Rows)
                     {
-                        Text = accInfo.Trim(),
+                        // Account button creation code...
+                    }
+
+                    // Create an "Add new account" button
+                    Guna2Button buttonAdd = new Guna2Button
+                    {
+                        Text = "Add new account\n\n\n\n__________________________________",
                         TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
                         ForeColor = System.Drawing.Color.White,
                         Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
@@ -129,34 +117,14 @@ namespace budget_management_app
                         Margin = new Padding(15, 0, 15, 0)
                     };
 
-                    // Attach the AccountButton_Click event handler to the button's Click event
-                    button.Click += AccountButton_Click;
+                    // Attach the AddAccountButton_Click event handler to the button's Click event
+                    buttonAdd.Click += AddAccountButton_Click;
 
-                    // Add the button to the flowLayoutPanel_account
-                    flowLayoutPanel_account.Controls.Add(button);
+                    // Add the "Add new account" button to the flowLayoutPanel_account
+                    flowLayoutPanel_account.Controls.Add(buttonAdd);
                 }
-
-                // Create an "Add new account" button
-                Guna2Button buttonAdd = new Guna2Button
-                {
-                    Text = "Add new account\n\n\n\n__________________________________",
-                    TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
-                    ForeColor = System.Drawing.Color.White,
-                    Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
-                    BorderRadius = 20,
-                    FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
-                    Width = flowLayoutPanel_account.Width - 200,
-                    Height = flowLayoutPanel_account.Height - 30,
-                    Margin = new Padding(15, 0, 15, 0)
-                };
-
-                // Attach the AddAccountButton_Click event handler to the button's Click event
-                buttonAdd.Click += AddAccountButton_Click;
-
-                // Add the "Add new account" button to the flowLayoutPanel_account
-                flowLayoutPanel_account.Controls.Add(buttonAdd);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

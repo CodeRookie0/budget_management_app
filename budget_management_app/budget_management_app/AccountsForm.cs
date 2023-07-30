@@ -33,28 +33,34 @@ namespace budget_management_app
             {
                 // SQL query to fetch account data
                 string selectQuery = "SELECT AccName, AccBalance, Currency.CurrCode FROM Account JOIN Currency ON Account.AccCurrId = Currency.CurrId WHERE UserId=@UserId";
-
-                SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
-                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-
-                dbConnection.OpenCon();
-
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                foreach (DataRow row in dataTable.Rows)
+                using (SqlConnection connection = dbConnection.GetCon())
                 {
-                    string accountBalance = row["AccBalance"].ToString().Trim();
-                    string currencyCode = row["CurrCode"].ToString();
-                    string accountName = row["AccName"].ToString().Trim();
+                    connection.Open();
 
-                    string accountInfo = $"{accountName}\n{accountBalance}  {currencyCode}\n\n___________________________";
+                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserId", LoginForm.userId);
 
-                    Guna2Button accountButton = CreateAccountButton(accountInfo);
-                    accountButton.Click += (sender, e) => AccountButton_Click(accountName);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
 
-                    accountsFlowLayoutPanel.Controls.Add(accountButton);
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                string accountBalance = row["AccBalance"].ToString().Trim();
+                                string currencyCode = row["CurrCode"].ToString();
+                                string accountName = row["AccName"].ToString().Trim();
+
+                                string accountInfo = $"{accountName}\n{accountBalance}  {currencyCode}\n\n___________________________";
+
+                                Guna2Button accountButton = CreateAccountButton(accountInfo);
+                                accountButton.Click += (sender, e) => AccountButton_Click(accountName);
+
+                                accountsFlowLayoutPanel.Controls.Add(accountButton);
+                            }
+                        }
+                    }
                 }
 
                 // Button to add a new account
