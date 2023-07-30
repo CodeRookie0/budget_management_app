@@ -60,9 +60,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(207, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 32);
+            this.label2.Size = new System.Drawing.Size(163, 32);
             this.label2.TabIndex = 34;
-            this.label2.Text = "New Account";
+            this.label2.Text = "New account";
             // 
             // label5
             // 
@@ -176,6 +176,8 @@
             this.backButton.ImageSize = new System.Drawing.Size(50, 50);
             this.backButton.Location = new System.Drawing.Point(0, 1);
             this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
             this.backButton.Size = new System.Drawing.Size(58, 56);
             this.backButton.TabIndex = 67;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
