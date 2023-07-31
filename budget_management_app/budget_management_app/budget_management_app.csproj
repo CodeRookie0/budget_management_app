@@ -183,11 +183,11 @@
     <Compile Include="SubCategoryForm.Designer.cs">
       <DependentUpon>SubCategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TransactionForm.cs">
+    <Compile Include="TransactionsHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransactionForm.Designer.cs">
-      <DependentUpon>TransactionForm.cs</DependentUpon>
+    <Compile Include="TransactionsHistoryForm.Designer.cs">
+      <DependentUpon>TransactionsHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EditAccountForm.cs">
       <SubType>Form</SubType>
@@ -244,8 +244,8 @@
     <EmbeddedResource Include="SubCategoryForm.resx">
       <DependentUpon>SubCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransactionForm.resx">
-      <DependentUpon>TransactionForm.cs</DependentUpon>
+    <EmbeddedResource Include="TransactionsHistoryForm.resx">
+      <DependentUpon>TransactionsHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAccountForm.resx">
       <DependentUpon>EditAccountForm.cs</DependentUpon>

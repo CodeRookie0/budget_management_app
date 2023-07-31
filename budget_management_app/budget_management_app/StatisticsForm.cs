@@ -1698,7 +1698,7 @@ namespace budget_management_app
 
         private void Button_more_trns_Click(object sender, EventArgs e)
         {
-            TransactionForm trns = new TransactionForm();
+            TransactionsHistoryForm trns = new TransactionsHistoryForm();
             trns.Show();
             this.Hide();
         }

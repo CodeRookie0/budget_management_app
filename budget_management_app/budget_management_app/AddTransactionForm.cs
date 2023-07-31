@@ -333,7 +333,7 @@ namespace budget_management_app
 
                 MessageBox.Show("Transaction Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                TransactionForm transactions = new TransactionForm();
+                TransactionsHistoryForm transactions = new TransactionsHistoryForm();
                 transactions.Show();
                 this.Hide();
             }

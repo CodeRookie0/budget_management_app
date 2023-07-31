@@ -98,10 +98,38 @@ namespace budget_management_app
                     DataTable table = new DataTable();
                     adapter.Fill(table);
 
+                    // Iterate through the rows of the DataTable to create account buttons
                     foreach (DataRow row in table.Rows)
                     {
-                        // Account button creation code...
+                        // Extract relevant account data from the current row
+                        string accBalance = row["AccBalance"].ToString().Trim();
+                        string currCode = row["CurrCode"].ToString();
+                        string accName = row["AccName"].ToString().Trim();
+
+                        // Create a string to display account information on the button
+                        string accInfo = $"\n{accName}\n{accBalance}  {currCode}\n\n\n__________________________________";
+
+                        // Create a Guna2Button with the account information
+                        Guna2Button button = new Guna2Button
+                        {
+                            Text = accInfo.Trim(),
+                            TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
+                            ForeColor = System.Drawing.Color.White,
+                            Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
+                            BorderRadius = 20,
+                            FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
+                            Width = flowLayoutPanel_account.Width - 200,
+                            Height = flowLayoutPanel_account.Height - 30,
+                            Margin = new Padding(15, 0, 15, 0)
+                        };
+
+                        // Attach the AccountButton_Click event handler to the button's Click event
+                        button.Click += AccountButton_Click;
+
+                        // Add the button to the flowLayoutPanel_account
+                        flowLayoutPanel_account.Controls.Add(button);
                     }
+
 
                     // Create an "Add new account" button
                     Guna2Button buttonAdd = new Guna2Button
@@ -395,7 +423,7 @@ namespace budget_management_app
         }
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            TransactionForm trns = new TransactionForm();
+            TransactionsHistoryForm trns = new TransactionsHistoryForm();
             trns.Show();
             this.Hide();
         }
@@ -463,7 +491,7 @@ namespace budget_management_app
 
         private void historyButton_Click(object sender, EventArgs e)
         {
-            TransactionForm transactions = new TransactionForm();
+            TransactionsHistoryForm transactions = new TransactionsHistoryForm();
             transactions.Show();
             this.Hide();
         }
@@ -478,7 +506,7 @@ namespace budget_management_app
 
         private void moreTransactionsButton_Click(object sender, EventArgs e)
         {
-            TransactionForm transactions = new TransactionForm();
+            TransactionsHistoryForm transactions = new TransactionsHistoryForm();
             transactions.Show();
             this.Hide();
         }
