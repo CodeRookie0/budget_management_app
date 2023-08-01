@@ -1,6 +1,6 @@
 ﻿namespace budget_management_app
 {
-    partial class PasswdPromptForm
+    partial class PasswordPromptForm
     {
         /// <summary>
         /// Required designer variable.

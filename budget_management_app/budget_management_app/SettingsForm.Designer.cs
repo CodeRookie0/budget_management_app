@@ -28,340 +28,472 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label_exit = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox_email = new System.Windows.Forms.TextBox();
-            this.textBox_createdAt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Button_change_passwd = new Guna.UI2.WinForms.Guna2TileButton();
-            this.Button_logout = new Guna.UI2.WinForms.Guna2TileButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox_changePasswd1 = new System.Windows.Forms.TextBox();
+            this.userNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.emailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.createdAtTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.logoutButton = new Guna.UI2.WinForms.Guna2Button();
+            this.deleteAccountLabel = new System.Windows.Forms.Label();
+            this.commitButton = new Guna.UI2.WinForms.Guna2Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.passwordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.newPasswordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox_changePasswd2 = new System.Windows.Forms.TextBox();
-            this.label_delete_acc = new System.Windows.Forms.Label();
-            this.Button_commit = new Guna.UI2.WinForms.Guna2TileButton();
-            this.panel1.SuspendLayout();
+            this.confirmNewPasswordTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(13, 128);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(151)))), ((int)(((byte)(161)))));
+            this.label5.Location = new System.Drawing.Point(51, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 28);
+            this.label5.Size = new System.Drawing.Size(42, 17);
             this.label5.TabIndex = 45;
             this.label5.Text = "Email";
-            // 
-            // textBox_name
-            // 
-            this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.textBox_name.Location = new System.Drawing.Point(147, 74);
-            this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(421, 27);
-            this.textBox_name.TabIndex = 44;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(13, 73);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(151)))), ((int)(((byte)(161)))));
+            this.label1.Location = new System.Drawing.Point(51, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 28);
+            this.label1.Size = new System.Drawing.Size(71, 17);
             this.label1.TabIndex = 43;
             this.label1.Text = "UserName";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel1.Controls.Add(this.label_exit);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 50);
-            this.panel1.TabIndex = 48;
-            // 
-            // label_exit
-            // 
-            this.label_exit.AutoSize = true;
-            this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
-            this.label_exit.ForeColor = System.Drawing.Color.White;
-            this.label_exit.Location = new System.Drawing.Point(550, 0);
-            this.label_exit.Name = "label_exit";
-            this.label_exit.Size = new System.Drawing.Size(33, 36);
-            this.label_exit.TabIndex = 34;
-            this.label_exit.Text = "X";
-            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
-            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
-            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(237, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 29);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Settings";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel2.Location = new System.Drawing.Point(0, 728);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(583, 22);
-            this.panel2.TabIndex = 35;
-            // 
-            // textBox_email
-            // 
-            this.textBox_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_email.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.textBox_email.Location = new System.Drawing.Point(147, 129);
-            this.textBox_email.Name = "textBox_email";
-            this.textBox_email.ReadOnly = true;
-            this.textBox_email.Size = new System.Drawing.Size(421, 27);
-            this.textBox_email.TabIndex = 49;
-            // 
-            // textBox_createdAt
-            // 
-            this.textBox_createdAt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_createdAt.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.textBox_createdAt.Location = new System.Drawing.Point(147, 184);
-            this.textBox_createdAt.Name = "textBox_createdAt";
-            this.textBox_createdAt.ReadOnly = true;
-            this.textBox_createdAt.Size = new System.Drawing.Size(421, 27);
-            this.textBox_createdAt.TabIndex = 51;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(13, 183);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(151)))), ((int)(((byte)(161)))));
+            this.label3.Location = new System.Drawing.Point(370, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 28);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 50;
             this.label3.Text = "Created At";
             // 
-            // Button_change_passwd
+            // guna2Panel1
             // 
-            this.Button_change_passwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.Button_change_passwd.BorderThickness = 1;
-            this.Button_change_passwd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_change_passwd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_change_passwd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_change_passwd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_change_passwd.FillColor = System.Drawing.Color.Transparent;
-            this.Button_change_passwd.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            this.Button_change_passwd.ForeColor = System.Drawing.Color.Black;
-            this.Button_change_passwd.Location = new System.Drawing.Point(400, 549);
-            this.Button_change_passwd.Name = "Button_change_passwd";
-            this.Button_change_passwd.Size = new System.Drawing.Size(168, 30);
-            this.Button_change_passwd.TabIndex = 60;
-            this.Button_change_passwd.Text = "Change Password";
-            this.Button_change_passwd.Click += new System.EventHandler(this.Button_change_passwd_Click);
-            this.Button_change_passwd.MouseEnter += new System.EventHandler(this.Button_change_passwd_MouseEnter);
-            this.Button_change_passwd.MouseLeave += new System.EventHandler(this.Button_change_passwd_MouseLeave);
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Controls.Add(this.backButton);
+            this.guna2Panel1.Controls.Add(this.label8);
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(-1, -22);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 40);
+            this.guna2Panel1.Size = new System.Drawing.Size(547, 140);
+            this.guna2Panel1.TabIndex = 75;
             // 
-            // Button_logout
+            // backButton
             // 
-            this.Button_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Button_logout.BorderThickness = 1;
-            this.Button_logout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_logout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_logout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_logout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_logout.FillColor = System.Drawing.Color.Transparent;
-            this.Button_logout.Font = new System.Drawing.Font("Segoe UI Semibold", 14.75F, System.Drawing.FontStyle.Bold);
-            this.Button_logout.ForeColor = System.Drawing.Color.Black;
-            this.Button_logout.Location = new System.Drawing.Point(165, 634);
-            this.Button_logout.Name = "Button_logout";
-            this.Button_logout.Size = new System.Drawing.Size(250, 41);
-            this.Button_logout.TabIndex = 62;
-            this.Button_logout.Text = "LOGOUT";
-            this.Button_logout.Click += new System.EventHandler(this.Button_logout_Click);
-            this.Button_logout.MouseEnter += new System.EventHandler(this.Button_logout_MouseEnter);
-            this.Button_logout.MouseLeave += new System.EventHandler(this.Button_logout_MouseLeave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(13, 324);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(196, 28);
-            this.label4.TabIndex = 63;
-            this.label4.Text = "PASWWORD CHANGE";
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
+            this.backButton.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
+            this.backButton.Location = new System.Drawing.Point(0, 30);
+            this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
+            this.backButton.Size = new System.Drawing.Size(58, 56);
+            this.backButton.TabIndex = 68;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(220, 425);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(178, 25);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(337, 13);
-            this.label8.TabIndex = 65;
-            this.label8.Text = "_______________________________________________________";
+            this.label8.Size = new System.Drawing.Size(191, 66);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Settings";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox_changePasswd1
+            // userNameTextBox
             // 
-            this.textBox_changePasswd1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_changePasswd1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_changePasswd1.Location = new System.Drawing.Point(220, 398);
-            this.textBox_changePasswd1.Name = "textBox_changePasswd1";
-            this.textBox_changePasswd1.Size = new System.Drawing.Size(348, 22);
-            this.textBox_changePasswd1.TabIndex = 64;
-            this.textBox_changePasswd1.UseSystemPasswordChar = true;
+            this.userNameTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.userNameTextBox.BorderColor = System.Drawing.Color.Gainsboro;
+            this.userNameTextBox.BorderRadius = 20;
+            this.userNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.userNameTextBox.DefaultText = "";
+            this.userNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.userNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.userNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.userNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.userNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.userNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.userNameTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.userNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.userNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.userNameTextBox.Location = new System.Drawing.Point(54, 59);
+            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.PasswordChar = '\0';
+            this.userNameTextBox.PlaceholderText = "";
+            this.userNameTextBox.SelectedText = "";
+            this.userNameTextBox.Size = new System.Drawing.Size(431, 37);
+            this.userNameTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.userNameTextBox.TabIndex = 77;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.emailTextBox.BorderColor = System.Drawing.Color.Gainsboro;
+            this.emailTextBox.BorderRadius = 10;
+            this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.emailTextBox.DefaultText = "";
+            this.emailTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.emailTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.emailTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.emailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.emailTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.emailTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.emailTextBox.ForeColor = System.Drawing.Color.Black;
+            this.emailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.emailTextBox.Location = new System.Drawing.Point(54, 129);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.PasswordChar = '\0';
+            this.emailTextBox.PlaceholderText = "";
+            this.emailTextBox.ReadOnly = true;
+            this.emailTextBox.SelectedText = "";
+            this.emailTextBox.Size = new System.Drawing.Size(295, 37);
+            this.emailTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.emailTextBox.TabIndex = 78;
+            // 
+            // createdAtTextBox
+            // 
+            this.createdAtTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.createdAtTextBox.BorderColor = System.Drawing.Color.Gainsboro;
+            this.createdAtTextBox.BorderRadius = 10;
+            this.createdAtTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.createdAtTextBox.DefaultText = "";
+            this.createdAtTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.createdAtTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.createdAtTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.createdAtTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.createdAtTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.createdAtTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.createdAtTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.createdAtTextBox.ForeColor = System.Drawing.Color.Black;
+            this.createdAtTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.createdAtTextBox.Location = new System.Drawing.Point(373, 129);
+            this.createdAtTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.createdAtTextBox.Name = "createdAtTextBox";
+            this.createdAtTextBox.PasswordChar = '\0';
+            this.createdAtTextBox.PlaceholderText = "";
+            this.createdAtTextBox.ReadOnly = true;
+            this.createdAtTextBox.SelectedText = "";
+            this.createdAtTextBox.Size = new System.Drawing.Size(112, 37);
+            this.createdAtTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.createdAtTextBox.TabIndex = 79;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.BorderRadius = 20;
+            this.guna2Panel2.Controls.Add(this.label6);
+            this.guna2Panel2.Controls.Add(this.label2);
+            this.guna2Panel2.Controls.Add(this.logoutButton);
+            this.guna2Panel2.Controls.Add(this.deleteAccountLabel);
+            this.guna2Panel2.Controls.Add(this.commitButton);
+            this.guna2Panel2.Controls.Add(this.label4);
+            this.guna2Panel2.Controls.Add(this.label10);
+            this.guna2Panel2.Controls.Add(this.emailTextBox);
+            this.guna2Panel2.Controls.Add(this.passwordTextBox);
+            this.guna2Panel2.Controls.Add(this.createdAtTextBox);
+            this.guna2Panel2.Controls.Add(this.newPasswordTextBox);
+            this.guna2Panel2.Controls.Add(this.label1);
+            this.guna2Panel2.Controls.Add(this.label7);
+            this.guna2Panel2.Controls.Add(this.label5);
+            this.guna2Panel2.Controls.Add(this.userNameTextBox);
+            this.guna2Panel2.Controls.Add(this.confirmNewPasswordTextBox);
+            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.guna2Panel2.Location = new System.Drawing.Point(-1, 80);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.BorderRadius = 20;
+            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.guna2Panel2.ShadowDecoration.Depth = 20;
+            this.guna2Panel2.ShadowDecoration.Enabled = true;
+            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.guna2Panel2.Size = new System.Drawing.Size(536, 687);
+            this.guna2Panel2.TabIndex = 80;
+            this.guna2Panel2.UseTransparentBackground = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(23, 393);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 14.75F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(49, 260);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 28);
-            this.label6.TabIndex = 69;
-            this.label6.Text = "Password";
+            this.label6.Size = new System.Drawing.Size(173, 27);
+            this.label6.TabIndex = 103;
+            this.label6.Text = "Password change";
             // 
-            // label9
+            // label2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(23, 477);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(167, 28);
-            this.label9.TabIndex = 70;
-            this.label9.Text = "Confirm Password";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 8.75F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
+            this.label2.Location = new System.Drawing.Point(51, 296);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(327, 16);
+            this.label2.TabIndex = 102;
+            this.label2.Text = "Leave all password fields blank if you don\'t want to change it";
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.BackColor = System.Drawing.Color.Transparent;
+            this.logoutButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.logoutButton.BorderRadius = 15;
+            this.logoutButton.BorderThickness = 2;
+            this.logoutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.logoutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.logoutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.logoutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.logoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.logoutButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.Location = new System.Drawing.Point(46, 193);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.ShadowDecoration.BorderRadius = 20;
+            this.logoutButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.logoutButton.ShadowDecoration.Depth = 20;
+            this.logoutButton.ShadowDecoration.Enabled = true;
+            this.logoutButton.Size = new System.Drawing.Size(442, 47);
+            this.logoutButton.TabIndex = 101;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // deleteAccountLabel
+            // 
+            this.deleteAccountLabel.AutoSize = true;
+            this.deleteAccountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.deleteAccountLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Italic);
+            this.deleteAccountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.deleteAccountLabel.Location = new System.Drawing.Point(200, 641);
+            this.deleteAccountLabel.Name = "deleteAccountLabel";
+            this.deleteAccountLabel.Size = new System.Drawing.Size(135, 20);
+            this.deleteAccountLabel.TabIndex = 94;
+            this.deleteAccountLabel.Text = "DELETE ACCOUNT";
+            this.deleteAccountLabel.Click += new System.EventHandler(this.deleteAccountLabel_Click);
+            this.deleteAccountLabel.MouseEnter += new System.EventHandler(this.deleteAccountLabel_MouseEnter);
+            this.deleteAccountLabel.MouseLeave += new System.EventHandler(this.deleteAccountLabel_MouseLeave);
+            // 
+            // commitButton
+            // 
+            this.commitButton.BackColor = System.Drawing.Color.Transparent;
+            this.commitButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.commitButton.BorderRadius = 15;
+            this.commitButton.BorderThickness = 2;
+            this.commitButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.commitButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.commitButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.commitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.commitButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.commitButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
+            this.commitButton.ForeColor = System.Drawing.Color.White;
+            this.commitButton.Location = new System.Drawing.Point(46, 579);
+            this.commitButton.Name = "commitButton";
+            this.commitButton.ShadowDecoration.BorderRadius = 20;
+            this.commitButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.commitButton.Size = new System.Drawing.Size(442, 47);
+            this.commitButton.TabIndex = 89;
+            this.commitButton.Text = "Commit";
+            this.commitButton.Click += new System.EventHandler(this.commitButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(151)))), ((int)(((byte)(161)))));
+            this.label4.Location = new System.Drawing.Point(50, 334);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 17);
+            this.label4.TabIndex = 99;
+            this.label4.Text = "Password";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(151)))), ((int)(((byte)(161)))));
+            this.label10.Location = new System.Drawing.Point(50, 497);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(149, 17);
+            this.label10.TabIndex = 93;
+            this.label10.Text = "Confirm new password";
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.passwordTextBox.BorderColor = System.Drawing.Color.Gainsboro;
+            this.passwordTextBox.BorderRadius = 10;
+            this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.passwordTextBox.DefaultText = "";
+            this.passwordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.passwordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.passwordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.passwordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.passwordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.passwordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordTextBox.ForeColor = System.Drawing.Color.Black;
+            this.passwordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.passwordTextBox.Location = new System.Drawing.Point(54, 362);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '\0';
+            this.passwordTextBox.PlaceholderText = "";
+            this.passwordTextBox.SelectedText = "";
+            this.passwordTextBox.Size = new System.Drawing.Size(431, 37);
+            this.passwordTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.passwordTextBox.TabIndex = 95;
+            // 
+            // newPasswordTextBox
+            // 
+            this.newPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.newPasswordTextBox.BorderColor = System.Drawing.Color.Gainsboro;
+            this.newPasswordTextBox.BorderRadius = 10;
+            this.newPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.newPasswordTextBox.DefaultText = "";
+            this.newPasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.newPasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.newPasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.newPasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.newPasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.newPasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.newPasswordTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.newPasswordTextBox.ForeColor = System.Drawing.Color.Black;
+            this.newPasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.newPasswordTextBox.Location = new System.Drawing.Point(54, 446);
+            this.newPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newPasswordTextBox.Name = "newPasswordTextBox";
+            this.newPasswordTextBox.PasswordChar = '\0';
+            this.newPasswordTextBox.PlaceholderText = "";
+            this.newPasswordTextBox.SelectedText = "";
+            this.newPasswordTextBox.Size = new System.Drawing.Size(431, 37);
+            this.newPasswordTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.newPasswordTextBox.TabIndex = 96;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(220, 504);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(151)))), ((int)(((byte)(161)))));
+            this.label7.Location = new System.Drawing.Point(50, 418);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(337, 13);
-            this.label7.TabIndex = 72;
-            this.label7.Text = "_______________________________________________________";
+            this.label7.Size = new System.Drawing.Size(97, 17);
+            this.label7.TabIndex = 92;
+            this.label7.Text = "New password";
             // 
-            // textBox_changePasswd2
+            // confirmNewPasswordTextBox
             // 
-            this.textBox_changePasswd2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_changePasswd2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_changePasswd2.Location = new System.Drawing.Point(220, 477);
-            this.textBox_changePasswd2.Name = "textBox_changePasswd2";
-            this.textBox_changePasswd2.Size = new System.Drawing.Size(348, 22);
-            this.textBox_changePasswd2.TabIndex = 71;
-            this.textBox_changePasswd2.UseSystemPasswordChar = true;
-            // 
-            // label_delete_acc
-            // 
-            this.label_delete_acc.AutoSize = true;
-            this.label_delete_acc.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_delete_acc.ForeColor = System.Drawing.Color.Firebrick;
-            this.label_delete_acc.Location = new System.Drawing.Point(223, 692);
-            this.label_delete_acc.Name = "label_delete_acc";
-            this.label_delete_acc.Size = new System.Drawing.Size(135, 20);
-            this.label_delete_acc.TabIndex = 73;
-            this.label_delete_acc.Text = "DELETE ACCOUNT";
-            this.label_delete_acc.Click += new System.EventHandler(this.label_delete_acc_Click);
-            this.label_delete_acc.MouseEnter += new System.EventHandler(this.label_delete_acc_MouseEnter);
-            this.label_delete_acc.MouseLeave += new System.EventHandler(this.label_delete_acc_MouseLeave);
-            // 
-            // Button_commit
-            // 
-            this.Button_commit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.Button_commit.BorderThickness = 1;
-            this.Button_commit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_commit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_commit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_commit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_commit.FillColor = System.Drawing.Color.Transparent;
-            this.Button_commit.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            this.Button_commit.ForeColor = System.Drawing.Color.Black;
-            this.Button_commit.Location = new System.Drawing.Point(400, 244);
-            this.Button_commit.Name = "Button_commit";
-            this.Button_commit.Size = new System.Drawing.Size(168, 30);
-            this.Button_commit.TabIndex = 74;
-            this.Button_commit.Text = "Commit Changes";
-            this.Button_commit.Click += new System.EventHandler(this.Button_commit_Click);
-            this.Button_commit.MouseEnter += new System.EventHandler(this.Button_commit_MouseEnter);
-            this.Button_commit.MouseLeave += new System.EventHandler(this.Button_commit_MouseLeave);
+            this.confirmNewPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.confirmNewPasswordTextBox.BorderColor = System.Drawing.Color.Gainsboro;
+            this.confirmNewPasswordTextBox.BorderRadius = 10;
+            this.confirmNewPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.confirmNewPasswordTextBox.DefaultText = "";
+            this.confirmNewPasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.confirmNewPasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.confirmNewPasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.confirmNewPasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.confirmNewPasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.confirmNewPasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.confirmNewPasswordTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.confirmNewPasswordTextBox.ForeColor = System.Drawing.Color.Black;
+            this.confirmNewPasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.confirmNewPasswordTextBox.Location = new System.Drawing.Point(54, 521);
+            this.confirmNewPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.confirmNewPasswordTextBox.Name = "confirmNewPasswordTextBox";
+            this.confirmNewPasswordTextBox.PasswordChar = '●';
+            this.confirmNewPasswordTextBox.PlaceholderText = "";
+            this.confirmNewPasswordTextBox.SelectedText = "";
+            this.confirmNewPasswordTextBox.Size = new System.Drawing.Size(431, 37);
+            this.confirmNewPasswordTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.confirmNewPasswordTextBox.TabIndex = 97;
+            this.confirmNewPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(580, 750);
-            this.Controls.Add(this.Button_commit);
-            this.Controls.Add(this.label_delete_acc);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox_changePasswd2);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox_changePasswd1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.Button_logout);
-            this.Controls.Add(this.Button_change_passwd);
-            this.Controls.Add(this.textBox_createdAt);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox_email);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox_name);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.ClientSize = new System.Drawing.Size(535, 750);
+            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingsForm";
-            this.Load += new System.EventHandler(this.SettingsForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox_name;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label_exit;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox_email;
-        private System.Windows.Forms.TextBox textBox_createdAt;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TileButton Button_change_passwd;
-        private Guna.UI2.WinForms.Guna2TileButton Button_logout;
-        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox_changePasswd1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2TextBox userNameTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox emailTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox createdAtTextBox;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button commitButton;
+        private Guna.UI2.WinForms.Guna2TextBox newPasswordTextBox;
+        private System.Windows.Forms.Label deleteAccountLabel;
+        private Guna.UI2.WinForms.Guna2TextBox confirmNewPasswordTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox_changePasswd2;
-        private System.Windows.Forms.Label label_delete_acc;
-        private Guna.UI2.WinForms.Guna2TileButton Button_commit;
+        private Guna.UI2.WinForms.Guna2TextBox passwordTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button logoutButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button backButton;
     }
 }

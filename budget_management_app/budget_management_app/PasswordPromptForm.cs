@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class PasswdPromptForm : Form
+    public partial class PasswordPromptForm : Form
     {
         DBConnection dbcon=new DBConnection();
-        public PasswdPromptForm()
+        public PasswordPromptForm()
         {
             InitializeComponent();
         }
@@ -44,10 +44,10 @@ namespace budget_management_app
 
         private bool IsPasswordValid()
         {
-            string selectQuery = "SELECT UserPasswd FROM Users WHERE UserId = "+LoginForm.userId;
+            string selectQuery = "SELECT UserPasswd FROM [User] WHERE UserId = "+LoginForm.userId;
             SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
             dbcon.OpenCon();
-            string password = command.ExecuteScalar()?.ToString();
+            string password = command.ExecuteScalar()?.ToString().Trim();
             dbcon.CloseCon();
             return textBox_passwd.Text == password;
         }

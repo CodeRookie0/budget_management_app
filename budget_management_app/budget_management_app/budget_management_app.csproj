@@ -145,11 +145,11 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PasswdPromptForm.cs">
+    <Compile Include="PasswordPromptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PasswdPromptForm.Designer.cs">
-      <DependentUpon>PasswdPromptForm.cs</DependentUpon>
+    <Compile Include="PasswordPromptForm.Designer.cs">
+      <DependentUpon>PasswordPromptForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SignUpForm.cs">
       <SubType>Form</SubType>
@@ -216,8 +216,8 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PasswdPromptForm.resx">
-      <DependentUpon>PasswdPromptForm.cs</DependentUpon>
+    <EmbeddedResource Include="PasswordPromptForm.resx">
+      <DependentUpon>PasswordPromptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
