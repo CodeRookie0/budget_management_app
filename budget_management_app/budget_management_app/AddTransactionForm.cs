@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace budget_management_app
 {
@@ -25,7 +16,7 @@ namespace budget_management_app
         private int selectedUserSubCategoryId = 0;
         private int selectedSubCategoryId = 0;
         private int selectedCategoryId = 0;
-
+        
         // Store the last valid amount to revert if invalid input
         private string lastValidAmount = string.Empty;
 
