@@ -234,8 +234,9 @@ namespace budget_management_app
                 {
                     // Prompt the user for password before account deletion
                     PasswordPromptForm passwordPrompt = new PasswordPromptForm();
-                    passwordPrompt.ShowDialog();
+                    this.Hide();
                     DialogResult passwdResult = passwordPrompt.ShowDialog();
+                    this.Show();
                     if (passwdResult == DialogResult.OK)
                     {
                         // If the user confirms with password, proceed with account deletion

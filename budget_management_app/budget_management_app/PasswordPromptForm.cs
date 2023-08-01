@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace budget_management_app
 {
     public partial class PasswordPromptForm : Form
     {
-        DBConnection dbcon=new DBConnection();
+        // An instance of the DBConnection class to manage database connections
+        DBConnection dbConnection =new DBConnection();
         public PasswordPromptForm()
         {
             InitializeComponent();
         }
 
-        private void Button_ok_Click(object sender, EventArgs e)
+        // Event handler for the "OK" button click
+        private void okButton_Click(object sender, EventArgs e)
         {
+            // Check if the entered password is valid
             if (IsPasswordValid())
             {
                 this.DialogResult = DialogResult.OK;
@@ -28,43 +25,42 @@ namespace budget_management_app
             }
             else
             {
+                passwordTextBox.Text = "";
                 MessageBox.Show("Wrong password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void Button_ok_MouseEnter(object sender, EventArgs e)
-        {
-            Button_ok.BackColor = Color.FromArgb(212, 163, 115);
-        }
-
-        private void Button_ok_MouseLeave(object sender, EventArgs e)
-        {
-            Button_ok.BackColor = Color.FromArgb(250, 237, 205);
-        }
-
+        // Check if the entered password is valid by querying the database
         private bool IsPasswordValid()
         {
-            string selectQuery = "SELECT UserPasswd FROM [User] WHERE UserId = "+LoginForm.userId;
-            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
-            dbcon.OpenCon();
-            string password = command.ExecuteScalar()?.ToString().Trim();
-            dbcon.CloseCon();
-            return textBox_passwd.Text == password;
+            string selectQuery = "SELECT UserPasswd FROM [User] WHERE UserId = @UserId";
+            dbConnection.OpenCon();
+
+            // Use a parameterized SqlCommand to prevent SQL injection and fetch the password
+            using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
+            {
+                command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                string password = command.ExecuteScalar()?.ToString().Trim();
+                dbConnection.CloseCon();
+                return passwordTextBox.Text == password;
+            }
+            
         }
 
-        private void label_exit_Click(object sender, EventArgs e)
+        // Event handler for the "Exit" label click.
+        private void exitLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
-        private void label_exit_MouseEnter(object sender, EventArgs e)
+        private void exitLabel_MouseEnter(object sender, EventArgs e)
         {
-            label_exit.BackColor = Color.Red;
+            exitLabel.ForeColor = Color.FromArgb(233,31,52);
         }
 
-        private void label_exit_MouseLeave(object sender, EventArgs e)
+        private void exitLabel_MouseLeave(object sender, EventArgs e)
         {
-            label_exit.BackColor = Color.Black;
+            exitLabel.ForeColor = Color.FromArgb(125, 137, 149);
         }
     }
 }

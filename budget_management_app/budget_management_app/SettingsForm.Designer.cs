@@ -99,7 +99,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(-1, -22);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 40);
-            this.guna2Panel1.Size = new System.Drawing.Size(547, 140);
+            this.guna2Panel1.Size = new System.Drawing.Size(542, 140);
             this.guna2Panel1.TabIndex = 75;
             // 
             // backButton
@@ -121,22 +121,23 @@
             this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
             this.backButton.ImageSize = new System.Drawing.Size(50, 50);
-            this.backButton.Location = new System.Drawing.Point(0, 30);
+            this.backButton.Location = new System.Drawing.Point(0, 22);
             this.backButton.Name = "backButton";
             this.backButton.PressedColor = System.Drawing.Color.Transparent;
             this.backButton.PressedDepth = 0;
-            this.backButton.Size = new System.Drawing.Size(58, 56);
+            this.backButton.Size = new System.Drawing.Size(58, 68);
             this.backButton.TabIndex = 68;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // label8
             // 
+            this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Bold);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Variable Display", 23.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(178, 25);
+            this.label8.Location = new System.Drawing.Point(199, 34);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(191, 66);
+            this.label8.Size = new System.Drawing.Size(144, 43);
             this.label8.TabIndex = 15;
             this.label8.Text = "Settings";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,14 +244,14 @@
             this.guna2Panel2.Controls.Add(this.confirmNewPasswordTextBox);
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(-1, 80);
+            this.guna2Panel2.Location = new System.Drawing.Point(-1, 74);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 20;
             this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.guna2Panel2.ShadowDecoration.Depth = 20;
             this.guna2Panel2.ShadowDecoration.Enabled = true;
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.guna2Panel2.Size = new System.Drawing.Size(536, 687);
+            this.guna2Panel2.Size = new System.Drawing.Size(536, 693);
             this.guna2Panel2.TabIndex = 80;
             this.guna2Panel2.UseTransparentBackground = true;
             // 
@@ -330,11 +331,11 @@
             this.commitButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.commitButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
             this.commitButton.ForeColor = System.Drawing.Color.White;
-            this.commitButton.Location = new System.Drawing.Point(46, 579);
+            this.commitButton.Location = new System.Drawing.Point(298, 579);
             this.commitButton.Name = "commitButton";
             this.commitButton.ShadowDecoration.BorderRadius = 20;
             this.commitButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.commitButton.Size = new System.Drawing.Size(442, 47);
+            this.commitButton.Size = new System.Drawing.Size(190, 47);
             this.commitButton.TabIndex = 89;
             this.commitButton.Text = "Commit";
             this.commitButton.Click += new System.EventHandler(this.commitButton_Click);
@@ -467,6 +468,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SettingsForm";
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
