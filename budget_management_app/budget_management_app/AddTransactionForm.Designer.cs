@@ -52,7 +52,7 @@
             // 
             this.currencyLabel.AutoSize = true;
             this.currencyLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold);
-            this.currencyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.currencyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.currencyLabel.Location = new System.Drawing.Point(439, 554);
             this.currencyLabel.Name = "currencyLabel";
             this.currencyLabel.Size = new System.Drawing.Size(70, 37);
@@ -101,16 +101,16 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.guna2Panel1.BorderRadius = 40;
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.label8);
             this.guna2Panel1.Controls.Add(this.backButton);
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, -77);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.BorderRadius = 45;
-            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7);
             this.guna2Panel1.Size = new System.Drawing.Size(581, 165);
@@ -119,7 +119,7 @@
             // transactionAmountTextBox
             // 
             this.transactionAmountTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.transactionAmountTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.transactionAmountTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionAmountTextBox.BorderRadius = 20;
             this.transactionAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.transactionAmountTextBox.DefaultText = "0,00";
@@ -140,8 +140,7 @@
             this.transactionAmountTextBox.PlaceholderText = "";
             this.transactionAmountTextBox.SelectedText = "";
             this.transactionAmountTextBox.ShadowDecoration.BorderRadius = 20;
-            this.transactionAmountTextBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.transactionAmountTextBox.ShadowDecoration.Enabled = true;
+            this.transactionAmountTextBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionAmountTextBox.Size = new System.Drawing.Size(268, 51);
             this.transactionAmountTextBox.TabIndex = 75;
             this.transactionAmountTextBox.TextOffset = new System.Drawing.Point(10, 0);
@@ -150,18 +149,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.label2.Location = new System.Drawing.Point(41, 131);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(43, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 22);
+            this.label2.Size = new System.Drawing.Size(73, 22);
             this.label2.TabIndex = 74;
             this.label2.Text = "Account";
             // 
             // accountComboBox
             // 
             this.accountComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.accountComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.accountComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.accountComboBox.BorderRadius = 20;
             this.accountComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.accountComboBox.DropDownHeight = 250;
@@ -177,8 +176,7 @@
             this.accountComboBox.Location = new System.Drawing.Point(47, 178);
             this.accountComboBox.Name = "accountComboBox";
             this.accountComboBox.ShadowDecoration.BorderRadius = 20;
-            this.accountComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.accountComboBox.ShadowDecoration.Enabled = true;
+            this.accountComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.accountComboBox.Size = new System.Drawing.Size(486, 51);
             this.accountComboBox.TabIndex = 76;
             this.accountComboBox.TextOffset = new System.Drawing.Point(10, 0);
@@ -187,29 +185,29 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.label9.Location = new System.Drawing.Point(41, 377);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(43, 378);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 22);
+            this.label9.Size = new System.Drawing.Size(46, 22);
             this.label9.TabIndex = 77;
             this.label9.Text = "Type";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.label10.Location = new System.Drawing.Point(39, 254);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(43, 255);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 22);
+            this.label10.Size = new System.Drawing.Size(80, 22);
             this.label10.TabIndex = 78;
             this.label10.Text = "Category";
             // 
             // transactionTypeComboBox
             // 
             this.transactionTypeComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.transactionTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.transactionTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionTypeComboBox.BorderRadius = 20;
             this.transactionTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.transactionTypeComboBox.DropDownHeight = 250;
@@ -228,8 +226,7 @@
             this.transactionTypeComboBox.Location = new System.Drawing.Point(47, 424);
             this.transactionTypeComboBox.Name = "transactionTypeComboBox";
             this.transactionTypeComboBox.ShadowDecoration.BorderRadius = 20;
-            this.transactionTypeComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.transactionTypeComboBox.ShadowDecoration.Enabled = true;
+            this.transactionTypeComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionTypeComboBox.Size = new System.Drawing.Size(486, 51);
             this.transactionTypeComboBox.TabIndex = 79;
             this.transactionTypeComboBox.TextOffset = new System.Drawing.Point(10, 0);
@@ -237,18 +234,18 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.label11.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(261, 502);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 22);
+            this.label11.Size = new System.Drawing.Size(69, 22);
             this.label11.TabIndex = 81;
             this.label11.Text = "Amount";
             // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.Transparent;
-            this.addButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.addButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.addButton.BorderRadius = 15;
             this.addButton.BorderThickness = 2;
             this.addButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -256,16 +253,15 @@
             this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.addButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
-            this.addButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 17.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.addButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 15.75F, System.Drawing.FontStyle.Bold);
+            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.addButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
             this.addButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
             this.addButton.HoverState.ForeColor = System.Drawing.Color.White;
             this.addButton.Location = new System.Drawing.Point(228, 671);
             this.addButton.Name = "addButton";
             this.addButton.ShadowDecoration.BorderRadius = 20;
-            this.addButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.addButton.ShadowDecoration.Enabled = true;
+            this.addButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.addButton.Size = new System.Drawing.Size(124, 51);
             this.addButton.TabIndex = 82;
             this.addButton.Text = "Add";
@@ -274,18 +270,18 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.label12.Location = new System.Drawing.Point(43, 500);
+            this.label12.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(43, 502);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 22);
+            this.label12.Size = new System.Drawing.Size(45, 22);
             this.label12.TabIndex = 83;
             this.label12.Text = "Date";
             // 
             // transactionDateTimePicker
             // 
             this.transactionDateTimePicker.BackColor = System.Drawing.Color.Transparent;
-            this.transactionDateTimePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.transactionDateTimePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionDateTimePicker.BorderRadius = 20;
             this.transactionDateTimePicker.BorderThickness = 1;
             this.transactionDateTimePicker.Checked = true;
@@ -293,7 +289,7 @@
             this.transactionDateTimePicker.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.transactionDateTimePicker.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.transactionDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.transactionDateTimePicker.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.transactionDateTimePicker.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionDateTimePicker.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.transactionDateTimePicker.HoverState.ForeColor = System.Drawing.Color.Black;
             this.transactionDateTimePicker.Location = new System.Drawing.Point(47, 547);
@@ -301,8 +297,7 @@
             this.transactionDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.transactionDateTimePicker.Name = "transactionDateTimePicker";
             this.transactionDateTimePicker.ShadowDecoration.BorderRadius = 20;
-            this.transactionDateTimePicker.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.transactionDateTimePicker.ShadowDecoration.Enabled = true;
+            this.transactionDateTimePicker.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionDateTimePicker.Size = new System.Drawing.Size(176, 51);
             this.transactionDateTimePicker.TabIndex = 84;
             this.transactionDateTimePicker.Value = new System.DateTime(2023, 7, 29, 14, 48, 53, 430);
@@ -321,12 +316,12 @@
             this.transactionCategoryContextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.transactionCategoryContextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.transactionCategoryContextMenu.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.transactionCategoryContextMenu.Size = new System.Drawing.Size(181, 26);
+            this.transactionCategoryContextMenu.Size = new System.Drawing.Size(61, 4);
             // 
             // transactionCategoryButton
             // 
             this.transactionCategoryButton.BackColor = System.Drawing.Color.Transparent;
-            this.transactionCategoryButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.transactionCategoryButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionCategoryButton.BorderRadius = 20;
             this.transactionCategoryButton.BorderThickness = 1;
             this.transactionCategoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -339,11 +334,10 @@
             this.transactionCategoryButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
             this.transactionCategoryButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.transactionCategoryButton.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.transactionCategoryButton.Location = new System.Drawing.Point(45, 301);
+            this.transactionCategoryButton.Location = new System.Drawing.Point(47, 301);
             this.transactionCategoryButton.Name = "transactionCategoryButton";
             this.transactionCategoryButton.ShadowDecoration.BorderRadius = 20;
-            this.transactionCategoryButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.transactionCategoryButton.ShadowDecoration.Enabled = true;
+            this.transactionCategoryButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionCategoryButton.Size = new System.Drawing.Size(488, 51);
             this.transactionCategoryButton.TabIndex = 86;
             this.transactionCategoryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;

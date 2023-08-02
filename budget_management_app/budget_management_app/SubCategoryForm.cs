@@ -99,7 +99,7 @@ namespace budget_management_app
         // Referral to the AddSubCatForm
         private void Button_add_Click(object sender, EventArgs e)
         {
-            AddSubCatForm add = new AddSubCatForm();
+            AddSubcategoryForm add = new AddSubcategoryForm();
             add.Show();
             this.Hide();
         }

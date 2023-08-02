@@ -104,11 +104,11 @@
     <Compile Include="AddAccountForm.Designer.cs">
       <DependentUpon>AddAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSubCatForm.cs">
+    <Compile Include="AddSubcategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSubCatForm.Designer.cs">
-      <DependentUpon>AddSubCatForm.cs</DependentUpon>
+    <Compile Include="AddSubcategoryForm.Designer.cs">
+      <DependentUpon>AddSubcategoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddTransactionForm.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <EmbeddedResource Include="AddAccountForm.resx">
       <DependentUpon>AddAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddSubCatForm.resx">
-      <DependentUpon>AddSubCatForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddSubcategoryForm.resx">
+      <DependentUpon>AddSubcategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTransactionForm.resx">
       <DependentUpon>AddTransactionForm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace budget_management_app
 {
-    partial class AddSubCatForm
+    partial class AddSubcategoryForm
     {
         /// <summary>
         /// Required designer variable.

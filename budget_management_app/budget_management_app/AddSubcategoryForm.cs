@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class AddSubCatForm : Form
+    public partial class AddSubcategoryForm : Form
     {
         DBConnection dbcon=new DBConnection();
-        public AddSubCatForm()
+        public AddSubcategoryForm()
         {
             InitializeComponent();
         }
