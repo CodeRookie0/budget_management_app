@@ -75,7 +75,7 @@ namespace budget_management_app
                     }
 
 
-                    string insertQuery = "INSERT INTO UserSubCat (UserId,Us_CatId,Us_SubName,Us_SubType) VALUES( "+LoginForm.userId+",(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat+"'),'" + textBox_name.Text + "','" + ComboBox_type.SelectedItem.ToString() +"')";
+                    string insertQuery = "INSERT INTO UserSubCat (UserId,Us_CatId,Us_SubName,Us_SubType) VALUES( "+LoginForm.userId+",(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.selectedCategory + "'),'" + textBox_name.Text + "','" + ComboBox_type.SelectedItem.ToString() +"')";
                     SqlCommand command = new SqlCommand(insertQuery, dbcon.GetCon());
                     dbcon.OpenCon();
                     command.ExecuteNonQuery();

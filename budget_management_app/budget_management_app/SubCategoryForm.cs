@@ -25,7 +25,7 @@ namespace budget_management_app
 
         private void SubCategoryForm_Load(object sender, EventArgs e)
         {
-            label_category.Text =CategoriesForm.SelectedCat;
+            label_category.Text =CategoriesForm.selectedCategory;
             getCat();
             getTable();
             getMySub();
@@ -34,7 +34,7 @@ namespace budget_management_app
         // Get data from database, table Category 
         private void getCat()
         {
-            string selectQuerry = "SELECT CatName FROM Category WHERE CatName ='"+CategoriesForm.SelectedCat+"'";
+            string selectQuerry = "SELECT CatName FROM Category WHERE CatName ='"+CategoriesForm.selectedCategory + "'";
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
@@ -46,7 +46,7 @@ namespace budget_management_app
         // Get data from database, table SubCat 
         private void getTable()
         {
-            string selectQuerry = "SELECT SubName FROM SubCategory WHERE CatId =(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat+"')";
+            string selectQuerry = "SELECT SubName FROM SubCategory WHERE CatId =(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.selectedCategory + "')";
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
@@ -57,7 +57,7 @@ namespace budget_management_app
         // Get data from database, table UserSubCat 
         private void getMySub()
         {
-            string selectQuerry = "SELECT Us_SubName FROM UserSubCat WHERE Us_CatId =(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.SelectedCat + "') AND UserId= "+LoginForm.userId;
+            string selectQuerry = "SELECT Us_SubName FROM UserSubCat WHERE Us_CatId =(SELECT CatId FROM Category WHERE CatName='" + CategoriesForm.selectedCategory + "') AND UserId= "+LoginForm.userId;
             SqlCommand command = new SqlCommand(selectQuerry, dbcon.GetCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();

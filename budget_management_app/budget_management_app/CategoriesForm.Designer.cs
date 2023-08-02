@@ -29,65 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesForm));
             this.label2 = new System.Windows.Forms.Label();
-            this.label_exit = new System.Windows.Forms.Label();
             this.budget_managementDataSet1 = new budget_management_app.Budget_managementDataSet1();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTableAdapter = new budget_management_app.Budget_managementDataSet1TableAdapters.CategoryTableAdapter();
-            this.DataGridView_categories = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panel1.SuspendLayout();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.statisticButtonBar = new Guna.UI2.WinForms.Guna2Button();
+            this.categoriesButton = new Guna.UI2.WinForms.Guna2Button();
+            this.transactionsButton = new Guna.UI2.WinForms.Guna2Button();
+            this.accountsButton = new Guna.UI2.WinForms.Guna2Button();
+            this.homeButton = new Guna.UI2.WinForms.Guna2Button();
+            this.settingsButton = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.budget_managementDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_categories)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2Panel7.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel2.Location = new System.Drawing.Point(0, 695);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(583, 55);
-            this.panel2.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label_exit);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 55);
-            this.panel1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(221, 13);
+            this.label2.Location = new System.Drawing.Point(220, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 29);
             this.label2.TabIndex = 35;
             this.label2.Text = "Categories";
-            // 
-            // label_exit
-            // 
-            this.label_exit.AutoSize = true;
-            this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
-            this.label_exit.ForeColor = System.Drawing.Color.White;
-            this.label_exit.Location = new System.Drawing.Point(550, 0);
-            this.label_exit.Name = "label_exit";
-            this.label_exit.Size = new System.Drawing.Size(33, 36);
-            this.label_exit.TabIndex = 36;
-            this.label_exit.Text = "X";
-            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
-            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
-            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
             // 
             // budget_managementDataSet1
             // 
@@ -103,63 +75,167 @@
             // 
             this.categoryTableAdapter.ClearBeforeFill = true;
             // 
-            // DataGridView_categories
+            // guna2Panel1
             // 
-            this.DataGridView_categories.AllowUserToAddRows = false;
-            this.DataGridView_categories.AllowUserToDeleteRows = false;
-            this.DataGridView_categories.AllowUserToResizeColumns = false;
-            this.DataGridView_categories.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.DataGridView_categories.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DataGridView_categories.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DataGridView_categories.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_categories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DataGridView_categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView_categories.ColumnHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Sitka Display", 20F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_categories.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DataGridView_categories.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.DataGridView_categories.Location = new System.Drawing.Point(0, 55);
-            this.DataGridView_categories.Name = "DataGridView_categories";
-            this.DataGridView_categories.ReadOnly = true;
-            this.DataGridView_categories.RowHeadersVisible = false;
-            this.DataGridView_categories.Size = new System.Drawing.Size(580, 632);
-            this.DataGridView_categories.TabIndex = 4;
-            this.DataGridView_categories.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_categories.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DataGridView_categories.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_categories.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DataGridView_categories.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DataGridView_categories.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_categories.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.DataGridView_categories.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.DataGridView_categories.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DataGridView_categories.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DataGridView_categories.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DataGridView_categories.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridView_categories.ThemeStyle.HeaderStyle.Height = 4;
-            this.DataGridView_categories.ThemeStyle.ReadOnly = true;
-            this.DataGridView_categories.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.DataGridView_categories.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridView_categories.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DataGridView_categories.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_categories.ThemeStyle.RowsStyle.Height = 22;
-            this.DataGridView_categories.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_categories.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.DataGridView_categories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_categories_CellContentClick);
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BorderRadius = 40;
+            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(0, -71);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.BorderRadius = 45;
+            this.guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.guna2Panel1.ShadowDecoration.Enabled = true;
+            this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7);
+            this.guna2Panel1.Size = new System.Drawing.Size(580, 147);
+            this.guna2Panel1.TabIndex = 5;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 92);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(583, 605);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.Controls.Add(this.statisticButtonBar);
+            this.guna2Panel7.Controls.Add(this.categoriesButton);
+            this.guna2Panel7.Controls.Add(this.transactionsButton);
+            this.guna2Panel7.Controls.Add(this.accountsButton);
+            this.guna2Panel7.Controls.Add(this.homeButton);
+            this.guna2Panel7.Controls.Add(this.settingsButton);
+            this.guna2Panel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.guna2Panel7.Location = new System.Drawing.Point(0, 700);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.ShadowDecoration.BorderRadius = 0;
+            this.guna2Panel7.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.guna2Panel7.ShadowDecoration.Depth = 10;
+            this.guna2Panel7.ShadowDecoration.Enabled = true;
+            this.guna2Panel7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
+            this.guna2Panel7.Size = new System.Drawing.Size(583, 52);
+            this.guna2Panel7.TabIndex = 85;
+            // 
+            // statisticButtonBar
+            // 
+            this.statisticButtonBar.BackColor = System.Drawing.Color.Transparent;
+            this.statisticButtonBar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.statisticButtonBar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.statisticButtonBar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.statisticButtonBar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.statisticButtonBar.FillColor = System.Drawing.Color.Transparent;
+            this.statisticButtonBar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.statisticButtonBar.ForeColor = System.Drawing.Color.Transparent;
+            this.statisticButtonBar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.statisticButtonBar.Image = ((System.Drawing.Image)(resources.GetObject("statisticButtonBar.Image")));
+            this.statisticButtonBar.ImageSize = new System.Drawing.Size(35, 35);
+            this.statisticButtonBar.Location = new System.Drawing.Point(387, 0);
+            this.statisticButtonBar.Name = "statisticButtonBar";
+            this.statisticButtonBar.Size = new System.Drawing.Size(97, 52);
+            this.statisticButtonBar.TabIndex = 5;
+            this.statisticButtonBar.UseTransparentBackground = true;
+            this.statisticButtonBar.Click += new System.EventHandler(this.statisticButtonBar_Click);
+            // 
+            // categoriesButton
+            // 
+            this.categoriesButton.BackColor = System.Drawing.Color.Transparent;
+            this.categoriesButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.categoriesButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.categoriesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.categoriesButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.categoriesButton.FillColor = System.Drawing.Color.Transparent;
+            this.categoriesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.categoriesButton.ForeColor = System.Drawing.Color.Transparent;
+            this.categoriesButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.categoriesButton.Image = ((System.Drawing.Image)(resources.GetObject("categoriesButton.Image")));
+            this.categoriesButton.ImageSize = new System.Drawing.Size(35, 35);
+            this.categoriesButton.Location = new System.Drawing.Point(290, 0);
+            this.categoriesButton.Name = "categoriesButton";
+            this.categoriesButton.Size = new System.Drawing.Size(97, 52);
+            this.categoriesButton.TabIndex = 4;
+            this.categoriesButton.UseTransparentBackground = true;
+            this.categoriesButton.Click += new System.EventHandler(this.categoriesButton_Click);
+            // 
+            // transactionsButton
+            // 
+            this.transactionsButton.BackColor = System.Drawing.Color.Transparent;
+            this.transactionsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.transactionsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.transactionsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.transactionsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.transactionsButton.FillColor = System.Drawing.Color.Transparent;
+            this.transactionsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.transactionsButton.ForeColor = System.Drawing.Color.Transparent;
+            this.transactionsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.transactionsButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsButton.Image")));
+            this.transactionsButton.ImageSize = new System.Drawing.Size(35, 35);
+            this.transactionsButton.Location = new System.Drawing.Point(193, 0);
+            this.transactionsButton.Name = "transactionsButton";
+            this.transactionsButton.Size = new System.Drawing.Size(97, 52);
+            this.transactionsButton.TabIndex = 3;
+            this.transactionsButton.UseTransparentBackground = true;
+            this.transactionsButton.Click += new System.EventHandler(this.transactionsButton_Click);
+            // 
+            // accountsButton
+            // 
+            this.accountsButton.BackColor = System.Drawing.Color.Transparent;
+            this.accountsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.accountsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.accountsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.accountsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.accountsButton.FillColor = System.Drawing.Color.Transparent;
+            this.accountsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.accountsButton.ForeColor = System.Drawing.Color.Transparent;
+            this.accountsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.accountsButton.Image = ((System.Drawing.Image)(resources.GetObject("accountsButton.Image")));
+            this.accountsButton.ImageSize = new System.Drawing.Size(35, 35);
+            this.accountsButton.Location = new System.Drawing.Point(96, 0);
+            this.accountsButton.Name = "accountsButton";
+            this.accountsButton.Size = new System.Drawing.Size(97, 52);
+            this.accountsButton.TabIndex = 2;
+            this.accountsButton.UseTransparentBackground = true;
+            this.accountsButton.Click += new System.EventHandler(this.accountsButton_Click);
+            // 
+            // homeButton
+            // 
+            this.homeButton.BackColor = System.Drawing.Color.Transparent;
+            this.homeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.homeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.homeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.homeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.homeButton.FillColor = System.Drawing.Color.Transparent;
+            this.homeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.homeButton.ForeColor = System.Drawing.Color.Transparent;
+            this.homeButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
+            this.homeButton.ImageSize = new System.Drawing.Size(35, 35);
+            this.homeButton.Location = new System.Drawing.Point(0, 0);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(96, 52);
+            this.homeButton.TabIndex = 1;
+            this.homeButton.UseTransparentBackground = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.Transparent;
+            this.settingsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.settingsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.settingsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.settingsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.settingsButton.FillColor = System.Drawing.Color.Transparent;
+            this.settingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.settingsButton.ForeColor = System.Drawing.Color.Transparent;
+            this.settingsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
+            this.settingsButton.ImageSize = new System.Drawing.Size(35, 35);
+            this.settingsButton.Location = new System.Drawing.Point(484, 0);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(96, 52);
+            this.settingsButton.TabIndex = 0;
+            this.settingsButton.UseTransparentBackground = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // CategoriesForm
             // 
@@ -167,32 +243,35 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 750);
-            this.Controls.Add(this.DataGridView_categories);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.guna2Panel7);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CategoriesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CategoriesForm";
-            this.Load += new System.EventHandler(this.CategoriesForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budget_managementDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_categories)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            this.guna2Panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label_exit;
         private Budget_managementDataSet1 budget_managementDataSet1;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private Budget_managementDataSet1TableAdapters.CategoryTableAdapter categoryTableAdapter;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridView_categories;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
+        private Guna.UI2.WinForms.Guna2Button statisticButtonBar;
+        private Guna.UI2.WinForms.Guna2Button categoriesButton;
+        private Guna.UI2.WinForms.Guna2Button transactionsButton;
+        private Guna.UI2.WinForms.Guna2Button accountsButton;
+        private Guna.UI2.WinForms.Guna2Button homeButton;
+        private Guna.UI2.WinForms.Guna2Button settingsButton;
     }
 }
