@@ -270,21 +270,6 @@ namespace budget_management_app
                     {
                         query += " AND Expenses.CatId = " + selectedCategoryId;
                     }
-
-                    query += " UNION ALL " +
-                            "SELECT 'Savings' AS TransactionType, Savings.SavId AS TransactionId,Account.AccName AS AccName, Category.CatName AS CatName,Savings.SavDate AS TransactionDate," +
-                            " '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount FROM Savings " +
-                   " JOIN Account ON Savings.AccId = Account.AccId " + "JOIN Category ON Savings.CatId = Category.CatId " +
-                   " WHERE Savings.UserId = " + LoginForm.userId;
-
-                    if (selectedAccountId != 0)
-                    {
-                        query += " AND Savings.AccId = " + selectedAccountId;
-                    }
-                    if (selectedCategoryId != 0)
-                    {
-                        query += " AND Savings.CatId = " + selectedCategoryId;
-                    }
                     query += "ORDER BY TransactionDate DESC";
                 }
                 else if (selectedTransactionTypeNameFilter == "Income")
@@ -363,7 +348,7 @@ namespace budget_management_app
                 {
                     string deleteQuery = "";
 
-                    // Determine the type of transaction selected (Income, Expenses, or Savings) and build the appropriate delete query
+                    // Determine the type of transaction selected (Income, Expenses) and build the appropriate delete query
                     if (selectedTransactionTypeNameDelete == "Income")
                     {
                         deleteQuery = "DELETE FROM Income WHERE InId =  " + selectedTransactionId + " AND UserId= " + LoginForm.userId;
@@ -371,10 +356,6 @@ namespace budget_management_app
                     else if (selectedTransactionTypeNameDelete == "Expenses")
                     {
                         deleteQuery = "DELETE FROM Expenses WHERE ExpId = " + selectedTransactionId + " AND UserId= " + LoginForm.userId;
-                    }
-                    else
-                    {
-                        deleteQuery = "DELETE FROM Savings WHERE SavId = " + selectedTransactionId + " AND UserId= " + LoginForm.userId;
                     }
 
                     // Execute the delete query to remove the selected transaction

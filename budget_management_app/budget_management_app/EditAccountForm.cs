@@ -218,23 +218,18 @@ namespace budget_management_app
                     // SQL queries to delete related transactions
                     string deleteExpensesQuery = "DELETE FROM Expenses WHERE AccId = @AccId AND UserId = @UserId";
                     string deleteIncomeQuery = "DELETE FROM Income WHERE AccId = @AccId AND UserId = @UserId";
-                    string deleteSavingsQuery = "DELETE FROM Savings WHERE AccId = @AccId AND UserId = @UserId";
-
+                    
                     using (SqlCommand commandExpenses = new SqlCommand(deleteExpensesQuery, dbConnection.GetCon()))
                     using (SqlCommand commandIncome = new SqlCommand(deleteIncomeQuery, dbConnection.GetCon()))
-                    using (SqlCommand commandSavings = new SqlCommand(deleteSavingsQuery, dbConnection.GetCon()))
                     {
                         commandExpenses.Parameters.AddWithValue("@AccId", accountId);
                         commandExpenses.Parameters.AddWithValue("@UserId", LoginForm.userId);
                         commandIncome.Parameters.AddWithValue("@AccId", accountId);
                         commandIncome.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                        commandSavings.Parameters.AddWithValue("@AccId", accountId);
-                        commandSavings.Parameters.AddWithValue("@UserId", LoginForm.userId);
 
                         dbConnection.OpenCon();
                         commandExpenses.ExecuteNonQuery();
                         commandIncome.ExecuteNonQuery();
-                        commandSavings.ExecuteNonQuery();
                     }
 
                     // SQL query to delete the account
