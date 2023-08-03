@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class AddSubcategoryForm : RoundedCornerFormBase
+    public partial class AddSubcategoryForm : Form
     {
         // Create a new instance of the DBConnection class to manage database connections
         DBConnection dBConnection =new DBConnection();

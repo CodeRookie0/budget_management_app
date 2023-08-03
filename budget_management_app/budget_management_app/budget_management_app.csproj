@@ -223,6 +223,9 @@
     <EmbeddedResource Include="PasswordPromptForm.resx">
       <DependentUpon>PasswordPromptForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoundedCornerFormBase.resx">
+      <DependentUpon>RoundedCornerFormBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>

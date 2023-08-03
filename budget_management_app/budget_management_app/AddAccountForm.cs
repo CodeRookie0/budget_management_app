@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class AddAccountForm : RoundedCornerFormBase
+    public partial class AddAccountForm : Form
     {
         private DBConnection dbConnection = new DBConnection();
         private int selectedCurrencyId = 0;

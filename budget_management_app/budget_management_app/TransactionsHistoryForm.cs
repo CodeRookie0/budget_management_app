@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class TransactionsHistoryForm : RoundedCornerFormBase
+    public partial class TransactionsHistoryForm : Form
     {
         private DBConnection dbConnection = new DBConnection();
 

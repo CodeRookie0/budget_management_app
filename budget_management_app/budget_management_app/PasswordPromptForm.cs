@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class PasswordPromptForm : RoundedCornerFormBase
+    public partial class PasswordPromptForm : Form
     {
         // An instance of the DBConnection class to manage database connections
         DBConnection dbConnection =new DBConnection();

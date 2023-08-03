@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace budget_management_app
 { 
-    public partial class HomeForm : RoundedCornerFormBase
+    public partial class HomeForm : Form
     {
         // Create a new instance of the DBConnection class
         private DBConnection dbConnection =new DBConnection();

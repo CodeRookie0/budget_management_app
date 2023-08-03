@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class EditAccountForm : RoundedCornerFormBase
+    public partial class EditAccountForm : Form
     {
         private DBConnection dbConnection = new DBConnection();
         private int accountId;
