@@ -668,7 +668,6 @@
             this.homeButton.Size = new System.Drawing.Size(96, 52);
             this.homeButton.TabIndex = 1;
             this.homeButton.UseTransparentBackground = true;
-            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // settingsButton
             // 

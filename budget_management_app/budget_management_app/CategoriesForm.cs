@@ -121,13 +121,6 @@ namespace budget_management_app
             this.Hide();
         }
 
-        private void categoriesButton_Click(object sender, EventArgs e)
-        {
-            CategoriesForm categories = new CategoriesForm();
-            categories.Show();
-            this.Hide();
-        }
-
         private void statisticButtonBar_Click(object sender, EventArgs e)
         {
             StatisticsForm stat = new StatisticsForm();

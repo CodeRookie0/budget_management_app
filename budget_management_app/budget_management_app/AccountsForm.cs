@@ -124,5 +124,41 @@ namespace budget_management_app
             editAccount.Show();
             this.Hide();
         }
+
+        // Event handlers for various button clicks to navigate to other forms
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            HomeForm home = new HomeForm();
+            home.Show();
+            this.Hide();
+        }
+
+        private void transactionsButton_Click(object sender, EventArgs e)
+        {
+            TransactionsHistoryForm trns = new TransactionsHistoryForm();
+            trns.Show();
+            this.Hide();
+        }
+
+        private void categoriesButton_Click(object sender, EventArgs e)
+        {
+            CategoriesForm categories = new CategoriesForm();
+            categories.Show();
+            this.Hide();
+        }
+
+        private void statisticButtonBar_Click(object sender, EventArgs e)
+        {
+            StatisticsForm stat = new StatisticsForm();
+            stat.Show();
+            this.Hide();
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsForm set = new SettingsForm();
+            set.Show();
+            this.Hide();
+        }
     }
 }

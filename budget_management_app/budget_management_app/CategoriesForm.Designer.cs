@@ -155,7 +155,6 @@
             this.categoriesButton.Size = new System.Drawing.Size(97, 52);
             this.categoriesButton.TabIndex = 4;
             this.categoriesButton.UseTransparentBackground = true;
-            this.categoriesButton.Click += new System.EventHandler(this.categoriesButton_Click);
             // 
             // transactionsButton
             // 

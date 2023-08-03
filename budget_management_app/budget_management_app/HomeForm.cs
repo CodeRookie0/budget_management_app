@@ -396,13 +396,6 @@ namespace budget_management_app
         }
 
         // Event handlers for various button clicks to navigate to other forms
-        private void homeButton_Click(object sender, EventArgs e)
-        {
-            HomeForm home = new HomeForm();
-            home.Show();
-            this.Hide();
-        }
-        
         private void accountsButton_Click(object sender, EventArgs e)
         {
             AccountsForm acc = new AccountsForm();
