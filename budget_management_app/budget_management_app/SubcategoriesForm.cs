@@ -11,17 +11,20 @@ namespace budget_management_app
         // The DBConnection instance for database operations
         private DBConnection dbConnection = new DBConnection();
         // A string to store the name of the selected subcategory
-        private static string selectedSubcategory = "";
+        private string selectedSubcategory = "";
+        private string selectedCategoryName;
 
-        public SubcategoriesForm()
+        public SubcategoriesForm(string categoryName)
         {
             InitializeComponent();
+            selectedCategoryName= categoryName;
+
         }
 
         private void SubCategoryForm_Load(object sender, EventArgs e)
         {
             // Display the selected category name in a label
-            selectedCategoryLabel.Text =CategoriesForm.selectedCategory.Trim();
+            selectedCategoryLabel.Text = selectedCategoryName.Trim();
             selectedCategoryLabel.Location = new Point((this.Width - selectedCategoryLabel.Width) / 2,93);
 
             // Load categories, subcategories, and user-specific subcategories
@@ -35,7 +38,7 @@ namespace budget_management_app
         {
             string selectCategoryQuery = "SELECT CatName FROM Category WHERE CatName = @SelectedCategory";
             SqlCommand categoryCommand = new SqlCommand(selectCategoryQuery, dbConnection.GetCon());
-            categoryCommand.Parameters.AddWithValue("@SelectedCategory", CategoriesForm.selectedCategory);
+            categoryCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategoryName);
             SqlDataAdapter categoryAdapter = new SqlDataAdapter(categoryCommand);
             DataTable categoryTable = new DataTable();
             categoryAdapter.Fill(categoryTable);
@@ -47,7 +50,7 @@ namespace budget_management_app
         {
             string selectSubcategoryQuery = "SELECT SubName FROM SubCategory WHERE CatId = (SELECT CatId FROM Category WHERE CatName = @SelectedCategory)";
             SqlCommand subcategoryCommand = new SqlCommand(selectSubcategoryQuery, dbConnection.GetCon());
-            subcategoryCommand.Parameters.AddWithValue("@SelectedCategory", CategoriesForm.selectedCategory);
+            subcategoryCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategoryName);
             SqlDataAdapter subcategoryAdapter = new SqlDataAdapter(subcategoryCommand);
             DataTable subcategoryTable = new DataTable();
             subcategoryAdapter.Fill(subcategoryTable);
@@ -108,7 +111,7 @@ namespace budget_management_app
         {
             string selectUserSubcategoriesQuery = "SELECT Us_SubName FROM UserSubCat WHERE Us_CatId = (SELECT CatId FROM Category WHERE CatName = @SelectedCategory) AND UserId = @UserId";
             SqlCommand userSubcategoriesCommand = new SqlCommand(selectUserSubcategoriesQuery, dbConnection.GetCon());
-            userSubcategoriesCommand.Parameters.AddWithValue("@SelectedCategory", CategoriesForm.selectedCategory);
+            userSubcategoriesCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategoryName);
             userSubcategoriesCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
             SqlDataAdapter userSubcategoriesAdapter = new SqlDataAdapter(userSubcategoriesCommand);
             DataTable userSubcategoriesTable = new DataTable();
@@ -168,7 +171,7 @@ namespace budget_management_app
         // Event handler for the addButton Click event
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddSubcategoryForm addSubcategory = new AddSubcategoryForm();
+            AddSubcategoryForm addSubcategory = new AddSubcategoryForm(selectedCategoryName);
             addSubcategory.Show();
             this.Hide();
         }

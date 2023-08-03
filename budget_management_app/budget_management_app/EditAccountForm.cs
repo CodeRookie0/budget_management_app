@@ -10,10 +10,12 @@ namespace budget_management_app
         private int accountId;
         private int currencyId;
         private string currencyCode;
+        private string selectedAccountName;
 
-        public EditAccountForm()
+        public EditAccountForm(string accountName)
         {
             InitializeComponent();
+            selectedAccountName = accountName;
             LoadCurrencies();
             GetData();
         }
@@ -27,7 +29,7 @@ namespace budget_management_app
                 string selectQuery = "SELECT AccId, AccCurrId, AccBalance, AccName FROM Account WHERE AccName = @AccountName";
                 using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
-                    command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
+                    command.Parameters.AddWithValue("@AccountName", selectedAccountName);
                     dbConnection.OpenCon();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -190,7 +192,7 @@ namespace budget_management_app
                             while (reader.Read())
                             {
                                 currencyId = reader.GetInt32(0);
-                                currencyLabel.Text = reader.GetString(1);
+                                currencyLabel.Text = reader.GetString(1).Trim();
                             }
                         }
                     }
@@ -236,7 +238,7 @@ namespace budget_management_app
                     string deleteAccountQuery = "DELETE FROM Account WHERE AccName = @AccountName AND UserId = @UserId";
                     using (SqlCommand command = new SqlCommand(deleteAccountQuery, dbConnection.GetCon()))
                     {
-                        command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
+                        command.Parameters.AddWithValue("@AccountName", selectedAccountName);
                         command.Parameters.AddWithValue("@UserId", LoginForm.userId);
                         dbConnection.OpenCon();
                         command.ExecuteNonQuery();
@@ -250,8 +252,6 @@ namespace budget_management_app
                     accounts.Show();
                     this.Hide();
                 }
-                AccountsForm.selectedAccountName = "";
-
             }
             catch (Exception ex)
             {

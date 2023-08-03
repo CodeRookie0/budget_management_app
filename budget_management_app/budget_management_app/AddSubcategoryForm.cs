@@ -8,13 +8,14 @@ namespace budget_management_app
     {
         // Create a new instance of the DBConnection class to manage database connections
         DBConnection dBConnection =new DBConnection();
+        private string categoryName;
 
-        public AddSubcategoryForm()
+        public AddSubcategoryForm(string selectedCategoryName)
         {
             InitializeComponent();
-
+            categoryName=selectedCategoryName;
             // Set the categoryTextBox to display the selected category from the CategoriesForm
-            categoryTextBox.Text = CategoriesForm.selectedCategory;
+            categoryTextBox.Text = categoryName;
         }
 
         // Event handler for the addButton Click event
@@ -41,13 +42,13 @@ namespace budget_management_app
                     }
 
                     // Insert the new subcategory into the UserSubCat table
-                    InsertSubcategory(LoginForm.userId, CategoriesForm.selectedCategory, subcategoryName, subcategoryType);
+                    InsertSubcategory(LoginForm.userId, categoryName, subcategoryName, subcategoryType);
 
 
                     MessageBox.Show("Subcategory Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dBConnection.CloseCon();
 
-                    SubcategoriesForm subcategories = new SubcategoriesForm();
+                    SubcategoriesForm subcategories = new SubcategoriesForm(categoryName);
                     subcategories.Show();
                     this.Hide();
                 }
@@ -100,7 +101,7 @@ namespace budget_management_app
         // Event handler for the backButton Click event
         private void backButton_Click(object sender, EventArgs e)
         {
-            SubcategoriesForm subcategories = new SubcategoriesForm();
+            SubcategoriesForm subcategories = new SubcategoriesForm(categoryName);
             subcategories.Show();
             this.Hide();
         }

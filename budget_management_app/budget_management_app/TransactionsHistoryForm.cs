@@ -10,13 +10,13 @@ namespace budget_management_app
         private DBConnection dbConnection = new DBConnection();
 
         // Selected account and category IDs, and transaction type name filter
-        private static int selectedAccountId = 0;
-        private static int selectedCategoryId = 0;
-        private static string selectedTransactionTypeNameFilter;
+        private int selectedAccountId = 0;
+        private int selectedCategoryId = 0;
+        private string selectedTransactionTypeNameFilter;
 
         // Selected transaction ID and transaction type for deletion
-        private static int selectedTransactionId = -1;
-        private static string selectedTransactionTypeNameDelete;
+        private int selectedTransactionId = -1;
+        private string selectedTransactionTypeNameDelete;
 
         public TransactionsHistoryForm()
         {

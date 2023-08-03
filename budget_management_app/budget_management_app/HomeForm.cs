@@ -15,9 +15,6 @@ namespace budget_management_app
         // Create a new instance of the DBConnection class
         private DBConnection dbConnection =new DBConnection();
 
-        // Static field to store the name of the last form used
-        public static string lastForm;
-
         // Field to store the tooltip for expenses on the chart
         private string expensesTooltip = "";
 

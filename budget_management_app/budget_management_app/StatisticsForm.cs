@@ -22,9 +22,9 @@ namespace budget_management_app
         private bool bottombarExpand;
         private int selectedAccId;
         private DateTime currentDate = DateTime.Today;
-        private static int selectedDay;
-        private static int selectedMonth;
-        private static int selectedYear;
+        private int selectedDay;
+        private int selectedMonth;
+        private int selectedYear;
 
         private decimal expTotalAmount;
         private decimal currentExpTotalAmount;

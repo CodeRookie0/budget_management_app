@@ -12,8 +12,6 @@ namespace budget_management_app
         // An instance of the DBConnection class to manage database connections
         DBConnection dbConnection = new DBConnection();
 
-        // A static string to store the selected category for further use in the application
-        public static string selectedCategory;
         public CategoriesForm()
         {
             InitializeComponent();
@@ -94,8 +92,7 @@ namespace budget_management_app
         // Event handler for the category button click
         private void CategoryButton_Click(string categoryName)
         {
-            selectedCategory = categoryName;
-            SubcategoriesForm subCat = new SubcategoriesForm();
+            SubcategoriesForm subCat = new SubcategoriesForm(categoryName);
             subCat.Show();
             this.Hide();
         }

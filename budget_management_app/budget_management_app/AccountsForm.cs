@@ -10,7 +10,6 @@ namespace budget_management_app
     public partial class AccountsForm : Form
     {
         DBConnection dbConnection = new DBConnection();
-        public static string selectedAccountName;
         public AccountsForm()
         {
             InitializeComponent();
@@ -119,8 +118,7 @@ namespace budget_management_app
         // Handles the click event of an account button
         private void AccountButton_Click(string accountName)
         {
-            selectedAccountName = accountName;
-            EditAccountForm editAccount = new EditAccountForm();
+            EditAccountForm editAccount = new EditAccountForm(accountName);
             editAccount.Show();
             this.Hide();
         }

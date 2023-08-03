@@ -7,8 +7,8 @@ namespace budget_management_app
     public partial class AddAccountForm : Form
     {
         private DBConnection dbConnection = new DBConnection();
-        private static int selectedCurrencyId = 0;
-        private static string selectedCurrencyCode = "USD";
+        private int selectedCurrencyId = 0;
+        private string selectedCurrencyCode = "USD";
         private string lastValidAmount = string.Empty;
 
         public AddAccountForm()
