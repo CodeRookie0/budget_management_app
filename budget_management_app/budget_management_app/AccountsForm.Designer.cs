@@ -137,7 +137,7 @@
             this.categoriesButton.FillColor = System.Drawing.Color.Transparent;
             this.categoriesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.categoriesButton.ForeColor = System.Drawing.Color.Transparent;
-            this.categoriesButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.categoriesButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.categoriesButton.Image = ((System.Drawing.Image)(resources.GetObject("categoriesButton.Image")));
             this.categoriesButton.ImageSize = new System.Drawing.Size(35, 35);
             this.categoriesButton.Location = new System.Drawing.Point(290, 0);
@@ -157,7 +157,7 @@
             this.transactionsButton.FillColor = System.Drawing.Color.Transparent;
             this.transactionsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.transactionsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.transactionsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.transactionsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.transactionsButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsButton.Image")));
             this.transactionsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.transactionsButton.Location = new System.Drawing.Point(193, 0);
@@ -177,7 +177,7 @@
             this.accountsButton.FillColor = System.Drawing.Color.Transparent;
             this.accountsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.accountsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.accountsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.accountsButton.Image = ((System.Drawing.Image)(resources.GetObject("accountsButton.Image")));
             this.accountsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.accountsButton.Location = new System.Drawing.Point(96, 0);
@@ -196,7 +196,7 @@
             this.homeButton.FillColor = System.Drawing.Color.Transparent;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.homeButton.ForeColor = System.Drawing.Color.Transparent;
-            this.homeButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.homeButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
             this.homeButton.ImageSize = new System.Drawing.Size(35, 35);
             this.homeButton.Location = new System.Drawing.Point(0, 0);
@@ -216,7 +216,7 @@
             this.settingsButton.FillColor = System.Drawing.Color.Transparent;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.settingsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.settingsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.settingsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
             this.settingsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.settingsButton.Location = new System.Drawing.Point(484, 0);

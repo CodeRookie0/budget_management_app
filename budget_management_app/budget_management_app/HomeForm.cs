@@ -9,7 +9,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Media;
 
 namespace budget_management_app
-{
+{ 
     public partial class HomeForm : Form
     {
         // Create a new instance of the DBConnection class
@@ -351,8 +351,6 @@ namespace budget_management_app
                 string selectQuery = "SELECT TOP 7 AccName, CatName, Amount, DateTrns FROM (SELECT Account.AccName, Category.CatName,  '+' + CAST(Income.InAmount AS VARCHAR) AS Amount, Income.InDate AS DateTrns" +
                 " FROM Income JOIN Account ON Account.AccId = Income.AccId JOIN Category ON Category.CatId = Income.CatId" +
                 " WHERE Income.UserId = @UserId" +
-                " UNION ALL SELECT Account.AccName, Category.CatName,  '-' + CAST(Savings.SavAmount AS VARCHAR) AS Amount, Savings.SavDate AS DateTrns" +
-                " FROM Savings JOIN Account ON Account.AccId = Savings.AccId JOIN Category ON Category.CatId = Savings.CatId WHERE Savings.UserId = @UserId" +
                 " UNION ALL SELECT Account.AccName, Category.CatName, '-' + CAST(Expenses.ExpAmount AS VARCHAR) AS Amount, Expenses.ExpDate AS DateTrns" +
                 " FROM Expenses JOIN Account ON Account.AccId = Expenses.AccId JOIN Category ON Category.CatId = Expenses.CatId WHERE Expenses.UserId = @UserId" +
                 ") AS CombinedData ORDER BY DateTrns DESC";
