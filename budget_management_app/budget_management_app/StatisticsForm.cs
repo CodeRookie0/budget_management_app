@@ -15,7 +15,7 @@ using iTextSharp.text;
 
 namespace budget_management_app
 {
-    public partial class StatisticsForm : Form
+    public partial class StatisticsForm : RoundedCornerFormBase
     {
 
         private DBConnection dbcon = new DBConnection();

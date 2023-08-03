@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace budget_management_app
 {
-    public partial class SettingsForm : Form
+    public partial class SettingsForm : RoundedCornerFormBase
     {
         // Create an instance of DBConnection class to handle database operations
         DBConnection dbConnection =new DBConnection();
