@@ -157,6 +157,7 @@ namespace budget_management_app
             // Load subcategories from the database for the specified category
             // Create ToolStripMenuItems for each subcategory and add them to the categoryItem
 
+            selectedCategoryId = categoryId;
             Font itemFont = new Font("Segoe UI Variable Display Semibold", 12.75f, FontStyle.Bold);
 
             categoryItem.DropDownItems.Clear();

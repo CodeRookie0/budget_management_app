@@ -28,180 +28,250 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label_exit = new System.Windows.Forms.Label();
-            this.label_category = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ComboBox_type = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox_name = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Button_add = new Guna.UI2.WinForms.Guna2TileButton();
-            this.panel2.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSubcategoryForm));
+            this.subcategoryTypeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.backButton = new Guna.UI2.WinForms.Guna2Button();
+            this.selectedCategoryLabel = new System.Windows.Forms.Label();
+            this.subcategoryNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.categoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.addButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // subcategoryTypeComboBox
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel2.Controls.Add(this.label_exit);
-            this.panel2.Controls.Add(this.label_category);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(583, 55);
-            this.panel2.TabIndex = 4;
-            // 
-            // label_exit
-            // 
-            this.label_exit.AutoSize = true;
-            this.label_exit.Font = new System.Drawing.Font("Segoe UI Black", 19.25F, System.Drawing.FontStyle.Bold);
-            this.label_exit.ForeColor = System.Drawing.Color.White;
-            this.label_exit.Location = new System.Drawing.Point(547, 0);
-            this.label_exit.Name = "label_exit";
-            this.label_exit.Size = new System.Drawing.Size(33, 36);
-            this.label_exit.TabIndex = 37;
-            this.label_exit.Text = "X";
-            this.label_exit.Click += new System.EventHandler(this.label_exit_Click);
-            this.label_exit.MouseEnter += new System.EventHandler(this.label_exit_MouseEnter);
-            this.label_exit.MouseLeave += new System.EventHandler(this.label_exit_MouseLeave);
-            // 
-            // label_category
-            // 
-            this.label_category.AutoSize = true;
-            this.label_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_category.ForeColor = System.Drawing.Color.White;
-            this.label_category.Location = new System.Drawing.Point(12, 13);
-            this.label_category.Name = "label_category";
-            this.label_category.Size = new System.Drawing.Size(219, 29);
-            this.label_category.TabIndex = 36;
-            this.label_category.Text = "New Subcategory";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(213)))), ((int)(((byte)(174)))));
-            this.panel1.Location = new System.Drawing.Point(0, 699);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 55);
-            this.panel1.TabIndex = 38;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(29, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(541, 13);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "_________________________________________________________________________________" +
-    "________";
-            // 
-            // ComboBox_type
-            // 
-            this.ComboBox_type.BackColor = System.Drawing.Color.Transparent;
-            this.ComboBox_type.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(177)))), ((int)(((byte)(138)))));
-            this.ComboBox_type.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBox_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBox_type.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboBox_type.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ComboBox_type.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.ComboBox_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.ComboBox_type.ItemHeight = 30;
-            this.ComboBox_type.Items.AddRange(new object[] {
+            this.subcategoryTypeComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.subcategoryTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.subcategoryTypeComboBox.BorderRadius = 20;
+            this.subcategoryTypeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.subcategoryTypeComboBox.DropDownHeight = 250;
+            this.subcategoryTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subcategoryTypeComboBox.DropDownWidth = 480;
+            this.subcategoryTypeComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.subcategoryTypeComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.subcategoryTypeComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.subcategoryTypeComboBox.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.75F);
+            this.subcategoryTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.subcategoryTypeComboBox.IntegralHeight = false;
+            this.subcategoryTypeComboBox.ItemHeight = 45;
+            this.subcategoryTypeComboBox.Items.AddRange(new object[] {
             "Income",
-            "Expense",
-            "Savings"});
-            this.ComboBox_type.Location = new System.Drawing.Point(17, 214);
-            this.ComboBox_type.Name = "ComboBox_type";
-            this.ComboBox_type.Size = new System.Drawing.Size(551, 36);
-            this.ComboBox_type.TabIndex = 45;
+            "Expense"});
+            this.subcategoryTypeComboBox.ItemsAppearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.75F);
+            this.subcategoryTypeComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.subcategoryTypeComboBox.Location = new System.Drawing.Point(47, 426);
+            this.subcategoryTypeComboBox.Name = "subcategoryTypeComboBox";
+            this.subcategoryTypeComboBox.ShadowDecoration.BorderRadius = 20;
+            this.subcategoryTypeComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.subcategoryTypeComboBox.Size = new System.Drawing.Size(486, 51);
+            this.subcategoryTypeComboBox.TabIndex = 81;
+            this.subcategoryTypeComboBox.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // label3
+            // label9
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(10, 161);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 28);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Type";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(43, 377);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 22);
+            this.label9.TabIndex = 80;
+            this.label9.Text = "Type";
             // 
-            // textBox_name
+            // guna2Panel2
             // 
-            this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_name.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.textBox_name.Location = new System.Drawing.Point(32, 107);
-            this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(529, 25);
-            this.textBox_name.TabIndex = 43;
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.BorderRadius = 40;
+            this.guna2Panel2.Controls.Add(this.backButton);
+            this.guna2Panel2.Controls.Add(this.selectedCategoryLabel);
+            this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.guna2Panel2.Location = new System.Drawing.Point(0, -71);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.BorderRadius = 45;
+            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.guna2Panel2.ShadowDecoration.Enabled = true;
+            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7);
+            this.guna2Panel2.Size = new System.Drawing.Size(580, 147);
+            this.guna2Panel2.TabIndex = 88;
             // 
-            // label1
+            // backButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Heading", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(7, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 28);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Name";
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
+            this.backButton.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
+            this.backButton.Location = new System.Drawing.Point(0, 69);
+            this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
+            this.backButton.Size = new System.Drawing.Size(58, 76);
+            this.backButton.TabIndex = 73;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // Button_add
+            // selectedCategoryLabel
             // 
-            this.Button_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(205)))));
-            this.Button_add.BorderThickness = 1;
-            this.Button_add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Button_add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Button_add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Button_add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Button_add.FillColor = System.Drawing.Color.Transparent;
-            this.Button_add.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Button_add.ForeColor = System.Drawing.Color.Black;
-            this.Button_add.Location = new System.Drawing.Point(214, 296);
-            this.Button_add.Name = "Button_add";
-            this.Button_add.Size = new System.Drawing.Size(146, 36);
-            this.Button_add.TabIndex = 47;
-            this.Button_add.Text = "ADD";
-            this.Button_add.Click += new System.EventHandler(this.Button_add_Click);
-            this.Button_add.MouseEnter += new System.EventHandler(this.Button_add_MouseEnter);
-            this.Button_add.MouseLeave += new System.EventHandler(this.Button_add_MouseLeave);
+            this.selectedCategoryLabel.AutoSize = true;
+            this.selectedCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.selectedCategoryLabel.ForeColor = System.Drawing.Color.White;
+            this.selectedCategoryLabel.Location = new System.Drawing.Point(183, 93);
+            this.selectedCategoryLabel.Name = "selectedCategoryLabel";
+            this.selectedCategoryLabel.Size = new System.Drawing.Size(215, 29);
+            this.selectedCategoryLabel.TabIndex = 36;
+            this.selectedCategoryLabel.Text = "New subcategory";
             // 
-            // AddSubCatForm
+            // subcategoryNameTextBox
+            // 
+            this.subcategoryNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.subcategoryNameTextBox.BorderRadius = 20;
+            this.subcategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.subcategoryNameTextBox.DefaultText = "";
+            this.subcategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.subcategoryNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.subcategoryNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.subcategoryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.subcategoryNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.subcategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.subcategoryNameTextBox.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.75F);
+            this.subcategoryNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.subcategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.subcategoryNameTextBox.Location = new System.Drawing.Point(47, 299);
+            this.subcategoryNameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.subcategoryNameTextBox.Name = "subcategoryNameTextBox";
+            this.subcategoryNameTextBox.PasswordChar = '\0';
+            this.subcategoryNameTextBox.PlaceholderText = "";
+            this.subcategoryNameTextBox.SelectedText = "";
+            this.subcategoryNameTextBox.Size = new System.Drawing.Size(486, 51);
+            this.subcategoryNameTextBox.TabIndex = 89;
+            this.subcategoryNameTextBox.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(43, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 22);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(43, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 22);
+            this.label4.TabIndex = 92;
+            this.label4.Text = "Category";
+            // 
+            // categoryTextBox
+            // 
+            this.categoryTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.categoryTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.categoryTextBox.BorderRadius = 20;
+            this.categoryTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.categoryTextBox.DefaultText = "";
+            this.categoryTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.categoryTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.categoryTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.categoryTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.categoryTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.categoryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.categoryTextBox.FocusedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.categoryTextBox.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.75F);
+            this.categoryTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.categoryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.categoryTextBox.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.categoryTextBox.Location = new System.Drawing.Point(47, 172);
+            this.categoryTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.categoryTextBox.Name = "categoryTextBox";
+            this.categoryTextBox.PasswordChar = '\0';
+            this.categoryTextBox.PlaceholderText = "";
+            this.categoryTextBox.ReadOnly = true;
+            this.categoryTextBox.SelectedText = "";
+            this.categoryTextBox.Size = new System.Drawing.Size(486, 51);
+            this.categoryTextBox.TabIndex = 91;
+            this.categoryTextBox.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.Transparent;
+            this.addButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.addButton.BorderRadius = 15;
+            this.addButton.BorderThickness = 2;
+            this.addButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.addButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 15.75F, System.Drawing.FontStyle.Bold);
+            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.addButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.addButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.addButton.HoverState.ForeColor = System.Drawing.Color.White;
+            this.addButton.Location = new System.Drawing.Point(228, 550);
+            this.addButton.Name = "addButton";
+            this.addButton.ShadowDecoration.BorderRadius = 20;
+            this.addButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.addButton.Size = new System.Drawing.Size(124, 51);
+            this.addButton.TabIndex = 93;
+            this.addButton.Text = "Add";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // AddSubcategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(580, 750);
-            this.Controls.Add(this.Button_add);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.ComboBox_type);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox_name);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.categoryTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.subcategoryNameTextBox);
+            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.subcategoryTypeComboBox);
+            this.Controls.Add(this.label9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AddSubCatForm";
+            this.Name = "AddSubcategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSubCatForm";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label_exit;
-        private System.Windows.Forms.Label label_category;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2ComboBox ComboBox_type;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox_name;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TileButton Button_add;
+        private Guna.UI2.WinForms.Guna2ComboBox subcategoryTypeComboBox;
+        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button backButton;
+        private System.Windows.Forms.Label selectedCategoryLabel;
+        private Guna.UI2.WinForms.Guna2TextBox subcategoryNameTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2TextBox categoryTextBox;
+        private Guna.UI2.WinForms.Guna2Button addButton;
     }
 }

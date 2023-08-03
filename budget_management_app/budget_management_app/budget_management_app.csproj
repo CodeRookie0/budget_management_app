@@ -177,11 +177,11 @@
     <Compile Include="StatisticsForm.Designer.cs">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubCategoryForm.cs">
+    <Compile Include="SubcategoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubCategoryForm.Designer.cs">
-      <DependentUpon>SubCategoryForm.cs</DependentUpon>
+    <Compile Include="SubcategoriesForm.Designer.cs">
+      <DependentUpon>SubcategoriesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TransactionsHistoryForm.cs">
       <SubType>Form</SubType>
@@ -241,8 +241,8 @@
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubCategoryForm.resx">
-      <DependentUpon>SubCategoryForm.cs</DependentUpon>
+    <EmbeddedResource Include="SubcategoriesForm.resx">
+      <DependentUpon>SubcategoriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionsHistoryForm.resx">
       <DependentUpon>TransactionsHistoryForm.cs</DependentUpon>

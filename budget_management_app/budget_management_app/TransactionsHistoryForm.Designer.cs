@@ -61,6 +61,8 @@
             // transactionsDataGridView
             // 
             this.transactionsDataGridView.AllowUserToAddRows = false;
+            this.transactionsDataGridView.AllowUserToResizeColumns = false;
+            this.transactionsDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.transactionsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.transactionsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;

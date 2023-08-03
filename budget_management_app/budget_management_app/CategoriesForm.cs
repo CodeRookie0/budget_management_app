@@ -95,7 +95,7 @@ namespace budget_management_app
         private void CategoryButton_Click(string categoryName)
         {
             selectedCategory = categoryName;
-            SubCategoryForm subCat = new SubCategoryForm();
+            SubcategoriesForm subCat = new SubcategoriesForm();
             subCat.Show();
             this.Hide();
         }

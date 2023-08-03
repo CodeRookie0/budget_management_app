@@ -53,7 +53,7 @@
             this.currencyLabel.AutoSize = true;
             this.currencyLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold);
             this.currencyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.currencyLabel.Location = new System.Drawing.Point(439, 554);
+            this.currencyLabel.Location = new System.Drawing.Point(439, 570);
             this.currencyLabel.Name = "currencyLabel";
             this.currencyLabel.Size = new System.Drawing.Size(70, 37);
             this.currencyLabel.TabIndex = 65;
@@ -90,11 +90,11 @@
             this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
             this.backButton.ImageSize = new System.Drawing.Size(50, 50);
-            this.backButton.Location = new System.Drawing.Point(0, 77);
+            this.backButton.Location = new System.Drawing.Point(0, 74);
             this.backButton.Name = "backButton";
             this.backButton.PressedColor = System.Drawing.Color.Transparent;
             this.backButton.PressedDepth = 0;
-            this.backButton.Size = new System.Drawing.Size(58, 56);
+            this.backButton.Size = new System.Drawing.Size(58, 81);
             this.backButton.TabIndex = 72;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
@@ -133,7 +133,7 @@
             this.transactionAmountTextBox.ForeColor = System.Drawing.Color.Black;
             this.transactionAmountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.transactionAmountTextBox.HoverState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.transactionAmountTextBox.Location = new System.Drawing.Point(265, 547);
+            this.transactionAmountTextBox.Location = new System.Drawing.Point(265, 563);
             this.transactionAmountTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.transactionAmountTextBox.Name = "transactionAmountTextBox";
             this.transactionAmountTextBox.PasswordChar = '\0';
@@ -151,7 +151,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(43, 131);
+            this.label2.Location = new System.Drawing.Point(43, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 22);
             this.label2.TabIndex = 74;
@@ -173,7 +173,7 @@
             this.accountComboBox.ForeColor = System.Drawing.Color.Black;
             this.accountComboBox.IntegralHeight = false;
             this.accountComboBox.ItemHeight = 45;
-            this.accountComboBox.Location = new System.Drawing.Point(47, 178);
+            this.accountComboBox.Location = new System.Drawing.Point(47, 170);
             this.accountComboBox.Name = "accountComboBox";
             this.accountComboBox.ShadowDecoration.BorderRadius = 20;
             this.accountComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
@@ -187,7 +187,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(43, 378);
+            this.label9.Location = new System.Drawing.Point(43, 386);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 22);
             this.label9.TabIndex = 77;
@@ -223,7 +223,7 @@
             this.transactionTypeComboBox.Items.AddRange(new object[] {
             "Income",
             "Expense"});
-            this.transactionTypeComboBox.Location = new System.Drawing.Point(47, 424);
+            this.transactionTypeComboBox.Location = new System.Drawing.Point(47, 432);
             this.transactionTypeComboBox.Name = "transactionTypeComboBox";
             this.transactionTypeComboBox.ShadowDecoration.BorderRadius = 20;
             this.transactionTypeComboBox.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
@@ -236,7 +236,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(261, 502);
+            this.label11.Location = new System.Drawing.Point(261, 518);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 22);
             this.label11.TabIndex = 81;
@@ -272,7 +272,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(43, 502);
+            this.label12.Location = new System.Drawing.Point(43, 518);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(45, 22);
             this.label12.TabIndex = 83;
@@ -292,7 +292,7 @@
             this.transactionDateTimePicker.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.transactionDateTimePicker.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.transactionDateTimePicker.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.transactionDateTimePicker.Location = new System.Drawing.Point(47, 547);
+            this.transactionDateTimePicker.Location = new System.Drawing.Point(47, 563);
             this.transactionDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.transactionDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.transactionDateTimePicker.Name = "transactionDateTimePicker";
