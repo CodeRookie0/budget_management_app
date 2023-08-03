@@ -197,10 +197,11 @@ namespace budget_management_app
         {
             try
             {
-                string checkQuery = "SELECT COUNT(*) FROM Account WHERE AccName = @AccountName";
+                string checkQuery = "SELECT COUNT(*) FROM Account WHERE AccName = @AccountName AND UserId=@UserId";
                 using (SqlCommand command = new SqlCommand(checkQuery, dbConnection.GetCon()))
                 {
                     command.Parameters.AddWithValue("@AccountName", accountName);
+                    command.Parameters.AddWithValue("@UserId", LoginForm.userId);
                     dbConnection.OpenCon();
 
                     int count = (int)command.ExecuteScalar();

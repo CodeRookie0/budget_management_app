@@ -215,16 +215,6 @@ namespace budget_management_app
 
                 if (result == DialogResult.Yes)
                 {
-                    // SQL query to delete the account
-                    string deleteAccountQuery = "DELETE FROM Account WHERE AccName = @AccountName AND UserId = @UserId";
-                    using (SqlCommand command = new SqlCommand(deleteAccountQuery, dbConnection.GetCon()))
-                    {
-                        command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
-                        command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-                        dbConnection.OpenCon();
-                        command.ExecuteNonQuery();
-                    }
-
                     // SQL queries to delete related transactions
                     string deleteExpensesQuery = "DELETE FROM Expenses WHERE AccId = @AccId AND UserId = @UserId";
                     string deleteIncomeQuery = "DELETE FROM Income WHERE AccId = @AccId AND UserId = @UserId";
@@ -247,6 +237,17 @@ namespace budget_management_app
                         commandSavings.ExecuteNonQuery();
                     }
 
+                    // SQL query to delete the account
+                    string deleteAccountQuery = "DELETE FROM Account WHERE AccName = @AccountName AND UserId = @UserId";
+                    using (SqlCommand command = new SqlCommand(deleteAccountQuery, dbConnection.GetCon()))
+                    {
+                        command.Parameters.AddWithValue("@AccountName", AccountsForm.selectedAccountName);
+                        command.Parameters.AddWithValue("@UserId", LoginForm.userId);
+                        dbConnection.OpenCon();
+                        command.ExecuteNonQuery();
+                    }
+
+                    
                     MessageBox.Show("Account was Deleted Successfully", "Delete Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Go back to the AccountsForm after successful deletion

@@ -2,36 +2,16 @@
 using LiveCharts;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Runtime.InteropServices.ComTypes;
-using System.Management;
 using System.Globalization;
-using System.Web.UI.WebControls;
-using System.Timers;
-using System.Windows.Threading;
-using LiveCharts.Defaults;
-using LiveCharts.WinForms;
-using LiveCharts.Definitions.Charts;
 using System.Windows.Media;
 using System.Windows;
 using System.IO;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Markup;
-using LiveCharts.Wpf.Charts.Base;
-using System.Xml.Linq;
-using System.Reflection;
-using System.Windows.Media.Media3D;
 
 namespace budget_management_app
 {
