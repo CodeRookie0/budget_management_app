@@ -22,7 +22,7 @@ namespace budget_management_app
         {
             try
             {
-                string selectQuery = "SELECT CurrName FROM Currency";
+                string selectQuery = "SELECT CurrName FROM Currency ORDER BY CurrName ASC";
                 using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
                     dbConnection.OpenCon();

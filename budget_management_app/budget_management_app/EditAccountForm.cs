@@ -77,7 +77,7 @@ namespace budget_management_app
             try
             {
                 // SQL query to retrieve currency names from the database
-                string selectQuery = "SELECT CurrName From Currency";
+                string selectQuery = "SELECT CurrName From Currency ORDER BY CurrName ASC";
                 using (SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon()))
                 {
                     dbConnection.OpenCon();
