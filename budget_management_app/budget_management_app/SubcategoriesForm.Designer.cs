@@ -183,7 +183,7 @@
             this.subcategoriesDataGridView.Name = "subcategoriesDataGridView";
             this.subcategoriesDataGridView.ReadOnly = true;
             this.subcategoriesDataGridView.RowHeadersVisible = false;
-            this.subcategoriesDataGridView.Size = new System.Drawing.Size(514, 165);
+            this.subcategoriesDataGridView.Size = new System.Drawing.Size(514, 205);
             this.subcategoriesDataGridView.TabIndex = 7;
             this.subcategoriesDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.subcategoriesDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -213,7 +213,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.label2.Location = new System.Drawing.Point(30, 443);
+            this.label2.Location = new System.Drawing.Point(30, 483);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(176, 22);
             this.label2.TabIndex = 28;
@@ -250,7 +250,7 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.mySubcategoriesDataGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.mySubcategoriesDataGridView.GridColor = System.Drawing.Color.White;
-            this.mySubcategoriesDataGridView.Location = new System.Drawing.Point(33, 488);
+            this.mySubcategoriesDataGridView.Location = new System.Drawing.Point(33, 528);
             this.mySubcategoriesDataGridView.Name = "mySubcategoriesDataGridView";
             this.mySubcategoriesDataGridView.ReadOnly = true;
             this.mySubcategoriesDataGridView.RowHeadersVisible = false;
@@ -339,7 +339,7 @@
             this.deleteButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.deleteButton.HoverState.Font = new System.Drawing.Font("Segoe UI Variable Display", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.deleteButton.HoverState.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(325, 663);
+            this.deleteButton.Location = new System.Drawing.Point(325, 683);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.ShadowDecoration.BorderRadius = 20;
             this.deleteButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
@@ -365,7 +365,7 @@
             this.addButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.addButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.addButton.HoverState.ForeColor = System.Drawing.Color.White;
-            this.addButton.Location = new System.Drawing.Point(134, 663);
+            this.addButton.Location = new System.Drawing.Point(134, 683);
             this.addButton.Name = "addButton";
             this.addButton.ShadowDecoration.BorderRadius = 20;
             this.addButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));

@@ -182,7 +182,7 @@ namespace budget_management_app
             // Check if a subcategory is selected for deletion
             if (string.IsNullOrEmpty(selectedSubcategory))
             {
-                MessageBox.Show("Subcategory not selected or cannot be deleted. Remember that you can only delete subcategories created by you", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Subcategory not selected or cannot be deleted. Remember that you can only delete subcategories created by you.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
