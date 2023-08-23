@@ -183,7 +183,7 @@ namespace budget_management_app
 
                     string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(loopMonth);
                     int index = columnChart.Series["Expenses"].Points.Count - 1;
-                    columnChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", monthName + "\nAmount: " + amount.ToString("N2"));
+                    columnChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", monthName + "\nAmount: -" + amount.ToString("N2"));
 
                     if (amount > maxAmount)
                     {
@@ -241,7 +241,7 @@ namespace budget_management_app
                 columnChart.Series["Expenses"].Points.Add(amount);
 
                 int index = columnChart.Series["Expenses"].Points.Count - 1;
-                columnChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", "From: " + currentWeekStart.ToString("dd/MM/yyyy") + "\nTo: " + currentWeekEnd.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString("N2"));
+                columnChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", "From: " + currentWeekStart.ToString("dd/MM/yyyy") + "\nTo: " + currentWeekEnd.ToString("dd/MM/yyyy") + "\nAmount: -" + amount.ToString("N2"));
 
                 if (amount > maxAmount)
                 {
@@ -304,7 +304,7 @@ namespace budget_management_app
                 columnChart.Series["Expenses"].Points.Add(amount);
 
                 int index = columnChart.Series["Expenses"].Points.Count - 1;
-                columnChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString("N2"));
+                columnChart.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: -" + amount.ToString("N2"));
 
                 if (amount > maxAmount)
                 {

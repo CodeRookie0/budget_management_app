@@ -33,12 +33,12 @@ namespace budget_management_app
             string sumQuery = "SELECT " +
                    "  (SELECT SUM(ExpAmount) " +
                    "FROM Expenses " +
-                   "WHERE AccId = @SelectedAccId " +
+                   "WHERE AccId = @SelectedAccountId " +
                    "AND UserId = @UserId " +
                    "AND ExpDate BETWEEN @StartDate AND GETDATE()) AS ExpTotalAmount, " +
                    "  (SELECT SUM(InAmount) " +
                    "FROM Income " +
-                   "WHERE AccId = @SelectedAccId " +
+                   "WHERE AccId = @SelectedAccountId " +
                    "AND UserId = @UserId " +
                    "AND InDate BETWEEN @StartDate AND GETDATE()) AS InTotalAmount";
 
@@ -161,13 +161,13 @@ namespace budget_management_app
                 "FROM ( " +
                 "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
                 "    FROM Expenses " +
-                "    WHERE Expenses.AccId = @SelectedAccId " +
+                "    WHERE Expenses.AccId = @SelectedAccountId " +
                 "    AND Expenses.UserId = @UserId " +
                 "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
                 "    UNION ALL " +
                 "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
                 "    FROM Income " +
-                "    WHERE Income.AccId = @SelectedAccId " +
+                "    WHERE Income.AccId = @SelectedAccountId " +
                 "    AND Income.UserId = @UserId " +
                 "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
                 ") AS CombinedData " +
@@ -265,13 +265,13 @@ namespace budget_management_app
                 "FROM ( " +
                 "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
                 "    FROM Expenses " +
-                "    WHERE Expenses.AccId = @SelectedAccId " +
+                "    WHERE Expenses.AccId = @SelectedAccountId " +
                 "    AND Expenses.UserId = @UserId " +
                 "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
                 "    UNION ALL " +
                 "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
                 "    FROM Income " +
-                "    WHERE Income.AccId = @SelectedAccId " +
+                "    WHERE Income.AccId = @SelectedAccountId " +
                 "    AND Income.UserId = @UserId " +
                 "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
                 ") AS CombinedData " +
