@@ -108,7 +108,7 @@ namespace budget_management_app
                "LEFT JOIN UserSubCat ON Expenses.Us_SubId = UserSubCat.Us_SubId " +
                "WHERE Expenses.AccId = @SelectedAccountId " +
                " AND Expenses.UserId = @UserId " +
-               " AND Expenses.ExpDate BETWEEN @StartDate "  +
+               " AND Expenses.ExpDate BETWEEN '" + year + "-" + month + "-" + day +
                "' AND GETDATE() " +
                "ORDER BY Expenses.ExpAmount DESC";
 
@@ -116,7 +116,6 @@ namespace budget_management_app
             SqlCommand command = new SqlCommand(query, dbConnection.GetCon());
             command.Parameters.AddWithValue("@SelectedAccountId", accountId);
             command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
             dbConnection.OpenCon();
 
             // Create an adapter to fetch data into a DataTable
