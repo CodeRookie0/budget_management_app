@@ -133,6 +133,7 @@
       <DependentUpon>CategoriesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="ExpensesTabLogic.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
