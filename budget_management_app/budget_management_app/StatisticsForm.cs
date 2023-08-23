@@ -95,8 +95,8 @@ namespace budget_management_app
         private void UpdateCharts()
         {
             // Update pie chart and highest expenses data
-            expensesTabLogic.getPieChart(selectedAccountId, selectedYear,selectedMonth,selectedDay,expensesPieChart);
-            expensesTabLogic.getHighestExpensees(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridViewHighestExpenses);
+            expensesTabLogic.GeneratePieChart(selectedAccountId, selectedYear,selectedMonth,selectedDay,expensesPieChart);
+            expensesTabLogic.GenerateHighestExpenses(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridViewHighestExpenses);
 
             // Calculate days difference between current and selected dates
             DateTime selectedDate = new DateTime(selectedYear, selectedMonth, selectedDay);
@@ -106,17 +106,17 @@ namespace budget_management_app
             // Choose appropriate chart based on days difference
             if (daysDifference > 123)
             {
-                expensesTabLogic.getColumnChart_Month(selectedAccountId, selectedYear, selectedMonth, selectedDay,expensesColumnChart);
+                expensesTabLogic.GenerateColumnChartMonth(selectedAccountId, selectedYear, selectedMonth, selectedDay,expensesColumnChart);
                 moneyFlowTabLogic.getCartesianChart_Month(selectedAccountId, selectedYear,selectedMonth,selectedDay,cashFlowCartesianChart);
             }
             else if (daysDifference > 31 && daysDifference <= 123)
             {
-                expensesTabLogic.getColumnChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+                expensesTabLogic.GenerateColumnChartWeek(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
                 moneyFlowTabLogic.getCartesianChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
             }
             else
             {
-                expensesTabLogic.getColumnChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+                expensesTabLogic.GenerateColumnChartDay(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
                 moneyFlowTabLogic.getCartesianChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
             }
 
@@ -145,7 +145,7 @@ namespace budget_management_app
             UpdateSelectedDate(startDay, startMonth, startYear);
 
             // Update the expenses column chart
-            expensesTabLogic.getColumnChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+            expensesTabLogic.GenerateColumnChartDay(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
         private void oneMonthButton_Click(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace budget_management_app
             UpdateSelectedDate(startDay, startMonth, startYear);
 
             // Update the expenses column chart
-            expensesTabLogic.getColumnChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+            expensesTabLogic.GenerateColumnChartDay(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
         private void twelveWeeksButton_Click(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace budget_management_app
             UpdateSelectedDate(1, startMonth, startYear);
 
             // Update the expenses column chart
-            expensesTabLogic.getColumnChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+            expensesTabLogic.GenerateColumnChartWeek(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
         private void halfYearButton_Click(object sender, EventArgs e)
@@ -200,7 +200,7 @@ namespace budget_management_app
             UpdateSelectedDate(1, startMonth, startYear);
 
             // Update the expenses column chart
-            expensesTabLogic.getColumnChart_Month(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+            expensesTabLogic.GenerateColumnChartMonth(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
         private void oneYearButton_Click(object sender, EventArgs e)
@@ -214,7 +214,7 @@ namespace budget_management_app
             UpdateSelectedDate(1, 1, currentDate.Year);
 
             // Update the expenses column chart
-            expensesTabLogic.getColumnChart_Month(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+            expensesTabLogic.GenerateColumnChartMonth(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
         // Button to expand the bottom bar
