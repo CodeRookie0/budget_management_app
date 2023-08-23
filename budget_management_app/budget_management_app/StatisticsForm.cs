@@ -122,10 +122,10 @@ namespace budget_management_app
 
             // Update money flow charts and reports
             moneyFlowTabLogic.getMoneyFlowChart(selectedAccountId, selectedYear, selectedMonth, selectedDay,moneyFlowExpensesChart,moneyFlowIncomeChart,amountDiffrenceLabel,amountExpensesLabel,amountIncomeLabel);
-            reportsFlowTabLogic.getRaportMf(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_mf, amountDifferenceMFReportLabel);
+            reportsFlowTabLogic.GenerateMoneyFlowReport(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_mf, amountDifferenceMFReportLabel);
             amountDifferenceLedgerReportLabel.Text = amountDifferenceMFReportLabel.Text;
-            reportsFlowTabLogic.getRaportExp(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridView_raport_exp, amountExpensesLedgerLabel);
-            reportsFlowTabLogic.getRaportIn(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_in, amountIncomeLedgerLabel);
+            reportsFlowTabLogic.GenerateExpensesReport(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridView_raport_exp, amountExpensesLedgerLabel);
+            reportsFlowTabLogic.GenerateIncomeReport(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_in, amountIncomeLedgerLabel);
         }
 
         // Event handlers for time interval buttons

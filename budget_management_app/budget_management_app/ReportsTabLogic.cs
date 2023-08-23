@@ -11,11 +11,13 @@ namespace budget_management_app
 {
     internal class ReportsTabLogic
     {
-        private DBConnection dbcon = new DBConnection();
+        private DBConnection dbConnection = new DBConnection();
 
-        public void getRaportMf(int AccId, int Year, int Month, int Day,DataGridView reportMoneyFlow,Label amountMoneyFlow)
+        // Method to generate money flow report
+        public void GenerateMoneyFlowReport(int accountId, int year, int month, int day, DataGridView moneyFlowReport, Label totalMoneyFlowLabel)
         {
-            string query = "SELECT " +
+            // SQL query to calculate money flow data
+            string moneyFlowQuery = "SELECT " +
                "    SUM(ExpAmount) AS TotalExpenses, " +
                "    SUM(InAmount) AS TotalIncome, " +
                "    COUNT(ExpAmount) AS ExpensesRowCount, " +
@@ -35,60 +37,67 @@ namespace budget_management_app
                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
                ") AS CombinedData ";
 
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            // Create SQL command with parameters
+            SqlCommand moneyFlowCommand = new SqlCommand(moneyFlowQuery, dbConnection.GetCon());
+            moneyFlowCommand.Parameters.AddWithValue("@SelectedAccId", accountId);
+            moneyFlowCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            moneyFlowCommand.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
+
+            // Execute SQL command and fill data into DataTable
+            SqlDataAdapter moneyFlowAdapter = new SqlDataAdapter(moneyFlowCommand);
+            DataTable moneyFlowDataTable = new DataTable();
+            moneyFlowAdapter.Fill(moneyFlowDataTable);
+
+            // Clear existing rows in the DataGridView
+            moneyFlowReport.Rows.Clear();
+
+            // Extract values from DataTable
+            double expensesTotal = (moneyFlowDataTable.Rows.Count > 0 && !DBNull.Value.Equals(moneyFlowDataTable.Rows[0]["TotalExpenses"]))
+                ? Convert.ToDouble(moneyFlowDataTable.Rows[0]["TotalExpenses"]) : 0;
+            double incomeTotal = (moneyFlowDataTable.Rows.Count > 0 && !DBNull.Value.Equals(moneyFlowDataTable.Rows[0]["TotalIncome"]))
+                ? Convert.ToDouble(moneyFlowDataTable.Rows[0]["TotalIncome"]) : 0;
+            int expensesRowCount = moneyFlowDataTable.Rows.Count > 0 && moneyFlowDataTable.Rows[0]["ExpensesRowCount"] != DBNull.Value
+                ? Convert.ToInt32(moneyFlowDataTable.Rows[0]["ExpensesRowCount"]) : 0;
+            int incomeRowCount = moneyFlowDataTable.Rows.Count > 0 && moneyFlowDataTable.Rows[0]["IncomeRowCount"] != DBNull.Value
+                ? Convert.ToInt32(moneyFlowDataTable.Rows[0]["IncomeRowCount"]) : 0;
+            int daysBetweenDates = moneyFlowDataTable.Rows.Count > 0 && moneyFlowDataTable.Rows[0]["DaysBetweenDates"] != DBNull.Value
+                ? Convert.ToInt32(moneyFlowDataTable.Rows[0]["DaysBetweenDates"]) : 0;
 
 
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
+            // Populate DataGridView with calculated values
+            moneyFlowReport.Rows.Add("Number", incomeRowCount, expensesRowCount);
+            moneyFlowReport.Rows[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            moneyFlowReport.Rows[0].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            moneyFlowReport.Rows[0].DefaultCellStyle.Format = "0";
+            moneyFlowReport.Rows.Add("Average/Day", "+" + Math.Round(incomeTotal / daysBetweenDates, 2).ToString("0.00"), Math.Round(-expensesTotal / daysBetweenDates, 2).ToString("0.00"));
+            double averageIncome = incomeRowCount != 0 ? Math.Round(incomeTotal / incomeRowCount, 2) : 0;
+            double averageExpenses = expensesRowCount != 0 ? Math.Round(-expensesTotal / expensesRowCount, 2) : 0;
+            moneyFlowReport.Rows.Add("Average/Entry", "+" + averageIncome.ToString("0.00"), averageExpenses.ToString("0.00"));
+            moneyFlowReport.Rows[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            moneyFlowReport.Rows[2].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
+            moneyFlowReport.Rows.Add("Total", "+" + incomeTotal.ToString("0.00"), (-expensesTotal).ToString("0.00"));
 
-            reportMoneyFlow.Rows.Clear();
-
-            double exp = (dataTable.Rows.Count > 0 && !DBNull.Value.Equals(dataTable.Rows[0]["TotalExpenses"]))
-                ? Convert.ToDouble(dataTable.Rows[0]["TotalExpenses"]) : 0;
-            double income = (dataTable.Rows.Count > 0 && !DBNull.Value.Equals(dataTable.Rows[0]["TotalIncome"]))
-                ? Convert.ToDouble(dataTable.Rows[0]["TotalIncome"]) : 0;
-            int num_exp = dataTable.Rows.Count > 0 && dataTable.Rows[0]["ExpensesRowCount"] != DBNull.Value
-                ? Convert.ToInt32(dataTable.Rows[0]["ExpensesRowCount"]) : 0;
-            int num_income = dataTable.Rows.Count > 0 && dataTable.Rows[0]["IncomeRowCount"] != DBNull.Value
-                ? Convert.ToInt32(dataTable.Rows[0]["IncomeRowCount"]) : 0;
-            int days = dataTable.Rows.Count > 0 && dataTable.Rows[0]["DaysBetweenDates"] != DBNull.Value
-                ? Convert.ToInt32(dataTable.Rows[0]["DaysBetweenDates"]) : 0;
-
-
-            reportMoneyFlow.Rows.Add("Number", num_income, num_exp);
-            reportMoneyFlow.Rows[0].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
-            reportMoneyFlow.Rows[0].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
-            reportMoneyFlow.Rows[0].DefaultCellStyle.Format = "0";
-            reportMoneyFlow.Rows.Add("Average/Day", "+" + Math.Round(income / days, 2).ToString("0.00"), Math.Round(-exp / days, 2).ToString("0.00"));
-            double averageIncome = num_income != 0 ? Math.Round(income / num_income, 2) : 0;
-            double averageExpenses = num_exp != 0 ? Math.Round(-exp / num_exp, 2) : 0;
-            reportMoneyFlow.Rows.Add("Average/Entry", "+" + averageIncome.ToString("0.00"), averageExpenses.ToString("0.00"));
-            reportMoneyFlow.Rows[2].DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
-            reportMoneyFlow.Rows[2].DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 245, 245, 245);
-            reportMoneyFlow.Rows.Add("Total", "+" + income.ToString("0.00"), (-exp).ToString("0.00"));
-
-            if (income - exp > 0)
+            // Set total money flow label text
+            if (incomeTotal - expensesTotal > 0)
             {
-                amountMoneyFlow.Text = "+" + (income - exp).ToString("0.00");
+                totalMoneyFlowLabel.Text = "+" + (incomeTotal - expensesTotal).ToString("0.00");
             }
             else
             {
-                amountMoneyFlow.Text = (income - exp).ToString("0.00");
+                totalMoneyFlowLabel.Text = (incomeTotal - expensesTotal).ToString("0.00");
             }
 
-
-            reportMoneyFlow.ClearSelection();
-            reportMoneyFlow.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Bold);
-            dbcon.CloseCon();
+            // Clear selection and set column header style
+            moneyFlowReport.ClearSelection();
+            moneyFlowReport.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 12, System.Drawing.FontStyle.Bold);
+            dbConnection.CloseCon();
         }
 
-        public void getRaportExp(int AccId, int Year, int Month, int Day, DataGridView reportExpenses,Label totalExpenses)
+        // Method to generate expenses report
+        public void GenerateExpensesReport(int accountId, int year, int month, int day, DataGridView expensesReport, Label totalExpensesLabel)
         {
-            string query = "SELECT Category.CatName, " +
+            // SQL query to calculate expenses data
+            string expensesQuery = "SELECT Category.CatName, " +
                "COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName)) AS SubName, " +
                "SUM(Expenses.ExpAmount) AS TotalAmount " +
                "FROM Expenses " +
@@ -101,16 +110,19 @@ namespace budget_management_app
                "GROUP BY Category.CatName, COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName))";
 
 
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            // Create SQL command with parameters
+            SqlCommand expensesCommand = new SqlCommand(expensesQuery, dbConnection.GetCon());
+            expensesCommand.Parameters.AddWithValue("@SelectedAccId", accountId);
+            expensesCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            expensesCommand.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
+            // Execute SQL command and fill data into DataTable
+            SqlDataAdapter expensesAdapter = new SqlDataAdapter(expensesCommand);
+            DataTable expensesDataTable = new DataTable();
+            expensesAdapter.Fill(expensesDataTable);
 
-            string query_cat = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
+            // SQL query to calculate category-wise expenses data
+            string categoryQuery = "SELECT Category.CatName, SUM(Expenses.ExpAmount) AS TotalAmount " +
                "FROM Expenses " +
                "JOIN Category ON Expenses.CatId = Category.CatId " +
                "WHERE Expenses.AccId = @SelectedAccId " +
@@ -118,47 +130,54 @@ namespace budget_management_app
                "AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
                "GROUP BY Category.CatName";
 
-            SqlCommand command_cat = new SqlCommand(query_cat, dbcon.GetCon());
-            command_cat.Parameters.AddWithValue("@SelectedAccId", AccId);
-            command_cat.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command_cat.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            // Create SQL command for category-wise expenses
+            SqlCommand categoryCommand = new SqlCommand(categoryQuery, dbConnection.GetCon());
+            categoryCommand.Parameters.AddWithValue("@SelectedAccId", accountId);
+            categoryCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            categoryCommand.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
-            SqlDataAdapter adapter_cat = new SqlDataAdapter(command_cat);
-            DataTable dataTable_cat = new DataTable();
-            adapter_cat.Fill(dataTable_cat);
+            // Execute SQL command and fill data into DataTable
+            SqlDataAdapter categoryAdapter = new SqlDataAdapter(categoryCommand);
+            DataTable categoryDataTable = new DataTable();
+            categoryAdapter.Fill(categoryDataTable);
 
-            reportExpenses.Rows.Clear();
+            // Clear existing rows in the DataGridView
+            expensesReport.Rows.Clear();
 
             double totalAmount = 0;
 
-            foreach (DataRow row_cat in dataTable_cat.Rows)
+            // Loop through category data and populate the DataGridView
+            foreach (DataRow row_cat in categoryDataTable.Rows)
             {
                 string catName = row_cat["CatName"].ToString().Trim();
                 double catAmount = -(row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0);
-                reportExpenses.Rows.Add(catName, catAmount);
+                expensesReport.Rows.Add(catName, catAmount);
 
-                foreach (DataRow row in dataTable.Rows)
+                // Loop through expenses data and populate subcategories
+                foreach (DataRow row in expensesDataTable.Rows)
                 {
                     if (row["CatName"].ToString().Trim() == catName)
                     {
                         string subName = "          " + row["SubName"].ToString().Trim();
                         double subAmount = -(row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0);
-                        reportExpenses.Rows.Add(subName, "            " + subAmount.ToString("0.00"));
-                        int rowIndex = reportExpenses.Rows.Count - 1;
-                        reportExpenses.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
-                        reportExpenses.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
-                        reportExpenses.Rows[rowIndex].Cells[0].Style.ForeColor = System.Drawing.Color.Gray;
+                        expensesReport.Rows.Add(subName, "            " + subAmount.ToString("0.00"));
+                        int rowIndex = expensesReport.Rows.Count - 1;
+                        expensesReport.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
+                        expensesReport.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
+                        expensesReport.Rows[rowIndex].Cells[0].Style.ForeColor = System.Drawing.Color.Gray;
                     }
                 }
                 totalAmount += catAmount;
             }
 
-            totalExpenses.Text = totalAmount.ToString("0.00");
+            totalExpensesLabel.Text = totalAmount.ToString("0.00");
         }
 
-        public void getRaportIn(int AccId, int Year, int Month, int Day, DataGridView reportIncome, Label totalIncome)
+        // Method to generate income report
+        public void GenerateIncomeReport(int accountId, int year, int month, int day, DataGridView incomeReport, Label totalIncomeLabel)
         {
-            string query = "SELECT Category.CatName, " +
+            // SQL query to calculate income data
+            string incomeQuery = "SELECT Category.CatName, " +
                "COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName)) AS SubName, " +
                "SUM(Income.InAmount) AS TotalAmount " +
                "FROM Income " +
@@ -171,16 +190,19 @@ namespace budget_management_app
                "GROUP BY Category.CatName, COALESCE(SubCategory.SubName, UserSubCat.Us_SubName, CONCAT('General:', Category.CatName))";
 
 
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            // Create SQL command with parameters
+            SqlCommand incomeCommand = new SqlCommand(incomeQuery, dbConnection.GetCon());
+            incomeCommand.Parameters.AddWithValue("@SelectedAccId", accountId);
+            incomeCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            incomeCommand.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
+            // Execute SQL command and fill data into DataTable
+            SqlDataAdapter incomeAdapter = new SqlDataAdapter(incomeCommand);
+            DataTable incomeDataTable = new DataTable();
+            incomeAdapter.Fill(incomeDataTable);
 
-            string query_cat = "SELECT Category.CatName, SUM(Income.InAmount) AS TotalAmount " +
+            // SQL query to calculate category-wise income data
+            string categoryQuery = "SELECT Category.CatName, SUM(Income.InAmount) AS TotalAmount " +
                "FROM Income " +
                "JOIN Category ON Income.CatId = Category.CatId " +
                "WHERE Income.AccId = @SelectedAccId " +
@@ -188,42 +210,47 @@ namespace budget_management_app
                "AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
                "GROUP BY Category.CatName";
 
-            SqlCommand command_cat = new SqlCommand(query_cat, dbcon.GetCon());
-            command_cat.Parameters.AddWithValue("@SelectedAccId", AccId);
-            command_cat.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command_cat.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            // Create SQL command for category-wise income
+            SqlCommand categoryCommand = new SqlCommand(categoryQuery, dbConnection.GetCon());
+            categoryCommand.Parameters.AddWithValue("@SelectedAccId", accountId);
+            categoryCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
+            categoryCommand.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
-            SqlDataAdapter adapter_cat = new SqlDataAdapter(command_cat);
-            DataTable dataTable_cat = new DataTable();
-            adapter_cat.Fill(dataTable_cat);
+            // Execute SQL command and fill data into DataTable
+            SqlDataAdapter categoryAdapter = new SqlDataAdapter(categoryCommand);
+            DataTable categoryDataTable = new DataTable();
+            categoryAdapter.Fill(categoryDataTable);
 
-            reportIncome.Rows.Clear();
+            // Clear existing rows in the DataGridView
+            incomeReport.Rows.Clear();
 
             double totalAmount = 0;
 
-            foreach (DataRow row_cat in dataTable_cat.Rows)
+            // Loop through category data and populate the DataGridView
+            foreach (DataRow row_cat in categoryDataTable.Rows)
             {
                 string catName = row_cat["CatName"].ToString().Trim();
                 double catAmount = row_cat["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row_cat["TotalAmount"]) : 0;
-                reportIncome.Rows.Add(catName, catAmount);
+                incomeReport.Rows.Add(catName, catAmount);
 
-                foreach (DataRow row in dataTable.Rows)
+                // Loop through income data and populate subcategories
+                foreach (DataRow row in incomeDataTable.Rows)
                 {
                     if (row["CatName"].ToString().Trim() == catName)
                     {
                         string subName = "          " + row["SubName"].ToString().Trim();
                         double subAmount = row["TotalAmount"] != DBNull.Value ? Convert.ToDouble(row["TotalAmount"]) : 0;
-                        reportIncome.Rows.Add(subName, "            " + "+" + subAmount.ToString("0.00"));
-                        int rowIndex = reportIncome.Rows.Count - 1;
-                        reportIncome.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
-                        reportIncome.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
-                        reportIncome.Rows[rowIndex].Cells[0].Style.ForeColor = System.Drawing.Color.Gray;
+                        incomeReport.Rows.Add(subName, "            " + "+" + subAmount.ToString("0.00"));
+                        int rowIndex = incomeReport.Rows.Count - 1;
+                        incomeReport.Rows[rowIndex].Cells[0].Style.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Regular);
+                        incomeReport.Rows[rowIndex].Cells[1].Style.Font = new System.Drawing.Font("Arial", 9, System.Drawing.FontStyle.Regular);
+                        incomeReport.Rows[rowIndex].Cells[0].Style.ForeColor = System.Drawing.Color.Gray;
                     }
                 }
                 totalAmount += catAmount;
             }
 
-            totalIncome.Text = "+" + totalAmount.ToString("0.00");
+            totalIncomeLabel.Text = "+" + totalAmount.ToString("0.00");
         }
     }
 }
