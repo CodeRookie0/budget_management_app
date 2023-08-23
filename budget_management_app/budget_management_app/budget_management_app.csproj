@@ -301,6 +301,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Budget_management.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\arrow-up-in-circle.png" />
+    <None Include="Resources\arrow-down-in-circle.png" />
+    <None Include="Resources\filled-arrow-up-in-circle.png" />
+    <None Include="Resources\filled-arrow-down-in-circle.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

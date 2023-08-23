@@ -39,6 +39,8 @@ namespace budget_management_app
         {
             InitializeComponent();
 
+            menuTabControl.SelectedIndex = 1;
+
             getAcc();
             comboBox_account.SelectedIndex = 0;
             getSelectedAcc();
@@ -50,23 +52,6 @@ namespace budget_management_app
 
             DataGridView_7High_exp.Columns[1].Width = 100;
             DataGridView_7High_exp.Columns[2].Width = 90;
-
-        }
-        private void label_exit_Click(object sender, EventArgs e)
-        {
-            HomeForm home = new HomeForm();
-            home.Show();
-            this.Hide();
-        }
-
-        private void label_exit_MouseEnter(object sender, EventArgs e)
-        {
-            label_exit.ForeColor = System.Drawing.Color.FromArgb(212, 148, 85);
-        }
-
-        private void label_exit_MouseLeave(object sender, EventArgs e)
-        {
-            label_exit.ForeColor = System.Drawing.Color.White;
         }
 
         private void UpdateSelectedDate(int startDay, int startMonth, int startYear)
@@ -108,19 +93,16 @@ namespace budget_management_app
             if (daysDifference > 123)
             {
                 getColumnChart_Month();
-                getCashFlow_Month();
                 getCartesianChart_Month();
             }
             else if (daysDifference > 31 && daysDifference <= 123)
             {
                 getColumnChart_Week();
-                getCashFlow_Week();
                 getCartesianChart_Week();
             }
             else
             {
                 getColumnChart_Day();
-                getCashFlow_Day();
                 getCartesianChart_Day();
             }
 
@@ -144,7 +126,6 @@ namespace budget_management_app
             label_last_X_raport_ledger.Text = "LAST 7 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
             getColumnChart_Day();
-            getCashFlow_Day();
         }
 
         private void button_30D_Click(object sender, EventArgs e)
@@ -160,7 +141,6 @@ namespace budget_management_app
             label_last_X_raport_ledger.Text = "LAST 30 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
             getColumnChart_Day();
-            getCashFlow_Day();
         }
 
         private void button_12W_Click(object sender, EventArgs e)
@@ -175,7 +155,6 @@ namespace budget_management_app
             label_last_X_raport_ledger.Text = "LAST 3 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
             getColumnChart_Week();
-            getCashFlow_Week();
         }
 
         private void button_6M_Click(object sender, EventArgs e)
@@ -190,7 +169,6 @@ namespace budget_management_app
             label_last_X_raport_ledger.Text = "LAST 6 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
             getColumnChart_Month();
-            getCashFlow_Month();
         }
 
         private void button_1Y_Click(object sender, EventArgs e)
@@ -202,26 +180,21 @@ namespace budget_management_app
             label_last_X_raport_ledger.Text = "LAST 12 MONTH";
             UpdateSelectedDate(1, 1, currentDate.Year);
             getColumnChart_Month();
-            getCashFlow_Month();
         }
 
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-            pictureBox_bottomBar.Size = new System.Drawing.Size(50, 40);
-            pictureBox_bottomBar.Location = new System.Drawing.Point(191, -9);
-        }
-
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox_bottomBar.Size = new System.Drawing.Size(50, 31);
-            pictureBox_bottomBar.Location = new System.Drawing.Point(191, 0);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void buttonBarUp_Click(object sender, EventArgs e)
         {
             timer_bottomBar.Start();
+            buttonBarUp.Visible = false;
+            buttonBarDown.Visible = true;
         }
 
+        private void buttonBarDown_Click(object sender, EventArgs e)
+        {
+            timer_bottomBar.Start();
+            buttonBarUp.Visible = true;
+            buttonBarDown.Visible = false;
+        }
         private void timer_bottomBar_Tick(object sender, EventArgs e)
         {
             if (bottombarExpand)
@@ -236,6 +209,7 @@ namespace budget_management_app
             }
             else
             {
+                panel_bottomBar.Width = 580;
                 panel_bottomBar.Location = new System.Drawing.Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y - 10);
                 panel_bottomBar.Height += 10;
                 if (panel_bottomBar.Height == panel_bottomBar.MaximumSize.Height)
@@ -309,6 +283,22 @@ namespace budget_management_app
 
             chart_exp_cat.Series.Clear();
 
+            System.Windows.Media.Color[] customColors = new System.Windows.Media.Color[]
+            {
+                System.Windows.Media.Color.FromRgb(230, 225, 175),
+                System.Windows.Media.Color.FromRgb(233, 195, 187),
+                System.Windows.Media.Color.FromRgb(235, 154, 157),
+                System.Windows.Media.Color.FromRgb(212, 129, 176),
+                System.Windows.Media.Color.FromRgb(168, 138, 188),
+                System.Windows.Media.Color.FromRgb(125, 146, 191),
+                System.Windows.Media.Color.FromRgb(106, 169, 192),
+                System.Windows.Media.Color.FromRgb(104, 186, 193),
+                System.Windows.Media.Color.FromRgb(114, 195, 173),
+                System.Windows.Media.Color.FromRgb(147, 201, 140)
+            };
+
+            int colorIndex = 0;
+
             foreach (DataRow row in dataTable_exp.Rows)
             {
                 decimal amount = Convert.ToDecimal(row["TotalAmount"]);
@@ -320,13 +310,21 @@ namespace budget_management_app
                         Title = row["CatName"].ToString().Trim(),
                         Values = new ChartValues<decimal> { amount },
                         DataLabels = true,
-                        LabelPoint = point => $"{point.Participation:P}"
+                        LabelPoint = point => $"  {amount}  "
                     };
+                    dataPoint.Fill = new SolidColorBrush(customColors[colorIndex % customColors.Length]);
 
                     chart_exp_cat.Series.Add(dataPoint);
                     chart_exp_cat.LegendLocation = LegendLocation.Bottom;
+
+                    colorIndex++;
                 }
             }
+            chart_exp_cat.DataTooltip = new DefaultTooltip
+            {
+                SelectionMode = TooltipSelectionMode.OnlySender,
+                FontSize=12,
+            };
         }
         private void getHighestExpensees()
         {
@@ -406,7 +404,7 @@ namespace budget_management_app
 
                     string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
                     int index = chart_exp_column.Series["Expenses"].Points.Count - 1;
-                    chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", monthName + "\nAmount: " + amount.ToString());
+                    chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", monthName + "\nAmount: " + amount.ToString("N2"));
 
                     if (amount > max_amount)
                     {
@@ -458,7 +456,7 @@ namespace budget_management_app
                 chart_exp_column.Series["Expenses"].Points.Add(amount);
 
                 int index = chart_exp_column.Series["Expenses"].Points.Count - 1;
-                chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", "From: " + currentWeekStart.ToString("dd/MM/yyyy")+ "\nTo: " + currentWeekEnd.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString());
+                chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", "From: " + currentWeekStart.ToString("dd/MM/yyyy")+ "\nTo: " + currentWeekEnd.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString("N2"));
 
                 if (amount > max_amount)
                 {
@@ -515,7 +513,7 @@ namespace budget_management_app
                 chart_exp_column.Series["Expenses"].Points.Add(amount);
 
                 int index = chart_exp_column.Series["Expenses"].Points.Count - 1;
-                chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString());
+                chart_exp_column.Series["Expenses"].Points[index].SetCustomProperty("Tooltip", date.ToString("dd/MM/yyyy") + "\nAmount: " + amount.ToString("N2"));
 
                 if (amount > max_amount)
                 {
@@ -602,11 +600,11 @@ namespace budget_management_app
             if (diff_in_exp >= 0)
             {
                 label_amount_diff_mf.Text = "+";
-                label_amount_diff_mf.ForeColor = System.Drawing.Color.FromArgb(138, 201, 38);
+                label_amount_diff_mf.ForeColor = System.Drawing.Color.FromArgb(52, 211, 153);
             }
             else
             {
-                label_amount_diff_mf.ForeColor = System.Drawing.Color.Red;
+                label_amount_diff_mf.ForeColor = System.Drawing.Color.FromArgb(248,113,113) ;
             }
 
             label_amount_diff_mf.Text += (diff_in_exp).ToString();
@@ -624,7 +622,7 @@ namespace budget_management_app
         }
 
 
-
+        
         private void timer_mf_Tick(object sender, EventArgs e)
         {
             decimal step_exp = expTotalAmount / (decimal)(animationDuration);
@@ -667,247 +665,6 @@ namespace budget_management_app
                 timer_mf.Stop();
             }
         }
-        private void getCashFlow_Month()
-        {
-            string query = "SELECT " +
-                "  DATEPART(MONTH, Date) AS MonthNumber, " +
-                "  DATEPART(YEAR, Date) AS YearNumber, " +
-                "SUM(ExpAmount) AS TotalExpenses, " +
-                "SUM(InAmount) AS TotalIncome " +
-                "FROM ( " +
-                "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
-                "    FROM Expenses " +
-                "    WHERE Expenses.AccId = @SelectedAccId " +
-                "    AND Expenses.UserId = @UserId " +
-                "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
-                "    UNION ALL " +
-                "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
-                "    FROM Income " +
-                "    WHERE Income.AccId = @SelectedAccId " +
-                "    AND Income.UserId = @UserId " +
-                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
-                ") AS CombinedData " +
-                " GROUP BY DATEPART(MONTH, Date), DATEPART(YEAR, Date) ";
-
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
-
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-
-            foreach (var series in chart_cash_flow.Series)
-            {
-                series.Points.Clear();
-            }
-
-            double max_exp = 0;
-            double max_in = 0;
-
-            int startYear = selectedYear;
-            int endYear = currentDate.Year;
-
-            for (int year = startYear; year <= endYear; year++)
-            {
-                int startMonth = (year == selectedYear) ? selectedMonth : 1;
-                int endMonth = (year == currentDate.Year) ? currentDate.Month : 12;
-
-                for (int month = startMonth; month <= endMonth; month++)
-                {
-                    DataRow[] rows = dataTable.Select("MonthNumber = " + month + " AND YearNumber = " + year);
-
-                    double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
-                    double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
-                    chart_cash_flow.Series["Expenses"].Points.Add(-amount_exp);
-                    chart_cash_flow.Series["Income"].Points.Add(amount_in);
-                    
-
-                    if (amount_exp > max_exp)
-                    {
-                        max_exp = amount_exp;
-                    }
-                    if (amount_in > max_in)
-                    {
-                        max_in = amount_in;
-                    }
-                }
-            }
-
-            for (int i = 0; i < chart_cash_flow.Series["Expenses"].Points.Count; i++)
-            {
-                double amount_exp = chart_cash_flow.Series["Expenses"].Points[i].YValues[0];
-                double amount_in = chart_cash_flow.Series["Income"].Points[i].YValues[0];
-                chart_cash_flow.Series["Default_down"].Points.Add(-max_exp *1.1-amount_exp);
-                chart_cash_flow.Series["Default_up"].Points.Add(max_in * 1.1-amount_in);
-                double money_flow = amount_in + amount_exp;
-                chart_cash_flow.Series["Money_flow"].Points.Add(money_flow);
-            }
-        }
-        private void getCashFlow_Week()
-        {
-            string query = "SELECT Date, " +
-                "SUM(ExpAmount) AS TotalExpenses, " +
-                "SUM(InAmount) AS TotalIncome " +
-                "FROM ( " +
-                "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
-                "    FROM Expenses " +
-                "    WHERE Expenses.AccId = @SelectedAccId " +
-                "    AND Expenses.UserId = @UserId " +
-                "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
-                "    UNION ALL " +
-                "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
-                "    FROM Income " +
-                "    WHERE Income.AccId = @SelectedAccId " +
-                "    AND Income.UserId = @UserId " +
-                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
-                ") AS CombinedData " +
-                "GROUP BY Date ";
-
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
-
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-
-            foreach (var series in chart_cash_flow.Series)
-            {
-                series.Points.Clear();
-            }
-
-            double max_exp = 0;
-            double max_in = 0;
-
-            DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
-            DateTime endDate = currentDate;
-
-            DateTime currentWeekStart = GetWeekStartDate(startDate);
-            DateTime currentWeekEnd = currentWeekStart.AddDays(6);
-
-            while (currentWeekStart <= endDate)
-            {
-                DataRow[] rows = dataTable.Select("Date >= #" + currentWeekStart.ToString("MM/dd/yyyy") + "# AND Date <= #" + currentWeekEnd.ToString("MM/dd/yyyy") + "#");
-
-                double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
-                double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
-                chart_cash_flow.Series["Expenses"].Points.Add(-amount_exp);
-                chart_cash_flow.Series["Income"].Points.Add(amount_in);
-
-                if (amount_exp > max_exp)
-                {
-                    max_exp = amount_exp;
-                }
-                if (amount_in > max_in)
-                {
-                    max_in = amount_in;
-                }
-
-                currentWeekStart = currentWeekEnd.AddDays(1);
-                currentWeekEnd = currentWeekStart.AddDays(6);
-            }
-
-            for (int i = 0; i < chart_cash_flow.Series["Expenses"].Points.Count; i++)
-            {
-                double amount_exp = chart_cash_flow.Series["Expenses"].Points[i].YValues[0];
-                double amount_in = chart_cash_flow.Series["Income"].Points[i].YValues[0];
-                chart_cash_flow.Series["Default_down"].Points.Add(-max_exp * 1.1 - amount_exp);
-                chart_cash_flow.Series["Default_up"].Points.Add(max_in * 1.1 - amount_in);
-
-                double money_flow = amount_in + amount_exp;
-                chart_cash_flow.Series["Money_flow"].Points.Add(money_flow);
-            }
-
-            DateTime GetWeekStartDate(DateTime date)
-            {
-                int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
-                return date.AddDays(-1 * diff).Date;
-            }
-        }
-        private void getCashFlow_Day()
-        {
-            string query = "SELECT Date, " +
-                "SUM(ExpAmount) AS TotalExpenses, " +
-                "SUM(InAmount) AS TotalIncome " +
-                "FROM ( " +
-                "    SELECT ExpDate AS Date, ExpAmount, NULL AS InAmount " +
-                "    FROM Expenses " +
-                "    WHERE Expenses.AccId = @SelectedAccId " +
-                "    AND Expenses.UserId = @UserId " +
-                "    AND Expenses.ExpDate BETWEEN @StartDate AND GETDATE() " +
-                "    UNION ALL " +
-                "    SELECT InDate AS Date, NULL AS ExpAmount, InAmount " +
-                "    FROM Income " +
-                "    WHERE Income.AccId = @SelectedAccId " +
-                "    AND Income.UserId = @UserId " +
-                "    AND Income.InDate BETWEEN @StartDate AND GETDATE() " +
-                ") AS CombinedData " +
-                "GROUP BY Date ";
-
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", selectedAccId);
-            command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(selectedYear, selectedMonth, selectedDay));
-
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-
-            foreach (var series in chart_cash_flow.Series)
-            {
-                series.Points.Clear();
-            }
-
-            double max_exp = 0;
-            double max_in = 0;
-
-            DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
-            DateTime endDate = currentDate;
-
-            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
-            {
-                DataRow[] rows = dataTable.Select("Date = #" + date.ToString("MM/dd/yyyy") + "#");
-
-                double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
-                double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
-                chart_cash_flow.Series["Expenses"].Points.Add(-amount_exp);
-                chart_cash_flow.Series["Income"].Points.Add(amount_in);
-
-                if (amount_exp > max_exp)
-                {
-                    max_exp = amount_exp;
-                }
-                if (amount_in > max_in)
-                {
-                    max_in = amount_in;
-                }
-            }
-
-            for (int i = 0; i < chart_cash_flow.Series["Expenses"].Points.Count; i++)
-            {
-                double amount_exp = chart_cash_flow.Series["Expenses"].Points[i].YValues[0];
-                double amount_in = chart_cash_flow.Series["Income"].Points[i].YValues[0];
-                if (max_exp == 0)
-                {
-                    max_exp = 100;
-                }
-                if (max_in == 0)
-                {
-                    max_in = 100;
-                }
-                
-                chart_cash_flow.Series["Default_down"].Points.Add(-max_exp * 1.1 - amount_exp);
-                chart_cash_flow.Series["Default_up"].Points.Add(max_in * 1.1 - amount_in);
-
-
-                double money_flow = amount_in + amount_exp;
-                chart_cash_flow.Series["Money_flow"].Points.Add(money_flow);
-            }
-        }
-
         private void getCartesianChart_Month()
         {
             string query = "SELECT " +
@@ -949,7 +706,7 @@ namespace budget_management_app
                 Title = "Expenses",
                 Values = new ChartValues<double>(),
                 PointGeometry = DefaultGeometries.Circle,
-                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B2FF0000")),
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#F87171")),
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
             };
 
@@ -959,7 +716,7 @@ namespace budget_management_app
                 Title = "Income",
                 Values = new ChartValues<double>(),
                 PointGeometry = DefaultGeometries.Diamond,
-                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B33CB666")),
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#34D399")),
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#408DC499"))
 
             };
@@ -1002,7 +759,8 @@ namespace budget_management_app
                 LabelFormatter = value => value.ToString(),
                 Foreground = new SolidColorBrush(Colors.Black),
                 FontWeight = FontWeights.Normal,
-                FontSize = 13
+                FontSize = 13,
+                MinValue = 0,
             });
 
             cartesianChart1.Series.Add(expensesSeries);
@@ -1048,7 +806,7 @@ namespace budget_management_app
                 Title = "Expenses",
                 Values = new ChartValues<double>(),
                 PointGeometry = DefaultGeometries.Circle,
-                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B2FF0000")),
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#F87171")),
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
             };
 
@@ -1058,7 +816,7 @@ namespace budget_management_app
                 Title = "Income",
                 Values = new ChartValues<double>(),
                 PointGeometry = DefaultGeometries.Diamond,
-                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B33CB666")),
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#34D399")),
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#408DC499"))
 
             };
@@ -1102,7 +860,8 @@ namespace budget_management_app
                 LabelFormatter = value => value.ToString(),
                 Foreground = new SolidColorBrush(Colors.Black),
                 FontWeight = FontWeights.Normal,
-                FontSize = 13
+                FontSize = 13,
+                MinValue = 0,
             });
 
             cartesianChart1.Series.Add(expensesSeries);
@@ -1154,7 +913,7 @@ namespace budget_management_app
                 Title = "Expenses",
                 Values = new ChartValues<double>(),
                 PointGeometry = DefaultGeometries.Circle,
-                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B2FF0000")),
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#F87171")),
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
             };
 
@@ -1164,9 +923,9 @@ namespace budget_management_app
                 Title = "Income",
                 Values = new ChartValues<double>(),
                 PointGeometry = DefaultGeometries.Diamond,
-                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#B33CB666")),
+                Stroke = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#34D399")),
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#408DC499"))
-                
+
             };
 
             DateTime startDate = new DateTime(selectedYear, selectedMonth, selectedDay);
@@ -1200,11 +959,13 @@ namespace budget_management_app
                 LabelFormatter = value => value.ToString(),
                 Foreground = new SolidColorBrush(Colors.Black),
                 FontWeight = FontWeights.Normal,
-                FontSize = 13
+                FontSize = 13,
+                MinValue=0,
             });
 
             cartesianChart1.Series.Add(expensesSeries);
             cartesianChart1.Series.Add(incomeSeries);
+           
         }
 
         private void getRaportMf()
@@ -1349,7 +1110,7 @@ namespace budget_management_app
 
             label_raport_total_exp.Text = totalAmount.ToString("0.00");
         }
-
+        
         private void getRaportIn()
         {
             string query = "SELECT Category.CatName, " +
@@ -1435,23 +1196,24 @@ namespace budget_management_app
                     using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                     {
                         PdfWriter.GetInstance(doc, stream);
-
                         doc.Open();
 
                         int x = 50;
                         int y = 50;
                         int lineHeight = 20;
+
                         BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
                         iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(128, 128, 128));
+                        iTextSharp.text.Font boldFont = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+                        iTextSharp.text.Font titleFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.BOLD, new BaseColor(128, 128, 128));
+                        iTextSharp.text.Font incomeFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+                        iTextSharp.text.Font expensesFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(255, 0, 0));
 
-                        iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph();
-                        paragraph.Font = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-
-                        Chunk textChunk = new Chunk("Money flow table");
-                        paragraph.Add(textChunk);
-                        doc.Add(paragraph);
+                        iTextSharp.text.Paragraph titleParagraph = new iTextSharp.text.Paragraph("Money flow table", boldFont);
+                        doc.Add(titleParagraph);
 
                         y += 5 * lineHeight;
+
                         iTextSharp.text.Paragraph last_X_DaysParagraph = new iTextSharp.text.Paragraph(label_last_X_raport_mf.Text, font);
                         last_X_DaysParagraph.SpacingAfter = 20;
                         doc.Add(last_X_DaysParagraph);
@@ -1459,20 +1221,23 @@ namespace budget_management_app
                         PdfPTable table = new PdfPTable(3);
                         BaseColor smokeWhite = new BaseColor(245, 245, 245);
 
-                        table.AddCell(new PdfPCell(new Phrase("Quick view", new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.BOLD, new BaseColor(128, 128, 128)))) 
+                        table.AddCell(new PdfPCell(new Phrase("Quick view", titleFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                            HorizontalAlignment = Element.ALIGN_RIGHT 
+                            HorizontalAlignment = Element.ALIGN_RIGHT ,
+                            FixedHeight = 20,
                         });
                         table.AddCell(new PdfPCell(new Phrase("Income", font)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                            HorizontalAlignment = Element.ALIGN_RIGHT 
+                            HorizontalAlignment = Element.ALIGN_RIGHT ,
+                            FixedHeight = 20,
                         });
-                        table.AddCell(new PdfPCell(new Phrase("Expenses", new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(255, 0, 0)))) 
+                        table.AddCell(new PdfPCell(new Phrase("Expenses", expensesFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                            HorizontalAlignment = Element.ALIGN_RIGHT 
+                            HorizontalAlignment = Element.ALIGN_RIGHT ,
+                            FixedHeight = 20,
                         });
 
                         foreach (DataGridViewRow row in DataGridView_raport_mf.Rows)
@@ -1489,19 +1254,22 @@ namespace budget_management_app
                             { 
                                 BackgroundColor = color, 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                                HorizontalAlignment = Element.ALIGN_RIGHT 
+                                HorizontalAlignment = Element.ALIGN_RIGHT ,
+                                FixedHeight = 20,
                             });
-                            table.AddCell(new PdfPCell(new Phrase(incomeValue, new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)))
+                            table.AddCell(new PdfPCell(new Phrase(incomeValue, incomeFont))
                             { 
                                 BackgroundColor = color, 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                                HorizontalAlignment = Element.ALIGN_RIGHT 
+                                HorizontalAlignment = Element.ALIGN_RIGHT ,
+                                FixedHeight = 20,
                             });
-                            table.AddCell(new PdfPCell(new Phrase(expValue, new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(255, 0, 0)))) 
+                            table.AddCell(new PdfPCell(new Phrase(expValue, expensesFont)) 
                             { 
                                 BackgroundColor = color, 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                                HorizontalAlignment = Element.ALIGN_RIGHT 
+                                HorizontalAlignment = Element.ALIGN_RIGHT,
+                                FixedHeight=20,
                             });
                         }
 
@@ -1512,6 +1280,7 @@ namespace budget_management_app
                         float[] columnWidths = { 0.35f, 0.5f, 0.5f };
                         table.SetWidths(columnWidths);
                         doc.Add(table);
+
                         iTextSharp.text.Paragraph flowParagraph = new iTextSharp.text.Paragraph("Money flow : "+label_raport_mf.Text, new iTextSharp.text.Font(baseFont, 13, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
                         flowParagraph.Alignment = Element.ALIGN_LEFT;
                         doc.Add(flowParagraph);
@@ -1569,12 +1338,13 @@ namespace budget_management_app
 
                         BaseColor smokeWhite = new BaseColor(245, 245, 245);
 
-                        table.AddCell(new PdfPCell(new Phrase("Income", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK))) 
+                        table.AddCell(new PdfPCell(new Phrase("Income", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
                             HorizontalAlignment = Element.ALIGN_LEFT, 
                             BackgroundColor = new BaseColor(245, 245, 245), 
-                            PaddingTop = 5 
+                            PaddingTop = 5,
+                            FixedHeight = 28,
                         });
                         table.AddCell(new PdfPCell(new Phrase(label_raport_total_in.Text, new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                         { 
@@ -1603,22 +1373,23 @@ namespace budget_management_app
                             { 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
                                 HorizontalAlignment = Element.ALIGN_LEFT, 
-                                PaddingTop = 5 
+                                PaddingTop = 5,
                             });
                             table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize-1, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                             { 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
                                 HorizontalAlignment = (left == true)?Element.ALIGN_LEFT:Element.ALIGN_RIGHT, 
-                                PaddingTop = 5 
+                                PaddingTop = 5,
                             });
                         }
 
-                        table.AddCell(new PdfPCell(new Phrase("Expenses", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK))) 
+                        table.AddCell(new PdfPCell(new Phrase("Expenses", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
                             HorizontalAlignment = Element.ALIGN_LEFT, 
                             BackgroundColor = new BaseColor(245, 245, 245), 
-                            PaddingTop = 5 
+                            PaddingTop = 5,
+                            FixedHeight=28,
                         });
                         table.AddCell(new PdfPCell(new Phrase(label_raport_total_exp.Text, new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                         { 
@@ -1647,13 +1418,13 @@ namespace budget_management_app
                             {
                                 Border = iTextSharp.text.Rectangle.NO_BORDER,
                                 HorizontalAlignment = Element.ALIGN_LEFT,
-                                PaddingTop = 5
+                                PaddingTop = 5,
                             });
                             table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)))
                             {
                                 Border = iTextSharp.text.Rectangle.NO_BORDER,
                                 HorizontalAlignment = (left == true) ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
-                                PaddingTop = 5
+                                PaddingTop = 5,
                             });
                         }
 
@@ -1661,7 +1432,7 @@ namespace budget_management_app
                         table.SpacingAfter = 10;
                         table.HorizontalAlignment = Element.ALIGN_LEFT;
                         
-                        float[] columnWidths = { 1.5f, 0.5f};
+                        float[] columnWidths = { 1.8f, 0.8f};
                         table.SetWidths(columnWidths);
                         doc.Add(table);
 
@@ -1675,7 +1446,12 @@ namespace budget_management_app
                 }
             }
         }
-
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            HomeForm home = new HomeForm();
+            home.Show();
+            this.Hide();
+        }
         private void Button_more_trns_Click(object sender, EventArgs e)
         {
             TransactionsHistoryForm trns = new TransactionsHistoryForm();
@@ -1683,43 +1459,22 @@ namespace budget_management_app
             this.Hide();
         }
 
-        private void Button_more_trns_MouseEnter(object sender, EventArgs e)
+        private void Button_more_trns_exp_Click(object sender, EventArgs e)
         {
-            Button_more_trns_exp.BackColor = System.Drawing.Color.FromArgb(212, 163, 115);
-        }
-
-        private void Button_more_trns_MouseLeave(object sender, EventArgs e)
-        {
-            Button_more_trns_exp.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
+            TransactionsHistoryForm transactionsHistoryForm = new TransactionsHistoryForm();
+            transactionsHistoryForm.Show();
+            this.Hide();
         }
         private void button_print_raport_mf_Click(object sender, EventArgs e)
         {
             printMf();
         }
 
-        private void button_print_raport_mf_MouseEnter(object sender, EventArgs e)
-        {
-            button_print_raport_mf.BackColor = System.Drawing.Color.FromArgb(212, 163, 115);
-        }
-
-        private void button_print_raport_mf_MouseLeave(object sender, EventArgs e)
-        {
-            button_print_raport_mf.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
-        }
-        private void button_print_raport_ledger_Click(object sender, EventArgs e)
+        private void button_print_raport_ledger_Click_1(object sender, EventArgs e)
         {
             printLedger();
         }
 
-        private void button_print_raport_ledger_MouseEnter(object sender, EventArgs e)
-        {
-            button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(212, 163, 115);
-        }
-
-        private void button_print_raport_ledger_MouseLeave(object sender, EventArgs e)
-        {
-            button_print_raport_ledger.BackColor = System.Drawing.Color.FromArgb(250, 237, 205);
-        }
     }
 }
 
