@@ -7,7 +7,7 @@ namespace budget_management_app
     public partial class AddSubcategoryForm : Form
     {
         // Create a new instance of the DBConnection class to manage database connections
-        DBConnection dBConnection =new DBConnection();
+        DBConnection dbConnection =new DBConnection();
         private string categoryName;
 
         public AddSubcategoryForm(string selectedCategoryName)
@@ -46,7 +46,7 @@ namespace budget_management_app
 
 
                     MessageBox.Show("Subcategory Added Successfully", "Add Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dBConnection.CloseCon();
+                    dbConnection.CloseCon();
 
                     SubcategoriesForm subcategories = new SubcategoriesForm(categoryName);
                     subcategories.Show();
@@ -65,19 +65,19 @@ namespace budget_management_app
             // Define SQL queries to check for the subcategory name in UserSubCat and SubCategory tables
             string checkQueryUserSubCat = "SELECT COUNT(*) FROM [UserSubCat] WHERE Us_SubName = @SubcategoryName";
             string checkQuerySubCategory = "SELECT COUNT(*) FROM [SubCategory] WHERE SubName = @SubcategoryName";
-            
-            dBConnection.OpenCon();
+
+            dbConnection.OpenCon();
 
             // Execute the queries with the provided subcategory name as a parameter
-            SqlCommand checkCommandUserSubCat = new SqlCommand(checkQueryUserSubCat, dBConnection.GetCon());
+            SqlCommand checkCommandUserSubCat = new SqlCommand(checkQueryUserSubCat, dbConnection.GetCon());
             checkCommandUserSubCat.Parameters.AddWithValue("@SubcategoryName", subcategoryName);
             int countUserSubCat = (int)checkCommandUserSubCat.ExecuteScalar();
 
-            SqlCommand checkCommandSubCategory = new SqlCommand(checkQuerySubCategory, dBConnection.GetCon());
+            SqlCommand checkCommandSubCategory = new SqlCommand(checkQuerySubCategory, dbConnection.GetCon());
             checkCommandSubCategory.Parameters.AddWithValue("@SubcategoryName", subcategoryName);
             int countSubCategory = (int)checkCommandSubCategory.ExecuteScalar();
 
-            dBConnection.CloseCon();
+            dbConnection.CloseCon();
 
             // Return true if the subcategory name is found in either UserSubCat or SubCategory table, false otherwise
             return countUserSubCat > 0 || countSubCategory > 0;
@@ -87,15 +87,15 @@ namespace budget_management_app
         private void InsertSubcategory(int userId, string selectedCategory, string subcategoryName, string subcategoryType)
         {
             string insertQuery = "INSERT INTO UserSubCat (UserId, Us_CatId, Us_SubName, Us_SubType) VALUES (@UserId, (SELECT CatId FROM Category WHERE CatName = @SelectedCategory), @SubcategoryName, @SubcategoryType)";
-            SqlCommand command = new SqlCommand(insertQuery, dBConnection.GetCon());
+            SqlCommand command = new SqlCommand(insertQuery, dbConnection.GetCon());
             command.Parameters.AddWithValue("@UserId", userId);
             command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
             command.Parameters.AddWithValue("@SubcategoryName", subcategoryName);
             command.Parameters.AddWithValue("@SubcategoryType", subcategoryType);
 
-            dBConnection.OpenCon();
+            dbConnection.OpenCon();
             command.ExecuteNonQuery();
-            dBConnection.CloseCon();
+            dbConnection.CloseCon();
         }
 
         // Event handler for the backButton Click event

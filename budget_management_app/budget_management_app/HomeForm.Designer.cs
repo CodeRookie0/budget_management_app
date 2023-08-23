@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel_account = new System.Windows.Forms.FlowLayoutPanel();
+            this.accountFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.moreTransactionsButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.DataGridView_top7trns = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -148,15 +148,15 @@
             this.label4.TabIndex = 62;
             this.label4.Text = "LAST 30 DAYS";
             // 
-            // flowLayoutPanel_account
+            // accountFlowLayoutPanel
             // 
-            this.flowLayoutPanel_account.AutoScroll = true;
-            this.flowLayoutPanel_account.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel_account.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.flowLayoutPanel_account.Location = new System.Drawing.Point(0, 53);
-            this.flowLayoutPanel_account.Name = "flowLayoutPanel_account";
-            this.flowLayoutPanel_account.Size = new System.Drawing.Size(538, 212);
-            this.flowLayoutPanel_account.TabIndex = 33;
+            this.accountFlowLayoutPanel.AutoScroll = true;
+            this.accountFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.accountFlowLayoutPanel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.accountFlowLayoutPanel.Location = new System.Drawing.Point(0, 53);
+            this.accountFlowLayoutPanel.Name = "accountFlowLayoutPanel";
+            this.accountFlowLayoutPanel.Size = new System.Drawing.Size(538, 212);
+            this.accountFlowLayoutPanel.TabIndex = 33;
             // 
             // label5
             // 
@@ -412,7 +412,7 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 20;
             this.guna2Panel3.Controls.Add(this.label1);
-            this.guna2Panel3.Controls.Add(this.flowLayoutPanel_account);
+            this.guna2Panel3.Controls.Add(this.accountFlowLayoutPanel);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.Location = new System.Drawing.Point(22, 118);
             this.guna2Panel3.Name = "guna2Panel3";
@@ -727,7 +727,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_account;
+        private System.Windows.Forms.FlowLayoutPanel accountFlowLayoutPanel;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TileButton moreTransactionsButton;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView_top7trns;

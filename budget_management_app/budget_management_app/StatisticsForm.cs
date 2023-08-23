@@ -1,14 +1,7 @@
-﻿using LiveCharts.Wpf;
-using LiveCharts;
-using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Globalization;
-using System.Windows.Media;
-using System.Windows;
 using System.IO;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
@@ -17,52 +10,60 @@ namespace budget_management_app
 {
     public partial class StatisticsForm : Form
     {
+        // Declare instance variables for logic and components
         private ExpensesTabLogic expensesTabLogic;
         private MoneyFlowTabLogic moneyFlowTabLogic;
         private ReportsTabLogic reportsFlowTabLogic;
 
-        private DBConnection dbcon = new DBConnection();
-        private bool bottombarExpand;
-        private int selectedAccId;
+        private DBConnection dbConnection = new DBConnection();
+        private bool bottomBarExpand;
+        private int selectedAccountId;
         private DateTime currentDate = DateTime.Today;
         private int selectedDay;
         private int selectedMonth;
         private int selectedYear;
-
-        private decimal expTotalAmount;
-        private decimal currentExpTotalAmount;
-        private decimal inTotalAmount;
-        private decimal currentInTotalAmount;
-        private decimal max_amount = 0;
-        private int animationDuration = 40;
 
         private string expensesTooltip = "";
 
         public StatisticsForm()
         {
             InitializeComponent();
+            InitializeLogic();
+            InitializeSelectedDate();
+
+            // Set default tab and load accounts
+            menuTabControl.SelectedIndex = 1;
+            LoadAccounts();
+            comboBoxAccount.SelectedIndex = 0;
+            LoadSelectedAccount();
+
+            // Set column widths and initial bottom bar state
+            DataGridViewHighestExpenses.Columns[1].Width = 100;
+            DataGridViewHighestExpenses.Columns[2].Width = 90;
+            bottomBarPanel.Height = bottomBarPanel.MinimumSize.Height;
+            bottomBarExpand = false;
+        }
+
+        // Initialization methods
+        private void InitializeLogic()
+        {
             expensesTabLogic = new ExpensesTabLogic();
             moneyFlowTabLogic = new MoneyFlowTabLogic();
-            reportsFlowTabLogic=new ReportsTabLogic();
+            reportsFlowTabLogic = new ReportsTabLogic();
+        }
 
-            menuTabControl.SelectedIndex = 1;
-
-            getAcc();
-            comboBox_account.SelectedIndex = 0;
-            getSelectedAcc();
-
+        private void InitializeSelectedDate()
+        {
             DateTime startDateTime = currentDate.AddMonths(-2);
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
             UpdateSelectedDate(1, startMonth, startYear);
-
-            DataGridView_7High_exp.Columns[1].Width = 100;
-            DataGridView_7High_exp.Columns[2].Width = 90;
         }
 
+        // Update selected date and ensure its validity
         private void UpdateSelectedDate(int startDay, int startMonth, int startYear)
         {
-
+            // Adjust month and year if they go out of range
             selectedDay = startDay;
             selectedMonth = startMonth;
             selectedYear = startYear;
@@ -78,188 +79,219 @@ namespace budget_management_app
                 selectedYear++;
             }
 
+            // Ensure day is within the selected month's range
             int daysInSelectedMonth = DateTime.DaysInMonth(selectedYear, selectedMonth);
             if (selectedDay > daysInSelectedMonth)
             {
                 selectedDay = daysInSelectedMonth;
             }
 
-            label_exp_from_date.Text = selectedDay.ToString() + "." + selectedMonth.ToString() + "." + selectedYear.ToString();
+            // Update labels and charts
+            startDateColumnChartLabel.Text = selectedDay.ToString() + "." + selectedMonth.ToString() + "." + selectedYear.ToString();
             UpdateCharts();
         }
+
+        // Update charts based on selected date
         private void UpdateCharts()
         {
-            expensesTabLogic.getPieChart(selectedAccId,selectedYear,selectedMonth,selectedDay,chart_exp_cat);
-            expensesTabLogic.getHighestExpensees(selectedAccId, selectedYear, selectedMonth, selectedDay,DataGridView_7High_exp);
+            // Update pie chart and highest expenses data
+            expensesTabLogic.getPieChart(selectedAccountId, selectedYear,selectedMonth,selectedDay,expensesPieChart);
+            expensesTabLogic.getHighestExpensees(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridViewHighestExpenses);
 
+            // Calculate days difference between current and selected dates
             DateTime selectedDate = new DateTime(selectedYear, selectedMonth, selectedDay);
             DateTime currentDate = DateTime.Today;
             int daysDifference = (currentDate - selectedDate).Days;
 
+            // Choose appropriate chart based on days difference
             if (daysDifference > 123)
             {
-                expensesTabLogic.getColumnChart_Month(selectedAccId, selectedYear, selectedMonth, selectedDay,chart_exp_column);
-                moneyFlowTabLogic.getCartesianChart_Month(selectedAccId,selectedYear,selectedMonth,selectedDay,cartesianChart1);
+                expensesTabLogic.getColumnChart_Month(selectedAccountId, selectedYear, selectedMonth, selectedDay,expensesColumnChart);
+                moneyFlowTabLogic.getCartesianChart_Month(selectedAccountId, selectedYear,selectedMonth,selectedDay,cashFlowCartesianChart);
             }
             else if (daysDifference > 31 && daysDifference <= 123)
             {
-                expensesTabLogic.getColumnChart_Week(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
-                moneyFlowTabLogic.getCartesianChart_Week(selectedAccId, selectedYear, selectedMonth, selectedDay, cartesianChart1);
+                expensesTabLogic.getColumnChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+                moneyFlowTabLogic.getCartesianChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
             }
             else
             {
-                expensesTabLogic.getColumnChart_Day(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
-                moneyFlowTabLogic.getCartesianChart_Day(selectedAccId, selectedYear, selectedMonth, selectedDay, cartesianChart1);
+                expensesTabLogic.getColumnChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
+                moneyFlowTabLogic.getCartesianChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
             }
 
-            moneyFlowTabLogic.getMoneyFlowChart(selectedAccId, selectedYear, selectedMonth, selectedDay,chart_exp_mf,chart_in_mf,label_amount_diff_mf,label_exp_amount_mf,label_in_amount_mf);
-            reportsFlowTabLogic.getRaportMf(selectedAccId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_mf, label_raport_mf);
-            label_raport_ledger.Text = label_raport_mf.Text;
-            reportsFlowTabLogic.getRaportExp(selectedAccId, selectedYear, selectedMonth, selectedDay,DataGridView_raport_exp, label_raport_total_exp);
-            reportsFlowTabLogic.getRaportIn(selectedAccId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_in, label_raport_total_in);
+            // Update money flow charts and reports
+            moneyFlowTabLogic.getMoneyFlowChart(selectedAccountId, selectedYear, selectedMonth, selectedDay,moneyFlowExpensesChart,moneyFlowIncomeChart,amountDiffrenceLabel,amountExpensesLabel,amountIncomeLabel);
+            reportsFlowTabLogic.getRaportMf(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_mf, amountDifferenceMFReportLabel);
+            amountDifferenceLedgerReportLabel.Text = amountDifferenceMFReportLabel.Text;
+            reportsFlowTabLogic.getRaportExp(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridView_raport_exp, amountExpensesLedgerLabel);
+            reportsFlowTabLogic.getRaportIn(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_in, amountIncomeLedgerLabel);
         }
 
-        private void button_7D_Click(object sender, EventArgs e)
+        // Event handlers for time interval buttons
+        private void oneWeekButton_Click(object sender, EventArgs e)
         {
             DateTime startDateTime = currentDate.AddDays(-6);
             int startDay = startDateTime.Day;
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
-            label_exp_last_X.Text = "LAST 7 DAYS";
-            label_last_X_cf.Text = "LAST 7 DAYS";
-            label_last_X_mf.Text = "LAST 7 DAYS";
-            label_last_X_raport_mf.Text = "LAST 7 DAYS";
-            label_last_X_raport_ledger.Text = "LAST 7 DAYS";
+
+            // Update labels and selected date
+            startDatePieChartLabel.Text = "LAST 7 DAYS";
+            startDateCashFlowLabel.Text = "LAST 7 DAYS";
+            startDateMoneyFlowLabel.Text = "LAST 7 DAYS";
+            startDateMFReportLabel.Text = "LAST 7 DAYS";
+            startDateLedgerLabel.Text = "LAST 7 DAYS";
             UpdateSelectedDate(startDay, startMonth, startYear);
-            expensesTabLogic.getColumnChart_Day(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
+
+            // Update the expenses column chart
+            expensesTabLogic.getColumnChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
-        private void button_30D_Click(object sender, EventArgs e)
+        private void oneMonthButton_Click(object sender, EventArgs e)
         {
             DateTime startDateTime = currentDate.AddDays(-30);
             int startDay = startDateTime.Day;
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
-            label_exp_last_X.Text = "LAST 30 DAYS";
-            label_last_X_cf.Text = "LAST 30 DAYS";
-            label_last_X_mf.Text = "LAST 30 DAYS";
-            label_last_X_raport_mf.Text = "LAST 30 DAYS";
-            label_last_X_raport_ledger.Text = "LAST 30 DAYS";
-            UpdateSelectedDate(startDay, startMonth, startYear);
-            expensesTabLogic.getColumnChart_Day(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
 
+            // Update labels and selected date
+            startDatePieChartLabel.Text = "LAST 30 DAYS";
+            startDateCashFlowLabel.Text = "LAST 30 DAYS";
+            startDateMoneyFlowLabel.Text = "LAST 30 DAYS";
+            startDateMFReportLabel.Text = "LAST 30 DAYS";
+            startDateLedgerLabel.Text = "LAST 30 DAYS";
+            UpdateSelectedDate(startDay, startMonth, startYear);
+
+            // Update the expenses column chart
+            expensesTabLogic.getColumnChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
-        private void button_12W_Click(object sender, EventArgs e)
+
+        private void twelveWeeksButton_Click(object sender, EventArgs e)
         {
             DateTime startDateTime = currentDate.AddMonths(-2);
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
-            label_exp_last_X.Text = "LAST 3 MONTH";
-            label_last_X_cf.Text = "LAST 3 MONTH";
-            label_last_X_mf.Text = "LAST 3 MONTH";
-            label_last_X_raport_mf.Text = "LAST 3 MONTH";
-            label_last_X_raport_ledger.Text = "LAST 3 MONTH";
+
+            // Update labels and selected date
+            startDatePieChartLabel.Text = "LAST 3 MONTH";
+            startDateCashFlowLabel.Text = "LAST 3 MONTH";
+            startDateMoneyFlowLabel.Text = "LAST 3 MONTH";
+            startDateMFReportLabel.Text = "LAST 3 MONTH";
+            startDateLedgerLabel.Text = "LAST 3 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
-            expensesTabLogic.getColumnChart_Week(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
+
+            // Update the expenses column chart
+            expensesTabLogic.getColumnChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
-        private void button_6M_Click(object sender, EventArgs e)
+        private void halfYearButton_Click(object sender, EventArgs e)
         {
             DateTime startDateTime = currentDate.AddMonths(-5);
             int startMonth = startDateTime.Month;
             int startYear = startDateTime.Year;
-            label_exp_last_X.Text = "LAST 6 MONTH";
-            label_last_X_cf.Text = "LAST 6 MONTH";
-            label_last_X_mf.Text = "LAST 6 MONTH";
-            label_last_X_raport_mf.Text = "LAST 6 MONTH";
-            label_last_X_raport_ledger.Text = "LAST 6 MONTH";
+
+            // Update labels and selected date
+            startDatePieChartLabel.Text = "LAST 6 MONTH";
+            startDateCashFlowLabel.Text = "LAST 6 MONTH";
+            startDateMoneyFlowLabel.Text = "LAST 6 MONTH";
+            startDateMFReportLabel.Text = "LAST 6 MONTH";
+            startDateLedgerLabel.Text = "LAST 6 MONTH";
             UpdateSelectedDate(1, startMonth, startYear);
-            expensesTabLogic.getColumnChart_Month(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
+
+            // Update the expenses column chart
+            expensesTabLogic.getColumnChart_Month(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
-        private void button_1Y_Click(object sender, EventArgs e)
+        private void oneYearButton_Click(object sender, EventArgs e)
         {
-            label_exp_last_X.Text = "LAST 12 MONTH";
-            label_last_X_cf.Text = "LAST 12 MONTH";
-            label_last_X_mf.Text = "LAST 12 MONTH";
-            label_last_X_raport_mf.Text = "LAST 12 MONTH";
-            label_last_X_raport_ledger.Text = "LAST 12 MONTH";
+            // Update labels and selected date
+            startDatePieChartLabel.Text = "LAST 12 MONTH";
+            startDateCashFlowLabel.Text = "LAST 12 MONTH";
+            startDateMoneyFlowLabel.Text = "LAST 12 MONTH";
+            startDateMFReportLabel.Text = "LAST 12 MONTH";
+            startDateLedgerLabel.Text = "LAST 12 MONTH";
             UpdateSelectedDate(1, 1, currentDate.Year);
-            expensesTabLogic.getColumnChart_Month(selectedAccId, selectedYear, selectedMonth, selectedDay, chart_exp_column);
+
+            // Update the expenses column chart
+            expensesTabLogic.getColumnChart_Month(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
         }
 
+        // Button to expand the bottom bar
         private void buttonBarUp_Click(object sender, EventArgs e)
         {
-            timer_bottomBar.Start();
+            bottomBarTimer.Start();
             buttonBarUp.Visible = false;
             buttonBarDown.Visible = true;
         }
 
         private void buttonBarDown_Click(object sender, EventArgs e)
         {
-            timer_bottomBar.Start();
+            bottomBarTimer.Start();
             buttonBarUp.Visible = true;
             buttonBarDown.Visible = false;
         }
-        private void timer_bottomBar_Tick(object sender, EventArgs e)
+        private void bottomBarTimer_Tick(object sender, EventArgs e)
         {
-            if (bottombarExpand)
+            if (bottomBarExpand)
             {
-                panel_bottomBar.Location = new System.Drawing.Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y + 10);
-                panel_bottomBar.Height -= 10;
-                if (panel_bottomBar.Height == panel_bottomBar.MinimumSize.Height)
+                bottomBarPanel.Location = new System.Drawing.Point(bottomBarPanel.Location.X, bottomBarPanel.Location.Y + 10);
+                bottomBarPanel.Height -= 10;
+                if (bottomBarPanel.Height == bottomBarPanel.MinimumSize.Height)
                 {
-                    bottombarExpand = false;
-                    timer_bottomBar.Stop();
+                    bottomBarExpand = false;
+                    bottomBarTimer.Stop();
                 }
             }
             else
             {
-                panel_bottomBar.Width = 580;
-                panel_bottomBar.Location = new System.Drawing.Point(panel_bottomBar.Location.X, panel_bottomBar.Location.Y - 10);
-                panel_bottomBar.Height += 10;
-                if (panel_bottomBar.Height == panel_bottomBar.MaximumSize.Height)
+                bottomBarPanel.Width = 580;
+                bottomBarPanel.Location = new System.Drawing.Point(bottomBarPanel.Location.X, bottomBarPanel.Location.Y - 10);
+                bottomBarPanel.Height += 10;
+                if (bottomBarPanel.Height == bottomBarPanel.MaximumSize.Height)
                 {
-                    bottombarExpand = true;
-                    timer_bottomBar.Stop();
+                    bottomBarExpand = true;
+                    bottomBarTimer.Stop();
                 }
             }
         }
 
-        // Retrieving data on existing accounts for combo_box_account
-        private void getAcc()
+        // Load user accounts from the database
+        private void LoadAccounts()
         {
             string selectQuery = "SELECT AccName FROM Account WHERE UserId = " + LoginForm.userId;
-            SqlCommand command = new SqlCommand(selectQuery, dbcon.GetCon());
-            dbcon.OpenCon();
+            SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
+            dbConnection.OpenCon();
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 string data = reader.GetString(0);
-                comboBox_account.Items.Add(data.Trim());
+                comboBoxAccount.Items.Add(data.Trim());
             }
             reader.Close();
-            dbcon.CloseCon();
+            dbConnection.CloseCon();
         }
 
-        private void getSelectedAcc()
+        // Load selected account's ID
+        private void LoadSelectedAccount()
         {
-            string selectQuery = "SELECT AccId FROM Account WHERE AccName ='" + comboBox_account.SelectedItem.ToString() + "' AND UserId=" + LoginForm.userId;
-            SqlCommand comm = new SqlCommand(selectQuery, dbcon.GetCon());
-            dbcon.OpenCon();
-            object result = comm.ExecuteScalar();
+            string selectQuery = "SELECT AccId FROM Account WHERE AccName ='" + comboBoxAccount.SelectedItem.ToString() + "' AND UserId=" + LoginForm.userId;
+            SqlCommand command = new SqlCommand(selectQuery, dbConnection.GetCon());
+            dbConnection.OpenCon();
+            object result = command.ExecuteScalar();
             if (result != null)
             {
-                selectedAccId = Convert.ToInt32(result);
+                selectedAccountId = Convert.ToInt32(result);
             }
-            dbcon.CloseCon();
+            dbConnection.CloseCon();
         }
 
-        private void comboBox_account_SelectedIndexChanged(object sender, EventArgs e)
+        // Event handler when account selection changes
+        private void comboBoxAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox_account.SelectedItem != null)
+            if (comboBoxAccount.SelectedItem != null)
             {
-                getSelectedAcc();
+                LoadSelectedAccount();
                 DateTime startDateTime = currentDate.AddMonths(-2);
                 int startMonth = startDateTime.Month;
                 int startYear = startDateTime.Year;
@@ -267,7 +299,8 @@ namespace budget_management_app
             }
         }
 
-        private void chart_exp_column_MouseMove(object sender, MouseEventArgs e)
+        // Event handler for chart mouse move to show tooltips
+        private void expensesColumnChart_MouseMove(object sender, MouseEventArgs e)
         {
             var chart = (System.Windows.Forms.DataVisualization.Charting.Chart)sender;
 
@@ -287,46 +320,59 @@ namespace budget_management_app
             chart.Series["Default"].ToolTip = expensesTooltip;
         }
 
-        private void printMf()
+        // Method to print the Money Flow report as a PDF
+        private void PrintMoneyFlowReport()
         {
-            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+            // Create a new PDF document
+            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
+            // Create a SaveFileDialog to allow the user to choose the save location
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
             saveFileDialog.FileName = "Report.pdf";
 
+            // Show the SaveFileDialog and proceed if the user selects a location
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
+                    // Create a FileStream to write the PDF content
                     using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                     {
-                        PdfWriter.GetInstance(doc, stream);
-                        doc.Open();
+                        // Initialize PDF writer and open the document
+                        PdfWriter.GetInstance(document, stream);
+                        document.Open();
 
+                        // Set up positions and fonts for content rendering
                         int x = 50;
                         int y = 50;
                         int lineHeight = 20;
 
                         BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
+                        
+                        // Create various font styles for different parts of the document
                         iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(128, 128, 128));
                         iTextSharp.text.Font boldFont = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
                         iTextSharp.text.Font titleFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.BOLD, new BaseColor(128, 128, 128));
                         iTextSharp.text.Font incomeFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
                         iTextSharp.text.Font expensesFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(255, 0, 0));
 
+                        // Add a title to the document
                         iTextSharp.text.Paragraph titleParagraph = new iTextSharp.text.Paragraph("Money flow table", boldFont);
-                        doc.Add(titleParagraph);
+                        document.Add(titleParagraph);
 
                         y += 5 * lineHeight;
 
-                        iTextSharp.text.Paragraph last_X_DaysParagraph = new iTextSharp.text.Paragraph(label_last_X_raport_mf.Text, font);
-                        last_X_DaysParagraph.SpacingAfter = 20;
-                        doc.Add(last_X_DaysParagraph);
+                        // Add time interval label and selected date information
+                        iTextSharp.text.Paragraph timeIntervalParagraph = new iTextSharp.text.Paragraph(startDateMFReportLabel.Text, font);
+                        timeIntervalParagraph.SpacingAfter = 20;
+                        document.Add(timeIntervalParagraph);
 
+                        // Create a table for displaying quick view, income, and expenses
                         PdfPTable table = new PdfPTable(3);
                         BaseColor smokeWhite = new BaseColor(245, 245, 245);
 
+                        // Add headers to the table
                         table.AddCell(new PdfPCell(new Phrase("Quick view", titleFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
@@ -346,52 +392,57 @@ namespace budget_management_app
                             FixedHeight = 20,
                         });
 
+                        // Iterate through DataGridView rows and add data to the table
                         foreach (DataGridViewRow row in DataGridView_raport_mf.Rows)
                         {
                             string column1Value= row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
                             string incomeValue = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
                             string expValue = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : "0";
 
-                            BaseColor color;
-                            if (table.Rows.Count % 2 == 1) { color = smokeWhite; }
-                            else { color = BaseColor.WHITE; }
+                            // Alternate row background colors for better readability
+                            BaseColor baseColor;
+                            if (table.Rows.Count % 2 == 1) { baseColor = smokeWhite; }
+                            else { baseColor = BaseColor.WHITE; }
 
+                            // Add cell content to the table
                             table.AddCell(new PdfPCell(new Phrase(column1Value, font)) 
                             { 
-                                BackgroundColor = color, 
+                                BackgroundColor = baseColor, 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
                                 HorizontalAlignment = Element.ALIGN_RIGHT ,
                                 FixedHeight = 20,
                             });
                             table.AddCell(new PdfPCell(new Phrase(incomeValue, incomeFont))
                             { 
-                                BackgroundColor = color, 
+                                BackgroundColor = baseColor, 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
                                 HorizontalAlignment = Element.ALIGN_RIGHT ,
                                 FixedHeight = 20,
                             });
                             table.AddCell(new PdfPCell(new Phrase(expValue, expensesFont)) 
                             { 
-                                BackgroundColor = color, 
+                                BackgroundColor = baseColor, 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
                                 HorizontalAlignment = Element.ALIGN_RIGHT,
                                 FixedHeight=20,
                             });
                         }
 
+                        // Customize the table appearance and add it to the document
                         table.SpacingBefore = 10;
                         table.SpacingAfter = 10;
                         table.HorizontalAlignment = Element.ALIGN_LEFT;
 
                         float[] columnWidths = { 0.35f, 0.5f, 0.5f };
                         table.SetWidths(columnWidths);
-                        doc.Add(table);
+                        document.Add(table);
 
-                        iTextSharp.text.Paragraph flowParagraph = new iTextSharp.text.Paragraph("Money flow : "+label_raport_mf.Text, new iTextSharp.text.Font(baseFont, 13, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
-                        flowParagraph.Alignment = Element.ALIGN_LEFT;
-                        doc.Add(flowParagraph);
+                        // Add a paragraph displaying money flow amount difference and close the document
+                        iTextSharp.text.Paragraph amountDiffParagraph = new iTextSharp.text.Paragraph("Money flow : "+amountDifferenceMFReportLabel.Text, new iTextSharp.text.Font(baseFont, 13, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
+                        amountDiffParagraph.Alignment = Element.ALIGN_LEFT;
+                        document.Add(amountDiffParagraph);
 
-                        doc.Close();
+                        document.Close();
                         System.Windows.Forms.MessageBox.Show("Successful download of the report ", "Download Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -402,49 +453,60 @@ namespace budget_management_app
             }
         }
 
-        private void printLedger()
+        // Method to print the Ledger report as a PDF
+        private void PrintLedgerReport()
         {
-            Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+            // Create a new PDF document
+            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 
+            // Create a SaveFileDialog to allow the user to choose the save location
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
             saveFileDialog.FileName = "Report_Ledger.pdf";
 
+            // Show the SaveFileDialog and proceed if the user selects a location
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
+                    // Create a FileStream to write the PDF content
                     using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                     {
-                        PdfWriter.GetInstance(doc, stream);
+                        // Initialize PDF writer and open the document
+                        PdfWriter.GetInstance(document, stream);
+                        document.Open();
 
-                        doc.Open();
-
+                        // Set up positions and fonts for content rendering
                         int x = 50;
                         int y = 50;
                         int lineHeight = 20;
+
+                        // Set up fonts and styles
                         BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
                         iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+                        iTextSharp.text.Font titleFont = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+                        iTextSharp.text.Font headerFont = new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+                        iTextSharp.text.Font subHeaderFont = new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(128, 128, 128));
+                        iTextSharp.text.Font amountFont = new iTextSharp.text.Font(baseFont, 16, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-                        iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph();
-                        paragraph.Font = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-
-                        Chunk textChunk = new Chunk("Revenue and expense ledger");
-                        paragraph.Add(textChunk);
-                        doc.Add(paragraph);
-
+                        // Add title to the document
+                        iTextSharp.text.Paragraph titleParagraph = new iTextSharp.text.Paragraph();
+                        titleParagraph.Font = new iTextSharp.text.Font(baseFont, 18, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
                         y += 5 * lineHeight;
-                        iTextSharp.text.Paragraph last_X_DaysParagraph = new iTextSharp.text.Paragraph(label_last_X_raport_ledger.Text, new iTextSharp.text.Font(baseFont, 12, iTextSharp.text.Font.NORMAL, new BaseColor(128, 128, 128)));
-                        doc.Add(last_X_DaysParagraph);
-                        iTextSharp.text.Paragraph totalAmountParagraph = new iTextSharp.text.Paragraph(label_raport_ledger.Text, new iTextSharp.text.Font(baseFont, 16, iTextSharp.text.Font.NORMAL, BaseColor.BLACK));
+
+                        // Add date and total amount information
+                        iTextSharp.text.Paragraph timeIntervalParagraph = new iTextSharp.text.Paragraph(startDateLedgerLabel.Text, subHeaderFont);
+                        iTextSharp.text.Paragraph totalAmountParagraph = new iTextSharp.text.Paragraph(amountDifferenceLedgerReportLabel.Text, amountFont);
                         totalAmountParagraph.SpacingAfter = 20;
-                        doc.Add(totalAmountParagraph);
+                        document.Add(timeIntervalParagraph);
+                        document.Add(totalAmountParagraph);
 
+                        // Create and format the table
                         PdfPTable table = new PdfPTable(2);
-
                         BaseColor smokeWhite = new BaseColor(245, 245, 245);
 
-                        table.AddCell(new PdfPCell(new Phrase("Income", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                        // Add headers for income section
+                        table.AddCell(new PdfPCell(new Phrase("Income", headerFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
                             HorizontalAlignment = Element.ALIGN_LEFT, 
@@ -452,44 +514,40 @@ namespace budget_management_app
                             PaddingTop = 5,
                             FixedHeight = 28,
                         });
-                        table.AddCell(new PdfPCell(new Phrase(label_raport_total_in.Text, new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                        table.AddCell(new PdfPCell(new Phrase(amountIncomeLedgerLabel.Text, headerFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
                             HorizontalAlignment = Element.ALIGN_RIGHT, 
                             BackgroundColor = new BaseColor(245, 245, 245), 
                             PaddingTop = 5 
                         });
-                        
-                        foreach(DataGridViewRow row in DataGridView_raport_in.Rows)
+
+                        // Iterate through income rows and add data to the table
+                        foreach (DataGridViewRow row in DataGridView_raport_in.Rows)
                         {
                             string name = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
                             string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0.00";
-                            
-                            int fontSize = 13;
-                            bool left = true;
-                            BaseColor fontColor = BaseColor.BLACK;
-                            if (name.Contains("  "))
-                            {
-                                fontSize = 11;
-                                fontColor = new BaseColor(128, 128, 128);
-                                left = false;
-                            }
 
-                            table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL,fontColor))) 
+                            int fontSize = name.Contains("  ") ? 11 : 13;
+                            BaseColor fontColor = name.Contains("  ") ? new BaseColor(128, 128, 128) : BaseColor.BLACK;
+                            bool alignLeft = !name.Contains("  ");
+
+                            table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, fontColor))) 
                             { 
                                 Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                                HorizontalAlignment = Element.ALIGN_LEFT, 
+                                HorizontalAlignment = alignLeft ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
                                 PaddingTop = 5,
                             });
                             table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize-1, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
                             { 
-                                Border = iTextSharp.text.Rectangle.NO_BORDER, 
-                                HorizontalAlignment = (left == true)?Element.ALIGN_LEFT:Element.ALIGN_RIGHT, 
+                                Border = iTextSharp.text.Rectangle.NO_BORDER,
+                                HorizontalAlignment = alignLeft ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
                                 PaddingTop = 5,
                             });
                         }
 
-                        table.AddCell(new PdfPCell(new Phrase("Expenses", new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                        // Add headers for expenses section
+                        table.AddCell(new PdfPCell(new Phrase("Expenses", headerFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
                             HorizontalAlignment = Element.ALIGN_LEFT, 
@@ -497,7 +555,7 @@ namespace budget_management_app
                             PaddingTop = 5,
                             FixedHeight=28,
                         });
-                        table.AddCell(new PdfPCell(new Phrase(label_raport_total_exp.Text, new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL, BaseColor.BLACK))) 
+                        table.AddCell(new PdfPCell(new Phrase(amountExpensesLedgerLabel.Text, headerFont)) 
                         { 
                             Border = iTextSharp.text.Rectangle.NO_BORDER, 
                             HorizontalAlignment = Element.ALIGN_RIGHT, 
@@ -505,44 +563,40 @@ namespace budget_management_app
                             PaddingTop = 5 
                         });
 
+                        // Iterate through expense rows and add data to the table
                         foreach (DataGridViewRow row in DataGridView_raport_exp.Rows)
                         {
                             string name = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : "";
                             string amount = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : "0";
 
-                            int fontSize = 13;
-                            bool left = true;
-                            BaseColor fontColor = BaseColor.BLACK;
-                            if (name.Contains("  "))
-                            {
-                                fontSize = 11;
-                                fontColor = new BaseColor(128, 128, 128);
-                                left = false;
-                            }
+                            int fontSize = name.Contains("  ") ? 11 : 13;
+                            BaseColor fontColor = name.Contains("  ") ? new BaseColor(128, 128, 128) : BaseColor.BLACK;
+                            bool alignLeft = !name.Contains("  ");
 
                             table.AddCell(new PdfPCell(new Phrase(name, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, fontColor)))
                             {
                                 Border = iTextSharp.text.Rectangle.NO_BORDER,
-                                HorizontalAlignment = Element.ALIGN_LEFT,
-                                PaddingTop = 5,
+                                HorizontalAlignment = alignLeft ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
+                            PaddingTop = 5,
                             });
                             table.AddCell(new PdfPCell(new Phrase(amount, new iTextSharp.text.Font(baseFont, fontSize, iTextSharp.text.Font.NORMAL, BaseColor.BLACK)))
                             {
                                 Border = iTextSharp.text.Rectangle.NO_BORDER,
-                                HorizontalAlignment = (left == true) ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
+                                HorizontalAlignment = alignLeft ? Element.ALIGN_LEFT : Element.ALIGN_RIGHT,
                                 PaddingTop = 5,
                             });
                         }
 
+                        // Customize and add the table to the document
                         table.SpacingBefore = 10;
                         table.SpacingAfter = 10;
                         table.HorizontalAlignment = Element.ALIGN_LEFT;
-                        
                         float[] columnWidths = { 1.8f, 0.8f};
                         table.SetWidths(columnWidths);
-                        doc.Add(table);
+                        document.Add(table);
 
-                        doc.Close();
+                        // Close the document and display success message
+                        document.Close();
                         System.Windows.Forms.MessageBox.Show("Successful download of the report ", "Download Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -558,30 +612,21 @@ namespace budget_management_app
             home.Show();
             this.Hide();
         }
-        private void Button_more_trns_Click(object sender, EventArgs e)
+        private void moreTransactionButton_Click(object sender, EventArgs e)
         {
-            TransactionsHistoryForm trns = new TransactionsHistoryForm();
-            trns.Show();
+            TransactionsHistoryForm transactionsHistory = new TransactionsHistoryForm();
+            transactionsHistory.Show();
             this.Hide();
         }
 
-        private void Button_more_trns_exp_Click(object sender, EventArgs e)
+        private void printMoneyFlowButton_Click(object sender, EventArgs e)
         {
-            TransactionsHistoryForm transactionsHistoryForm = new TransactionsHistoryForm();
-            transactionsHistoryForm.Show();
-            this.Hide();
-        }
-        private void button_print_raport_mf_Click(object sender, EventArgs e)
-        {
-            printMf();
+            PrintMoneyFlowReport();
         }
 
-        private void button_print_raport_ledger_Click_1(object sender, EventArgs e)
+        private void printLedgerButton_Click(object sender, EventArgs e)
         {
-            printLedger();
+            PrintLedgerReport();
         }
-
     }
 }
-
-

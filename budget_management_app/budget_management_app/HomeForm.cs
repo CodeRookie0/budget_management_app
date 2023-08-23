@@ -103,8 +103,8 @@ namespace budget_management_app
                             Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
                             BorderRadius = 20,
                             FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
-                            Width = flowLayoutPanel_account.Width - 200,
-                            Height = flowLayoutPanel_account.Height - 30,
+                            Width = accountFlowLayoutPanel.Width - 200,
+                            Height = accountFlowLayoutPanel.Height - 30,
                             Margin = new Padding(15, 0, 15, 0)
                         };
 
@@ -112,7 +112,7 @@ namespace budget_management_app
                         button.Click += AccountButton_Click;
 
                         // Add the button to the flowLayoutPanel_account
-                        flowLayoutPanel_account.Controls.Add(button);
+                        accountFlowLayoutPanel.Controls.Add(button);
                     }
 
 
@@ -125,8 +125,8 @@ namespace budget_management_app
                         Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 15.75f, FontStyle.Regular),
                         BorderRadius = 20,
                         FillColor = System.Drawing.Color.FromArgb(233, 31, 52),
-                        Width = flowLayoutPanel_account.Width - 200,
-                        Height = flowLayoutPanel_account.Height - 30,
+                        Width = accountFlowLayoutPanel.Width - 200,
+                        Height = accountFlowLayoutPanel.Height - 30,
                         Margin = new Padding(15, 0, 15, 0)
                     };
 
@@ -134,7 +134,7 @@ namespace budget_management_app
                     buttonAdd.Click += AddAccountButton_Click;
 
                     // Add the "Add new account" button to the flowLayoutPanel_account
-                    flowLayoutPanel_account.Controls.Add(buttonAdd);
+                    accountFlowLayoutPanel.Controls.Add(buttonAdd);
                 }
             }
             catch (Exception ex)
