@@ -1561,7 +1561,6 @@
             // 
             // timer_mf
             // 
-            this.timer_mf.Tick += new System.EventHandler(this.timer_mf_Tick);
             // 
             // StatisticsForm
             // 
