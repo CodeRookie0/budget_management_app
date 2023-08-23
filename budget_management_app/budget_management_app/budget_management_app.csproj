@@ -153,6 +153,7 @@
     <Compile Include="PasswordPromptForm.Designer.cs">
       <DependentUpon>PasswordPromptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportsTabLogic.cs" />
     <Compile Include="RoundedCornerFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
