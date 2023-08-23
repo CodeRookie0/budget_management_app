@@ -107,21 +107,21 @@ namespace budget_management_app
             if (daysDifference > 123)
             {
                 expensesTabLogic.GenerateColumnChartMonth(selectedAccountId, selectedYear, selectedMonth, selectedDay,expensesColumnChart);
-                moneyFlowTabLogic.getCartesianChart_Month(selectedAccountId, selectedYear,selectedMonth,selectedDay,cashFlowCartesianChart);
+                moneyFlowTabLogic.UpdateCartesianChartMonth(selectedAccountId, selectedYear,selectedMonth,selectedDay,cashFlowCartesianChart);
             }
             else if (daysDifference > 31 && daysDifference <= 123)
             {
                 expensesTabLogic.GenerateColumnChartWeek(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
-                moneyFlowTabLogic.getCartesianChart_Week(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
+                moneyFlowTabLogic.UpdateCartesianChartWeek(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
             }
             else
             {
                 expensesTabLogic.GenerateColumnChartDay(selectedAccountId, selectedYear, selectedMonth, selectedDay, expensesColumnChart);
-                moneyFlowTabLogic.getCartesianChart_Day(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
+                moneyFlowTabLogic.UpdateCartesianChartDay(selectedAccountId, selectedYear, selectedMonth, selectedDay, cashFlowCartesianChart);
             }
 
             // Update money flow charts and reports
-            moneyFlowTabLogic.getMoneyFlowChart(selectedAccountId, selectedYear, selectedMonth, selectedDay,moneyFlowExpensesChart,moneyFlowIncomeChart,amountDiffrenceLabel,amountExpensesLabel,amountIncomeLabel);
+            moneyFlowTabLogic.UpdateMoneyFlowChart(selectedAccountId, selectedYear, selectedMonth, selectedDay,moneyFlowExpensesChart,moneyFlowIncomeChart,amountDiffrenceLabel,amountExpensesLabel,amountIncomeLabel);
             reportsFlowTabLogic.GenerateMoneyFlowReport(selectedAccountId, selectedYear, selectedMonth, selectedDay, DataGridView_raport_mf, amountDifferenceMFReportLabel);
             amountDifferenceLedgerReportLabel.Text = amountDifferenceMFReportLabel.Text;
             reportsFlowTabLogic.GenerateExpensesReport(selectedAccountId, selectedYear, selectedMonth, selectedDay,DataGridView_raport_exp, amountExpensesLedgerLabel);

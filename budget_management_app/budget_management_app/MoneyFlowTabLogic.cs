@@ -4,33 +4,33 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms;
-using LiveCharts.WinForms;
 
 namespace budget_management_app
 {
     internal class MoneyFlowTabLogic
     {
-        private DBConnection dbcon = new DBConnection();
+        private DBConnection dbConnection = new DBConnection();
         Timer timer=new Timer();
-        private decimal expTotalAmount;
-        private decimal currentExpTotalAmount;
-        private decimal inTotalAmount;
-        private decimal currentInTotalAmount;
-        private decimal max_amount = 0;
+
+        // Initialize variables to store total amounts and animation values
+        private decimal expensesTotalAmount;
+        private decimal currentExpensesTotalAmount;
+        private decimal incomeTotalAmount;
+        private decimal currentIncomeTotalAmount;
+        private decimal maxAmount = 0;
         private int animationDuration = 40;
 
         private DateTime currentDate = DateTime.Today;
 
-        public void getMoneyFlowChart(int AccId, int Year, int Month, int Day, Chart expensesChart, Chart incomeChart,Label amountDiffrence,Label amountExpenses,Label amountIncome)
+        // Update the money flow chart based on selected filters
+        public void UpdateMoneyFlowChart(int accountId, int year, int month, int day, Chart expensesChart, Chart incomeChart, Label amountDifference, Label amountExpenses, Label amountIncome)
         {
-            string query_sum = "SELECT " +
+            // SQL query to calculate total expenses and income within the selected date range
+            string sumQuery = "SELECT " +
                    "  (SELECT SUM(ExpAmount) " +
                    "FROM Expenses " +
                    "WHERE AccId = @SelectedAccId " +
@@ -42,111 +42,117 @@ namespace budget_management_app
                    "AND UserId = @UserId " +
                    "AND InDate BETWEEN @StartDate AND GETDATE()) AS InTotalAmount";
 
-            SqlCommand command = new SqlCommand(query_sum, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
+            SqlCommand command = new SqlCommand(sumQuery, dbConnection.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccountId", accountId);
             command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
-
+            command.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
+            // Clear existing data points and initialize variables
             expensesChart.Series["Expenses"].Points.Clear();
             expensesChart.Series["Default"].Points.Clear();
-
             incomeChart.Series["Income"].Points.Clear();
             incomeChart.Series["Default"].Points.Clear();
+            expensesTotalAmount = 0;
+            incomeTotalAmount = 0;
 
-            expTotalAmount = 0;
-            inTotalAmount = 0;
-
+            // Retrieve and update total expenses and income
             object expTotalAmountObj = dataTable.Rows[0]["ExpTotalAmount"];
             if (expTotalAmountObj != DBNull.Value)
             {
-                expTotalAmount = Convert.ToDecimal(expTotalAmountObj);
+                expensesTotalAmount = Convert.ToDecimal(expTotalAmountObj);
             }
 
             object inTotalAmountObj = dataTable.Rows[0]["InTotalAmount"];
             if (inTotalAmountObj != DBNull.Value)
             {
-                inTotalAmount = Convert.ToDecimal(inTotalAmountObj);
+                incomeTotalAmount = Convert.ToDecimal(inTotalAmountObj);
             }
 
-            max_amount = Math.Max(expTotalAmount, inTotalAmount);
-            decimal diff_in_exp = (inTotalAmount - expTotalAmount);
-            amountDiffrence.Text = "";
+            // Calculate the maximum amount and difference between income and expenses
+            maxAmount = Math.Max(expensesTotalAmount, incomeTotalAmount);
+            decimal diff_in_exp = (incomeTotalAmount - expensesTotalAmount);
+            amountDifference.Text = "";
 
             if (diff_in_exp >= 0)
             {
-                amountDiffrence.Text = "+";
-                amountDiffrence.ForeColor = System.Drawing.Color.FromArgb(52, 211, 153);
+                amountDifference.Text = "+";
+                amountDifference.ForeColor = System.Drawing.Color.FromArgb(52, 211, 153);
             }
             else
             {
-                amountDiffrence.ForeColor = System.Drawing.Color.FromArgb(248, 113, 113);
+                amountDifference.ForeColor = System.Drawing.Color.FromArgb(248, 113, 113);
             }
 
-            amountDiffrence.Text += (diff_in_exp).ToString();
+            amountDifference.Text += (diff_in_exp).ToString();
 
-            currentExpTotalAmount = 0;
-            currentInTotalAmount = 0;
+            // Initialize current total amounts
+            currentExpensesTotalAmount = 0;
+            currentIncomeTotalAmount = 0;
 
-            // Initialize the animation timer
+            // Attach timer event handler for animation
             timer.Tick += (sender, e) => timer_Tick(sender, e, expensesChart,incomeChart);
             timer.Interval = animationDuration;
             timer.Start();
 
-            amountIncome.Text = "+" + inTotalAmount.ToString();
-            amountExpenses.Text = "-" + expTotalAmount.ToString();
+            // Update labels displaying total income and expenses
+            amountIncome.Text = "+" + incomeTotalAmount.ToString();
+            amountExpenses.Text = "-" + expensesTotalAmount.ToString();
         }
 
-
-
+        // Timer tick event for animation
         public void timer_Tick(object sender, EventArgs e, Chart expensesChart, Chart incomeChart)
         {
-            decimal step_exp = expTotalAmount / (decimal)(animationDuration);
-            decimal step_in = inTotalAmount / (decimal)(animationDuration);
+            // Calculate step values for the animation
+            decimal stepExpenses = expensesTotalAmount / (decimal)(animationDuration);
+            decimal stepIncome = incomeTotalAmount / (decimal)(animationDuration);
 
-            if (max_amount == 0)
+            // Initialize chart series if maxAmount is 0
+            if (maxAmount == 0)
             {
-                max_amount = 1;
+                maxAmount = 1;
                 expensesChart.Series["Expenses"].Points.Add(0);
-                expensesChart.Series["Default"].Points.Add(Convert.ToDouble(max_amount));
+                expensesChart.Series["Default"].Points.Add(Convert.ToDouble(maxAmount));
                 incomeChart.Series["Income"].Points.Add(0);
-                incomeChart.Series["Default"].Points.Add(Convert.ToDouble(max_amount));
+                incomeChart.Series["Default"].Points.Add(Convert.ToDouble(maxAmount));
             }
 
             // Update Expenses series
-            currentExpTotalAmount += step_exp;
-            if (currentExpTotalAmount > expTotalAmount)
-                currentExpTotalAmount = expTotalAmount;
+            currentExpensesTotalAmount += stepExpenses;
+            if (currentExpensesTotalAmount > expensesTotalAmount)
+                currentExpensesTotalAmount = expensesTotalAmount;
 
             // Update the series data
             expensesChart.Series["Expenses"].Points.Clear();
             expensesChart.Series["Default"].Points.Clear();
-            expensesChart.Series["Expenses"].Points.Add(Convert.ToDouble(currentExpTotalAmount));
-            expensesChart.Series["Default"].Points.Add(Convert.ToDouble(max_amount - currentExpTotalAmount));
+            expensesChart.Series["Expenses"].Points.Add(Convert.ToDouble(currentExpensesTotalAmount));
+            expensesChart.Series["Default"].Points.Add(Convert.ToDouble(maxAmount - currentExpensesTotalAmount));
 
             // Update Income series
-            currentInTotalAmount += step_in;
-            if (currentInTotalAmount > inTotalAmount)
-                currentInTotalAmount = inTotalAmount;
+            currentIncomeTotalAmount += stepIncome;
+            if (currentIncomeTotalAmount > incomeTotalAmount)
+                currentIncomeTotalAmount = incomeTotalAmount;
 
             // Update the series data
             incomeChart.Series["Income"].Points.Clear();
             incomeChart.Series["Default"].Points.Clear();
-            incomeChart.Series["Income"].Points.Add(Convert.ToDouble(currentInTotalAmount));
-            incomeChart.Series["Default"].Points.Add(Convert.ToDouble(max_amount - currentInTotalAmount));
+            incomeChart.Series["Income"].Points.Add(Convert.ToDouble(currentIncomeTotalAmount));
+            incomeChart.Series["Default"].Points.Add(Convert.ToDouble(maxAmount - currentIncomeTotalAmount));
 
             // Check if the animation is finished and stop the timer
-            if (currentExpTotalAmount >= expTotalAmount && currentInTotalAmount >= inTotalAmount)
+            if (currentExpensesTotalAmount >= expensesTotalAmount && currentIncomeTotalAmount >= incomeTotalAmount)
             {
                 timer.Stop();
             }
         }
-        public void getCartesianChart_Month(int AccId, int Year, int Month, int Day, LiveCharts.WinForms.CartesianChart cartesianChart)
+
+        // Update the Cartesian chart for the selected month
+        public void UpdateCartesianChartMonth(int accountId, int year, int month, int day, LiveCharts.WinForms.CartesianChart cartesianChart)
         {
+            // SQL query to retrieve total expenses and income for each month
             string query = "SELECT " +
                 "  DATEPART(MONTH, Date) AS MonthNumber, " +
                 "  DATEPART(YEAR, Date) AS YearNumber, " +
@@ -167,20 +173,21 @@ namespace budget_management_app
                 ") AS CombinedData " +
                 " GROUP BY DATEPART(MONTH, Date), DATEPART(YEAR, Date) ";
 
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
+            SqlCommand command = new SqlCommand(query, dbConnection.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccountId", accountId);
             command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            command.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
+            // Clear existing series and axes
             cartesianChart.Series.Clear();
             cartesianChart.AxisX.Clear();
             cartesianChart.AxisY.Clear();
 
-            // Tworzenie serii "Expenses"
+            // Create series for "Expenses" and "Income"
             LineSeries expensesSeries = new LineSeries
             {
                 Title = "Expenses",
@@ -190,7 +197,6 @@ namespace budget_management_app
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
             };
 
-            // Tworzenie serii "Amount"
             LineSeries incomeSeries = new LineSeries
             {
                 Title = "Income",
@@ -201,28 +207,30 @@ namespace budget_management_app
 
             };
 
-            int startYear = Year;
+            // Calculate data for each month and add to series
+            int startYear = year;
             int endYear = currentDate.Year;
 
             List<string> dates = new List<string>();
 
-            for (int year = startYear; year <= endYear; year++)
+            for (int currentYear = startYear; currentYear <= endYear; currentYear++)
             {
-                int startMonth = (year == Year) ? Month : 1;
-                int endMonth = (year == currentDate.Year) ? currentDate.Month : 12;
+                int startMonth = (currentYear == year) ? month : 1;
+                int endMonth = (currentYear == currentDate.Year) ? currentDate.Month : 12;
 
-                for (int month = startMonth; month <= endMonth; month++)
+                for (int currentMonth = startMonth; currentMonth <= endMonth; currentMonth++)
                 {
-                    DataRow[] rows = dataTable.Select("MonthNumber = " + month + " AND YearNumber = " + year);
-                    dates.Add(new DateTime(year, month, 1).ToString("MMM"));
+                    DataRow[] rows = dataTable.Select("MonthNumber = " + currentMonth + " AND YearNumber = " + currentYear);
+                    dates.Add(new DateTime(currentYear, currentMonth, 1).ToString("MMM"));
 
-                    double amount_exp = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
-                    double amount_in = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
-                    expensesSeries.Values.Add(amount_exp);
-                    incomeSeries.Values.Add(amount_in);
+                    double amountExpenses = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalExpenses"]) ? Convert.ToDouble(rows[0]["TotalExpenses"]) : 0;
+                    double amountIncome = rows.Length > 0 && !Convert.IsDBNull(rows[0]["TotalIncome"]) ? Convert.ToDouble(rows[0]["TotalIncome"]) : 0;
+                    expensesSeries.Values.Add(amountExpenses);
+                    incomeSeries.Values.Add(amountIncome);
                 }
             }
 
+            // Configure X and Y axes and add series to the chart
             cartesianChart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "",
@@ -247,8 +255,10 @@ namespace budget_management_app
             cartesianChart.Series.Add(incomeSeries);
         }
 
-        public void getCartesianChart_Week(int AccId, int Year, int Month, int Day, LiveCharts.WinForms.CartesianChart cartesianChart)
+        // Update the Cartesian chart for the selected week
+        public void UpdateCartesianChartWeek(int accountId, int year, int month, int day, LiveCharts.WinForms.CartesianChart cartesianChart)
         {
+            // SQL query to retrieve total expenses and income for each day in the selected week
             string query = "SELECT Date, " +
                 "SUM(ExpAmount) AS TotalExpenses, " +
                 "SUM(InAmount) AS TotalIncome " +
@@ -267,20 +277,21 @@ namespace budget_management_app
                 ") AS CombinedData " +
                 "GROUP BY Date ";
 
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
+            SqlCommand command = new SqlCommand(query, dbConnection.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccountId", accountId);
             command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            command.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
+            // Clear existing series and axes
             cartesianChart.Series.Clear();
             cartesianChart.AxisX.Clear();
             cartesianChart.AxisY.Clear();
 
-            // Tworzenie serii "Expenses"
+            // Create series for "Expenses" and "Income"
             LineSeries expensesSeries = new LineSeries
             {
                 Title = "Expenses",
@@ -290,7 +301,6 @@ namespace budget_management_app
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
             };
 
-            // Tworzenie serii "Amount"
             LineSeries incomeSeries = new LineSeries
             {
                 Title = "Income",
@@ -301,7 +311,8 @@ namespace budget_management_app
 
             };
 
-            DateTime startDate = new DateTime(Year, Month, Day);
+            // Calculate data for each day in the selected week and add to series
+            DateTime startDate = new DateTime(year, month, day);
             DateTime endDate = currentDate;
 
             DateTime currentWeekStart = GetWeekStartDate(startDate);
@@ -323,6 +334,7 @@ namespace budget_management_app
                 currentWeekEnd = currentWeekStart.AddDays(6);
             }
 
+            // Configure X and Y axes and add series to the chart
             cartesianChart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "",
@@ -347,6 +359,7 @@ namespace budget_management_app
             cartesianChart.Series.Add(expensesSeries);
             cartesianChart.Series.Add(incomeSeries);
 
+            // Helper function to calculate the start date of the week for a given date
             DateTime GetWeekStartDate(DateTime date)
             {
                 int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
@@ -354,8 +367,10 @@ namespace budget_management_app
             }
         }
 
-        public void getCartesianChart_Day(int AccId, int Year, int Month, int Day, LiveCharts.WinForms.CartesianChart cartesianChart)
+        // Update the Cartesian chart for the selected day
+        public void UpdateCartesianChartDay(int accountId, int year, int month, int day, LiveCharts.WinForms.CartesianChart cartesianChart)
         {
+            // SQL query to retrieve total expenses and income for the selected day
             string query = "SELECT Date, " +
                 "SUM(ExpAmount) AS TotalExpenses, " +
                 "SUM(InAmount) AS TotalIncome " +
@@ -374,20 +389,21 @@ namespace budget_management_app
                 ") AS CombinedData " +
                 "GROUP BY Date ";
 
-            SqlCommand command = new SqlCommand(query, dbcon.GetCon());
-            command.Parameters.AddWithValue("@SelectedAccId", AccId);
+            SqlCommand command = new SqlCommand(query, dbConnection.GetCon());
+            command.Parameters.AddWithValue("@SelectedAccId", accountId);
             command.Parameters.AddWithValue("@UserId", LoginForm.userId);
-            command.Parameters.AddWithValue("@StartDate", new DateTime(Year, Month, Day));
+            command.Parameters.AddWithValue("@StartDate", new DateTime(year, month, day));
 
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
 
+            // Clear existing series and axes
             cartesianChart.Series.Clear();
             cartesianChart.AxisX.Clear();
             cartesianChart.AxisY.Clear();
 
-            // Tworzenie serii "Expenses"
+            // Create series for "Expenses" and "Income"
             LineSeries expensesSeries = new LineSeries
             {
                 Title = "Expenses",
@@ -397,7 +413,6 @@ namespace budget_management_app
                 Fill = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#40D29191"))
             };
 
-            // Tworzenie serii "Amount"
             LineSeries incomeSeries = new LineSeries
             {
                 Title = "Income",
@@ -408,7 +423,8 @@ namespace budget_management_app
 
             };
 
-            DateTime startDate = new DateTime(Year,Month, Day);
+            // Calculate data for each day and add to series
+            DateTime startDate = new DateTime(year, month, day);
             DateTime endDate = currentDate;
 
             List<string> dates = new List<string>();
@@ -424,6 +440,7 @@ namespace budget_management_app
                 incomeSeries.Values.Add(amount_in);
             }
 
+            // Configure X and Y axes and add series to the chart
             cartesianChart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "",
@@ -445,7 +462,6 @@ namespace budget_management_app
 
             cartesianChart.Series.Add(expensesSeries);
             cartesianChart.Series.Add(incomeSeries);
-
         }
     }
 }
