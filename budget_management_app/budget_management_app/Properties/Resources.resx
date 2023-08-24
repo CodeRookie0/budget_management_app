@@ -118,16 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="filled-arrow-down-in-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filled-arrow-down-in-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="filled-arrow-up-in-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filled-arrow-up-in-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-down-in-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-down-in-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="filled-arrow-down-in-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filled-arrow-down-in-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrow-up-in-circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-up-in-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-transaction-form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-transaction-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home-form-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home-form-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="accounts-form-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\accounts-form-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="history-form-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\history-form-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statistics-form-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\statistics-form-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings-form-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings-form-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="categories-form-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\categories-form-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="categories-form-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\categories-form-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="history-form-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\history-form-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statistics-form-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\statistics-form-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home-form-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home-form-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings-form-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings-form-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="accounts-form-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\accounts-form-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="show-statistics-from" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\show-statistics-from.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-account-form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-account-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="show-history-form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\show-history-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -304,6 +304,22 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Budget_management.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\show-history-form.png" />
+    <None Include="Resources\add-account-form.png" />
+    <None Include="Resources\show-statistics-from.png" />
+    <None Include="Resources\accounts-form-grey.png" />
+    <None Include="Resources\settings-form-grey.png" />
+    <None Include="Resources\home-form-grey.png" />
+    <None Include="Resources\statistics-form-grey.png" />
+    <None Include="Resources\history-form-grey.png" />
+    <None Include="Resources\categories-form-grey.png" />
+    <None Include="Resources\categories-form-red.png" />
+    <None Include="Resources\settings-form-red.png" />
+    <None Include="Resources\statistics-form-red.png" />
+    <None Include="Resources\history-form-red.png" />
+    <None Include="Resources\accounts-form-red.png" />
+    <None Include="Resources\home-form-red.png" />
+    <None Include="Resources\add-transaction-form.png" />
     <None Include="Resources\arrow-up-in-circle.png" />
     <None Include="Resources\arrow-down-in-circle.png" />
     <None Include="Resources\filled-arrow-up-in-circle.png" />
