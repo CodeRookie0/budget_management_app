@@ -32,16 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsHistoryForm));
             this.label2 = new System.Windows.Forms.Label();
             this.transactionsDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.accountComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.categoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.typeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.deleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
+            this.backButton = new Guna.UI2.WinForms.Guna2Button();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +80,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Variable Display", 10.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -117,33 +116,6 @@
             this.transactionsDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.transactionsDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.transactionsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_transactions_CellContentClick);
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
-            this.backButton.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
-            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
-            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
-            this.backButton.Location = new System.Drawing.Point(-1, 0);
-            this.backButton.Name = "backButton";
-            this.backButton.PressedColor = System.Drawing.Color.Transparent;
-            this.backButton.PressedDepth = 0;
-            this.backButton.Size = new System.Drawing.Size(58, 56);
-            this.backButton.TabIndex = 73;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // accountComboBox
             // 
@@ -225,20 +197,6 @@
             this.typeComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
             // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.Red;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.Red;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 37;
-            this.iconPictureBox1.Location = new System.Drawing.Point(219, 15);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(37, 37);
-            this.iconPictureBox1.TabIndex = 76;
-            this.iconPictureBox1.TabStop = false;
-            // 
             // deleteButton
             // 
             this.deleteButton.BackColor = System.Drawing.Color.Transparent;
@@ -292,6 +250,47 @@
             this.addButton.TabIndex = 90;
             this.addButton.Text = "Add";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
+            this.backButton.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.Image = global::budget_management_app.Properties.Resources.back_grey;
+            this.backButton.Image = global::budget_management_app.Properties.Resources.back_red;
+            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
+            this.backButton.Location = new System.Drawing.Point(-1, 0);
+            this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
+            this.backButton.Size = new System.Drawing.Size(58, 56);
+            this.backButton.TabIndex = 73;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Red;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Red;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 37;
+            this.iconPictureBox1.Location = new System.Drawing.Point(219, 15);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(37, 37);
+            this.iconPictureBox1.TabIndex = 76;
+            this.iconPictureBox1.TabStop = false;
             // 
             // TransactionsHistoryForm
             // 

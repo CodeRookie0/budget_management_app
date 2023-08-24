@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -63,7 +62,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.menuTabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.money_flow = new System.Windows.Forms.TabPage();
@@ -138,9 +136,10 @@
             this.twelveWeeksButton = new Guna.UI2.WinForms.Guna2Button();
             this.oneWeekButton = new Guna.UI2.WinForms.Guna2Button();
             this.oneYearButton = new Guna.UI2.WinForms.Guna2Button();
+            this.bottomBarTimer = new System.Windows.Forms.Timer(this.components);
             this.buttonBarDown = new Guna.UI2.WinForms.Guna2Button();
             this.buttonBarUp = new Guna.UI2.WinForms.Guna2Button();
-            this.bottomBarTimer = new System.Windows.Forms.Timer(this.components);
+            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.panel2.SuspendLayout();
             this.menuTabControl.SuspendLayout();
             this.money_flow.SuspendLayout();
@@ -175,33 +174,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(580, 47);
             this.panel2.TabIndex = 31;
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
-            this.backButton.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
-            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
-            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
-            this.backButton.Location = new System.Drawing.Point(0, 3);
-            this.backButton.Name = "backButton";
-            this.backButton.PressedColor = System.Drawing.Color.Transparent;
-            this.backButton.PressedDepth = 0;
-            this.backButton.Size = new System.Drawing.Size(45, 47);
-            this.backButton.TabIndex = 74;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // label6
             // 
@@ -1352,8 +1324,8 @@
             this.bottomBarPanel.Controls.Add(this.twelveWeeksButton);
             this.bottomBarPanel.Controls.Add(this.oneWeekButton);
             this.bottomBarPanel.Controls.Add(this.oneYearButton);
-            this.bottomBarPanel.Controls.Add(this.buttonBarDown);
             this.bottomBarPanel.Controls.Add(this.buttonBarUp);
+            this.bottomBarPanel.Controls.Add(this.buttonBarDown);
             this.bottomBarPanel.Location = new System.Drawing.Point(65, 720);
             this.bottomBarPanel.MaximumSize = new System.Drawing.Size(450, 90);
             this.bottomBarPanel.MinimumSize = new System.Drawing.Size(450, 30);
@@ -1509,6 +1481,11 @@
             this.oneYearButton.Text = "1Y";
             this.oneYearButton.Click += new System.EventHandler(this.oneYearButton_Click);
             // 
+            // bottomBarTimer
+            // 
+            this.bottomBarTimer.Interval = 10;
+            this.bottomBarTimer.Tick += new System.EventHandler(this.bottomBarTimer_Tick);
+            // 
             // buttonBarDown
             // 
             this.buttonBarDown.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -1553,10 +1530,32 @@
             this.buttonBarUp.TabIndex = 41;
             this.buttonBarUp.Click += new System.EventHandler(this.buttonBarUp_Click);
             // 
-            // bottomBarTimer
+            // backButton
             // 
-            this.bottomBarTimer.Interval = 10;
-            this.bottomBarTimer.Tick += new System.EventHandler(this.bottomBarTimer_Tick);
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
+            this.backButton.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.Image = global::budget_management_app.Properties.Resources.back_grey;
+            this.backButton.Image = global::budget_management_app.Properties.Resources.back_white;
+            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
+            this.backButton.Location = new System.Drawing.Point(0, 3);
+            this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
+            this.backButton.Size = new System.Drawing.Size(45, 47);
+            this.backButton.TabIndex = 74;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // StatisticsForm
             // 

@@ -304,6 +304,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Budget_management.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\back-red.png" />
+    <None Include="Resources\back-grey.png" />
+    <None Include="Resources\back-white.png" />
     <None Include="Resources\show-history-form.png" />
     <None Include="Resources\add-account-form.png" />
     <None Include="Resources\show-statistics-from.png" />

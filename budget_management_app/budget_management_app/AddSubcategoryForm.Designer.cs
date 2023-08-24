@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSubcategoryForm));
             this.subcategoryTypeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.selectedCategoryLabel = new System.Windows.Forms.Label();
             this.subcategoryNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.categoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.addButton = new Guna.UI2.WinForms.Guna2Button();
+            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,33 +96,6 @@
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7);
             this.guna2Panel2.Size = new System.Drawing.Size(580, 147);
             this.guna2Panel2.TabIndex = 88;
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
-            this.backButton.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
-            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
-            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
-            this.backButton.Location = new System.Drawing.Point(0, 69);
-            this.backButton.Name = "backButton";
-            this.backButton.PressedColor = System.Drawing.Color.Transparent;
-            this.backButton.PressedDepth = 0;
-            this.backButton.Size = new System.Drawing.Size(58, 76);
-            this.backButton.TabIndex = 73;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // selectedCategoryLabel
             // 
@@ -236,6 +208,33 @@
             this.addButton.TabIndex = 93;
             this.addButton.Text = "Add";
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
+            this.backButton.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.Image = global::budget_management_app.Properties.Resources.back_grey;
+            this.backButton.Image = global::budget_management_app.Properties.Resources.back_white;
+            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
+            this.backButton.Location = new System.Drawing.Point(0, 69);
+            this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
+            this.backButton.Size = new System.Drawing.Size(58, 76);
+            this.backButton.TabIndex = 73;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // AddSubcategoryForm
             // 

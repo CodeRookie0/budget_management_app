@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesForm));
             this.label2 = new System.Windows.Forms.Label();
             this.budget_managementDataSet1 = new budget_management_app.Budget_managementDataSet1();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -127,8 +126,8 @@
             this.statisticButtonBar.FillColor = System.Drawing.Color.Transparent;
             this.statisticButtonBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statisticButtonBar.ForeColor = System.Drawing.Color.Transparent;
-            this.statisticButtonBar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.statisticButtonBar.Image = ((System.Drawing.Image)(resources.GetObject("statisticButtonBar.Image")));
+            this.statisticButtonBar.HoverState.Image = global::budget_management_app.Properties.Resources.statistics_form_red;
+            this.statisticButtonBar.Image = global::budget_management_app.Properties.Resources.statistics_form_grey;
             this.statisticButtonBar.ImageSize = new System.Drawing.Size(35, 35);
             this.statisticButtonBar.Location = new System.Drawing.Point(387, 0);
             this.statisticButtonBar.Name = "statisticButtonBar";
@@ -147,8 +146,8 @@
             this.categoriesButton.FillColor = System.Drawing.Color.Transparent;
             this.categoriesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.categoriesButton.ForeColor = System.Drawing.Color.Transparent;
-            this.categoriesButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.categoriesButton.Image = ((System.Drawing.Image)(resources.GetObject("categoriesButton.Image")));
+            this.categoriesButton.HoverState.Image = global::budget_management_app.Properties.Resources.categories_form_red;
+            this.categoriesButton.Image = global::budget_management_app.Properties.Resources.categories_form_grey;
             this.categoriesButton.ImageSize = new System.Drawing.Size(35, 35);
             this.categoriesButton.Location = new System.Drawing.Point(290, 0);
             this.categoriesButton.Name = "categoriesButton";
@@ -166,8 +165,8 @@
             this.transactionsButton.FillColor = System.Drawing.Color.Transparent;
             this.transactionsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.transactionsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.transactionsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.transactionsButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsButton.Image")));
+            this.transactionsButton.HoverState.Image = global::budget_management_app.Properties.Resources.history_form_red;
+            this.transactionsButton.Image = global::budget_management_app.Properties.Resources.history_form_grey;
             this.transactionsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.transactionsButton.Location = new System.Drawing.Point(193, 0);
             this.transactionsButton.Name = "transactionsButton";
@@ -186,8 +185,8 @@
             this.accountsButton.FillColor = System.Drawing.Color.Transparent;
             this.accountsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.accountsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            this.accountsButton.Image = ((System.Drawing.Image)(resources.GetObject("accountsButton.Image")));
+            this.accountsButton.HoverState.Image = global::budget_management_app.Properties.Resources.accounts_form_red;
+            this.accountsButton.Image = global::budget_management_app.Properties.Resources.accounts_form_grey;
             this.accountsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.accountsButton.Location = new System.Drawing.Point(96, 0);
             this.accountsButton.Name = "accountsButton";
@@ -206,8 +205,8 @@
             this.homeButton.FillColor = System.Drawing.Color.Transparent;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.homeButton.ForeColor = System.Drawing.Color.Transparent;
-            this.homeButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
+            this.homeButton.HoverState.Image = global::budget_management_app.Properties.Resources.home_form_red;
+            this.homeButton.Image = global::budget_management_app.Properties.Resources.home_form_grey;
             this.homeButton.ImageSize = new System.Drawing.Size(35, 35);
             this.homeButton.Location = new System.Drawing.Point(0, 0);
             this.homeButton.Name = "homeButton";
@@ -226,8 +225,8 @@
             this.settingsButton.FillColor = System.Drawing.Color.Transparent;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.settingsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.settingsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
+            this.settingsButton.HoverState.Image = global::budget_management_app.Properties.Resources.settings_form_red;
+            this.settingsButton.Image = global::budget_management_app.Properties.Resources.settings_form_grey;
             this.settingsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.settingsButton.Location = new System.Drawing.Point(484, 0);
             this.settingsButton.Name = "settingsButton";

@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.moreStaticsticButton = new Guna.UI2.WinForms.Guna2TileButton();
             this.label_rec_trns = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,22 +54,22 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.addTransactionButton = new Guna.UI2.WinForms.Guna2Button();
-            this.addAccountButton = new Guna.UI2.WinForms.Guna2Button();
-            this.statisticButtonPage = new Guna.UI2.WinForms.Guna2Button();
-            this.historyButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.hiLabel = new System.Windows.Forms.Label();
             this.exitLabel = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.statisticButtonBar = new Guna.UI2.WinForms.Guna2Button();
             this.categoriesButton = new Guna.UI2.WinForms.Guna2Button();
             this.transactionsButton = new Guna.UI2.WinForms.Guna2Button();
             this.accountsButton = new Guna.UI2.WinForms.Guna2Button();
             this.homeButton = new Guna.UI2.WinForms.Guna2Button();
             this.settingsButton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.addTransactionButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addAccountButton = new Guna.UI2.WinForms.Guna2Button();
+            this.statisticButtonPage = new Guna.UI2.WinForms.Guna2Button();
+            this.historyButton = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_top7trns)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -199,29 +198,29 @@
             // DataGridView_top7trns
             // 
             this.DataGridView_top7trns.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.DataGridView_top7trns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DataGridView_top7trns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView_top7trns.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_top7trns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView_top7trns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridView_top7trns.ColumnHeadersHeight = 4;
             this.DataGridView_top7trns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.DataGridView_top7trns.ColumnHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_top7trns.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(120)))), ((int)(((byte)(130)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView_top7trns.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView_top7trns.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.DataGridView_top7trns.Location = new System.Drawing.Point(13, 67);
             this.DataGridView_top7trns.Name = "DataGridView_top7trns";
@@ -323,34 +322,34 @@
             // 
             // lastWeekExpensesChart
             // 
-            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea2.AxisX.LabelStyle.Enabled = false;
-            chartArea2.AxisX.MajorGrid.Enabled = false;
-            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea2.AxisY.LabelStyle.Enabled = false;
-            chartArea2.AxisY.LabelStyle.Format = "0.00";
-            chartArea2.AxisY.MajorGrid.Enabled = false;
-            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea2.Name = "ChartArea1";
-            this.lastWeekExpensesChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.lastWeekExpensesChart.Legends.Add(legend2);
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.LabelStyle.Enabled = false;
+            chartArea1.AxisY.LabelStyle.Format = "0.00";
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.Name = "ChartArea1";
+            this.lastWeekExpensesChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.lastWeekExpensesChart.Legends.Add(legend1);
             this.lastWeekExpensesChart.Location = new System.Drawing.Point(0, 70);
             this.lastWeekExpensesChart.Name = "lastWeekExpensesChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            series3.LabelToolTip = "#VAL{D2}";
-            series3.Legend = "Legend1";
-            series3.Name = "Expenses";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
-            series4.Color = System.Drawing.Color.WhiteSmoke;
-            series4.Legend = "Legend1";
-            series4.Name = "Default";
-            this.lastWeekExpensesChart.Series.Add(series3);
-            this.lastWeekExpensesChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            series1.LabelToolTip = "#VAL{D2}";
+            series1.Legend = "Legend1";
+            series1.Name = "Expenses";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn100;
+            series2.Color = System.Drawing.Color.WhiteSmoke;
+            series2.Legend = "Legend1";
+            series2.Name = "Default";
+            this.lastWeekExpensesChart.Series.Add(series1);
+            this.lastWeekExpensesChart.Series.Add(series2);
             this.lastWeekExpensesChart.Size = new System.Drawing.Size(538, 203);
             this.lastWeekExpensesChart.TabIndex = 88;
             this.lastWeekExpensesChart.Text = "chart2";
@@ -424,79 +423,6 @@
             this.guna2Panel3.Size = new System.Drawing.Size(538, 265);
             this.guna2Panel3.TabIndex = 78;
             // 
-            // addTransactionButton
-            // 
-            this.addTransactionButton.BorderRadius = 20;
-            this.addTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addTransactionButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.addTransactionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addTransactionButton.ForeColor = System.Drawing.Color.White;
-            this.addTransactionButton.Image = ((System.Drawing.Image)(resources.GetObject("addTransactionButton.Image")));
-            this.addTransactionButton.ImageSize = new System.Drawing.Size(45, 45);
-            this.addTransactionButton.Location = new System.Drawing.Point(36, 8);
-            this.addTransactionButton.Name = "addTransactionButton";
-            this.addTransactionButton.Size = new System.Drawing.Size(102, 60);
-            this.addTransactionButton.TabIndex = 77;
-            this.addTransactionButton.Click += new System.EventHandler(this.addTransactionButton_Click);
-            // 
-            // addAccountButton
-            // 
-            this.addAccountButton.BorderRadius = 20;
-            this.addAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addAccountButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.addAccountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addAccountButton.ForeColor = System.Drawing.Color.White;
-            this.addAccountButton.Image = ((System.Drawing.Image)(resources.GetObject("addAccountButton.Image")));
-            this.addAccountButton.ImageSize = new System.Drawing.Size(55, 55);
-            this.addAccountButton.Location = new System.Drawing.Point(308, 8);
-            this.addAccountButton.Name = "addAccountButton";
-            this.addAccountButton.Size = new System.Drawing.Size(102, 60);
-            this.addAccountButton.TabIndex = 75;
-            this.addAccountButton.Click += new System.EventHandler(this.addAccountButton_Click);
-            // 
-            // statisticButtonPage
-            // 
-            this.statisticButtonPage.BorderRadius = 20;
-            this.statisticButtonPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.statisticButtonPage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.statisticButtonPage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.statisticButtonPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.statisticButtonPage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.statisticButtonPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statisticButtonPage.ForeColor = System.Drawing.Color.White;
-            this.statisticButtonPage.Image = ((System.Drawing.Image)(resources.GetObject("statisticButtonPage.Image")));
-            this.statisticButtonPage.ImageSize = new System.Drawing.Size(40, 40);
-            this.statisticButtonPage.Location = new System.Drawing.Point(172, 8);
-            this.statisticButtonPage.Name = "statisticButtonPage";
-            this.statisticButtonPage.Size = new System.Drawing.Size(102, 60);
-            this.statisticButtonPage.TabIndex = 76;
-            this.statisticButtonPage.Click += new System.EventHandler(this.statisticButtonPage_Click);
-            // 
-            // historyButton
-            // 
-            this.historyButton.BackColor = System.Drawing.Color.Transparent;
-            this.historyButton.BorderRadius = 20;
-            this.historyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.historyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.historyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.historyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.historyButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.historyButton.ForeColor = System.Drawing.Color.White;
-            this.historyButton.Image = global::budget_management_app.Properties.Resources.show_history_form;
-            this.historyButton.ImageSize = new System.Drawing.Size(40, 40);
-            this.historyButton.Location = new System.Drawing.Point(444, 8);
-            this.historyButton.Name = "historyButton";
-            this.historyButton.Size = new System.Drawing.Size(102, 60);
-            this.historyButton.TabIndex = 74;
-            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
@@ -569,6 +495,17 @@
             this.guna2Panel7.Size = new System.Drawing.Size(583, 52);
             this.guna2Panel7.TabIndex = 82;
             // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel8.BorderRadius = 20;
+            this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.guna2Panel8.Location = new System.Drawing.Point(-2, 101);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(585, 24);
+            this.guna2Panel8.TabIndex = 39;
+            this.guna2Panel8.UseTransparentBackground = true;
+            // 
             // statisticButtonBar
             // 
             this.statisticButtonBar.BackColor = System.Drawing.Color.Transparent;
@@ -579,8 +516,8 @@
             this.statisticButtonBar.FillColor = System.Drawing.Color.Transparent;
             this.statisticButtonBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statisticButtonBar.ForeColor = System.Drawing.Color.Transparent;
-            this.statisticButtonBar.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.statisticButtonBar.Image = ((System.Drawing.Image)(resources.GetObject("statisticButtonBar.Image")));
+            this.statisticButtonBar.HoverState.Image = global::budget_management_app.Properties.Resources.statistics_form_red;
+            this.statisticButtonBar.Image = global::budget_management_app.Properties.Resources.statistics_form_grey;
             this.statisticButtonBar.ImageSize = new System.Drawing.Size(35, 35);
             this.statisticButtonBar.Location = new System.Drawing.Point(387, 0);
             this.statisticButtonBar.Name = "statisticButtonBar";
@@ -599,8 +536,8 @@
             this.categoriesButton.FillColor = System.Drawing.Color.Transparent;
             this.categoriesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.categoriesButton.ForeColor = System.Drawing.Color.Transparent;
-            this.categoriesButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.categoriesButton.Image = ((System.Drawing.Image)(resources.GetObject("categoriesButton.Image")));
+            this.categoriesButton.HoverState.Image = global::budget_management_app.Properties.Resources.categories_form_red;
+            this.categoriesButton.Image = global::budget_management_app.Properties.Resources.categories_form_grey;
             this.categoriesButton.ImageSize = new System.Drawing.Size(35, 35);
             this.categoriesButton.Location = new System.Drawing.Point(290, 0);
             this.categoriesButton.Name = "categoriesButton";
@@ -619,8 +556,8 @@
             this.transactionsButton.FillColor = System.Drawing.Color.Transparent;
             this.transactionsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.transactionsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.transactionsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.transactionsButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsButton.Image")));
+            this.transactionsButton.HoverState.Image = global::budget_management_app.Properties.Resources.history_form_red;
+            this.transactionsButton.Image = global::budget_management_app.Properties.Resources.history_form_grey;
             this.transactionsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.transactionsButton.Location = new System.Drawing.Point(193, 0);
             this.transactionsButton.Name = "transactionsButton";
@@ -639,8 +576,8 @@
             this.accountsButton.FillColor = System.Drawing.Color.Transparent;
             this.accountsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.accountsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            this.accountsButton.Image = ((System.Drawing.Image)(resources.GetObject("accountsButton.Image")));
+            this.accountsButton.HoverState.Image = global::budget_management_app.Properties.Resources.accounts_form_red;
+            this.accountsButton.Image = global::budget_management_app.Properties.Resources.accounts_form_grey;
             this.accountsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.accountsButton.Location = new System.Drawing.Point(96, 0);
             this.accountsButton.Name = "accountsButton";
@@ -659,8 +596,8 @@
             this.homeButton.FillColor = System.Drawing.Color.Transparent;
             this.homeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.homeButton.ForeColor = System.Drawing.Color.Transparent;
-            this.homeButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            this.homeButton.Image = ((System.Drawing.Image)(resources.GetObject("homeButton.Image")));
+            this.homeButton.HoverState.Image = global::budget_management_app.Properties.Resources.home_form_red;
+            this.homeButton.Image = global::budget_management_app.Properties.Resources.home_form_grey;
             this.homeButton.ImageSize = new System.Drawing.Size(35, 35);
             this.homeButton.Location = new System.Drawing.Point(0, 0);
             this.homeButton.Name = "homeButton";
@@ -678,8 +615,8 @@
             this.settingsButton.FillColor = System.Drawing.Color.Transparent;
             this.settingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.settingsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.settingsButton.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
+            this.settingsButton.HoverState.Image = global::budget_management_app.Properties.Resources.settings_form_red;
+            this.settingsButton.Image = global::budget_management_app.Properties.Resources.settings_form_grey;
             this.settingsButton.ImageSize = new System.Drawing.Size(35, 35);
             this.settingsButton.Location = new System.Drawing.Point(484, 0);
             this.settingsButton.Name = "settingsButton";
@@ -688,16 +625,78 @@
             this.settingsButton.UseTransparentBackground = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // guna2Panel8
+            // addTransactionButton
             // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel8.BorderRadius = 20;
-            this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
-            this.guna2Panel8.Location = new System.Drawing.Point(-2, 101);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(585, 24);
-            this.guna2Panel8.TabIndex = 39;
-            this.guna2Panel8.UseTransparentBackground = true;
+            this.addTransactionButton.BorderRadius = 20;
+            this.addTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addTransactionButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.addTransactionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addTransactionButton.ForeColor = System.Drawing.Color.White;
+            this.addTransactionButton.Image = global::budget_management_app.Properties.Resources.add_transaction_form;
+            this.addTransactionButton.ImageSize = new System.Drawing.Size(45, 45);
+            this.addTransactionButton.Location = new System.Drawing.Point(36, 8);
+            this.addTransactionButton.Name = "addTransactionButton";
+            this.addTransactionButton.Size = new System.Drawing.Size(102, 60);
+            this.addTransactionButton.TabIndex = 77;
+            this.addTransactionButton.Click += new System.EventHandler(this.addTransactionButton_Click);
+            // 
+            // addAccountButton
+            // 
+            this.addAccountButton.BorderRadius = 20;
+            this.addAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addAccountButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.addAccountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addAccountButton.ForeColor = System.Drawing.Color.White;
+            this.addAccountButton.Image = global::budget_management_app.Properties.Resources.add_account_form;
+            this.addAccountButton.ImageSize = new System.Drawing.Size(55, 55);
+            this.addAccountButton.Location = new System.Drawing.Point(308, 8);
+            this.addAccountButton.Name = "addAccountButton";
+            this.addAccountButton.Size = new System.Drawing.Size(102, 60);
+            this.addAccountButton.TabIndex = 75;
+            this.addAccountButton.Click += new System.EventHandler(this.addAccountButton_Click);
+            // 
+            // statisticButtonPage
+            // 
+            this.statisticButtonPage.BorderRadius = 20;
+            this.statisticButtonPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.statisticButtonPage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.statisticButtonPage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.statisticButtonPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.statisticButtonPage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.statisticButtonPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.statisticButtonPage.ForeColor = System.Drawing.Color.White;
+            this.statisticButtonPage.Image = global::budget_management_app.Properties.Resources.show_statistics_from;
+            this.statisticButtonPage.ImageSize = new System.Drawing.Size(40, 40);
+            this.statisticButtonPage.Location = new System.Drawing.Point(172, 8);
+            this.statisticButtonPage.Name = "statisticButtonPage";
+            this.statisticButtonPage.Size = new System.Drawing.Size(102, 60);
+            this.statisticButtonPage.TabIndex = 76;
+            this.statisticButtonPage.Click += new System.EventHandler(this.statisticButtonPage_Click);
+            // 
+            // historyButton
+            // 
+            this.historyButton.BackColor = System.Drawing.Color.Transparent;
+            this.historyButton.BorderRadius = 20;
+            this.historyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.historyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.historyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.historyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.historyButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.historyButton.ForeColor = System.Drawing.Color.White;
+            this.historyButton.Image = global::budget_management_app.Properties.Resources.show_history_form;
+            this.historyButton.ImageSize = new System.Drawing.Size(40, 40);
+            this.historyButton.Location = new System.Drawing.Point(444, 8);
+            this.historyButton.Name = "historyButton";
+            this.historyButton.Size = new System.Drawing.Size(102, 60);
+            this.historyButton.TabIndex = 74;
+            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
             // 
             // HomeForm
             // 
