@@ -31,6 +31,7 @@
             this.currencyLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.transactionAmountTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.accountComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -43,7 +44,6 @@
             this.transactionDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.transactionCategoryContextMenu = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.transactionCategoryButton = new Guna.UI2.WinForms.Guna2Button();
-            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +87,33 @@
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7);
             this.guna2Panel1.Size = new System.Drawing.Size(581, 165);
             this.guna2Panel1.TabIndex = 73;
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
+            this.backButton.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.backButton.HoverState.Image = global::budget_management_app.Properties.Resources.back_grey;
+            this.backButton.Image = global::budget_management_app.Properties.Resources.back_white;
+            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
+            this.backButton.Location = new System.Drawing.Point(0, 74);
+            this.backButton.Name = "backButton";
+            this.backButton.PressedColor = System.Drawing.Color.Transparent;
+            this.backButton.PressedDepth = 0;
+            this.backButton.Size = new System.Drawing.Size(58, 81);
+            this.backButton.TabIndex = 72;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // transactionAmountTextBox
             // 
@@ -227,8 +254,8 @@
             this.addButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
             this.addButton.Font = new System.Drawing.Font("Segoe UI Variable Display", 15.75F, System.Drawing.FontStyle.Bold);
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            this.addButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
-            this.addButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(102)))), ((int)(((byte)(241)))));
+            this.addButton.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            this.addButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
             this.addButton.HoverState.ForeColor = System.Drawing.Color.White;
             this.addButton.Location = new System.Drawing.Point(228, 671);
             this.addButton.Name = "addButton";
@@ -314,33 +341,6 @@
             this.transactionCategoryButton.TabIndex = 86;
             this.transactionCategoryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.transactionCategoryButton.Click += new System.EventHandler(this.transactionCategoryButton_Click);
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.CheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.DisabledState.ForeColor = System.Drawing.Color.Transparent;
-            this.backButton.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.FocusedColor = System.Drawing.Color.Transparent;
-            this.backButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.backButton.HoverState.Image = global::budget_management_app.Properties.Resources.back_grey;
-            this.backButton.Image = global::budget_management_app.Properties.Resources.back_white;
-            this.backButton.ImageSize = new System.Drawing.Size(50, 50);
-            this.backButton.Location = new System.Drawing.Point(0, 74);
-            this.backButton.Name = "backButton";
-            this.backButton.PressedColor = System.Drawing.Color.Transparent;
-            this.backButton.PressedDepth = 0;
-            this.backButton.Size = new System.Drawing.Size(58, 81);
-            this.backButton.TabIndex = 72;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // AddTransactionForm
             // 

@@ -185,7 +185,7 @@ namespace budget_management_app
                             ToolStripMenuItem subcategoryItem = new ToolStripMenuItem(subcategoryName.Trim());
                             subcategoryItem.Font = itemFont;
                             subcategoryItem.BackColor = Color.FromArgb(248, 249, 253);
-                            subcategoryItem.Click += (sender, e) => { selectedSubCategoryId = subcatId; transactionCategoryButton.Text = subcategoryItem.Text; };
+                            subcategoryItem.Click += (sender, e) => { selectedCategoryId = categoryId; selectedSubCategoryId = subcatId; transactionCategoryButton.Text = subcategoryItem.Text; };
                             categoryItem.DropDownItems.Add(subcategoryItem);
                         }
                     }
@@ -203,10 +203,11 @@ namespace budget_management_app
             try
             {
                 // Load user-specific subcategories from UserSubCat table
-                string selectUserSubcategoriesQuery = "SELECT Us_SubId, Us_SubName FROM UserSubCat WHERE Us_CatId = @CategoryId";
+                string selectUserSubcategoriesQuery = "SELECT Us_SubId, Us_SubName FROM UserSubCat WHERE Us_CatId = @CategoryId AND UserId=@UserId";
                 using (SqlCommand userSubcategoriesCommand = new SqlCommand(selectUserSubcategoriesQuery, dbConnection.GetCon()))
                 {
                     userSubcategoriesCommand.Parameters.AddWithValue("@CategoryId", categoryId);
+                    userSubcategoriesCommand.Parameters.AddWithValue("@UserId", LoginForm.userId);
                     dbConnection.OpenCon();
                     using (SqlDataReader userSubcategoriesReader = userSubcategoriesCommand.ExecuteReader())
                     {
@@ -217,7 +218,7 @@ namespace budget_management_app
                             ToolStripMenuItem userSubcategoryItem = new ToolStripMenuItem(userSubcategoryName.Trim());
                             userSubcategoryItem.Font = itemFont;
                             userSubcategoryItem.BackColor = Color.FromArgb(248, 249, 253);
-                            userSubcategoryItem.Click += (sender, e) => { selectedUserSubCategoryId = userSubcatId; transactionCategoryButton.Text = userSubcategoryItem.Text; };
+                            userSubcategoryItem.Click += (sender, e) => { selectedCategoryId = categoryId; selectedUserSubCategoryId = userSubcatId; transactionCategoryButton.Text = userSubcategoryItem.Text; };
                             categoryItem.DropDownItems.Add(userSubcategoryItem);
                         }
                     }

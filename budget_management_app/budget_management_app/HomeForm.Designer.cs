@@ -54,22 +54,22 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.addTransactionButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addAccountButton = new Guna.UI2.WinForms.Guna2Button();
+            this.statisticButtonPage = new Guna.UI2.WinForms.Guna2Button();
+            this.historyButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.hiLabel = new System.Windows.Forms.Label();
             this.exitLabel = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.statisticButtonBar = new Guna.UI2.WinForms.Guna2Button();
             this.categoriesButton = new Guna.UI2.WinForms.Guna2Button();
             this.transactionsButton = new Guna.UI2.WinForms.Guna2Button();
             this.accountsButton = new Guna.UI2.WinForms.Guna2Button();
             this.homeButton = new Guna.UI2.WinForms.Guna2Button();
             this.settingsButton = new Guna.UI2.WinForms.Guna2Button();
-            this.addTransactionButton = new Guna.UI2.WinForms.Guna2Button();
-            this.addAccountButton = new Guna.UI2.WinForms.Guna2Button();
-            this.statisticButtonPage = new Guna.UI2.WinForms.Guna2Button();
-            this.historyButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_top7trns)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -155,7 +155,7 @@
             this.accountFlowLayoutPanel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.accountFlowLayoutPanel.Location = new System.Drawing.Point(0, 53);
             this.accountFlowLayoutPanel.Name = "accountFlowLayoutPanel";
-            this.accountFlowLayoutPanel.Size = new System.Drawing.Size(538, 231);
+            this.accountFlowLayoutPanel.Size = new System.Drawing.Size(538, 212);
             this.accountFlowLayoutPanel.TabIndex = 33;
             // 
             // label5
@@ -423,6 +423,79 @@
             this.guna2Panel3.Size = new System.Drawing.Size(538, 265);
             this.guna2Panel3.TabIndex = 78;
             // 
+            // addTransactionButton
+            // 
+            this.addTransactionButton.BorderRadius = 20;
+            this.addTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addTransactionButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.addTransactionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addTransactionButton.ForeColor = System.Drawing.Color.White;
+            this.addTransactionButton.Image = global::budget_management_app.Properties.Resources.add_transaction_form;
+            this.addTransactionButton.ImageSize = new System.Drawing.Size(45, 45);
+            this.addTransactionButton.Location = new System.Drawing.Point(36, 8);
+            this.addTransactionButton.Name = "addTransactionButton";
+            this.addTransactionButton.Size = new System.Drawing.Size(102, 60);
+            this.addTransactionButton.TabIndex = 77;
+            this.addTransactionButton.Click += new System.EventHandler(this.addTransactionButton_Click);
+            // 
+            // addAccountButton
+            // 
+            this.addAccountButton.BorderRadius = 20;
+            this.addAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addAccountButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.addAccountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addAccountButton.ForeColor = System.Drawing.Color.White;
+            this.addAccountButton.Image = global::budget_management_app.Properties.Resources.add_account_form;
+            this.addAccountButton.ImageSize = new System.Drawing.Size(55, 55);
+            this.addAccountButton.Location = new System.Drawing.Point(308, 8);
+            this.addAccountButton.Name = "addAccountButton";
+            this.addAccountButton.Size = new System.Drawing.Size(102, 60);
+            this.addAccountButton.TabIndex = 75;
+            this.addAccountButton.Click += new System.EventHandler(this.addAccountButton_Click);
+            // 
+            // statisticButtonPage
+            // 
+            this.statisticButtonPage.BorderRadius = 20;
+            this.statisticButtonPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.statisticButtonPage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.statisticButtonPage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.statisticButtonPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.statisticButtonPage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.statisticButtonPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.statisticButtonPage.ForeColor = System.Drawing.Color.White;
+            this.statisticButtonPage.Image = global::budget_management_app.Properties.Resources.show_statistics_from;
+            this.statisticButtonPage.ImageSize = new System.Drawing.Size(40, 40);
+            this.statisticButtonPage.Location = new System.Drawing.Point(172, 8);
+            this.statisticButtonPage.Name = "statisticButtonPage";
+            this.statisticButtonPage.Size = new System.Drawing.Size(102, 60);
+            this.statisticButtonPage.TabIndex = 76;
+            this.statisticButtonPage.Click += new System.EventHandler(this.statisticButtonPage_Click);
+            // 
+            // historyButton
+            // 
+            this.historyButton.BackColor = System.Drawing.Color.Transparent;
+            this.historyButton.BorderRadius = 20;
+            this.historyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.historyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.historyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.historyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            this.historyButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.historyButton.ForeColor = System.Drawing.Color.White;
+            this.historyButton.Image = global::budget_management_app.Properties.Resources.show_history_form;
+            this.historyButton.ImageSize = new System.Drawing.Size(40, 40);
+            this.historyButton.Location = new System.Drawing.Point(444, 8);
+            this.historyButton.Name = "historyButton";
+            this.historyButton.Size = new System.Drawing.Size(102, 60);
+            this.historyButton.TabIndex = 74;
+            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
@@ -494,17 +567,6 @@
             this.guna2Panel7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4);
             this.guna2Panel7.Size = new System.Drawing.Size(583, 52);
             this.guna2Panel7.TabIndex = 82;
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel8.BorderRadius = 20;
-            this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
-            this.guna2Panel8.Location = new System.Drawing.Point(-2, 101);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.Size = new System.Drawing.Size(585, 24);
-            this.guna2Panel8.TabIndex = 39;
-            this.guna2Panel8.UseTransparentBackground = true;
             // 
             // statisticButtonBar
             // 
@@ -625,78 +687,16 @@
             this.settingsButton.UseTransparentBackground = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // addTransactionButton
+            // guna2Panel8
             // 
-            this.addTransactionButton.BorderRadius = 20;
-            this.addTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addTransactionButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.addTransactionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addTransactionButton.ForeColor = System.Drawing.Color.White;
-            this.addTransactionButton.Image = global::budget_management_app.Properties.Resources.add_transaction_form;
-            this.addTransactionButton.ImageSize = new System.Drawing.Size(45, 45);
-            this.addTransactionButton.Location = new System.Drawing.Point(36, 8);
-            this.addTransactionButton.Name = "addTransactionButton";
-            this.addTransactionButton.Size = new System.Drawing.Size(102, 60);
-            this.addTransactionButton.TabIndex = 77;
-            this.addTransactionButton.Click += new System.EventHandler(this.addTransactionButton_Click);
-            // 
-            // addAccountButton
-            // 
-            this.addAccountButton.BorderRadius = 20;
-            this.addAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addAccountButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.addAccountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addAccountButton.ForeColor = System.Drawing.Color.White;
-            this.addAccountButton.Image = global::budget_management_app.Properties.Resources.add_account_form;
-            this.addAccountButton.ImageSize = new System.Drawing.Size(55, 55);
-            this.addAccountButton.Location = new System.Drawing.Point(308, 8);
-            this.addAccountButton.Name = "addAccountButton";
-            this.addAccountButton.Size = new System.Drawing.Size(102, 60);
-            this.addAccountButton.TabIndex = 75;
-            this.addAccountButton.Click += new System.EventHandler(this.addAccountButton_Click);
-            // 
-            // statisticButtonPage
-            // 
-            this.statisticButtonPage.BorderRadius = 20;
-            this.statisticButtonPage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.statisticButtonPage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.statisticButtonPage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.statisticButtonPage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.statisticButtonPage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.statisticButtonPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statisticButtonPage.ForeColor = System.Drawing.Color.White;
-            this.statisticButtonPage.Image = global::budget_management_app.Properties.Resources.show_statistics_from;
-            this.statisticButtonPage.ImageSize = new System.Drawing.Size(40, 40);
-            this.statisticButtonPage.Location = new System.Drawing.Point(172, 8);
-            this.statisticButtonPage.Name = "statisticButtonPage";
-            this.statisticButtonPage.Size = new System.Drawing.Size(102, 60);
-            this.statisticButtonPage.TabIndex = 76;
-            this.statisticButtonPage.Click += new System.EventHandler(this.statisticButtonPage_Click);
-            // 
-            // historyButton
-            // 
-            this.historyButton.BackColor = System.Drawing.Color.Transparent;
-            this.historyButton.BorderRadius = 20;
-            this.historyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.historyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.historyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.historyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.historyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
-            this.historyButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.historyButton.ForeColor = System.Drawing.Color.White;
-            this.historyButton.Image = global::budget_management_app.Properties.Resources.show_history_form;
-            this.historyButton.ImageSize = new System.Drawing.Size(40, 40);
-            this.historyButton.Location = new System.Drawing.Point(444, 8);
-            this.historyButton.Name = "historyButton";
-            this.historyButton.Size = new System.Drawing.Size(102, 60);
-            this.historyButton.TabIndex = 74;
-            this.historyButton.Click += new System.EventHandler(this.historyButton_Click);
+            this.guna2Panel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel8.BorderRadius = 20;
+            this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(253)))));
+            this.guna2Panel8.Location = new System.Drawing.Point(-2, 101);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.Size = new System.Drawing.Size(585, 24);
+            this.guna2Panel8.TabIndex = 39;
+            this.guna2Panel8.UseTransparentBackground = true;
             // 
             // HomeForm
             // 

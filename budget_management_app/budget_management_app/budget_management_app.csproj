@@ -304,29 +304,75 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Budget_management.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\back-red.png" />
-    <None Include="Resources\back-grey.png" />
-    <None Include="Resources\back-white.png" />
-    <None Include="Resources\show-history-form.png" />
-    <None Include="Resources\add-account-form.png" />
-    <None Include="Resources\show-statistics-from.png" />
-    <None Include="Resources\accounts-form-grey.png" />
-    <None Include="Resources\settings-form-grey.png" />
-    <None Include="Resources\home-form-grey.png" />
-    <None Include="Resources\statistics-form-grey.png" />
-    <None Include="Resources\history-form-grey.png" />
-    <None Include="Resources\categories-form-grey.png" />
-    <None Include="Resources\categories-form-red.png" />
-    <None Include="Resources\settings-form-red.png" />
-    <None Include="Resources\statistics-form-red.png" />
-    <None Include="Resources\history-form-red.png" />
-    <None Include="Resources\accounts-form-red.png" />
-    <None Include="Resources\home-form-red.png" />
-    <None Include="Resources\add-transaction-form.png" />
-    <None Include="Resources\arrow-up-in-circle.png" />
-    <None Include="Resources\arrow-down-in-circle.png" />
-    <None Include="Resources\filled-arrow-up-in-circle.png" />
-    <None Include="Resources\filled-arrow-down-in-circle.png" />
+    <None Include="Resources\back-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\back-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\back-white.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\show-history-form.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\add-account-form.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\show-statistics-from.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\accounts-form-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\settings-form-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\home-form-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\statistics-form-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\history-form-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\categories-form-grey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\categories-form-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\settings-form-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\statistics-form-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\history-form-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\accounts-form-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\home-form-red.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\add-transaction-form.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\arrow-up-in-circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\arrow-down-in-circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\filled-arrow-up-in-circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\filled-arrow-down-in-circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
